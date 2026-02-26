@@ -1,0 +1,7 @@
+{
+  "name": "Copy of KOL - Korea Orient Line",
+  "description": "Международная логистика из Южной Кореи: море, авто, жд. Прозрачность и контроль на каждом этапе.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
