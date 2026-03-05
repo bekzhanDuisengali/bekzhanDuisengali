@@ -4,7 +4,7 @@ import path from 'path';
 import express from 'express';
 import morgan from 'morgan';
 import getRawBody from 'raw-body';
-
+import fetch from 'node-fetch';
 const {
   TG_TOKEN,
   WEBHOOK_SECRET = 'AVIVA_WEBHOOK_SECRET',
