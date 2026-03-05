@@ -5,44 +5,38 @@ const boatAsset = (file: string) => new URL(`../images/boats/${file}`, import.me
 
 const History: React.FC = () => {
   return (
-    <div className="max-w-[1600px] mx-auto px-6">
+    <div className="max-w-[1600px] mx-auto px-6 overflow-x-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
         <div className="relative">
-          <div className="grid grid-cols-2 gap-8">
-            <div className="aspect-[3/4] rounded-sm overflow-hidden shadow-3xl">
+          <div className="relative mx-auto w-full max-w-[760px] h-[380px] sm:h-[500px] lg:h-[560px]">
+            <div className="absolute top-2 left-0 w-[86%] sm:w-[78%] aspect-[16/10] rounded-sm overflow-hidden shadow-3xl rotate-[-4deg] z-10">
               <img
-                src={boatAsset('авива фото.png')}
+                src={boatAsset('aviva.png')}
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-[3s]"
                 alt="Судно AVIVA"
                 loading="lazy"
               />
             </div>
-            <div className="aspect-[3/4] rounded-sm overflow-hidden shadow-3xl mt-20">
+
+            <div className="absolute bottom-0 right-0 w-[84%] sm:w-[74%] aspect-[16/10] rounded-sm overflow-hidden shadow-3xl rotate-[5deg] z-20">
               <img
-                src={boatAsset('htmlconvd-l4QmqT_html_c29095cbe5ada8b8.png')}
+                src={boatAsset('aviva 1.png')}
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-[3s]"
                 alt="Судно AVIVA у причала"
                 loading="lazy"
               />
             </div>
-          </div>
 
-          {/* archival mini-card */}
-          <div
-            className="absolute -bottom-8 right-6 md:right-12 lg:-right-6 xl:right-4 w-[180px] sm:w-[210px]
-                       rounded-2xl overflow-hidden border border-[#72A1E1]/20 dark:border-white/10
-                       bg-[#eff7ff]/85 dark:bg-[#111735]/80 backdrop-blur-xl
-                       shadow-[0_18px_45px_rgba(10,32,84,0.18)] dark:shadow-none"
-          >
-            <div className="aspect-[1/1] overflow-hidden">
+            {/* archival mini-card */}
+            <div className="pointer-events-none absolute left-8 sm:left-14 lg:left-20 top-[46%] sm:top-[42%] w-[185px] sm:w-[230px] md:w-[280px] z-30 rotate-[-9deg]">
               <img
-                src={boatAsset('울산_현대조선소_전경_1976.jpg')}
+                src={boatAsset('авива фото.png')}
+                alt="Архивное фото AVIVA"
                 loading="lazy"
-                className="h-full w-full object-cover hover:scale-105 transition-transform duration-[2.5s]"
+                className="w-full h-auto drop-shadow-[0_22px_32px_rgba(10,32,84,0.35)] hover:scale-105 transition-transform duration-[2.5s]"
               />
             </div>
           </div>
-
         </div>
         
         <div className="max-w-2xl">

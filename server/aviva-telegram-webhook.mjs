@@ -183,6 +183,13 @@ app.post(`/tg/${WEBHOOK_SECRET}`, async (req, res) => {
 
 app.get('/healthz', (_req, res) => res.send('ok'));
 
+app.use('/assets/aviva', (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') return res.status(204).end();
+  next();
+});
 app.use('/assets/aviva', express.static(AVIVA_DIR, { maxAge: '1h' }));
 app.use(express.static(STATIC_ROOT, { maxAge: '1h', index: 'index.html' }));
 
