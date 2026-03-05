@@ -9,7 +9,7 @@ import Services from './components/Services';
 import VideoSlider from './components/VideoSlider';
 import Reviews from './components/Reviews';
 import Partners from './components/Partners';
-import MapSection from './components/MapSection';
+import Location from './components/Location';
 import ContactChannels from './components/ContactChannels';
 import Footer from './components/Footer';
 import AIChat from './components/AIChat';
@@ -49,8 +49,8 @@ const App: React.FC = () => {
           <Partners />
         </section>
         
-        <section id="location" className="h-[800px] w-full relative">
-          <MapSection />
+        <section id="location" className="py-24 lg:py-40 bg-[#deeeff] dark:bg-navy-light transition-colors duration-500">
+          <Location />
         </section>
         
         <section id="contact" className="py-24 lg:py-40 bg-[#e8f3ff] dark:bg-navy-deep transition-colors duration-500">

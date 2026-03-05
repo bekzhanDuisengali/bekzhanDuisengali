@@ -15,6 +15,21 @@ const FALLBACK_PREVIEWS = [1, 2, 3, 4].map((i) => ({
   title: `Shipment ${i}`,
 }));
 
+const FEED_BASE = (import.meta.env.VITE_AVIVA_FEED_BASE || '').replace(/\/+$/, '');
+const FEED_PROXY_BASE = '/aviva-feed';
+const FEED_JSON_URL = FEED_BASE
+  ? (import.meta.env.DEV ? `${FEED_PROXY_BASE}/assets/aviva/videos.json` : `${FEED_BASE}/assets/aviva/videos.json`)
+  : '/assets/aviva/videos.json';
+
+function resolveVideoUrl(url: string) {
+  if (!url) return url;
+  if (/^https?:\/\//i.test(url)) return url;
+  if (url.startsWith('/') && FEED_BASE) {
+    return import.meta.env.DEV ? `${FEED_PROXY_BASE}${url}` : `${FEED_BASE}${url}`;
+  }
+  return url;
+}
+
 const VideoSlider: React.FC = () => {
   const [videos, setVideos] = useState<TgVideoItem[]>([]);
 
@@ -24,12 +39,14 @@ const VideoSlider: React.FC = () => {
 
     const load = async () => {
       try {
-        const res = await fetch('/assets/aviva/videos.json', { cache: 'no-store' });
+        const res = await fetch(FEED_JSON_URL, { cache: 'no-store' });
         if (!res.ok) return;
         const data = await res.json();
         if (!Array.isArray(data) || cancelled) return;
 
-        const normalized = data.filter((x): x is TgVideoItem => !!x && typeof x.url === 'string');
+        const normalized = data
+          .filter((x): x is TgVideoItem => !!x && typeof x.url === 'string')
+          .map((x) => ({ ...x, url: resolveVideoUrl(x.url) }));
         setVideos(normalized);
       } catch {
         // Keep UI fallback previews if the feed is not available yet.

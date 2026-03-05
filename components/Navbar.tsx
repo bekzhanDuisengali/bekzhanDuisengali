@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
         
         <div className="flex items-center gap-12">
           <a href="#hero" className="flex items-center gap-4 group">
-            <div className="h-10 md:h-12 overflow-hidden transform group-hover:scale-105 transition-transform duration-300">
+            <div className="h-10 md:h-12 overflow-hidden pb-2 transform group-hover:scale-105 transition-transform duration-300">
               <img src="../images/logo.png" alt="KOL Logo" className={`h-full w-auto object-contain transition-all ${!isDark ? 'brightness-0' : 'brightness-100 dark:brightness-100'}`} />
             </div>
             <div className="hidden sm:flex flex-col leading-none">

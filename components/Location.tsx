@@ -1,50 +1,199 @@
 
-import React from 'react';
-import { MapPin, Plane, Car, Train } from 'lucide-react';
+import React, { useMemo, useState } from 'react';
+import { Check, Copy, Globe2, MapPin, Ship, Car, type LucideIcon } from 'lucide-react';
+
+type MapPoint = {
+  id: string;
+  title: string;
+  transport: string;
+  details: string;
+  eta: string;
+  coordinates: string;
+  top: string;
+  left: string;
+  colorClass: string;
+  icon: LucideIcon;
+};
+
+const points: MapPoint[] = [
+  {
+    id: 'busan',
+    title: 'Busan Port, KR',
+    transport: 'Порт отправления',
+    details: 'Прием и консолидация груза перед выходом судна по линии KOL.',
+    eta: 'Старт основной линии',
+    coordinates: '35.1796, 129.0756',
+    top: '58%',
+    left: '56%',
+    colorClass: 'bg-pink-500',
+    icon: Ship,
+  },
+  {
+    id: 'vladivostok',
+    title: 'Vladivostok Port, RU',
+    transport: 'Порт прибытия',
+    details: 'Обработка прибытия, выгрузка и передача на терминальный этап.',
+    eta: 'Финиш морского плеча',
+    coordinates: '43.1155, 131.8855',
+    top: '44%',
+    left: '61%',
+    colorClass: 'bg-blue-500',
+    icon: MapPin,
+  },
+  {
+    id: 'delivery',
+    title: 'Inland Delivery Hub',
+    transport: 'Доставка по РФ',
+    details: 'Дальнейшая доставка до склада клиента и финальный отчет.',
+    eta: 'Наземный этап',
+    coordinates: '43.1200, 131.9000',
+    top: '40%',
+    left: '63%',
+    colorClass: 'bg-yellow-500',
+    icon: Car,
+  },
+];
 
 const Location: React.FC = () => {
+  const [activePointId, setActivePointId] = useState(points[0].id);
+  const [copied, setCopied] = useState(false);
+
+  const activePoint = useMemo(
+    () => points.find((point) => point.id === activePointId) ?? points[0],
+    [activePointId]
+  );
+
+  const handleCopyCoordinates = async () => {
+    try {
+      await navigator.clipboard.writeText(activePoint.coordinates);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1600);
+    } catch {
+      setCopied(false);
+    }
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-6">
-      <div className="bg-white/5 rounded-[4rem] overflow-hidden border border-white/10 flex flex-col lg:flex-row">
+      <div className="bg-white/75 dark:bg-white/5 rounded-[4rem] overflow-hidden border border-[#72A1E1]/20 dark:border-white/10 flex flex-col lg:flex-row">
         <div className="flex-1 p-12 md:p-20">
           <div className="flex items-center gap-2 text-pink-500 mb-6">
             <MapPin size={24} />
-            <span className="font-bold tracking-widest uppercase">The Venue</span>
+            <span className="font-bold tracking-widest uppercase">Route Geography</span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-display font-bold mb-8">IBIZA <span className="italic text-blue-400">ISLAND</span></h2>
-          <p className="text-gray-400 text-lg mb-12 leading-relaxed font-light">
-            Our private estate on the northern coast of Ibiza offers crystal clear waters, hidden caves, and the most spectacular sunset views in the Mediterranean. 
-            Address: San Miguel Bay, North Ibiza, 07815, Spain.
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#72A1E1]/25 dark:border-white/20 bg-white/70 dark:bg-white/10 px-4 py-2 mb-6">
+            <Globe2 size={14} className="text-brand dark:text-blue-300" />
+            <span className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#18215A]/75 dark:text-blue-100">Korea Orient Line</span>
+          </div>
+          <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 text-[#00083C] dark:text-white">BUSAN <span className="italic text-brand dark:text-blue-400">→ VLADIVOSTOK</span></h2>
+          <p className="text-[#18215A]/75 dark:text-gray-400 text-lg mb-12 leading-relaxed font-light">
+            Маршрут KOL построен вокруг прямой морской линии из Южной Кореи во Владивосток
+            с контролем на каждом этапе: порт отправления, порт прибытия и наземная доставка.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="space-y-4">
-              <Plane className="text-pink-500" />
-              <h4 className="font-bold uppercase tracking-widest text-sm text-white">By Air</h4>
-              <p className="text-xs text-gray-400 leading-relaxed">20 mins from IBZ International Airport via shuttle.</p>
-            </div>
-            <div className="space-y-4">
-              <Train className="text-blue-500" />
-              <h4 className="font-bold uppercase tracking-widest text-sm text-white">By Sea</h4>
-              <p className="text-xs text-gray-400 leading-relaxed">Ferry services from Barcelona and Valencia daily.</p>
-            </div>
-            <div className="space-y-4">
-              <Car className="text-yellow-500" />
-              <h4 className="font-bold uppercase tracking-widest text-sm text-white">By Road</h4>
-              <p className="text-xs text-gray-400 leading-relaxed">Limited parking available. We recommend our eco-shuttles.</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {points.map((point) => {
+              const Icon = point.icon;
+              const isActive = activePointId === point.id;
+              return (
+                <button
+                  key={point.id}
+                  type="button"
+                  onClick={() => setActivePointId(point.id)}
+                  className={`text-left rounded-2xl border px-4 py-5 transition-all ${
+                    isActive
+                      ? 'border-[#72A1E1]/35 dark:border-white/40 bg-white/80 dark:bg-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.15)]'
+                      : 'border-[#72A1E1]/20 dark:border-white/10 bg-[#edf6ff]/70 dark:bg-black/10 hover:bg-white/90 dark:hover:bg-white/5'
+                  }`}
+                >
+                  <Icon className={`${isActive ? 'text-[#00083C] dark:text-white' : 'text-[#18215A]/65 dark:text-gray-300'}`} />
+                  <h4 className="mt-4 font-bold uppercase tracking-widest text-sm text-[#00083C] dark:text-white">{point.transport}</h4>
+                  <p className="text-xs text-[#18215A]/65 dark:text-gray-400 leading-relaxed mt-2">{point.coordinates}</p>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              href={`https://maps.google.com/?q=${encodeURIComponent(activePoint.coordinates)}`}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-[#72A1E1]/25 dark:border-white/20 bg-white/80 dark:bg-white/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#00083C] dark:text-white hover:bg-white dark:hover:bg-white/20 transition-colors"
+            >
+              Open In Maps
+            </a>
+            <button
+              type="button"
+              onClick={handleCopyCoordinates}
+              className="rounded-full border border-[#72A1E1]/25 dark:border-white/20 bg-white/80 dark:bg-white/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#00083C] dark:text-white hover:bg-white dark:hover:bg-white/20 transition-colors inline-flex items-center gap-2"
+            >
+              {copied ? <Check size={14} /> : <Copy size={14} />}
+              {copied ? 'Copied' : 'Copy Coordinates'}
+            </button>
           </div>
         </div>
-        <div className="lg:w-1/2 min-h-[400px] relative group overflow-hidden">
+
+        <div className="lg:w-1/2 min-h-[400px] relative overflow-hidden">
           <img 
-            src="https://picsum.photos/seed/ibizamap/1000/1000" 
-            className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110" 
-            alt="Map"
+            src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
+            className="w-full h-full object-cover object-[86%_34%] transition-transform duration-[2.5s] scale-[1.9]"
+            alt="World map"
           />
-          <div className="absolute inset-0 bg-blue-500/10 group-hover:bg-transparent transition-colors"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <div className="w-10 h-10 bg-pink-500 rounded-full animate-ping absolute inset-0"></div>
-            <div className="w-10 h-10 bg-pink-500 rounded-full relative border-4 border-white"></div>
+
+          <div className="absolute inset-0 bg-blue-500/15"></div>
+          <div className="absolute inset-0 opacity-35 pointer-events-none [background-image:linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.2)_1px,transparent_1px)] [background-size:44px_44px]"></div>
+
+          <div className="absolute top-5 right-5 rounded-full border border-white/35 bg-black/30 backdrop-blur-md p-3 text-white shadow-xl">
+            <Globe2 size={22} />
+          </div>
+
+          <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path
+              d="M 56 58 Q 58.5 51, 61 44"
+              fill="none"
+              stroke="rgba(255,255,255,0.52)"
+              strokeWidth="0.7"
+              strokeDasharray="2.4 2.2"
+            />
+            <path
+              d="M 61 44 Q 62 42, 63 40"
+              fill="none"
+              stroke="rgba(255,255,255,0.52)"
+              strokeWidth="0.7"
+              strokeDasharray="2.4 2.2"
+            />
+          </svg>
+
+          {points.map((point) => {
+            const Icon = point.icon;
+            const isActive = activePointId === point.id;
+
+            return (
+              <button
+                key={point.id}
+                type="button"
+                onClick={() => setActivePointId(point.id)}
+                style={{ top: point.top, left: point.left }}
+                className="absolute -translate-x-1/2 -translate-y-1/2 group"
+              >
+                <span className={`absolute inset-0 rounded-full ${point.colorClass} ${isActive ? 'animate-ping' : 'opacity-0'} `}></span>
+                <span
+                  className={`relative z-10 h-10 w-10 rounded-full border-2 border-white/90 shadow-xl grid place-items-center transition-transform ${
+                    point.colorClass
+                  } ${isActive ? 'scale-110' : 'scale-100 group-hover:scale-105'}`}
+                >
+                  <Icon size={15} className="text-white" />
+                </span>
+              </button>
+            );
+          })}
+
+          <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-[#72A1E1]/25 dark:border-white/20 bg-white/88 dark:bg-black/35 backdrop-blur-md p-4 text-[#00083C] dark:text-white">
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#2F5D9D] dark:text-blue-100">{activePoint.transport}</p>
+            <h3 className="text-lg font-semibold mt-1">{activePoint.title}</h3>
+            <p className="text-sm text-[#18215A]/80 dark:text-blue-100/90 mt-1 leading-relaxed">{activePoint.details}</p>
+            <p className="mt-2 text-xs font-semibold text-[#18215A]/80 dark:text-white/90">{activePoint.eta}</p>
           </div>
         </div>
       </div>
