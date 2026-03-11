@@ -10,6 +10,8 @@ const {
   TG_TOKEN,
   WEBHOOK_SECRET = 'AVIVA_WEBHOOK_SECRET',
   CHANNEL_ID,
+  TG_API_BASE = 'https://api.telegram.org',
+  TG_FILE_BASE,
   TG_BOT_API_MAX_FILE_BYTES,
   PORT = 8080,
 } = process.env;
@@ -41,7 +43,12 @@ const STATIC_ROOT = ROOT;                      // статику отдаём п
 const AVIVA_DIR = path.join(ROOT, 'assets', 'aviva');
 const VIDEOS_DIR = path.join(AVIVA_DIR, 'videos');
 const VIDEOS_JSON = path.join(AVIVA_DIR, 'videos.json');
-const MAX_TG_FILE_BYTES = Number(TG_BOT_API_MAX_FILE_BYTES || 20 * 1024 * 1024);
+const API_BASE = String(TG_API_BASE || 'https://api.telegram.org').replace(/\/+$/, '');
+const FILE_BASE = String(TG_FILE_BASE || API_BASE).replace(/\/+$/, '');
+const IS_OFFICIAL_TG_API = API_BASE === 'https://api.telegram.org';
+const MAX_TG_FILE_BYTES = TG_BOT_API_MAX_FILE_BYTES != null
+  ? Number(TG_BOT_API_MAX_FILE_BYTES)
+  : (IS_OFFICIAL_TG_API ? 20 * 1024 * 1024 : Number.POSITIVE_INFINITY);
 
 fs.mkdirSync(VIDEOS_DIR, { recursive: true });
 if (!fs.existsSync(VIDEOS_JSON)) fs.writeFileSync(VIDEOS_JSON, '[]', 'utf8');
@@ -54,7 +61,7 @@ function parseAvivaNumber(text = '') {
 }
 
 async function tgApi(method, params = {}) {
-  const url = new URL(`https://api.telegram.org/bot${TG_TOKEN}/${method}`);
+  const url = new URL(`${API_BASE}/bot${TG_TOKEN}/${method}`);
   Object.entries(params).forEach(([k, v]) => v != null && url.searchParams.set(k, String(v)));
   const r = await fetch(url);
   const body = await r.json().catch(() => ({}));
@@ -69,7 +76,7 @@ async function tgGetFile(file_id) {
   const data = await tgApi('getFile', { file_id });
   const file_path = data?.result?.file_path;
   if (!file_path) throw new Error('No file_path');
-  const fileUrl = `https://api.telegram.org/file/bot${TG_TOKEN}/${file_path}`;
+  const fileUrl = `${FILE_BASE}/file/bot${TG_TOKEN}/${file_path}`;
   const resp = await fetch(fileUrl);
   if (!resp.ok) throw new Error(`Download ${resp.status}`);
   const buf = Buffer.from(await resp.arrayBuffer());
@@ -130,7 +137,7 @@ app.post(`/tg/${WEBHOOK_SECRET}`, async (req, res) => {
     console.log('FILE ID:', file_id);
     console.log('FILE SIZE:', file_size);
 
-    if (file_size && file_size > MAX_TG_FILE_BYTES) {
+    if (Number.isFinite(MAX_TG_FILE_BYTES) && file_size && file_size > MAX_TG_FILE_BYTES) {
       console.warn(
         `Skip: file is too big for Bot API (${file_size} > ${MAX_TG_FILE_BYTES}). message_id=${post.message_id}`
       );
