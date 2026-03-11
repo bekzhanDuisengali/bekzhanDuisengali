@@ -10,6 +10,7 @@ const {
   TG_TOKEN,
   WEBHOOK_SECRET = 'AVIVA_WEBHOOK_SECRET',
   CHANNEL_ID,
+  TG_BOT_API_MAX_FILE_BYTES,
   PORT = 8080,
 } = process.env;
 
@@ -40,6 +41,7 @@ const STATIC_ROOT = ROOT;                      // статику отдаём п
 const AVIVA_DIR = path.join(ROOT, 'assets', 'aviva');
 const VIDEOS_DIR = path.join(AVIVA_DIR, 'videos');
 const VIDEOS_JSON = path.join(AVIVA_DIR, 'videos.json');
+const MAX_TG_FILE_BYTES = Number(TG_BOT_API_MAX_FILE_BYTES || 20 * 1024 * 1024);
 
 fs.mkdirSync(VIDEOS_DIR, { recursive: true });
 if (!fs.existsSync(VIDEOS_JSON)) fs.writeFileSync(VIDEOS_JSON, '[]', 'utf8');
@@ -128,7 +130,25 @@ app.post(`/tg/${WEBHOOK_SECRET}`, async (req, res) => {
     console.log('FILE ID:', file_id);
     console.log('FILE SIZE:', file_size);
 
-    const { file_path, buf } = await tgGetFile(file_id);
+    if (file_size && file_size > MAX_TG_FILE_BYTES) {
+      console.warn(
+        `Skip: file is too big for Bot API (${file_size} > ${MAX_TG_FILE_BYTES}). message_id=${post.message_id}`
+      );
+      return res.send('ok');
+    }
+
+    let file_path;
+    let buf;
+    try {
+      ({ file_path, buf } = await tgGetFile(file_id));
+    } catch (err) {
+      const msg = String(err?.message || '');
+      if (msg.includes('file is too big')) {
+        console.warn(`Skip: ${msg}. message_id=${post.message_id}`);
+        return res.send('ok');
+      }
+      throw err;
+    }
     const ext = path.extname(file_path) || '.mp4';
     const base = number != null ? `AVIVA_${number}` : `AVIVA_${Date.now()}`;
     const filename = sanitize(base + ext);
