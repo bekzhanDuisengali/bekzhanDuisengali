@@ -21,6 +21,17 @@ const FEED_JSON_URL = FEED_BASE
   ? `${FEED_BASE}/assets/aviva/videos.json`
   : '/assets/aviva/videos.json';
 
+function sameVideoList(a: TgVideoItem[], b: TgVideoItem[]) {
+  if (a.length !== b.length) return false;
+  for (let i = 0; i < a.length; i += 1) {
+    if (a[i].url !== b[i].url) return false;
+    if ((a[i].title || '') !== (b[i].title || '')) return false;
+    if ((a[i].number ?? null) !== (b[i].number ?? null)) return false;
+    if ((a[i].posted_at || '') !== (b[i].posted_at || '')) return false;
+  }
+  return true;
+}
+
 function resolveVideoUrl(url: string) {
   if (!url) return url;
   if (/^https?:\/\//i.test(url)) return url;
@@ -37,7 +48,9 @@ const VideoSlider: React.FC = () => {
 
   useEffect(() => {
     let cancelled = false;
-    let timer: ReturnType<typeof setInterval> | null = null;
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    const VISIBLE_POLL_MS = 30000;
+    const HIDDEN_POLL_MS = 120000;
 
     const load = async () => {
       try {
@@ -48,18 +61,34 @@ const VideoSlider: React.FC = () => {
 
         const normalized = data
           .filter((x): x is TgVideoItem => !!x && typeof x.url === 'string')
-          .map((x) => ({ ...x, url: resolveVideoUrl(x.url) }));
-        setVideos(normalized);
+          .map((x) => ({ ...x, url: resolveVideoUrl(x.url) }))
+          .slice(0, 4);
+        setVideos((prev) => (sameVideoList(prev, normalized) ? prev : normalized));
       } catch {
         // Keep UI fallback previews if the feed is not available yet.
       }
     };
 
-    load();
-    timer = setInterval(load, 5000);
+    const schedule = (ms: number) => {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(async () => {
+        await load();
+        schedule(document.hidden ? HIDDEN_POLL_MS : VISIBLE_POLL_MS);
+      }, ms);
+    };
+
+    const onVisibilityChange = () => {
+      schedule(0);
+    };
+
+    void load();
+    schedule(VISIBLE_POLL_MS);
+    document.addEventListener('visibilitychange', onVisibilityChange);
+
     return () => {
       cancelled = true;
-      if (timer) clearInterval(timer);
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+      if (timer) clearTimeout(timer);
     };
   }, []);
 
@@ -111,7 +140,7 @@ const VideoSlider: React.FC = () => {
 
   const featuredVideo = videos[0] ?? null;
   const activeVideo = videos[activeIndex] ?? featuredVideo;
-  const gridVideos = videos.slice(0, 8);
+  const gridVideos = videos.slice(0, 4);
 
   return (
     <section className="relative overflow-hidden text-[#00083C] dark:text-white transition-colors duration-500">

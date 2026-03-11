@@ -17,6 +17,9 @@ const Hero: React.FC = () => {
           src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=2400"
           className="w-full h-full object-cover opacity-[0.04] dark:opacity-[0.1] grayscale scale-105 transition-all duration-1000"
           alt="Logistics Background"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         {/* Gradients tuned to palette */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#e6f2ff]/96 via-[#d8ebff]/90 to-[#cbe3ff] dark:from-[#00083C]/96 dark:via-[#00083C]/85 dark:to-[#00083C] transition-colors"></div>

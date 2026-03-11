@@ -139,6 +139,8 @@ const Location: React.FC = () => {
             src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
             className="w-full h-full object-cover object-[86%_34%] transition-transform duration-[2.5s] scale-[1.9]"
             alt="World map"
+            loading="lazy"
+            decoding="async"
           />
 
           <div className="absolute inset-0 bg-blue-500/15"></div>
