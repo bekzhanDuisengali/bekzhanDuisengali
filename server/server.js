@@ -69,7 +69,14 @@ if (CLOUDINARY_ENABLED) {
   });
 }
 
-fs.mkdirSync(VIDEOS_DIR, { recursive: true });
+if (!CLOUDINARY_ENABLED) {
+  try {
+    fs.mkdirSync(VIDEOS_DIR, { recursive: true });
+  } catch (err) {
+    console.error(`Cannot create local video dir at ${VIDEOS_DIR}:`, err?.message || err);
+    process.exit(1);
+  }
+}
 if (!fs.existsSync(VIDEOS_JSON)) fs.writeFileSync(VIDEOS_JSON, '[]', 'utf8');
 
 const AVIVA_RE = /\bAVIVA\b[\s#-]*?(\d+)/i;
@@ -243,8 +250,10 @@ app.post(`/tg/${WEBHOOK_SECRET}`, async (req, res) => {
 // healthcheck
 app.get('/healthz', (_req, res) => res.send('ok'));
 
-// отдаём каталог с видео (может быть на persistent disk)
-app.use(AVIVA_PUBLIC_BASE, express.static(VIDEOS_DIR, { maxAge: '1h', index: false }));
+// отдаём локальный каталог с видео только если не используем Cloudinary
+if (!CLOUDINARY_ENABLED) {
+  app.use(AVIVA_PUBLIC_BASE, express.static(VIDEOS_DIR, { maxAge: '1h', index: false }));
+}
 
 // отдаём статику прямо из текущего проекта
 app.use(express.static(STATIC_ROOT, { maxAge: '1h', index: 'index.html' }));
