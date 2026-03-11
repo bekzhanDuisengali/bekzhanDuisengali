@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:bot": "node server/aviva-telegram-webhook.mjs",
-    "start:bot": "node server/aviva-telegram-webhook.mjs",
+    "dev:bot": "node server/server.js",
+    "start:bot": "node server/server.js",
     "build": "vite build",
     "preview": "vite preview"
   },
