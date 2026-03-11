@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Maximize, Pause, PictureInPicture2, Play, Volume2, VolumeX } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Play, Volume2, Maximize, ArrowRight } from 'lucide-react';
 
 type TgVideoItem = {
   title?: string;
@@ -30,10 +30,6 @@ function resolveVideoUrl(url: string) {
 
 const VideoSlider: React.FC = () => {
   const [videos, setVideos] = useState<TgVideoItem[]>([]);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isMuted, setIsMuted] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -63,55 +59,8 @@ const VideoSlider: React.FC = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (activeIndex > videos.length - 1) setActiveIndex(0);
-  }, [videos, activeIndex]);
-
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    v.muted = isMuted;
-  }, [isMuted, activeIndex]);
-
-  const togglePlay = async () => {
-    const v = videoRef.current;
-    if (!v) return;
-    if (v.paused) {
-      await v.play().catch(() => {});
-      setIsPlaying(true);
-    } else {
-      v.pause();
-      setIsPlaying(false);
-    }
-  };
-
-  const toggleMute = () => {
-    setIsMuted((prev) => !prev);
-  };
-
-  const toggleFullscreen = async () => {
-    const v = videoRef.current;
-    if (!v) return;
-    if (!document.fullscreenElement) {
-      await v.requestFullscreen?.().catch(() => {});
-    } else {
-      await document.exitFullscreen?.().catch(() => {});
-    }
-  };
-
-  const togglePip = async () => {
-    const v = videoRef.current as (HTMLVideoElement & { requestPictureInPicture?: () => Promise<unknown> }) | null;
-    if (!v || !v.requestPictureInPicture) return;
-    if (document.pictureInPictureElement) {
-      await document.exitPictureInPicture?.().catch(() => {});
-      return;
-    }
-    await v.requestPictureInPicture().catch(() => {});
-  };
-
   const featuredVideo = videos[0] ?? null;
-  const activeVideo = videos[activeIndex] ?? featuredVideo;
-  const gridVideos = videos.slice(0, 8);
+  const gridVideos = videos.slice(0, 4);
 
   return (
     <section className="relative overflow-hidden text-[#00083C] dark:text-white transition-colors duration-500">
@@ -171,14 +120,12 @@ const VideoSlider: React.FC = () => {
           </div>
 
           <a
-            href={activeVideo?.url || '#'}
+            href={featuredVideo?.url || '#'}
             className="flex items-center gap-4 text-[#00083C] dark:text-white font-black uppercase text-[11px] tracking-widest px-10 py-5 transition-all group
                        rounded-2xl border border-[#72A1E1]/20 dark:border-white/20
                        bg-[#cfe5ff]/55 dark:bg-white/5 backdrop-blur-md shadow-[0_16px_40px_rgba(24,33,90,0.25)] dark:shadow-[0_16px_40px_rgba(24,33,90,0.35)]
                        hover:bg-[#dceeff] dark:hover:bg-white hover:text-[#00083C] hover:border-[#72A1E1]/40 dark:hover:border-white/50
                        active:scale-[0.98]"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             Смотреть в Telegram
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -186,72 +133,51 @@ const VideoSlider: React.FC = () => {
         </div>
 
         <div className="relative group overflow-hidden bg-black/40 aspect-video max-w-6xl mx-auto rounded-3xl border border-[#72A1E1]/18 dark:border-white/10 shadow-2xl">
-          {activeVideo ? (
+          {featuredVideo ? (
             <video
-              key={activeVideo.url}
-              ref={videoRef}
-              src={activeVideo.url}
-              className="w-full h-full object-cover"
-              controls
-              muted={isMuted}
+              key={featuredVideo.url}
+              src={featuredVideo.url}
+              className="w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-[10s]"
+              muted
               autoPlay
               loop
               playsInline
               preload="metadata"
-              onPlay={() => setIsPlaying(true)}
-              onPause={() => setIsPlaying(false)}
             />
           ) : (
             <img
               src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=1600"
-              className="w-full h-full object-cover opacity-60"
+              className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-[10s]"
               alt="Video Preview"
             />
           )}
 
           <div className="absolute inset-0 bg-gradient-to-t from-[#00083C]/70 via-[#00083C]/20 to-transparent" />
 
-          {/* Quick controls */}
-          <div className="absolute left-4 right-4 bottom-4 sm:left-8 sm:right-8 sm:bottom-8 p-3 sm:p-4 rounded-2xl bg-[#00083C]/55 backdrop-blur-md border border-white/15">
-            <div className="flex items-center justify-between gap-3">
-              <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-white/75 truncate pr-2">
-                {activeVideo?.title || 'Live Terminal View | Busan, KR'}
+          {/* Play */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <a
+              aria-label="Play/Pause"
+              href={featuredVideo?.url || '#'}
+              className="bg-[#72A1E1]/90 hover:bg-[#72A1E1] text-[#00083C] dark:text-white w-28 h-28 rounded-full flex items-center justify-center shadow-2xl transition-all hover:scale-110 active:scale-95"
+            >
+              <Play fill="currentColor" size={40} />
+            </a>
+          </div>
+
+          {/* Controls */}
+          <div className="absolute bottom-0 left-0 right-0 p-10 bg-gradient-to-t from-[#00083C] via-[#00083C]/40 to-transparent flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="flex items-center gap-8">
+              <button aria-label="Sound" className="text-white hover:text-[#72A1E1] transition-colors">
+                <Volume2 size={24} />
+              </button>
+              <span className="text-[11px] font-black uppercase tracking-widest text-white/60">
+                {featuredVideo?.title || 'Live Terminal View | Busan, KR'}
               </span>
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={togglePlay}
-                  aria-label={isPlaying ? 'Пауза' : 'Воспроизвести'}
-                  className="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors"
-                >
-                  {isPlaying ? <Pause size={18} /> : <Play size={18} />}
-                </button>
-                <button
-                  type="button"
-                  onClick={toggleMute}
-                  aria-label={isMuted ? 'Включить звук' : 'Выключить звук'}
-                  className="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors"
-                >
-                  {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-                </button>
-                <button
-                  type="button"
-                  onClick={togglePip}
-                  aria-label="Картинка в картинке"
-                  className="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors"
-                >
-                  <PictureInPicture2 size={18} />
-                </button>
-                <button
-                  type="button"
-                  onClick={toggleFullscreen}
-                  aria-label="Полный экран"
-                  className="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors"
-                >
-                  <Maximize size={18} />
-                </button>
-              </div>
             </div>
+            <button aria-label="Fullscreen" className="text-white hover:text-[#72A1E1] transition-colors">
+              <Maximize size={24} />
+            </button>
           </div>
 
           {/* LIVE badge */}
@@ -265,40 +191,26 @@ const VideoSlider: React.FC = () => {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12 max-w-6xl mx-auto">
           {gridVideos.length > 0
             ? gridVideos.map((item, i) => (
-                <button
-                  type="button"
+                <a
                   key={`${item.url}-${i}`}
-                  onClick={() => {
-                    setActiveIndex(i);
-                    setIsPlaying(true);
-                  }}
+                  href={item.url}
                   className="aspect-square relative group cursor-pointer overflow-hidden rounded-2xl
-                             border shadow-lg bg-[#cfe5ff]/40 dark:bg-white/5 backdrop-blur block transition-colors
-                             text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#72A1E1]/70
-                             active:scale-[0.99]
-                             "
-                  aria-label={item.number != null ? `Открыть AVIVA #${item.number}` : 'Открыть видео'}
+                             border border-[#72A1E1]/18 dark:border-white/10 shadow-lg bg-[#cfe5ff]/40 dark:bg-white/5 backdrop-blur block transition-colors"
                 >
                   <video
                     src={item.url}
-                    className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-all"
+                    className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0"
                     muted
                     playsInline
                     preload="metadata"
                   />
 
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-[#00083C]/45">
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-[#00083C]/55">
                     <span className="text-[9px] font-black text-white uppercase tracking-widest border border-white/40 px-4 py-2 rounded-full">
                       {item.number != null ? `AVIVA #${item.number}` : 'Открыть видео'}
                     </span>
                   </div>
-
-                  <div
-                    className={`absolute inset-0 border-2 rounded-2xl pointer-events-none transition-colors ${
-                      i === activeIndex ? 'border-[#72A1E1]' : 'border-transparent'
-                    }`}
-                  />
-                </button>
+                </a>
               ))
             : FALLBACK_PREVIEWS.map((item) => (
                 <div
