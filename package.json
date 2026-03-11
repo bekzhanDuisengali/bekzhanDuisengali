@@ -11,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "cloudinary": "^2.6.1",
     "dotenv": "^16.6.1",
     "express": "^4.21.2",
     "morgan": "^1.10.1",

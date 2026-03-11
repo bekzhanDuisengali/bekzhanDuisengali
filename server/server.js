@@ -5,11 +5,18 @@ import express from 'express';
 import morgan from 'morgan';
 import fetch from 'node-fetch';
 import getRawBody from 'raw-body';
+import { v2 as cloudinary } from 'cloudinary';
 
 const {
   TG_TOKEN,
   WEBHOOK_SECRET = 'AVIVA_WEBHOOK_SECRET',
   CHANNEL_ID,
+  AVIVA_STORAGE_DIR,
+  AVIVA_PUBLIC_BASE = '/assets/aviva/videos',
+  CLOUDINARY_CLOUD_NAME,
+  CLOUDINARY_API_KEY,
+  CLOUDINARY_API_SECRET,
+  CLOUDINARY_FOLDER = 'aviva',
   TG_API_BASE = 'https://api.telegram.org',
   TG_FILE_BASE,
   TG_BOT_API_MAX_FILE_BYTES,
@@ -38,10 +45,12 @@ app.use(async (req, _res, next) => {
 });
 app.use(morgan('dev'));
 
-const ROOT = path.resolve();                   // корень проекта KOL-LANDING
-const STATIC_ROOT = ROOT;                      // статику отдаём прямо из корня
+const ROOT = path.resolve();                   // корень проекта
+const DIST_DIR = path.join(ROOT, 'dist');
+const STATIC_ROOT = fs.existsSync(path.join(DIST_DIR, 'index.html')) ? DIST_DIR : ROOT;
 const AVIVA_DIR = path.join(ROOT, 'assets', 'aviva');
-const VIDEOS_DIR = path.join(AVIVA_DIR, 'videos');
+const DEFAULT_VIDEOS_DIR = path.join(AVIVA_DIR, 'videos');
+const VIDEOS_DIR = AVIVA_STORAGE_DIR ? path.resolve(AVIVA_STORAGE_DIR) : DEFAULT_VIDEOS_DIR;
 const VIDEOS_JSON = path.join(AVIVA_DIR, 'videos.json');
 const API_BASE = String(TG_API_BASE || 'https://api.telegram.org').replace(/\/+$/, '');
 const FILE_BASE = String(TG_FILE_BASE || API_BASE).replace(/\/+$/, '');
@@ -49,6 +58,16 @@ const IS_OFFICIAL_TG_API = API_BASE === 'https://api.telegram.org';
 const MAX_TG_FILE_BYTES = TG_BOT_API_MAX_FILE_BYTES != null
   ? Number(TG_BOT_API_MAX_FILE_BYTES)
   : (IS_OFFICIAL_TG_API ? 20 * 1024 * 1024 : Number.POSITIVE_INFINITY);
+const CLOUDINARY_ENABLED = Boolean(CLOUDINARY_CLOUD_NAME && CLOUDINARY_API_KEY && CLOUDINARY_API_SECRET);
+
+if (CLOUDINARY_ENABLED) {
+  cloudinary.config({
+    cloud_name: CLOUDINARY_CLOUD_NAME,
+    api_key: CLOUDINARY_API_KEY,
+    api_secret: CLOUDINARY_API_SECRET,
+    secure: true,
+  });
+}
 
 fs.mkdirSync(VIDEOS_DIR, { recursive: true });
 if (!fs.existsSync(VIDEOS_JSON)) fs.writeFileSync(VIDEOS_JSON, '[]', 'utf8');
@@ -85,6 +104,27 @@ async function tgGetFile(file_id) {
 
 function sanitize(name) {
   return name.replace(/[^\w.\-#]/g, '_');
+}
+
+async function uploadToCloudinary(buf, filename) {
+  const parsed = path.parse(filename);
+  const publicId = parsed.name;
+  return new Promise((resolve, reject) => {
+    const stream = cloudinary.uploader.upload_stream(
+      {
+        folder: CLOUDINARY_FOLDER,
+        public_id: publicId,
+        overwrite: true,
+        resource_type: 'video',
+      },
+      (err, result) => {
+        if (err) return reject(err);
+        if (!result?.secure_url) return reject(new Error('Cloudinary upload: missing secure_url'));
+        resolve(result);
+      }
+    );
+    stream.end(buf);
+  });
 }
 
 function loadList() {
@@ -160,17 +200,25 @@ app.post(`/tg/${WEBHOOK_SECRET}`, async (req, res) => {
     const base = number != null ? `AVIVA_${number}` : `AVIVA_${Date.now()}`;
     const filename = sanitize(base + ext);
     const savePath = path.join(VIDEOS_DIR, filename);
+    let finalUrl = `${AVIVA_PUBLIC_BASE}/${filename}`;
 
-    if (!fs.existsSync(savePath)) {
-      fs.writeFileSync(savePath, buf);
-      console.log('Saved:', filename);
+    if (CLOUDINARY_ENABLED) {
+      const uploaded = await uploadToCloudinary(buf, filename);
+      finalUrl = uploaded.secure_url;
+      console.log('Uploaded to Cloudinary:', finalUrl);
     } else {
-      console.log('Exists, skip:', filename);
+      if (!fs.existsSync(savePath)) {
+        fs.writeFileSync(savePath, buf);
+        console.log('Saved:', filename);
+        console.log('Saved path:', savePath);
+      } else {
+        console.log('Exists, skip:', filename);
+      }
     }
 
     // обновляем список
     const list = loadList();
-    const localUrl = `/assets/aviva/videos/${filename}`;
+    const localUrl = finalUrl;
 
     const payload = {
         title: caption.trim() || base,
@@ -194,6 +242,9 @@ app.post(`/tg/${WEBHOOK_SECRET}`, async (req, res) => {
 
 // healthcheck
 app.get('/healthz', (_req, res) => res.send('ok'));
+
+// отдаём каталог с видео (может быть на persistent disk)
+app.use(AVIVA_PUBLIC_BASE, express.static(VIDEOS_DIR, { maxAge: '1h', index: false }));
 
 // отдаём статику прямо из текущего проекта
 app.use(express.static(STATIC_ROOT, { maxAge: '1h', index: 'index.html' }));
