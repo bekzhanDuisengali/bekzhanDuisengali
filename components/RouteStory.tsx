@@ -149,6 +149,8 @@ const RouteStory: React.FC = () => {
                 src="../images/logo.png"
                 alt=""
                 className="w-64 h-auto grayscale dark:brightness-200"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>

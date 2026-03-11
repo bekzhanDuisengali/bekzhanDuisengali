@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Advantages from './components/Advantages';
@@ -12,9 +12,29 @@ import Partners from './components/Partners';
 import Location from './components/Location';
 import ContactChannels from './components/ContactChannels';
 import Footer from './components/Footer';
-import AIChat from './components/AIChat';
+
+const AIChat = lazy(() => import('./components/AIChat'));
 
 const App: React.FC = () => {
+  const [mountAIChat, setMountAIChat] = useState(false);
+
+  useEffect(() => {
+    const w = window as Window & { requestIdleCallback?: (cb: () => void) => number; cancelIdleCallback?: (id: number) => void };
+    let timeoutId: number | null = null;
+    let idleId: number | null = null;
+
+    if (typeof w.requestIdleCallback === 'function') {
+      idleId = w.requestIdleCallback(() => setMountAIChat(true));
+    } else {
+      timeoutId = window.setTimeout(() => setMountAIChat(true), 2200);
+    }
+
+    return () => {
+      if (idleId != null && typeof w.cancelIdleCallback === 'function') w.cancelIdleCallback(idleId);
+      if (timeoutId != null) window.clearTimeout(timeoutId);
+    };
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-[#eaf4ff] dark:bg-navy-deep font-sans transition-colors duration-500">
       <Navbar />
@@ -59,7 +79,11 @@ const App: React.FC = () => {
       </main>
       
       <Footer />
-      <AIChat />
+      {mountAIChat && (
+        <Suspense fallback={null}>
+          <AIChat />
+        </Suspense>
+      )}
     </div>
   );
 };
