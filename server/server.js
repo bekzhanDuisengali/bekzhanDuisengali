@@ -250,6 +250,9 @@ app.post(`/tg/${WEBHOOK_SECRET}`, async (req, res) => {
 // healthcheck
 app.get('/healthz', (_req, res) => res.send('ok'));
 
+// runtime-данные AVIVA (videos.json и др.) должны быть доступны независимо от dist/root
+app.use('/assets/aviva', express.static(AVIVA_DIR, { maxAge: '30s', index: false }));
+
 // отдаём локальный каталог с видео только если не используем Cloudinary
 if (!CLOUDINARY_ENABLED) {
   app.use(AVIVA_PUBLIC_BASE, express.static(VIDEOS_DIR, { maxAge: '1h', index: false }));
