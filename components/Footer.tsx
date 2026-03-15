@@ -2,6 +2,8 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
 
+const logoSrc = new URL('../images/logo.png', import.meta.url).href;
+
 const Footer: React.FC = () => {
   return (
     <footer className="py-24 border-t border-[#72A1E1]/12 dark:border-white/5 bg-[#eef7ff] dark:bg-navy shadow-[0_-20px_50px_rgba(0,0,0,0.02)] transition-colors duration-500">
@@ -10,7 +12,7 @@ const Footer: React.FC = () => {
           <div>
             <div className="flex items-center gap-5 mb-8">
               <div className="h-16">
-                <img src="../images/logo.png" alt="KOL Logo" className="h-full w-auto object-contain dark:brightness-100 brightness-0 transition-all" />
+                <img src={logoSrc} alt="KOL Logo" className="h-full w-auto object-contain dark:brightness-100 brightness-0 transition-all" />
               </div>
             </div>
             <p className="text-[11px] font-black text-[#226cc3]/55 dark:text-slate-500 uppercase tracking-[0.3em] mb-8 transition-colors">Korea Orient Line</p>

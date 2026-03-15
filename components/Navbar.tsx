@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 
+const logoSrc = new URL('../images/logo.png', import.meta.url).href;
+
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -63,7 +65,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center gap-12">
           <a href="#hero" className="flex items-center gap-4 group">
             <div className="h-10 md:h-12 overflow-hidden pb-2 transform group-hover:scale-105 transition-transform duration-300">
-              <img src="../images/logo.png" alt="KOL Logo" className={`h-full w-auto object-contain transition-all ${!isDark ? 'brightness-0' : 'brightness-100 dark:brightness-100'}`} />
+              <img src={logoSrc} alt="KOL Logo" className={`h-full w-auto object-contain transition-all ${!isDark ? 'brightness-0' : 'brightness-100 dark:brightness-100'}`} />
             </div>
             <div className="hidden sm:flex flex-col leading-none">
               <span className={`font-display font-bold text-lg md:text-xl tracking-tighter uppercase group-hover:text-brand transition-colors ${!isDark ? 'text-navy' : 'text-white'}`}>KOL</span>
