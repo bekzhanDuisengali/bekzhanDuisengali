@@ -36,7 +36,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#eaf4ff] dark:bg-navy-deep font-sans transition-colors duration-500">
+    <div className="relative min-h-screen overflow-x-hidden bg-[#eaf4ff] dark:bg-[#111c35] font-sans transition-colors duration-500">
       <Navbar />
       
       <main>
@@ -44,23 +44,23 @@ const App: React.FC = () => {
           <Hero />
         </section>
         
-        <section id="advantages" className="py-24 lg:py-40 bg-[#edf7ff] dark:bg-navy-deep border-y border-[#72A1E1]/12 dark:border-white/5 transition-colors duration-500">
+        <section id="advantages" className="py-24 lg:py-40 bg-[#edf7ff] dark:bg-[#14203b] border-y border-[#72A1E1]/12 dark:border-[#cfe5ff]/10 transition-colors duration-500">
           <Advantages />
         </section>
 
-        <section id="about" className="py-24 lg:py-40 bg-[#deeeff] dark:bg-navy-light transition-colors duration-500">
+        <section id="about" className="py-24 lg:py-40 bg-[#deeeff] dark:bg-[#1b2947] transition-colors duration-500">
           <History />
         </section>
 
-        <section id="route" className="py-24 lg:py-40 bg-[#eef7ff] dark:bg-navy-deep border-y border-[#72A1E1]/12 dark:border-white/5 transition-colors duration-500">
+        <section id="route" className="py-24 lg:py-40 bg-[#eef7ff] dark:bg-[#14203b] border-y border-[#72A1E1]/12 dark:border-[#cfe5ff]/10 transition-colors duration-500">
           <RouteStory />
         </section>
         
-        <section id="services" className="py-24 lg:py-40 bg-[#dcecff] dark:bg-navy-light transition-colors duration-500">
+        <section id="services" className="py-24 lg:py-40 bg-[#dcecff] dark:bg-[#1b2947] transition-colors duration-500">
           <Services />
         </section>
         
-        <section id="operations" className="py-24 lg:py-40 bg-[#d8ebff] text-[#00083C] dark:bg-navy-deep dark:text-white transition-colors duration-500">
+        <section id="operations" className="py-24 lg:py-40 bg-[#d8ebff] text-[#00083C] dark:bg-[#14203b] dark:text-[#eef4ff] transition-colors duration-500">
           <VideoSlider />
         </section>
         
@@ -69,11 +69,11 @@ const App: React.FC = () => {
           <Partners />
         </section>
         
-        <section id="location" className="py-24 lg:py-40 bg-[#deeeff] dark:bg-navy-light transition-colors duration-500">
+        <section id="location" className="py-24 lg:py-40 bg-[#deeeff] dark:bg-[#1b2947] transition-colors duration-500">
           <Location />
         </section>
         
-        <section id="contact" className="py-24 lg:py-40 bg-[#e8f3ff] dark:bg-navy-deep transition-colors duration-500">
+        <section id="contact" className="py-24 lg:py-40 bg-[#e8f3ff] dark:bg-[#14203b] transition-colors duration-500">
           <ContactChannels />
         </section>
       </main>

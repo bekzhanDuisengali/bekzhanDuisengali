@@ -5,55 +5,46 @@ const boatAsset = (file: string) => new URL(`../images/boats/${file}`, import.me
 
 const History: React.FC = () => {
   return (
-    <div className="max-w-[1600px] mx-auto px-6 overflow-x-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+    <div className="mx-auto max-w-[1600px] overflow-x-hidden px-6">
+      <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-32">
         <div className="relative">
-          <div className="relative mx-auto w-full max-w-[760px] h-[380px] sm:h-[500px] lg:h-[560px]">
-            <div className="absolute top-2 left-0 w-[86%] sm:w-[78%] aspect-[16/10] rounded-sm overflow-hidden shadow-3xl rotate-[-4deg] z-10">
+          <div className="relative mx-auto w-full max-w-[760px] min-h-[360px] sm:min-h-[500px] lg:min-h-[580px]">
+            <div className="absolute left-0 right-4 top-0 z-10 overflow-hidden rounded-[1.75rem] border border-[#cfe2fb]/70 bg-white/70 shadow-[0_30px_70px_rgba(16,44,98,0.16)] sm:right-10 lg:right-16">
               <img
                 src={boatAsset('aviva.png')}
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-[3s]"
+                className="h-[280px] w-full object-cover transition-transform duration-[3s] hover:scale-105 sm:h-[420px] lg:h-[520px]"
                 alt="Судно AVIVA"
                 loading="lazy"
               />
             </div>
 
-            <div className="absolute bottom-0 right-0 w-[84%] sm:w-[74%] aspect-[16/10] rounded-sm overflow-hidden shadow-3xl rotate-[5deg] z-20">
-              <img
-                src={boatAsset('aviva 1.png')}
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-[3s]"
-                alt="Судно AVIVA у причала"
-                loading="lazy"
-              />
-            </div>
-
             {/* archival mini-card */}
-            <div className="pointer-events-none absolute left-8 sm:left-14 lg:left-20 top-[46%] sm:top-[42%] w-[185px] sm:w-[230px] md:w-[280px] z-30 rotate-[-9deg]">
+            <div className="pointer-events-none absolute bottom-2 right-0 z-30 w-[170px] rotate-[7deg] sm:bottom-3 sm:right-2 sm:w-[240px] md:w-[280px] lg:bottom-5 lg:right-4 lg:w-[320px]">
               <img
                 src={boatAsset('авива фото.png')}
                 alt="Архивное фото AVIVA"
                 loading="lazy"
-                className="w-full h-auto drop-shadow-[0_22px_32px_rgba(10,32,84,0.35)] hover:scale-105 transition-transform duration-[2.5s]"
+                className="h-auto w-full drop-shadow-[0_22px_32px_rgba(10,32,84,0.28)] transition-transform duration-[2.5s] hover:scale-105"
               />
             </div>
           </div>
         </div>
         
         <div className="max-w-2xl">
-          <div className="flex items-center gap-6 mb-12">
+          <div className="mb-10 flex items-center gap-4 sm:mb-12 sm:gap-6">
             <div className="h-[1px] w-20 bg-brand"></div>
-            <span className="text-brand font-black uppercase tracking-[0.5em] text-[10px]">Since 1999</span>
+            <span className="text-[10px] font-black uppercase tracking-[0.28em] text-brand sm:tracking-[0.5em]">Since 1999</span>
           </div>
           
-          <h2 className="font-display text-7xl lg:text-8xl font-bold text-navy dark:text-white uppercase leading-[0.9] tracking-tighter mb-12">
+          <h2 className="mb-10 font-display text-5xl font-bold uppercase leading-[0.9] tracking-tighter text-navy dark:text-white sm:mb-12 sm:text-7xl lg:text-8xl">
             НАШЕ <br/>НАСЛЕДИЕ
           </h2>
           
-          <div className="space-y-10 text-[#18215A]/70 dark:text-slate-400 leading-relaxed font-light text-xl transition-colors">
+          <div className="space-y-8 text-lg font-light leading-relaxed text-[#18215A]/70 transition-colors dark:text-slate-400 sm:space-y-10 sm:text-xl">
             <p>
               За плечами нашей команды — более двадцати лет опыта в области морских грузоперевозок. Мы начали свой путь в 1999 году, изучая каждый дюйм маршрута между портами Южной Кореи и России.
             </p>
-            <p className="border-l-4 border-[#72A1E1]/20 dark:border-white/5 pl-10 italic bg-[#f7fbff]/45 dark:bg-transparent py-2 pr-4 transition-colors">
+            <p className="border-l-4 border-[#72A1E1]/20 bg-[#f7fbff]/45 py-2 pl-5 pr-4 italic transition-colors dark:border-white/5 dark:bg-transparent sm:pl-10">
               «В 2022 году мы объединили этот опыт под брендом KOL, чтобы предложить рынку новый уровень сервиса, основанный на абсолютной прозрачности и скорости.»
             </p>
             <p>
@@ -61,7 +52,7 @@ const History: React.FC = () => {
             </p>
           </div>
           
-          <div className="mt-20 flex flex-wrap items-center gap-16">
+          <div className="mt-14 flex flex-wrap items-center gap-8 sm:mt-20 sm:gap-16">
             <div className="flex flex-col">
               <span className="font-display text-6xl font-bold text-navy dark:text-white">1999</span>
               <span className="text-[11px] font-bold uppercase text-brand tracking-[0.4em] mt-3">Foundations</span>

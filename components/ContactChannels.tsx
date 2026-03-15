@@ -23,26 +23,26 @@ const ContactChannels: React.FC = () => {
         </div>
 
         {/* WhatsApp/Telegram */}
-        <div className="p-14 bg-[#d6ebff] dark:bg-white/5 border border-[#72A1E1]/20 dark:border-white/5 hover:bg-[#e3f1ff] dark:hover:bg-white/10 transition-all group rounded-sm text-left shadow-xl dark:shadow-2xl">
-          <MessageCircle size={40} className="mb-8 text-green-500" />
+        <div className="p-14 bg-[#dceeff] dark:bg-white/5 border border-[#72A1E1]/20 dark:border-white/5 hover:bg-[#e8f3ff] dark:hover:bg-white/10 transition-all group rounded-sm text-left shadow-xl dark:shadow-2xl">
+          <MessageCircle size={40} className="mb-8 text-brand" />
           <h4 className="font-display text-2xl font-bold uppercase mb-3 tracking-tight dark:text-white text-navy transition-colors">Светлана</h4>
           <p className="text-[#18215A]/60 dark:text-slate-400 text-xs font-bold uppercase tracking-widest mb-10 leading-relaxed transition-colors">Менеджер на линии:<br/>WhatsApp / Telegram</p>
           <div className="flex flex-col gap-4">
-            <a href="https://wa.me/821073099001" className="inline-flex items-center gap-3 text-[11px] font-black uppercase text-green-500 hover:text-navy dark:hover:text-white transition-colors">
+            <a href="https://wa.me/821073099001" className="inline-flex items-center gap-3 text-[11px] font-black uppercase text-brand hover:text-navy dark:hover:text-white transition-colors">
               Открыть WhatsApp <ExternalLink size={14} />
             </a>
-            <a href="#" className="inline-flex items-center gap-3 text-[11px] font-black uppercase text-sky-500 hover:text-navy dark:hover:text-white transition-colors">
+            <a href="#" className="inline-flex items-center gap-3 text-[11px] font-black uppercase text-brand hover:text-navy dark:hover:text-white transition-colors">
               Открыть Telegram <ExternalLink size={14} />
             </a>
           </div>
         </div>
 
         {/* Email */}
-        <div className="p-14 bg-[#e6f2ff] dark:bg-white/5 border border-[#72A1E1]/20 dark:border-white/5 hover:bg-[#dceeff] dark:hover:bg-white/10 transition-all group rounded-sm text-left shadow-xl dark:shadow-2xl">
-          <Mail size={40} className="mb-8 dark:text-white text-navy" />
+        <div className="p-14 bg-[#dceeff] dark:bg-white/5 border border-[#72A1E1]/20 dark:border-white/5 hover:bg-[#e8f3ff] dark:hover:bg-white/10 transition-all group rounded-sm text-left shadow-xl dark:shadow-2xl">
+          <Mail size={40} className="mb-8 text-brand dark:text-brand" />
           <h4 className="font-display text-2xl font-bold uppercase mb-3 tracking-tight dark:text-white text-navy transition-colors">Email Desk</h4>
           <p className="font-display text-lg text-[#18215A]/60 dark:text-slate-400 font-bold uppercase tracking-widest mb-10 transition-colors">info@kol.com</p>
-          <button onClick={() => navigator.clipboard.writeText('info@kol.com')} className="inline-flex items-center gap-3 text-[11px] font-black uppercase text-navy/40 dark:text-white/40 hover:text-brand dark:hover:text-white transition-colors">
+          <button onClick={() => navigator.clipboard.writeText('info@kol.com')} className="inline-flex items-center gap-3 text-[11px] font-black uppercase text-brand hover:text-navy dark:hover:text-white transition-colors">
             Скопировать email <Copy size={14} />
           </button>
         </div>
