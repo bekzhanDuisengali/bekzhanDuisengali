@@ -29,6 +29,13 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const toggleTheme = () => {
     const newDark = !isDark;
     setIsDark(newDark);
@@ -96,22 +103,86 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        <button className={`lg:hidden p-2 ${!isDark ? 'text-navy' : 'text-white'}`} onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        <button
+          type="button"
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
+          className={`lg:hidden flex h-12 w-12 items-center justify-center rounded-2xl border transition-all ${
+            !isDark
+              ? 'border-[#72A1E1]/20 bg-white/70 text-navy shadow-[0_12px_30px_rgba(18,51,110,0.08)]'
+              : 'border-white/10 bg-white/5 text-white'
+          }`}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden fixed inset-0 z-40 bg-gradient-to-b from-[#f4faff] to-[#e8f4ff] dark:bg-navy-deep backdrop-blur-3xl p-12 flex flex-col justify-center gap-8 animate-in fade-in zoom-in duration-300">
-          <button onClick={() => setIsOpen(false)} className="absolute top-10 right-10 text-navy dark:text-white"><X size={32} /></button>
-          {navLinks.map((link) => (
-            <a key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="text-4xl font-black text-navy dark:text-white uppercase tracking-tighter hover:text-brand transition-colors">{link.name}</a>
-          ))}
-          <div className="flex items-center justify-between mt-8 border-t border-black/5 dark:border-white/5 pt-8">
-             <button onClick={toggleTheme} className="p-4 bg-[#dfeeff] dark:bg-white/5 rounded-full text-navy dark:text-white">
-               {isDark ? <Sun size={24} /> : <Moon size={24} />}
-             </button>
+        <div className="lg:hidden fixed inset-0 z-40 bg-[rgba(230,242,255,0.72)] dark:bg-[rgba(8,14,30,0.72)] backdrop-blur-xl">
+          <div className={`absolute inset-x-4 top-24 rounded-[2rem] border p-5 shadow-[0_24px_60px_rgba(14,37,84,0.18)] transition-all ${
+            !isDark
+              ? 'border-[#72A1E1]/18 bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(237,247,255,0.92))]'
+              : 'border-white/10 bg-[linear-gradient(180deg,rgba(21,32,58,0.96),rgba(12,19,37,0.94))]'
+          }`}>
+            <div className="flex items-center justify-between border-b border-[#72A1E1]/12 pb-4 dark:border-white/8">
+              <div>
+                <p className={`text-[10px] font-black uppercase tracking-[0.3em] ${!isDark ? 'text-[#6a89b5]' : 'text-[#aac6f0]/65'}`}>Navigation</p>
+                <p className={`mt-2 text-lg font-display font-bold uppercase tracking-tight ${!isDark ? 'text-navy' : 'text-white'}`}>Korea Orient Line</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                className={`flex h-11 w-11 items-center justify-center rounded-2xl border ${
+                  !isDark ? 'border-[#72A1E1]/20 bg-[#eef6ff] text-navy' : 'border-white/10 bg-white/5 text-white'
+                }`}
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            <div className="mt-5 flex flex-col gap-3">
+              {navLinks.map((link, idx) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`flex items-center justify-between rounded-2xl border px-4 py-4 transition-all ${
+                    !isDark
+                      ? 'border-[#72A1E1]/14 bg-white/72 text-navy hover:border-[#72A1E1]/28 hover:bg-white'
+                      : 'border-white/8 bg-white/[0.03] text-white hover:border-[#8db8f4]/24 hover:bg-white/[0.05]'
+                  }`}
+                >
+                  <span className="text-base font-black uppercase tracking-[0.12em]">{link.name}</span>
+                  <span className={`text-[10px] font-black uppercase tracking-[0.22em] ${!isDark ? 'text-[#6a89b5]' : 'text-[#aac6f0]/65'}`}>
+                    0{idx + 1}
+                  </span>
+                </a>
+              ))}
+            </div>
+
+            <div className="mt-5 grid grid-cols-2 gap-3">
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className={`flex items-center justify-center gap-3 rounded-2xl border px-4 py-4 text-[11px] font-black uppercase tracking-[0.2em] ${
+                  !isDark
+                    ? 'border-[#72A1E1]/16 bg-[#eef6ff] text-navy'
+                    : 'border-white/8 bg-white/[0.03] text-white'
+                }`}
+              >
+                {isDark ? <Sun size={18} /> : <Moon size={18} />}
+                {isDark ? 'Light' : 'Dark'}
+              </button>
+              <a
+                href="#contact"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-center rounded-2xl bg-brand px-4 py-4 text-[11px] font-black uppercase tracking-[0.2em] text-white"
+              >
+                Контакты
+              </a>
+            </div>
           </div>
         </div>
       )}

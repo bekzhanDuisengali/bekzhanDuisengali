@@ -21,19 +21,19 @@ const REVIEWS = [
 
 const Reviews: React.FC = () => {
   return (
-    <section className="relative w-screen left-1/2 -translate-x-1/2 py-20 lg:py-24 bg-[#eaf5ff] dark:bg-[#0B1026] overflow-hidden transition-colors duration-500">
+    <section className="relative w-full max-w-full overflow-hidden bg-[#eaf5ff] py-20 transition-colors duration-500 dark:bg-[#182541] lg:py-24">
       
       {/* soft glow background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] -translate-x-1/2 -translate-y-1/2 bg-[#72A1E1]/18 dark:bg-[#72A1E1]/10 blur-[160px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#72A1E1]/18 blur-[160px] dark:bg-[#8db8f4]/12 md:h-[800px] md:w-[800px]" />
       </div>
 
       <div className="relative max-w-[1600px] mx-auto px-6">
         <div className="text-center mb-16 lg:mb-20">
-          <div className="text-[#72A1E1] font-semibold uppercase text-[11px] tracking-[0.6em] mb-6">
+          <div className="mb-6 text-[11px] font-semibold uppercase tracking-[0.32em] text-[#72A1E1] sm:tracking-[0.6em]">
             Со слов клиентов
           </div>
-          <h2 className="font-display text-6xl lg:text-8xl font-bold text-[#00083C] dark:text-white uppercase tracking-tighter italic transition-colors">
+          <h2 className="font-display text-5xl font-bold uppercase italic tracking-tighter text-[#00083C] transition-colors dark:text-[#f4f8ff] sm:text-6xl lg:text-8xl">
             Отзывы
           </h2>
         </div>
@@ -42,16 +42,17 @@ const Reviews: React.FC = () => {
           {REVIEWS.map((r, idx) => (
             <div
               key={idx}
-              className="relative p-12 rounded-2xl
-                         bg-[#eef7ff]/78 dark:bg-white/5 backdrop-blur-xl
-                         border border-[#72A1E1]/15 dark:border-white/10
-                         hover:border-[#72A1E1]/40
+              className="relative rounded-2xl p-8 sm:p-12
+                         bg-[#eef7ff]/78 dark:bg-[#2a3d61]/68 backdrop-blur-xl
+                         border border-[#72A1E1]/15 dark:border-[#d8e9ff]/14
+                         shadow-[0_16px_40px_rgba(18,51,110,0.08)] dark:shadow-[0_20px_50px_rgba(5,10,25,0.22)]
+                         hover:border-[#72A1E1]/40 dark:hover:border-[#9fc4f8]/30
                          hover:-translate-y-3
                          transition-all duration-500 group"
             >
               {/* big quote icon */}
               <Quote
-                className="absolute top-8 right-8 text-[#18215A]/5 dark:text-white/5 group-hover:text-[#72A1E1]/10 transition-colors"
+                className="absolute top-8 right-8 text-[#18215A]/5 dark:text-[#e3efff]/10 group-hover:text-[#8db8f4]/18 transition-colors"
                 size={90}
               />
 
@@ -63,20 +64,20 @@ const Reviews: React.FC = () => {
               </div>
 
               {/* review text */}
-              <p className="text-[#18215A]/80 dark:text-white/80 mb-10 italic leading-relaxed font-light text-lg transition-colors">
+              <p className="text-[#18215A]/80 dark:text-[#f1f6ff]/90 mb-10 italic leading-relaxed font-light text-lg transition-colors">
                 “{r.text}”
               </p>
 
               {/* author */}
               <div className="flex items-center gap-5">
-                <div className="w-14 h-14 bg-[#72A1E1]/10 dark:bg-white/10 border border-[#72A1E1]/20 dark:border-white/10 rounded-full flex items-center justify-center font-display font-bold text-[#00083C] dark:text-white uppercase text-lg transition-colors">
+                <div className="w-14 h-14 bg-[#72A1E1]/10 dark:bg-[#dbe9ff]/14 border border-[#72A1E1]/20 dark:border-[#d8e9ff]/18 rounded-full flex items-center justify-center font-display font-bold text-[#00083C] dark:text-[#f4f8ff] uppercase text-lg transition-colors">
                   {r.name[0]}
                 </div>
                 <div>
-                  <h4 className="font-display text-base font-semibold text-[#00083C] dark:text-white tracking-tight transition-colors">
+                  <h4 className="font-display text-base font-semibold text-[#00083C] dark:text-[#f4f8ff] tracking-tight transition-colors">
                     {r.name}
                   </h4>
-                  <p className="text-[10px] text-[#18215A]/45 dark:text-white/50 font-semibold uppercase tracking-widest mt-1 transition-colors">
+                  <p className="text-[10px] text-[#18215A]/45 dark:text-[#dce9ff]/72 font-semibold uppercase tracking-widest mt-1 transition-colors">
                     {r.company}
                   </p>
                 </div>

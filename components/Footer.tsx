@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="w-full lg:w-auto">
-            <button className="w-full lg:w-auto bg-navy dark:bg-brand text-white px-12 py-6 font-black uppercase text-[11px] tracking-[0.2em] hover:bg-brand dark:hover:bg-blue-600 transition-all flex items-center justify-center gap-5 group shadow-2xl active:scale-95">
+            <button className="w-full lg:w-auto bg-[#72A1E1] dark:bg-[#8db8f4] text-[#00083C] dark:text-[#041137] px-12 py-6 font-black uppercase text-[11px] tracking-[0.2em] hover:bg-[#accfff] dark:hover:bg-[#acd2ff] transition-all flex items-center justify-center gap-5 group shadow-2xl active:scale-95">
               Связаться с менеджером <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </button>
           </div>

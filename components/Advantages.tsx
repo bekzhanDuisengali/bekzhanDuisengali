@@ -40,8 +40,9 @@ const Advantages: React.FC = () => {
 
         {/* Main Experience Module */}
         <div className="md:col-span-8 md:row-span-2 group relative overflow-hidden p-12 lg:p-20 flex flex-col justify-end shadow-2xl transition-all duration-500
-                        bg-[#00083C] dark:bg-[#00083C]
-                        border border-[#18215A]/35 hover:border-[#72A1E1]/55">
+                        bg-[#f4faff]/80 backdrop-blur border border-[#72A1E1]/15
+                        dark:bg-[#18215A]/40 dark:border-[#ACcFFF]/12
+                        hover:border-[#72A1E1]/45">
           {/* tech grid overlay */}
           <div className="absolute inset-0 opacity-30 pointer-events-none
                           [background-image:linear-gradient(to_right,rgba(172,207,255,0.10)_1px,transparent_1px),linear-gradient(to_bottom,rgba(172,207,255,0.10)_1px,transparent_1px)]
@@ -53,17 +54,17 @@ const Advantages: React.FC = () => {
           <div className="relative z-10">
             <div className="flex items-center gap-4 mb-8">
               <div className="w-12 h-[1px] bg-[#72A1E1]"></div>
-              <span className="text-[10px] font-black text-[#ACcFFF] uppercase tracking-[0.4em]">
+              <span className="text-[10px] font-black text-[#72A1E1] dark:text-[#ACcFFF] uppercase tracking-[0.4em]">
                 Core_History
               </span>
             </div>
 
-            <h3 className="font-display text-9xl lg:text-[15rem] font-bold text-white leading-none tracking-tighter mb-6 italic
+            <h3 className="font-display text-9xl lg:text-[15rem] font-bold text-[#00083C] dark:text-white leading-none tracking-tighter mb-6 italic
                            group-hover:scale-[1.03] transition-transform duration-700 origin-left">
               25+
             </h3>
 
-            <p className="text-2xl lg:text-5xl font-display font-medium text-[#ACcFFF]/75 uppercase tracking-tighter max-w-lg leading-tight">
+            <p className="text-2xl lg:text-5xl font-display font-medium text-[#18215A]/72 dark:text-[#ACcFFF]/75 uppercase tracking-tighter max-w-lg leading-tight transition-colors">
               ЛЕТ ГЛОБАЛЬНОЙ ЭКСПЕРТИЗЫ В ПРЯМЫХ ПОСТАВКАХ
             </p>
           </div>
@@ -72,7 +73,7 @@ const Advantages: React.FC = () => {
             <Database size={60} className="text-[#72A1E1]/25 group-hover:text-[#72A1E1] transition-colors stroke-1" />
           </div>
 
-          <div className="absolute left-0 w-full h-1/2 bg-gradient-to-t from-[#72A1E1]/22 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+          <div className="absolute left-0 w-full h-1/2 bg-gradient-to-t from-[#72A1E1]/18 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
         </div>
 
         {/* Real-time Status Metric */}
@@ -103,9 +104,9 @@ const Advantages: React.FC = () => {
 
         {/* Resource Network Module */}
         <div className="md:col-span-4 rounded-xl p-12 flex flex-col justify-between shadow-xl transition-all duration-500 group
-                        bg-[#edf6ff] border border-[#72A1E1]/18
-                        dark:bg-[#18215A]/35 dark:border-[#ACcFFF]/10
-                        hover:bg-[#dfeeff] dark:hover:bg-[#18215A] hover:border-[#72A1E1]/35">
+                        bg-[#f4faff]/80 backdrop-blur border border-[#72A1E1]/15
+                        dark:bg-[#18215A]/40 dark:border-[#ACcFFF]/12
+                        hover:border-[#72A1E1]/45">
           <Globe size={32} className="text-[#72A1E1] group-hover:text-[#ACcFFF] transition-colors" />
 
           <div>
@@ -122,13 +123,13 @@ const Advantages: React.FC = () => {
 
         {/* Monitoring System Strip */}
         <div className="md:col-span-12 rounded-xl p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-12 transition-all duration-500 group shadow-xl
-                        bg-[#f8fcff]/80 backdrop-blur border border-[#72A1E1]/15
-                        dark:bg-[#18215A]/35 dark:border-[#ACcFFF]/12
+                        bg-[#f4faff]/80 backdrop-blur border border-[#72A1E1]/15
+                        dark:bg-[#18215A]/40 dark:border-[#ACcFFF]/12
                         hover:border-[#72A1E1]/45">
           <div className="flex items-center gap-10">
             <div className="p-6 rounded-sm shadow-xl transition-transform group-hover:scale-110
-                            bg-[#00083C] text-white
-                            dark:bg-[#ACcFFF] dark:text-[#00083C]">
+                            bg-[#dff1ff] text-[#6fb8f2]
+                            dark:bg-[#22345c] dark:text-[#9ad8ff]">
               <Cpu size={40} className="animate-pulse" />
             </div>
 

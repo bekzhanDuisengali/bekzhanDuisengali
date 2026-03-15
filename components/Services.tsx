@@ -68,7 +68,7 @@ const Services: React.FC = () => {
             Наши услуги
           </div>
 
-          <h2 className="font-display text-7xl lg:text-9xl font-bold text-[#00083C] dark:text-white uppercase tracking-tighter leading-none mb-10 italic">
+          <h2 className="mb-10 font-display text-5xl font-bold uppercase italic leading-[0.92] tracking-tight text-[#00083C] dark:text-white sm:text-6xl lg:text-9xl lg:tracking-tighter">
             НОМЕНКЛАТУРА <br />{' '}
             ГРУЗОВ
             
@@ -90,10 +90,10 @@ const Services: React.FC = () => {
             <div
               key={idx}
               className={[
-                'group relative p-16 overflow-hidden shadow-2xl transition-all duration-700',
+                'group relative p-16 overflow-hidden shadow-[0_18px_42px_rgba(32,68,128,0.10)] transition-all duration-700',
                 'bg-[#f6fbff]/82 backdrop-blur border border-[#72A1E1]/16',
-                'hover:border-[#72A1E1]/45 hover:-translate-y-1',
-                'dark:bg-[#18215A]/35 dark:border-[#ACcFFF]/10 dark:hover:border-[#72A1E1]/40',
+                'hover:border-[#72A1E1]/45 hover:-translate-y-1 hover:shadow-[0_24px_56px_rgba(32,68,128,0.15)]',
+                'dark:bg-[#22345c]/38 dark:border-[#cfe5ff]/10 dark:shadow-[0_24px_60px_rgba(3,10,24,0.34),0_0_0_1px_rgba(141,184,244,0.04)] dark:hover:border-[#72A1E1]/40 dark:hover:shadow-[0_34px_78px_rgba(2,8,20,0.46),0_0_0_1px_rgba(141,184,244,0.10)]',
                 isLast ? 'md:col-span-2' : '',
               ].join(' ')}
             >
@@ -109,37 +109,37 @@ const Services: React.FC = () => {
               <div className="pointer-events-none absolute -top-40 -right-40 h-[520px] w-[520px] rounded-full bg-[#72A1E1]/20 blur-[110px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
               {/* big watermark icon */}
-              <div className="absolute top-0 right-0 p-12 opacity-[0.03] dark:opacity-[0.06] group-hover:opacity-[0.10] transition-opacity">
-                <Icon size={180} strokeWidth={1} className="text-[#00083C] dark:text-[#ACcFFF]" />
+              <div className="absolute top-0 right-0 p-12 opacity-[0.03] dark:opacity-[0.08] group-hover:opacity-[0.12] transition-opacity">
+                <Icon size={180} strokeWidth={1} className="text-[#00083C] dark:text-[#d7e8ff]" />
               </div>
 
               {/* icon badge */}
               <div
                 className="w-16 h-16 flex items-center justify-center mb-12 transition-all duration-500
-                           bg-[#72A1E1]/10 dark:bg-[#ACcFFF]/10
-                           group-hover:bg-[#72A1E1]"
+                           bg-[#72A1E1]/10 dark:bg-[#8db8f4]/16
+                           group-hover:bg-[#72A1E1] dark:group-hover:bg-[#8db8f4]"
               >
                 <Icon
-                  className="transition-colors text-[#72A1E1] group-hover:text-[#00083C] dark:group-hover:text-[#00083C]"
+                  className="transition-colors text-[#72A1E1] dark:text-[#d7e8ff] group-hover:text-[#00083C] dark:group-hover:text-[#041137]"
                   size={32}
                 />
               </div>
 
-              <h3 className="font-display text-4xl font-bold text-[#00083C] dark:text-white uppercase mb-6 tracking-tight relative">
+              <h3 className="font-display text-4xl font-bold text-[#00083C] dark:text-[#f7fbff] uppercase mb-6 tracking-tight relative">
                 {s.title}
               </h3>
 
-              <p className="font-light text-xl leading-relaxed mb-12 text-[#18215A]/70 dark:text-[#ACcFFF]/75 relative">
+              <p className="font-light text-xl leading-relaxed mb-12 text-[#18215A]/70 dark:text-[#e2efff]/92 relative">
                 {s.desc}
               </p>
 
-              <div className="h-[1px] w-12 bg-[#72A1E1]/22 dark:bg-white/10 group-hover:w-full transition-all duration-700 mb-8 relative"></div>
+              <div className="h-[1px] w-12 bg-[#72A1E1]/22 dark:bg-[#8db8f4]/28 group-hover:w-full transition-all duration-700 mb-8 relative"></div>
 
               <button
                 type="button"
                 className="flex items-center gap-4 text-[11px] font-black uppercase tracking-[0.3em]
-                           text-[#00083C] dark:text-[#ACcFFF]
-                           hover:text-[#72A1E1] transition-colors relative"
+                           text-[#00083C] dark:text-[#cfe3ff]
+                           hover:text-[#72A1E1] dark:hover:text-[#f7fbff] transition-colors relative"
               >
                 ПОДРОБНЕЕ <ArrowUpRight size={18} />
               </button>
@@ -151,7 +151,7 @@ const Services: React.FC = () => {
                   'opacity-0 group-hover:opacity-100 transition-all duration-500',
                   'translate-y-3 group-hover:translate-y-0',
                   'border border-[#72A1E1]/25 dark:border-[#72A1E1]/35',
-                  'bg-[#dceeff]/90 dark:bg-[#0b1026]/85 backdrop-blur-sm',
+                  'bg-[#dceeff]/90 dark:bg-[#1b2947]/82 backdrop-blur-sm',
                 ].join(' ')}
               >
                 <div className="absolute inset-0">
@@ -169,26 +169,26 @@ const Services: React.FC = () => {
                   />
                 </div>
 
-                <div className="absolute inset-0 bg-gradient-to-r from-[#b8d9ff]/68 via-[#cfe7ff]/48 to-transparent dark:from-[#090f25]/95 dark:via-[#090f25]/85 dark:to-[#090f25]/35" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#b8d9ff]/68 via-[#cfe7ff]/48 to-transparent dark:from-[#15203d]/92 dark:via-[#1b2947]/80 dark:to-[#1b2947]/28" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#4f86d6]/10 via-transparent to-transparent dark:from-[#72A1E1]/16" />
 
                 <div className="relative h-full p-10 lg:p-12 flex flex-col justify-between">
-                  <div className="max-w-[72%] rounded-2xl p-5 lg:p-6 bg-[#f5faff]/86 border border-[#ffffff]/70 shadow-[0_16px_40px_rgba(12,34,87,0.16)] backdrop-blur-md dark:bg-transparent dark:border-transparent dark:shadow-none dark:backdrop-blur-0">
-                    <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-[#2f62ac]/55 bg-[#ffffff]/82 px-4 py-2 text-[10px] font-black uppercase tracking-[0.25em] text-[#041137] shadow-[0_4px_16px_rgba(18,51,110,0.08)] dark:border-[#4e77c8]/35 dark:bg-[#15204e]/65 dark:text-[#cfe5ff] dark:shadow-none">
+                  <div className="max-w-[72%] rounded-2xl border border-[#ffffff]/70 bg-[#f5faff]/86 p-5 shadow-[0_16px_40px_rgba(12,34,87,0.16)] backdrop-blur-md dark:border-[#8db8f4]/18 dark:bg-[rgba(13,24,46,0.84)] dark:shadow-[0_18px_44px_rgba(3,10,24,0.42)]">
+                    <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-[#2f62ac]/55 bg-[#ffffff]/82 px-4 py-2 text-[10px] font-black uppercase tracking-[0.25em] text-[#041137] shadow-[0_4px_16px_rgba(18,51,110,0.08)] dark:border-[#8db8f4]/24 dark:bg-[rgba(54,86,138,0.42)] dark:text-[#eef5ff] dark:shadow-none">
                       <Icon size={14} />
                       {s.title}
                     </div>
 
-                    <p className="text-sm lg:text-base leading-relaxed text-[#041033] dark:text-[#dcecff]/85 max-w-xl font-semibold [text-shadow:none]">
+                    <p className="max-w-xl text-sm font-semibold leading-relaxed text-[#041033] [text-shadow:none] dark:text-[#eef5ff] lg:text-base">
                       {s.desc}
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl rounded-2xl p-3 bg-[#f6fbff]/72 border border-[#ffffff]/70 shadow-[0_16px_40px_rgba(12,34,87,0.12)] backdrop-blur-md dark:bg-transparent dark:border-transparent dark:shadow-none dark:backdrop-blur-0">
+                  <div className="grid max-w-2xl grid-cols-1 gap-3 rounded-2xl border border-[#ffffff]/70 bg-[#f6fbff]/72 p-3 shadow-[0_16px_40px_rgba(12,34,87,0.12)] backdrop-blur-md dark:border-[#8db8f4]/14 dark:bg-[rgba(12,22,42,0.72)] dark:shadow-[0_18px_42px_rgba(3,10,24,0.34)] sm:grid-cols-2">
                     {s.hoverText.map((line) => (
                       <div
                         key={line}
-                        className="rounded-xl border border-[#bfd9ff]/90 bg-[#ffffff]/90 px-4 py-3 text-xs lg:text-sm font-bold text-[#06143d] shadow-[0_8px_20px_rgba(9,34,87,0.08)] dark:border-[#72A1E1]/25 dark:bg-[#16214a]/60 dark:text-[#d6e9ff] dark:font-semibold dark:shadow-none"
+                        className="rounded-xl border border-[#bfd9ff]/90 bg-[rgba(255,255,255,0.96)] px-4 py-3 text-xs font-bold text-[#102552] shadow-[0_8px_20px_rgba(9,34,87,0.08)] dark:border-[#8db8f4]/20 dark:bg-[rgba(39,65,109,0.96)] dark:text-[#f7fbff] dark:shadow-[0_12px_28px_rgba(3,10,24,0.38)] lg:text-sm"
                       >
                         {line}
                       </div>

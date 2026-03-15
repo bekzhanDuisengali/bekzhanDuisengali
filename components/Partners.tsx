@@ -39,10 +39,10 @@ const Partners: React.FC = () => {
   const track = [...PARTNERS, ...PARTNERS];
 
   return (
-    <section className="relative w-screen left-1/2 -translate-x-1/2 py-16 lg:py-20 overflow-hidden bg-[#e3f1ff] dark:bg-[#0B1026] transition-colors duration-500">
+    <section className="relative w-full max-w-full py-16 lg:py-20 overflow-hidden bg-[#e3f1ff] dark:bg-[#0B1026] transition-colors duration-500">
       {/* Header */}
       <div className="text-center mb-12 lg:mb-14 px-6">
-        <span className="text-xs font-semibold text-[#72A1E1] uppercase tracking-[0.5em]">
+        <span className="text-[11px] font-semibold text-[#72A1E1] uppercase tracking-[0.32em] sm:tracking-[0.5em]">
           Нам доверяют
         </span>
         <h3 className="mt-6 text-4xl md:text-6xl font-display font-bold text-[#00083C] dark:text-white transition-colors">
@@ -52,14 +52,14 @@ const Partners: React.FC = () => {
 
       {/* Soft background glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 w-[900px] h-[900px] -translate-x-1/2 -translate-y-1/2 bg-[#72A1E1]/18 dark:bg-[#72A1E1]/10 blur-[180px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#72A1E1]/18 blur-[180px] dark:bg-[#72A1E1]/10 md:h-[900px] md:w-[900px]" />
       </div>
 
       {/* Slider */}
       <div className="relative">
         {/* Edge fades */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-[#e3f1ff] dark:from-[#0B1026] to-transparent z-10 transition-colors duration-500" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-[#e3f1ff] dark:from-[#0B1026] to-transparent z-10 transition-colors duration-500" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#e3f1ff] dark:from-[#0B1026] to-transparent transition-colors duration-500 md:w-40" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#e3f1ff] dark:from-[#0B1026] to-transparent transition-colors duration-500 md:w-40" />
 
         <div className="partners-marquee flex gap-6 md:gap-8 w-max px-6 md:px-8">
           {track.map((p, idx) => (
