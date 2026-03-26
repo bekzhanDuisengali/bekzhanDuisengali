@@ -8,7 +8,7 @@
     <meta name="description" content="KOL (Korea Orient Line): международная логистика из Южной Кореи во Владивосток. Морские перевозки, автомобили, спецтехника, фото-видео контроль погрузки и сопровождение документов." />
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
     <meta name="keywords" content="логистика Корея Владивосток, морские перевозки Корея Россия, Busan Vladivostok shipping, Korea Orient Line, KOL logistics" />
-    <meta name="theme-color" content="#d8ebff" />
+    <meta name="theme-color" content="#8DB8F4" />
     <meta name="author" content="Korea Orient Line" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ru_RU" />
@@ -31,14 +31,22 @@
             extend: {
               colors: {
                 brand: {
-                  DEFAULT: '#226cc3',
-                  light: '#3b82f6',
-                  dark: '#1d4ed8',
+                  DEFAULT: '#8DB8F4',
+                  light: '#8DB8F4',
+                  dark: '#8DB8F4',
                 },
                 navy: {
-                  DEFAULT: '#16213f',
-                  light: '#1d2b4f',
-                  deep: '#111c35'
+                  DEFAULT: '#10233F',
+                  light: '#10233F',
+                  deep: '#10233F'
+                },
+                coral: {
+                  DEFAULT: '#8DB8F4',
+                  dark: '#8DB8F4',
+                },
+                mint: {
+                  DEFAULT: '#5F97E8',
+                  dark: '#5F97E8',
                 }
               },
               animation: {
@@ -57,23 +65,33 @@
         }
     </script>
     <style>
+        :root {
+            --kol-base: rgb(141, 184, 244);
+            --kol-surface-1: #8DB8F4;
+            --kol-surface-2: #8DB8F4;
+            --kol-surface-3: #8DB8F4;
+            --kol-ink: #10233F;
+            --kol-ink-soft: #10233F;
+            --kol-accent: #8DB8F4;
+            --kol-accent-strong: #8DB8F4;
+            --kol-mint: #5F97E8;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #eaf4ff;
-            color: #00083c;
+            background:
+              radial-gradient(90% 100% at 0% 0%, rgba(255,122,89,0.16) 0%, rgba(255,122,89,0) 58%),
+              radial-gradient(90% 110% at 100% 18%, rgba(46,196,182,0.18) 0%, rgba(46,196,182,0) 62%),
+              radial-gradient(120% 120% at 10% 0%, #8DB8F4 0%, var(--kol-base) 42%, #8DB8F4 100%);
+            color: var(--kol-ink);
             transition: background-color 0.5s ease, color 0.5s ease;
-        }
-        
-        html.dark body {
-            background-color: #111c35;
-            color: #eef4ff;
         }
 
         .font-display { font-family: 'Oswald', sans-serif; }
         
         .bg-tech-grid {
             background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
-            background-size: 30px 30px;
+            
         }
 
         .glass-panel {
@@ -92,7 +110,7 @@
         }
         
         ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-thumb { background: #226cc3; }
+        ::-webkit-scrollbar-thumb { background: var(--kol-accent); }
     </style>
 <script type="importmap">
 {
@@ -126,7 +144,7 @@
 }
 </script>
 </head>
-<body class="bg-tech-grid text-[#72A1E1]/15 dark:text-[#cfe1ff]/[0.06]">
+<body class="bg-tech-grid text-[#8DB8F4]/18">
     <div id="root"></div>
 <script type="module" src="/index.tsx"></script>
 </body>

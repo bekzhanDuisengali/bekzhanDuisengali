@@ -4,7 +4,7 @@ import { Compass } from 'lucide-react';
 
 const MapSection: React.FC = () => {
   return (
-    <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-[#dceeff]">
+    <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-[#8DB8F4]">
       {/* Visual Placeholder for Sea Map */}
       <img 
         src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&q=80&w=2400" 
@@ -14,8 +14,8 @@ const MapSection: React.FC = () => {
 
       {/* Busan Point */}
       <div className="absolute top-[65%] left-[42%] md:left-[45%] flex flex-col items-center group cursor-pointer">
-        <div className="w-6 h-6 bg-brand border-4 border-[#dceeff] rounded-full relative z-10 shadow-2xl transition-transform group-hover:scale-125"></div>
-        <div className="bg-[#e8f3ff] px-6 py-3 mt-4 shadow-2xl border border-[#72A1E1]/18 rounded-sm transform transition-all group-hover:-translate-y-2">
+        <div className="w-6 h-6 bg-brand border-4 border-[#8DB8F4] rounded-full relative z-10 shadow-2xl transition-transform group-hover:scale-125"></div>
+        <div className="bg-[#8DB8F4] px-6 py-3 mt-4 shadow-2xl border border-[#8DB8F4]/18 rounded-sm transform transition-all group-hover:-translate-y-2">
            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-navy block">BUSAN TERMINAL</span>
            <span className="text-[8px] font-bold text-slate-400 block mt-1 tracking-tighter italic">LAT: 35.1796 N</span>
         </div>
@@ -23,8 +23,8 @@ const MapSection: React.FC = () => {
 
       {/* Vladivostok Point */}
       <div className="absolute top-[25%] left-[52%] md:left-[55%] flex flex-col items-center group cursor-pointer">
-        <div className="w-6 h-6 bg-navy border-4 border-[#dceeff] rounded-full relative z-10 shadow-2xl transition-transform group-hover:scale-125"></div>
-        <div className="bg-[#deeeff] px-6 py-3 mt-4 shadow-2xl border border-[#72A1E1]/18 rounded-sm transform transition-all group-hover:-translate-y-2">
+        <div className="w-6 h-6 bg-navy border-4 border-[#8DB8F4] rounded-full relative z-10 shadow-2xl transition-transform group-hover:scale-125"></div>
+        <div className="bg-[#8DB8F4] px-6 py-3 mt-4 shadow-2xl border border-[#8DB8F4]/18 rounded-sm transform transition-all group-hover:-translate-y-2">
            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-navy block">VLADIVOSTOK PORT</span>
            <span className="text-[8px] font-bold text-slate-400 block mt-1 tracking-tighter italic">LONG: 131.8867 E</span>
         </div>
