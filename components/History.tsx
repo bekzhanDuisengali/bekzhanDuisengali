@@ -9,7 +9,7 @@ const History: React.FC = () => {
       <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-32">
         <div className="relative">
           <div className="relative mx-auto w-full max-w-[760px] min-h-[360px] sm:min-h-[500px] lg:min-h-[580px]">
-            <div className="absolute left-0 right-4 top-0 z-10 overflow-hidden rounded-[1.75rem] border border-[#cfe2fb]/70 bg-white/70 shadow-[0_30px_70px_rgba(16,44,98,0.16)] sm:right-10 lg:right-16">
+            <div className="absolute left-0 right-4 top-0 z-10 overflow-hidden rounded-[1.75rem] border border-[#8DB8F4]/70 bg-white/70 shadow-[0_30px_70px_rgba(16,44,98,0.16)] sm:right-10 lg:right-16">
               <img
                 src={boatAsset('aviva.png')}
                 className="h-[280px] w-full object-cover transition-transform duration-[3s] hover:scale-105 sm:h-[420px] lg:h-[520px]"
@@ -36,15 +36,15 @@ const History: React.FC = () => {
             <span className="text-[10px] font-black uppercase tracking-[0.28em] text-brand sm:tracking-[0.5em]">Since 1999</span>
           </div>
           
-          <h2 className="mb-10 font-display text-5xl font-bold uppercase leading-[0.9] tracking-tighter text-navy dark:text-white sm:mb-12 sm:text-7xl lg:text-8xl">
+          <h2 className="mb-10 font-display text-5xl font-bold uppercase leading-[0.9] tracking-tighter text-navy sm:mb-12 sm:text-7xl lg:text-8xl">
             НАШЕ <br/>НАСЛЕДИЕ
           </h2>
           
-          <div className="space-y-8 text-lg font-light leading-relaxed text-[#18215A]/70 transition-colors dark:text-slate-400 sm:space-y-10 sm:text-xl">
+          <div className="space-y-8 text-lg font-light leading-relaxed text-[#10233F]/70 transition-colors sm:space-y-10 sm:text-xl">
             <p>
               За плечами нашей команды — более двадцати лет опыта в области морских грузоперевозок. Мы начали свой путь в 1999 году, изучая каждый дюйм маршрута между портами Южной Кореи и России.
             </p>
-            <p className="border-l-4 border-[#72A1E1]/20 bg-[#f7fbff]/45 py-2 pl-5 pr-4 italic transition-colors dark:border-white/5 dark:bg-transparent sm:pl-10">
+            <p className="border-l-4 border-[#8DB8F4]/20 bg-[#8DB8F4]/45 py-2 pl-5 pr-4 italic transition-colors sm:pl-10">
               «В 2022 году мы объединили этот опыт под брендом KOL, чтобы предложить рынку новый уровень сервиса, основанный на абсолютной прозрачности и скорости.»
             </p>
             <p>
@@ -54,12 +54,12 @@ const History: React.FC = () => {
           
           <div className="mt-14 flex flex-wrap items-center gap-8 sm:mt-20 sm:gap-16">
             <div className="flex flex-col">
-              <span className="font-display text-6xl font-bold text-navy dark:text-white">1999</span>
+              <span className="font-display text-6xl font-bold text-navy">1999</span>
               <span className="text-[11px] font-bold uppercase text-brand tracking-[0.4em] mt-3">Foundations</span>
             </div>
-            <div className="w-24 h-[1px] bg-[#72A1E1]/20 dark:bg-white/10"></div>
+            <div className="w-24 h-[1px] bg-[#8DB8F4]/20"></div>
             <div className="flex flex-col">
-              <span className="font-display text-6xl font-bold text-navy dark:text-white">2022</span>
+              <span className="font-display text-6xl font-bold text-navy">2022</span>
               <span className="text-[11px] font-bold uppercase text-brand tracking-[0.4em] mt-3">Evolution</span>
             </div>
           </div>

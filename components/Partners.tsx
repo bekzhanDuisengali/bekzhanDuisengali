@@ -39,27 +39,23 @@ const Partners: React.FC = () => {
   const track = [...PARTNERS, ...PARTNERS];
 
   return (
-    <section className="relative w-full max-w-full py-16 lg:py-20 overflow-hidden bg-[#e3f1ff] dark:bg-[#0B1026] transition-colors duration-500">
+    <section className="relative w-full max-w-full py-16 lg:py-20 overflow-hidden transition-colors duration-500">
       {/* Header */}
       <div className="text-center mb-12 lg:mb-14 px-6">
-        <span className="text-[11px] font-semibold text-[#72A1E1] uppercase tracking-[0.32em] sm:tracking-[0.5em]">
+        <span className="text-[11px] font-semibold text-[#8DB8F4] uppercase tracking-[0.32em] sm:tracking-[0.5em]">
           Нам доверяют
         </span>
-        <h3 className="mt-6 text-4xl md:text-6xl font-display font-bold text-[#00083C] dark:text-white transition-colors">
+        <h3 className="mt-6 text-4xl md:text-6xl font-display font-bold text-[#10233F] transition-colors">
           Глобальные партнёры
         </h3>
       </div>
 
       {/* Soft background glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#72A1E1]/18 blur-[180px] dark:bg-[#72A1E1]/10 md:h-[900px] md:w-[900px]" />
-      </div>
-
       {/* Slider */}
       <div className="relative">
         {/* Edge fades */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#e3f1ff] dark:from-[#0B1026] to-transparent transition-colors duration-500 md:w-40" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#e3f1ff] dark:from-[#0B1026] to-transparent transition-colors duration-500 md:w-40" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white/70 to-transparent transition-colors duration-500 md:w-40" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white/70 to-transparent transition-colors duration-500 md:w-40" />
 
         <div className="partners-marquee flex gap-6 md:gap-8 w-max px-6 md:px-8">
           {track.map((p, idx) => (
@@ -75,14 +71,14 @@ const Partners: React.FC = () => {
               {/* Logo card */}
               <div
                 className="relative h-24 md:h-28 w-[200px] md:w-[240px] rounded-2xl
-                           border border-[#72A1E1]/18 dark:border-white/10
-                           bg-[#f4f9ff]/78 dark:bg-white/[0.04]
+                           border border-[#8DB8F4]/18
+                           bg-[#8DB8F4]/78
                            backdrop-blur-xl shadow-[0_14px_34px_rgba(18,52,110,0.10)]
-                           dark:shadow-none
+
                            transition-all duration-300
-                           group-hover:-translate-y-1 group-hover:border-[#72A1E1]/38"
+                           group-hover:-translate-y-1 group-hover:border-[#8DB8F4]/38"
               >
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/45 to-transparent dark:from-white/5" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/45 to-transparent" />
                 <div className="relative h-full w-full p-5 md:p-6 flex items-center justify-center">
                   <img
                     src={p.src}
@@ -90,7 +86,7 @@ const Partners: React.FC = () => {
                     loading="lazy"
                     className="max-h-full max-w-full object-contain opacity-80 grayscale-[0.1]
                                contrast-110 saturate-[0.95]
-                               dark:opacity-85 dark:brightness-95
+
                                group-hover:opacity-100 group-hover:grayscale-0 group-hover:saturate-100
                                transition-all duration-300"
                   />

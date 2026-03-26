@@ -143,30 +143,30 @@ const VideoSlider: React.FC = () => {
   const gridVideos = videos.slice(0, 4);
 
   return (
-    <section className="relative overflow-hidden text-[#00083C] dark:text-white transition-colors duration-500">
+    <section className="relative overflow-hidden text-[#10233F] transition-colors duration-500">
       {/* BACKGROUND like Advantages palette */}
       <div
         className="absolute inset-0 -z-10
                    bg-[radial-gradient(1200px_800px_at_18%_12%,rgba(114,161,225,0.22),transparent_58%),
                       radial-gradient(1000px_700px_at_86%_28%,rgba(172,207,255,0.22),transparent_60%),
                       radial-gradient(900px_700px_at_55%_92%,rgba(24,33,90,0.05),transparent_55%),
-                      linear-gradient(to_bottom,#F4FAFF,#EAF5FF,#DCEEFF)]"
+                      linear-gradient(to_bottom,#8DB8F4,#8DB8F4,#8DB8F4)]"
       />
       <div
-        className="absolute inset-0 -z-10 hidden dark:block
+        className="absolute inset-0 -z-10 hidden
                    bg-[radial-gradient(1200px_800px_at_18%_12%,rgba(114,161,225,0.22),transparent_58%),
                       radial-gradient(1000px_700px_at_86%_28%,rgba(172,207,255,0.20),transparent_60%),
                       radial-gradient(900px_700px_at_55%_92%,rgba(24,33,90,0.08),transparent_55%),
-                      linear-gradient(to_bottom,#00083C,#0A124A,#00083C)]"
+                      linear-gradient(to_bottom,#10233F,#10233F,#10233F)]"
       />
 
       {/* glows */}
-      <div className="absolute -top-72 left-[-180px] w-[780px] h-[780px] rounded-full blur-[200px] opacity-70 bg-[#72A1E1]/25 -z-10" />
-      <div className="absolute -bottom-80 right-[-220px] w-[900px] h-[900px] rounded-full blur-[240px] opacity-70 bg-[#ACcFFF]/18 -z-10" />
+      <div className="absolute -top-72 left-[-180px] w-[780px] h-[780px] rounded-full blur-[200px] opacity-70 bg-[#8DB8F4]/25 -z-10" />
+      <div className="absolute -bottom-80 right-[-220px] w-[900px] h-[900px] rounded-full blur-[240px] opacity-70 bg-[#8DB8F4]/18 -z-10" />
 
       {/* subtle tech dots */}
       <div
-        className="absolute inset-0 -z-10 opacity-[0.16] dark:hidden"
+        className="absolute inset-0 -z-10 opacity-[0.16]"
         style={{
           backgroundImage:
             'radial-gradient(circle at 12px 12px, rgba(24,33,90,0.10) 1px, transparent 1px)',
@@ -174,7 +174,7 @@ const VideoSlider: React.FC = () => {
         }}
       />
       <div
-        className="absolute inset-0 -z-10 hidden dark:block opacity-[0.14]"
+        className="absolute inset-0 -z-10 hidden opacity-[0.14]"
         style={{
           backgroundImage:
             'radial-gradient(circle at 12px 12px, rgba(172,207,255,0.22) 1px, transparent 1px)',
@@ -186,25 +186,25 @@ const VideoSlider: React.FC = () => {
       <div className="max-w-[1600px] mx-auto px-6 relative">
         <div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-12">
           <div className="max-w-3xl">
-            <div className="text-[#72A1E1] font-black uppercase text-[10px] tracking-[0.5em] mb-6">
+            <div className="text-[#8DB8F4] font-black uppercase text-[10px] tracking-[0.5em] mb-6">
               Каждую неделю
             </div>
 
-            <h2 className="font-display text-6xl lg:text-8xl font-bold text-[#00083C] dark:text-white uppercase tracking-tighter mb-8 italic transition-colors">
+            <h2 className="font-display text-6xl lg:text-8xl font-bold text-[#10233F] uppercase tracking-tighter mb-8 italic transition-colors">
               Погрузки и отправки
             </h2>
 
-            <p className="text-[#18215A]/70 dark:text-white/70 text-xl font-light leading-relaxed transition-colors">
+            <p className="text-[#10233F]/70 text-xl font-light leading-relaxed transition-colors">
               Документальные кадры с рейсов и погрузок KOL. Мы показываем реальную работу наших терминалов.
             </p>
           </div>
 
           <a
             href={activeVideo?.url || '#'}
-            className="flex items-center gap-4 text-[#00083C] dark:text-white font-black uppercase text-[11px] tracking-widest px-10 py-5 transition-all group
-                       rounded-2xl border border-[#72A1E1]/20 dark:border-white/20
-                       bg-[#cfe5ff]/55 dark:bg-white/5 backdrop-blur-md shadow-[0_16px_40px_rgba(24,33,90,0.25)] dark:shadow-[0_16px_40px_rgba(24,33,90,0.35)]
-                       hover:bg-[#dceeff] dark:hover:bg-white hover:text-[#00083C] hover:border-[#72A1E1]/40 dark:hover:border-white/50
+            className="flex items-center gap-4 text-[#10233F] font-black uppercase text-[11px] tracking-widest px-10 py-5 transition-all group
+                       rounded-2xl border border-[#8DB8F4]/20
+                       bg-[#8DB8F4]/55 backdrop-blur-md shadow-[0_16px_40px_rgba(24,33,90,0.25)]
+                       hover:bg-[#8DB8F4] hover:text-[#10233F] hover:border-[#8DB8F4]/40
                        active:scale-[0.98]"
             target="_blank"
             rel="noopener noreferrer"
@@ -214,7 +214,7 @@ const VideoSlider: React.FC = () => {
           </a>
         </div>
 
-        <div className="relative group overflow-hidden bg-black/40 aspect-video max-w-6xl mx-auto rounded-3xl border border-[#72A1E1]/18 dark:border-white/10 shadow-2xl">
+        <div className="relative group overflow-hidden bg-black/40 aspect-video max-w-6xl mx-auto rounded-3xl border border-[#8DB8F4]/18 shadow-2xl">
           {activeVideo ? (
             <video
               key={activeVideo.url}
@@ -238,10 +238,10 @@ const VideoSlider: React.FC = () => {
             />
           )}
 
-          <div className="absolute inset-0 bg-gradient-to-t from-[#00083C]/70 via-[#00083C]/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#10233F]/70 via-[#10233F]/20 to-transparent" />
 
           {/* Quick controls */}
-          <div className="absolute left-4 right-4 bottom-4 sm:left-8 sm:right-8 sm:bottom-8 p-3 sm:p-4 rounded-2xl bg-[#00083C]/55 backdrop-blur-md border border-white/15">
+          <div className="absolute left-4 right-4 bottom-4 sm:left-8 sm:right-8 sm:bottom-8 p-3 sm:p-4 rounded-2xl bg-[#10233F]/55 backdrop-blur-md border border-white/15">
             <div className="flex items-center justify-between gap-3">
               <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-white/75 truncate pr-2">
                 {activeVideo?.title || 'Live Terminal View | Busan, KR'}
@@ -285,8 +285,8 @@ const VideoSlider: React.FC = () => {
 
           {/* LIVE badge */}
           <div className="absolute top-10 right-10">
-            <span className="bg-[#dceeff] dark:bg-white text-[#226cc3] dark:text-[#72A1E1] px-5 py-2 rounded-full text-[11px] font-black uppercase tracking-[0.2em] flex items-center gap-3 shadow-lg border border-[#72A1E1]/20 dark:border-transparent transition-colors">
-              <span className="w-2 h-2 bg-[#72A1E1] rounded-full animate-pulse"></span> LIVE RECORD
+            <span className="bg-[#8DB8F4] text-[#5F97E8] px-5 py-2 rounded-full text-[11px] font-black uppercase tracking-[0.2em] flex items-center gap-3 shadow-lg border border-[#8DB8F4]/20 transition-colors">
+              <span className="w-2 h-2 bg-[#8DB8F4] rounded-full animate-pulse"></span> LIVE RECORD
             </span>
           </div>
         </div>
@@ -302,8 +302,8 @@ const VideoSlider: React.FC = () => {
                     setIsPlaying(true);
                   }}
                   className="aspect-square relative group cursor-pointer overflow-hidden rounded-2xl
-                             border shadow-lg bg-[#cfe5ff]/40 dark:bg-white/5 backdrop-blur block transition-colors
-                             text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#72A1E1]/70
+                             border shadow-lg bg-[#8DB8F4]/40 backdrop-blur block transition-colors
+                             text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8DB8F4]/70
                              active:scale-[0.99]
                              "
                   aria-label={item.number != null ? `Открыть AVIVA #${item.number}` : 'Открыть видео'}
@@ -316,7 +316,7 @@ const VideoSlider: React.FC = () => {
                     preload="metadata"
                   />
 
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-[#00083C]/45">
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-[#10233F]/45">
                     <span className="text-[9px] font-black text-white uppercase tracking-widest border border-white/40 px-4 py-2 rounded-full">
                       {item.number != null ? `AVIVA #${item.number}` : 'Открыть видео'}
                     </span>
@@ -324,7 +324,7 @@ const VideoSlider: React.FC = () => {
 
                   <div
                     className={`absolute inset-0 border-2 rounded-2xl pointer-events-none transition-colors ${
-                      i === activeIndex ? 'border-[#72A1E1]' : 'border-transparent'
+                      i === activeIndex ? 'border-[#8DB8F4]' : 'border-transparent'
                     }`}
                   />
                 </button>
@@ -333,7 +333,7 @@ const VideoSlider: React.FC = () => {
                 <div
                   key={item.id}
                   className="aspect-square relative group cursor-pointer overflow-hidden rounded-2xl
-                             border border-[#72A1E1]/18 dark:border-white/10 shadow-lg bg-[#cfe5ff]/40 dark:bg-white/5 backdrop-blur transition-colors"
+                             border border-[#8DB8F4]/18 shadow-lg bg-[#8DB8F4]/40 backdrop-blur transition-colors"
                 >
                   <img
                     src={item.image}
@@ -341,7 +341,7 @@ const VideoSlider: React.FC = () => {
                     alt={item.title}
                   />
 
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-[#00083C]/55">
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-[#10233F]/55">
                     <span className="text-[9px] font-black text-white uppercase tracking-widest border border-white/40 px-4 py-2 rounded-full">
                       Открыть видео
                     </span>

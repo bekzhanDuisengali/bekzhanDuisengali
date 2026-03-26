@@ -1,0 +1,170 @@
+.metrics-landscape {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.48), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(95, 151, 232, 0.18), transparent 28%),
+    linear-gradient(180deg, rgba(141, 184, 244, 0.92) 0%, rgba(141, 184, 244, 0.8) 100%);
+  color: #10233f;
+}
+
+.metrics-landscape__shell {
+  position: relative;
+  max-width: 1760px;
+  min-height: 820px;
+  margin: 0 auto;
+  padding: 7rem 2rem 6rem;
+}
+
+.metrics-landscape__line {
+  position: absolute;
+  border: 1.5px solid rgba(16, 35, 63, 0.2);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.metrics-landscape__line--left {
+  top: 2rem;
+  left: -12rem;
+  width: 68rem;
+  height: 24rem;
+  transform: rotate(-8deg);
+}
+
+.metrics-landscape__line--center {
+  top: 13rem;
+  right: -4rem;
+  width: 56rem;
+  height: 23rem;
+  border-color: rgba(95, 151, 232, 0.34);
+  transform: rotate(-13deg);
+}
+
+.metrics-landscape__line--right {
+  bottom: 1rem;
+  left: 4rem;
+  width: 74rem;
+  height: 17rem;
+  border-color: rgba(16, 35, 63, 0.16);
+  transform: rotate(7deg);
+}
+
+.metrics-landscape__item {
+  position: absolute;
+  max-width: 28rem;
+}
+
+.metrics-landscape__item--experience {
+  top: 6rem;
+  left: 18%;
+}
+
+.metrics-landscape__item--volume {
+  top: 17rem;
+  right: 10%;
+  max-width: 30rem;
+}
+
+.metrics-landscape__item--service {
+  left: 8%;
+  bottom: 15rem;
+  max-width: 31rem;
+}
+
+.metrics-landscape__item--support {
+  right: 8%;
+  bottom: 4rem;
+}
+
+.metrics-landscape__eyebrow {
+  margin: 0 0 0.85rem;
+  color: rgba(16, 35, 63, 0.5);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.metrics-landscape__title {
+  margin: 0;
+  color: #10233f;
+  font-family: var(--font-display, inherit);
+  font-size: clamp(3.4rem, 4.8vw, 6rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+
+.metrics-landscape__subtitle {
+  margin: 0.65rem 0 0;
+  color: rgba(16, 35, 63, 0.72);
+  font-size: clamp(0.95rem, 1vw, 1.08rem);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1279px) {
+  .metrics-landscape__shell {
+    min-height: 740px;
+    padding: 5.5rem 1.5rem;
+  }
+
+  .metrics-landscape__item--experience {
+    left: 10%;
+  }
+
+  .metrics-landscape__item--volume {
+    right: 4%;
+  }
+
+  .metrics-landscape__item--service {
+    left: 2%;
+  }
+
+  .metrics-landscape__item--support {
+    right: 3%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .metrics-landscape__shell {
+    min-height: auto;
+    padding: 4rem 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .metrics-landscape__line {
+    display: none;
+  }
+
+  .metrics-landscape__item {
+    position: relative;
+    inset: auto;
+    max-width: none;
+    border: 1px solid rgba(16, 35, 63, 0.12);
+    border-radius: 2rem;
+    background: rgba(255, 255, 255, 0.22);
+    padding: 1.5rem;
+    box-shadow: 0 10px 26px rgba(16, 35, 63, 0.08);
+    backdrop-filter: blur(6px);
+  }
+}
+
+@media (max-width: 639px) {
+  .metrics-landscape__shell {
+    grid-template-columns: 1fr;
+    padding: 3rem 1rem;
+  }
+
+  .metrics-landscape__item {
+    padding: 1.25rem;
+  }
+
+  .metrics-landscape__title {
+    font-size: clamp(2.7rem, 14vw, 4rem);
+  }
+}
