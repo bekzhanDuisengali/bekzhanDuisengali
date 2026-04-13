@@ -1,4 +1,5 @@
 import React from 'react';
+import { Ship, Waves, Warehouse } from 'lucide-react';
 
 const asset = (file: string) => new URL(`../images/slider/${file}`, import.meta.url).href;
 
@@ -46,8 +47,39 @@ const Partners: React.FC = () => {
           Нам доверяют
         </span>
         <h3 className="mt-6 text-4xl md:text-6xl font-display font-bold text-[#10233F] transition-colors">
-          Глобальные партнёры
+          Наши партнёры
         </h3>
+      </div>
+
+      <div className="mx-auto mb-14 grid max-w-[1540px] items-center gap-8 px-6 lg:mb-16 lg:grid-cols-[minmax(0,1fr)_280px] lg:px-12">
+        <div className="max-w-[1120px]">
+          <h4 className="text-[2.1rem] font-display font-extrabold uppercase leading-[0.92] tracking-[-0.08em] text-[#0d4f6d] md:text-[3.7rem]">
+            SEAROAD LOGISTIC CO
+          </h4>
+          <p className="mt-4 max-w-[1180px] text-[1.05rem] leading-[1.02] tracking-[-0.05em] text-[#0d4f6d]/90 md:text-[1.6rem]">
+            Мы сотрудничаем с проверенной логистической компанией Searoad во Владивостоке,
+            обеспечивая стабильную и быструю обработку грузов. Благодаря отлаженным
+            процессам и опыту партнёров, мы гарантируем безопасную доставку и
+            эффективное сопровождение на каждом этапе перевозки.
+          </p>
+        </div>
+
+        <div className="mx-auto flex w-full max-w-[260px] items-center justify-center lg:justify-end">
+          <div className="relative flex aspect-square w-[210px] items-center justify-center rounded-[36px] bg-gradient-to-br from-[#0d4f6d] via-[#174f6d] to-[#214b63] shadow-[0_24px_60px_rgba(13,79,109,0.18)]">
+            <div className="absolute right-5 top-5 h-12 w-12 rounded-full bg-[#0d4f6d]/92" />
+            <div className="relative z-10 flex w-[80%] flex-col items-center text-white">
+              <div className="relative mb-4 flex h-24 w-24 items-center justify-center rounded-full border border-white/20 bg-white/8">
+                <Waves size={42} className="absolute left-5 top-[52px] text-white/90" strokeWidth={1.8} />
+                <Warehouse size={28} className="absolute left-2 top-11 text-white" strokeWidth={2} />
+                <Ship size={40} className="relative z-10 text-white" strokeWidth={2.1} />
+              </div>
+              <div className="text-center font-display text-[1.1rem] font-black uppercase leading-none tracking-[-0.06em]">
+                <div>SEAROAD</div>
+                <div className="mt-1 text-[#f0b0ae]">LOGISTIC CO</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Soft background glow */}

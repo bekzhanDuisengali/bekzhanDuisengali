@@ -6,6 +6,7 @@ import MetricsLandscape from './components/MetricsLandscape';
 import RouteStory from './components/RouteStory';
 import Services from './components/Services';
 import VideoSlider from './components/VideoSlider';
+import RouteOverview from './components/RouteOverview';
 import Reviews from './components/Reviews';
 import Partners from './components/Partners';
 import Location from './components/Location';
@@ -27,7 +28,7 @@ const SECTION_CONFIG: SectionConfig[] = [
   },
   {
     id: 'about',
-    className: 'py-24 lg:py-40 bg-[#8DB8F4]/58 backdrop-blur-[1px] transition-colors duration-500',
+    className: 'bg-[#edf5fb] transition-colors duration-500',
     content: <History />,
   },
   {
@@ -41,13 +42,12 @@ const SECTION_CONFIG: SectionConfig[] = [
   },
   {
     id: 'services',
-    className:
-      'py-24 transition-colors duration-500 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.48),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(95,151,232,0.18),transparent_28%),linear-gradient(180deg,rgba(141,184,244,0.92)_0%,rgba(141,184,244,0.8)_100%)]',
+    className: 'py-24 transition-colors duration-500 bg-[#d8edf8]',
     content: <Services />,
   },
   {
     id: 'operations',
-    className: 'bg-[#8DB8F4]/58 text-[#10233F] transition-colors duration-500 pb-24',
+    className: 'bg-[#8DB8F4]/58 text-[#10233F] transition-colors duration-500',
     content: <VideoSlider />,
   },
   {
@@ -56,14 +56,10 @@ const SECTION_CONFIG: SectionConfig[] = [
   },
   {
     id: 'location',
-    className: 'py-24 lg:py-40 bg-[#8DB8F4]/52 transition-colors duration-500',
+    className: 'py-20 lg:py-28 bg-[#0b4a61] transition-colors duration-500',
     content: <Location />,
   },
-  {
-    id: 'contact',
-    className: 'py-24 lg:py-40 bg-[#8DB8F4]/58 transition-colors duration-500',
-    content: <ContactChannels />,
-  },
+
 ];
 
 const App = () => {
@@ -105,7 +101,11 @@ const App = () => {
           </section>
         ))}
 
-        <Reviews />
+        {/* <section id="route-overview" className="bg-[#dbeaf5] transition-colors duration-500">
+          <RouteOverview />
+        </section> */}
+
+        {/* <Reviews /> */}
 
         {SECTION_CONFIG.slice(6).map((section) => (
           <section key={section.id} id={section.id} className={section.className}>

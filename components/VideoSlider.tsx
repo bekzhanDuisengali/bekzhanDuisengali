@@ -1,5 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Maximize, Pause, PictureInPicture2, Play, Volume2, VolumeX } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { ArrowUpRight, Play, Send } from 'lucide-react';
+
+const boatImage = (file: string) => new URL(`../images/boats/${file}`, import.meta.url).href;
+const cargoImage = (file: string) => new URL(`../images/blocks/${file}`, import.meta.url).href;
 
 type TgVideoItem = {
   title?: string;
@@ -9,14 +12,42 @@ type TgVideoItem = {
   message_id?: number;
 };
 
-const FALLBACK_PREVIEWS = [1, 2, 3, 4].map((i) => ({
-  id: `fallback-${i}`,
-  image: `https://picsum.photos/seed/kol${i}/600/600`,
-  title: `Shipment ${i}`,
-}));
+type VideoCard = {
+  date: string;
+  route: string;
+  image: string;
+  href: string;
+  title?: string;
+};
+
+const FALLBACK_CARDS: VideoCard[] = [
+  {
+    date: '12.03.2026',
+    route: 'Пусан → Владивосток',
+    image: boatImage('htmlconvd-l4QmqT_html_c29095cbe5ada8b8.png'),
+    href: 'https://t.me',
+  },
+  {
+    date: '18.03.2026',
+    route: 'Пусан → Владивосток',
+    image: cargoImage('генеральныегрузы.png'),
+    href: 'https://t.me',
+  },
+  {
+    date: '25.03.2026',
+    route: 'Пусан → Владивосток',
+    image: cargoImage('спецтехника.png'),
+    href: 'https://t.me',
+  },
+  {
+    date: '02.04.2026',
+    route: 'Пусан → Владивосток',
+    image: cargoImage('распил.png'),
+    href: 'https://t.me',
+  },
+];
 
 const FEED_BASE = (import.meta.env.VITE_AVIVA_FEED_BASE || '').replace(/\/+$/, '');
-const FEED_PROXY_BASE = '/aviva-feed';
 const FEED_JSON_URL = FEED_BASE
   ? `${FEED_BASE}/assets/aviva/videos.json`
   : '/assets/aviva/videos.json';
@@ -39,12 +70,21 @@ function resolveVideoUrl(url: string) {
   return url;
 }
 
+function formatDate(value?: string, fallback?: string) {
+  if (!value) return fallback || '';
+
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return fallback || '';
+
+  return new Intl.DateTimeFormat('ru-RU', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  }).format(parsed);
+}
+
 const VideoSlider: React.FC = () => {
   const [videos, setVideos] = useState<TgVideoItem[]>([]);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isMuted, setIsMuted] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -65,7 +105,7 @@ const VideoSlider: React.FC = () => {
           .slice(0, 4);
         setVideos((prev) => (sameVideoList(prev, normalized) ? prev : normalized));
       } catch {
-        // Keep UI fallback previews if the feed is not available yet.
+        // Keep fallback cards visible until the feed is available.
       }
     };
 
@@ -92,262 +132,95 @@ const VideoSlider: React.FC = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (activeIndex > videos.length - 1) setActiveIndex(0);
-  }, [videos, activeIndex]);
+  const cards = FALLBACK_CARDS.map((card, index) => {
+    const item = videos[index];
 
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    v.muted = isMuted;
-  }, [isMuted, activeIndex]);
-
-  const togglePlay = async () => {
-    const v = videoRef.current;
-    if (!v) return;
-    if (v.paused) {
-      await v.play().catch(() => {});
-      setIsPlaying(true);
-    } else {
-      v.pause();
-      setIsPlaying(false);
-    }
-  };
-
-  const toggleMute = () => {
-    setIsMuted((prev) => !prev);
-  };
-
-  const toggleFullscreen = async () => {
-    const v = videoRef.current;
-    if (!v) return;
-    if (!document.fullscreenElement) {
-      await v.requestFullscreen?.().catch(() => {});
-    } else {
-      await document.exitFullscreen?.().catch(() => {});
-    }
-  };
-
-  const togglePip = async () => {
-    const v = videoRef.current as (HTMLVideoElement & { requestPictureInPicture?: () => Promise<unknown> }) | null;
-    if (!v || !v.requestPictureInPicture) return;
-    if (document.pictureInPictureElement) {
-      await document.exitPictureInPicture?.().catch(() => {});
-      return;
-    }
-    await v.requestPictureInPicture().catch(() => {});
-  };
-
-  const featuredVideo = videos[0] ?? null;
-  const activeVideo = videos[activeIndex] ?? featuredVideo;
-  const gridVideos = videos.slice(0, 4);
+    return {
+      ...card,
+      date: formatDate(item?.posted_at, card.date),
+      href: item?.url || card.href,
+      title: item?.title || card.title,
+    };
+  });
 
   return (
-    <section className="relative overflow-hidden text-[#10233F] transition-colors duration-500">
-      {/* BACKGROUND like Advantages palette */}
-      <div
-        className="absolute inset-0 -z-10
-                   bg-[radial-gradient(1200px_800px_at_18%_12%,rgba(114,161,225,0.22),transparent_58%),
-                      radial-gradient(1000px_700px_at_86%_28%,rgba(172,207,255,0.22),transparent_60%),
-                      radial-gradient(900px_700px_at_55%_92%,rgba(24,33,90,0.05),transparent_55%),
-                      linear-gradient(to_bottom,#8DB8F4,#8DB8F4,#8DB8F4)]"
-      />
-      <div
-        className="absolute inset-0 -z-10 hidden
-                   bg-[radial-gradient(1200px_800px_at_18%_12%,rgba(114,161,225,0.22),transparent_58%),
-                      radial-gradient(1000px_700px_at_86%_28%,rgba(172,207,255,0.20),transparent_60%),
-                      radial-gradient(900px_700px_at_55%_92%,rgba(24,33,90,0.08),transparent_55%),
-                      linear-gradient(to_bottom,#10233F,#10233F,#10233F)]"
-      />
+    <section className="relative overflow-hidden bg-[#f4f4f8] text-[#233a5d]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.96),rgba(239,242,248,0.88)_42%,rgba(232,236,244,0.94)_100%)]" />
+      <div className="absolute inset-x-0 top-0 h-48 bg-[linear-gradient(180deg,rgba(255,255,255,0.85),transparent)]" />
+      <div className="absolute left-[-8%] bottom-[-16%] h-72 w-[38%] rounded-full bg-[#c7d4eb]/30 blur-3xl" />
+      <div className="absolute right-[-6%] top-[3%] h-[27rem] w-[36rem] rounded-full bg-[#dfe7f4]/55 blur-3xl" />
 
-      {/* glows */}
-      <div className="absolute -top-72 left-[-180px] w-[780px] h-[780px] rounded-full blur-[200px] opacity-70 bg-[#8DB8F4]/25 -z-10" />
-      <div className="absolute -bottom-80 right-[-220px] w-[900px] h-[900px] rounded-full blur-[240px] opacity-70 bg-[#8DB8F4]/18 -z-10" />
 
-      {/* subtle tech dots */}
-      <div
-        className="absolute inset-0 -z-10 opacity-[0.16]"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle at 12px 12px, rgba(24,33,90,0.10) 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
-        }}
-      />
-      <div
-        className="absolute inset-0 -z-10 hidden opacity-[0.14]"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle at 12px 12px, rgba(172,207,255,0.22) 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
-        }}
-      />
 
-      {/* CONTENT */}
-      <div className="max-w-[1600px] mx-auto px-6 relative">
-        <div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-12">
-          <div className="max-w-3xl">
-            <div className="text-[#8DB8F4] font-black uppercase text-[10px] tracking-[0.5em] mb-6">
-              Каждую неделю
-            </div>
+      <div className="relative mx-auto max-w-[1240px] px-6 py-20 sm:px-8 lg:px-10 lg:py-24">
+        <div className="max-w-4xl">
+          <h2 className="text-4xl font-semibold uppercase tracking-[0.05em] text-[#1e3556] sm:text-5xl lg:text-[3.65rem]">
+            Погрузки и отправки
+          </h2>
 
-            <h2 className="font-display text-6xl lg:text-8xl font-bold text-[#10233F] uppercase tracking-tighter mb-8 italic transition-colors">
-              Погрузки и отправки
-            </h2>
+          <p className="mt-5 text-xl font-light text-[#3d4e6d] sm:text-[1.75rem]">
+            Реальные рейсы и погрузки
+          </p>
 
-            <p className="text-[#10233F]/70 text-xl font-light leading-relaxed transition-colors">
-              Документальные кадры с рейсов и погрузок KOL. Мы показываем реальную работу наших терминалов.
-            </p>
-          </div>
-
-          <a
-            href={activeVideo?.url || '#'}
-            className="flex items-center gap-4 text-[#10233F] font-black uppercase text-[11px] tracking-widest px-10 py-5 transition-all group
-                       rounded-2xl border border-[#8DB8F4]/20
-                       bg-[#8DB8F4]/55 backdrop-blur-md shadow-[0_16px_40px_rgba(24,33,90,0.25)]
-                       hover:bg-[#8DB8F4] hover:text-[#10233F] hover:border-[#8DB8F4]/40
-                       active:scale-[0.98]"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Смотреть в Telegram
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </a>
+          <p className="mt-6 text-base text-[#556684] sm:text-[1.45rem] sm:leading-[1.45]">
+            Фото- и видеофиксация
+            <span className="mx-3 text-[#8e9db7]">•</span>
+            Без посредников
+            <span className="mx-3 text-[#8e9db7]">•</span>
+            Прямой доступ к портам
+          </p>
         </div>
 
-        <div className="relative group overflow-hidden bg-black/40 aspect-video max-w-6xl mx-auto rounded-3xl border border-[#8DB8F4]/18 shadow-2xl">
-          {activeVideo ? (
-            <video
-              key={activeVideo.url}
-              ref={videoRef}
-              src={activeVideo.url}
-              className="w-full h-full object-cover"
-              controls
-              muted={isMuted}
-              autoPlay
-              loop
-              playsInline
-              preload="metadata"
-              onPlay={() => setIsPlaying(true)}
-              onPause={() => setIsPlaying(false)}
-            />
-          ) : (
-            <img
-              src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=1600"
-              className="w-full h-full object-cover opacity-60"
-              alt="Video Preview"
-            />
-          )}
+        <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {cards.map((card, index) => (
+            <a
+              key={`${card.date}-${index}`}
+              href={card.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group overflow-hidden rounded-[1.65rem] bg-[#eef1f6] shadow-[0_18px_46px_rgba(166,180,210,0.22)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(132,148,181,0.26)]"
+              aria-label={card.title || `Открыть видео от ${card.date}`}
+            >
+              <div className="relative h-[17rem] overflow-hidden sm:h-[19rem]">
+                <img
+                  src={card.image}
+                  alt={card.title || `Погрузка ${card.date}`}
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,43,78,0.02),rgba(17,43,78,0.18))]" />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-[#10233F]/70 via-[#10233F]/20 to-transparent" />
-
-          {/* Quick controls */}
-          <div className="absolute left-4 right-4 bottom-4 sm:left-8 sm:right-8 sm:bottom-8 p-3 sm:p-4 rounded-2xl bg-[#10233F]/55 backdrop-blur-md border border-white/15">
-            <div className="flex items-center justify-between gap-3">
-              <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-white/75 truncate pr-2">
-                {activeVideo?.title || 'Live Terminal View | Busan, KR'}
-              </span>
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={togglePlay}
-                  aria-label={isPlaying ? 'Пауза' : 'Воспроизвести'}
-                  className="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors"
-                >
-                  {isPlaying ? <Pause size={18} /> : <Play size={18} />}
-                </button>
-                <button
-                  type="button"
-                  onClick={toggleMute}
-                  aria-label={isMuted ? 'Включить звук' : 'Выключить звук'}
-                  className="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors"
-                >
-                  {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-                </button>
-                <button
-                  type="button"
-                  onClick={togglePip}
-                  aria-label="Картинка в картинке"
-                  className="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors"
-                >
-                  <PictureInPicture2 size={18} />
-                </button>
-                <button
-                  type="button"
-                  onClick={toggleFullscreen}
-                  aria-label="Полный экран"
-                  className="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors"
-                >
-                  <Maximize size={18} />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* LIVE badge */}
-          <div className="absolute top-10 right-10">
-            <span className="bg-[#8DB8F4] text-[#5F97E8] px-5 py-2 rounded-full text-[11px] font-black uppercase tracking-[0.2em] flex items-center gap-3 shadow-lg border border-[#8DB8F4]/20 transition-colors">
-              <span className="w-2 h-2 bg-[#8DB8F4] rounded-full animate-pulse"></span> LIVE RECORD
-            </span>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12 max-w-6xl mx-auto">
-          {gridVideos.length > 0
-            ? gridVideos.map((item, i) => (
-                <button
-                  type="button"
-                  key={`${item.url}-${i}`}
-                  onClick={() => {
-                    setActiveIndex(i);
-                    setIsPlaying(true);
-                  }}
-                  className="aspect-square relative group cursor-pointer overflow-hidden rounded-2xl
-                             border shadow-lg bg-[#8DB8F4]/40 backdrop-blur block transition-colors
-                             text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8DB8F4]/70
-                             active:scale-[0.99]
-                             "
-                  aria-label={item.number != null ? `Открыть AVIVA #${item.number}` : 'Открыть видео'}
-                >
-                  <video
-                    src={item.url}
-                    className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-all"
-                    muted
-                    playsInline
-                    preload="metadata"
-                  />
-
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-[#10233F]/45">
-                    <span className="text-[9px] font-black text-white uppercase tracking-widest border border-white/40 px-4 py-2 rounded-full">
-                      {item.number != null ? `AVIVA #${item.number}` : 'Открыть видео'}
-                    </span>
-                  </div>
-
-                  <div
-                    className={`absolute inset-0 border-2 rounded-2xl pointer-events-none transition-colors ${
-                      i === activeIndex ? 'border-[#8DB8F4]' : 'border-transparent'
-                    }`}
-                  />
-                </button>
-              ))
-            : FALLBACK_PREVIEWS.map((item) => (
-                <div
-                  key={item.id}
-                  className="aspect-square relative group cursor-pointer overflow-hidden rounded-2xl
-                             border border-[#8DB8F4]/18 shadow-lg bg-[#8DB8F4]/40 backdrop-blur transition-colors"
-                >
-                  <img
-                    src={item.image}
-                    className="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0"
-                    alt={item.title}
-                  />
-
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-[#10233F]/55">
-                    <span className="text-[9px] font-black text-white uppercase tracking-widest border border-white/40 px-4 py-2 rounded-full">
-                      Открыть видео
-                    </span>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="flex h-[5.2rem] w-[5.2rem] items-center justify-center rounded-full border border-white/70 bg-[#1f3f6d]/88 text-white shadow-[0_10px_30px_rgba(19,39,68,0.28)] transition duration-300 group-hover:scale-105">
+                    <Play size={28} fill="currentColor" />
                   </div>
                 </div>
-              ))}
+              </div>
+
+              <div className="bg-[linear-gradient(180deg,#f6f7fb_0%,#eceff5_100%)] px-5 pb-5 pt-4 text-[#2d4062]">
+                <div className="text-[1.05rem] font-medium tracking-[0.02em] sm:text-[1.95rem] sm:leading-none lg:text-[1.9rem]">
+                  {card.date}
+                </div>
+                <div className="mt-2 text-sm text-[#556684] sm:text-[1.65rem] sm:leading-tight lg:text-[1.52rem]">
+                  {card.route}
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <a
+            href="https://t.me"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(180deg,#2f5a8e_0%,#1f3f6d_100%)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-white shadow-[0_14px_34px_rgba(32,63,108,0.26)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(32,63,108,0.34)] sm:px-8 sm:py-4 sm:text-xl"
+          >
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#5ca7ea] text-white sm:h-9 sm:w-9">
+              <Send size={16} fill="currentColor" className="translate-x-[1px] -translate-y-[1px] sm:h-[18px] sm:w-[18px]" />
+            </span>
+            Перейти в Telegram
+            <ArrowUpRight size={18} className="sm:h-5 sm:w-5" />
+          </a>
         </div>
       </div>
     </section>

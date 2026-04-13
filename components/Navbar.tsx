@@ -1,8 +1,15 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const logoSrc = new URL('../images/logo.png', import.meta.url).href;
+
+const NAV_LINKS = [
+  { name: 'О нас', href: '#about' },
+  { name: 'Услуги', href: '#services' },
+  { name: 'Погрузки', href: '#operations' },
+  { name: 'Партнеры', href: '#partners' },
+  { name: 'Контакты', href: '#contact' },
+];
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +19,7 @@ const Navbar: React.FC = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -23,107 +31,93 @@ const Navbar: React.FC = () => {
     };
   }, [isOpen]);
 
-  const navLinks = [
-    { name: 'Услуги', href: '#services' },
-    { name: 'О нас', href: '#about' },
-    { name: 'Погрузки', href: '#operations' },
-    { name: 'Партнёры', href: '#partners' },
-    { name: 'Контакты', href: '#contact' },
-  ];
-
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-[linear-gradient(180deg,rgba(231,242,255,0.94),rgba(207,226,251,0.9))] backdrop-blur-xl py-4 border-b border-[#8DB8F4]/20 shadow-[0_16px_40px_rgba(31,73,134,0.14)]' : 'bg-transparent py-8'}`}>
-      <div className="max-w-[1700px] mx-auto flex justify-between items-center px-6 md:px-12">
-        
-        <div className="flex items-center gap-12">
-          <a href="#hero" className="flex items-center gap-4 group">
-            <div className="h-10 md:h-12 overflow-hidden pb-2 transform group-hover:scale-105 transition-transform duration-300">
-              <img src={logoSrc} alt="KOL Logo" className="h-full w-auto object-contain transition-all brightness-0" />
-            </div>
-            <div className="hidden sm:flex flex-col leading-none">
-              <span className="font-display font-bold text-lg md:text-xl tracking-tighter uppercase group-hover:text-brand transition-colors text-[#10233F]">KOL</span>
-              <span className="text-[8px] font-black uppercase tracking-[0.3em] text-brand mt-1">Korea Orient Line</span>
-            </div>
-          </a>
-        </div>
+    <nav
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'border-b border-white/10 bg-[rgba(8,15,22,0.72)] py-4 backdrop-blur-xl'
+          : 'bg-transparent py-7'
+      }`}
+    >
+      <div className="mx-auto flex max-w-[1720px] items-center justify-between px-6 lg:px-12">
+        <a href="#hero" className="flex items-center">
+          <img
+            src={logoSrc}
+            alt="KOL Logo"
+            className="h-12 w-auto object-contain brightness-0 invert md:h-[4.2rem]"
+          />
+        </a>
 
-        <div className="hidden lg:flex items-center gap-10">
-          <div className="flex items-center gap-8">
-            {navLinks.map(link => (
-              <a 
-                key={link.name} 
-                href={link.href} 
-                className="text-[10px] font-black uppercase tracking-[0.25em] transition-all relative group text-[#8DB8F4] hover:text-[#8DB8F4]"
+        <div className="hidden items-center gap-14 lg:flex">
+          <div className="flex items-center gap-14">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-[0.97rem] font-extrabold uppercase tracking-[-0.04em] text-white transition-opacity hover:opacity-75"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-brand transition-all group-hover:w-full"></span>
               </a>
             ))}
           </div>
 
-          <div className="h-6 w-[1px] bg-[#10233F]/18 mx-2"></div>
-          
-          <div className="flex items-center gap-6">
-            <button className="bg-[#8DB8F4] text-white px-8 py-3.5 rounded-sm text-[10px] font-black tracking-[0.2em] uppercase transition-all hover:bg-[#8DB8F4] shadow-lg active:scale-95">
-              КОНСУЛЬТАЦИЯ
-            </button>
-          </div>
+          <a
+            href="#contact"
+            className="inline-flex min-h-[3.45rem] items-center justify-center rounded-full bg-white px-8 text-[0.97rem] font-extrabold uppercase tracking-[-0.04em] text-[#0d5877] transition-transform hover:-translate-y-0.5"
+          >
+            Консультация
+          </a>
         </div>
 
         <button
           type="button"
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isOpen}
-          className="lg:hidden flex h-12 w-12 items-center justify-center rounded-2xl border transition-all border-[#8DB8F4]/25 bg-[#8DB8F4] text-[#10233F]"
-          onClick={() => setIsOpen(!isOpen)}
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur md:h-14 md:w-14 lg:hidden"
+          onClick={() => setIsOpen((current) => !current)}
         >
           {isOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden fixed inset-0 z-40 bg-[rgba(125,170,235,0.62)] backdrop-blur-xl">
-          <div className="absolute inset-x-4 top-24 rounded-[2rem] border p-5 shadow-[0_24px_60px_rgba(20,49,96,0.2)] transition-all border-[#8DB8F4]/28 bg-[linear-gradient(180deg,rgba(240,247,255,0.97),rgba(217,234,255,0.94))]">
-            <div className="flex items-center justify-between border-b border-[#8DB8F4]/24 pb-4">
-              <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#8DB8F4]">Navigation</p>
-                <p className="mt-2 text-lg font-display font-bold uppercase tracking-tight text-[#10233F]">Korea Orient Line</p>
-              </div>
+        <div className="fixed inset-0 top-0 z-40 bg-[rgba(6,12,19,0.72)] backdrop-blur-xl lg:hidden">
+          <div className="absolute inset-x-4 top-20 rounded-[2rem] border border-white/10 bg-[#0d1e2b]/96 p-5 shadow-[0_30px_80px_rgba(0,0,0,0.28)]">
+            <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
+              <img
+                src={logoSrc}
+                alt="KOL Logo"
+                className="h-11 w-auto object-contain brightness-0 invert"
+              />
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#8DB8F4]/24 bg-[#8DB8F4] text-[#10233F]"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white"
               >
                 <X size={20} />
               </button>
             </div>
 
-            <div className="mt-5 flex flex-col gap-3">
-              {navLinks.map((link, idx) => (
+            <div className="flex flex-col gap-3">
+              {NAV_LINKS.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between rounded-2xl border px-4 py-4 transition-all border-[#8DB8F4]/24 bg-[#8DB8F4] text-[#10233F] hover:border-[#8DB8F4]/45 hover:bg-[#8DB8F4]"
+                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-base font-extrabold uppercase tracking-[-0.02em] text-white"
                 >
-                  <span className="text-base font-black uppercase tracking-[0.12em]">{link.name}</span>
-                  <span className="text-[10px] font-black uppercase tracking-[0.22em] text-[#8DB8F4]">
-                    0{idx + 1}
-                  </span>
+                  {link.name}
                 </a>
               ))}
             </div>
 
-            <div className="mt-5 grid grid-cols-1 gap-3">
-              <a
-                href="#contact"
-                onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center rounded-2xl bg-brand px-4 py-4 text-[11px] font-black uppercase tracking-[0.2em] text-white"
-              >
-                Контакты
-              </a>
-            </div>
+            <a
+              href="#contact"
+              onClick={() => setIsOpen(false)}
+              className="mt-4 flex min-h-[3.5rem] items-center justify-center rounded-full bg-white text-base font-extrabold uppercase tracking-[-0.02em] text-[#0d5877]"
+            >
+              Консультация
+            </a>
           </div>
         </div>
       )}
