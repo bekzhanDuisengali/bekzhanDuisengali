@@ -13,8 +13,6 @@ const PHONE_DISPLAY = '+82 10 7309 9001';
 const PHONE_LINK = 'tel:+821073099001';
 const EMAIL = 'info@kol.com';
 const ADDRESS = 'Marine Center Busan Jung-gu 4(sa)-ga 79-1';
-const MAP_IMAGE =
-  'https://staticmap.openstreetmap.de/staticmap.php?center=35.1039,129.0364&zoom=13&size=1200x900&maptype=mapnik&markers=35.1039,129.0364,red-pushpin';
 
 const socialLinks = [
   { href: 'https://instagram.com', label: 'Instagram', icon: Instagram },
@@ -38,12 +36,14 @@ const Location: React.FC = () => {
         <div className="mt-10 grid items-start gap-8 lg:mt-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] lg:gap-10">
           <div className="overflow-hidden rounded-[2rem] bg-white/10 shadow-[0_18px_54px_rgba(0,0,0,0.14)]">
             <div className="relative aspect-[1.18/1] overflow-hidden rounded-[2rem]">
-              <img
-                src={MAP_IMAGE}
-                alt="Busan map"
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3263.8724729262613!2d129.03636727587545!3d35.1098951611473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3568e98028159367%3A0xddc330e7e2d47ed1!2sMarine%20Center%20Building!5e0!3m2!1sru!2skz!4v1776181758053!5m2!1sru!2skz"
+                title="Busan map"
                 loading="lazy"
-                decoding="async"
                 className="h-full w-full object-cover"
+                style={{ border: 0 }}
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0))]" />
               <div className="absolute left-[46%] top-[34%] flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[3px] border-[#0d4f66] bg-white/84 text-[#0d4f66] shadow-[0_14px_30px_rgba(13,79,102,0.25)] backdrop-blur">
