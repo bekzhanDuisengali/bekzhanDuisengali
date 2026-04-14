@@ -101,9 +101,9 @@ const App = () => {
           </section>
         ))}
 
-        {/* <section id="route-overview" className="bg-[#dbeaf5] transition-colors duration-500">
+        <section id="route-overview" className="bg-[#dbeaf5] transition-colors duration-500">
           <RouteOverview />
-        </section> */}
+        </section>
 
         {/* <Reviews /> */}
 
