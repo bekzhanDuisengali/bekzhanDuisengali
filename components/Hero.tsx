@@ -2,14 +2,23 @@ import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import './Hero.css';
 
-const heroBackground = new URL('../images/hero/aerial-view-container-cargo-ship-sea.jpg', import.meta.url).href;
+const heroBackground960 = new URL(
+  '../images/hero/optimized/aerial-view-container-cargo-ship-sea-960.webp',
+  import.meta.url,
+).href;
+const heroBackground1600 = new URL(
+  '../images/hero/optimized/aerial-view-container-cargo-ship-sea-1600.webp',
+  import.meta.url,
+).href;
 
 const Hero = () => {
   return (
     <div className="hero">
       <div className="hero__background" aria-hidden>
         <img
-          src={heroBackground}
+          src={heroBackground1600}
+          srcSet={`${heroBackground960} 960w, ${heroBackground1600} 1600w`}
+          sizes="100vw"
           className="hero__background-image is-active"
           alt="Container vessel at sea"
           loading="eager"
