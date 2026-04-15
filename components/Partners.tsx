@@ -5,11 +5,6 @@ const asset = (file: string) => new URL(`../images/slider/${file}`, import.meta.
 
 const PARTNERS = [
   {
-    name: 'Costco Wholesale',
-    src: asset('Costco_Wholesale_Logo (1).png'),
-    accent: 'from-red-500/25 via-red-400/10 to-transparent',
-  },
-  {
     name: 'Hansol',
     src: asset('Hansol_logo.svg (1).png'),
     accent: 'from-sky-500/25 via-sky-400/10 to-transparent',
