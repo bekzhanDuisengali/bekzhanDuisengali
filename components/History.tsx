@@ -20,6 +20,8 @@ const History: React.FC = () => {
             src={ferryImage}
             alt="Судно KOL"
             loading="lazy"
+            decoding="async"
+            fetchPriority="low"
             className="history__ship"
           />
         </div>

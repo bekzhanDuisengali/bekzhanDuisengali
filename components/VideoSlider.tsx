@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, Play, Send } from 'lucide-react';
 
 const boatImage = (file: string) => new URL(`../images/boats/${file}`, import.meta.url).href;
@@ -84,9 +84,33 @@ function formatDate(value?: string, fallback?: string) {
 }
 
 const VideoSlider: React.FC = () => {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [shouldLoadFeed, setShouldLoadFeed] = useState(false);
   const [videos, setVideos] = useState<TgVideoItem[]>([]);
 
   useEffect(() => {
+    if (shouldLoadFeed) return undefined;
+
+    const node = sectionRef.current;
+    if (!node) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        setShouldLoadFeed(true);
+        observer.disconnect();
+      },
+      { rootMargin: '320px 0px' },
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, [shouldLoadFeed]);
+
+  useEffect(() => {
+    if (!shouldLoadFeed) return undefined;
+
     let cancelled = false;
     let timer: ReturnType<typeof setTimeout> | null = null;
     const VISIBLE_POLL_MS = 30000;
@@ -130,7 +154,7 @@ const VideoSlider: React.FC = () => {
       document.removeEventListener('visibilitychange', onVisibilityChange);
       if (timer) clearTimeout(timer);
     };
-  }, []);
+  }, [shouldLoadFeed]);
 
   const cards = FALLBACK_CARDS.map((card, index) => {
     const item = videos[index];
@@ -144,7 +168,7 @@ const VideoSlider: React.FC = () => {
   });
 
   return (
-    <section className="relative overflow-hidden bg-[#f4f4f8] text-[#233a5d]">
+    <section ref={sectionRef} className="relative overflow-hidden bg-[#f4f4f8] text-[#233a5d]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.96),rgba(239,242,248,0.88)_42%,rgba(232,236,244,0.94)_100%)]" />
       <div className="absolute inset-x-0 top-0 h-48 bg-[linear-gradient(180deg,rgba(255,255,255,0.85),transparent)]" />
       <div className="absolute left-[-8%] bottom-[-16%] h-72 w-[38%] rounded-full bg-[#c7d4eb]/30 blur-3xl" />
@@ -186,6 +210,9 @@ const VideoSlider: React.FC = () => {
                   src={card.image}
                   alt={card.title || `Погрузка ${card.date}`}
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                  loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,43,78,0.02),rgba(17,43,78,0.18))]" />
 
