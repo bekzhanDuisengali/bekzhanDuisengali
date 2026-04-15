@@ -8,6 +8,7 @@ import Services from './components/Services';
 import VideoSlider from './components/VideoSlider';
 import RouteOverview from './components/RouteOverview';
 import Reviews from './components/Reviews';
+import FutureMap from './components/FutureMap';
 import Partners from './components/Partners';
 import Location from './components/Location';
 import ContactChannels from './components/ContactChannels';
@@ -103,6 +104,10 @@ const App = () => {
 
         <section id="route-overview" className="bg-[#dbeaf5] transition-colors duration-500">
           <RouteOverview />
+        </section>
+
+        <section id="future-map" className="transition-colors duration-500">
+          <FutureMap />
         </section>
 
         {/* <Reviews /> */}
