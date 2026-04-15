@@ -1,6 +1,9 @@
 .route-overview {
   width: 100%;
-  background: #dbeaf5;
+  background-color: #dbeaf5;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .route-overview__inner {
@@ -22,7 +25,7 @@
 .route-overview__title {
   margin: 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(4.5rem, 8vw, 7.8rem);
+  font-size: clamp(3.6rem, 6.5vw, 6.2rem);
   font-weight: 800;
   line-height: 0.92;
   letter-spacing: -0.075em;
@@ -33,7 +36,7 @@
 .route-overview__subtitle {
   margin: 1rem 0 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(2.35rem, 4.4vw, 5rem);
+  font-size: clamp(1.7rem, 3.1vw, 3.2rem);
   font-weight: 800;
   line-height: 0.94;
   letter-spacing: -0.07em;
@@ -47,10 +50,10 @@
 }
 
 .route-overview__text p {
-  margin: 0 0 2rem;
-  font-size: clamp(1.2rem, 1.88vw, 2.1rem);
-  line-height: 0.98;
-  letter-spacing: -0.055em;
+  margin: 0 0 1.4rem;
+  font-size: clamp(1.02rem, 1.45vw, 1.45rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
   color: rgba(13, 79, 109, 0.94);
 }
 
@@ -64,14 +67,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 4.7rem;
+  min-height: 4.2rem;
   margin-top: 21rem;
   padding: 0 2rem;
   border-radius: 999px;
   background: #0d4f6d;
   color: #fff;
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.3rem, 1.9vw, 2.1rem);
+  font-size: clamp(1.05rem, 1.45vw, 1.5rem);
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.055em;
@@ -94,68 +97,6 @@
   width: 100%;
   height: 100%;
   overflow: visible;
-}
-
-.route-overview__map-image {
-  opacity: 0.29;
-}
-
-.route-overview__path {
-  fill: none;
-  stroke: rgba(53, 93, 122, 0.72);
-  stroke-width: 2.2;
-  stroke-linecap: round;
-  stroke-dasharray: 6 7;
-}
-
-.route-overview__path--wide {
-  stroke-width: 2.1;
-}
-
-.route-overview__path--medium,
-.route-overview__path--short {
-  stroke-width: 2;
-}
-
-.route-overview__arrowhead {
-  fill: rgba(53, 93, 122, 0.72);
-}
-
-.route-overview__hub {
-  fill: rgba(13, 79, 109, 0.82);
-}
-
-.route-overview__map-label {
-  font-family: var(--font-display, inherit);
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.06em;
-  fill: rgba(13, 79, 109, 0.92);
-}
-
-.route-overview__map-label--russia,
-.route-overview__map-label--japan,
-.route-overview__map-label--korea {
-  font-size: 23px;
-}
-
-.route-overview__assist {
-  position: absolute;
-  right: 3rem;
-  bottom: 2.2rem;
-  z-index: 3;
-}
-
-.route-overview__assist-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 6rem;
-  height: 6rem;
-  border-radius: 999px;
-  background: #0d4f6d;
-  color: #fff;
-  box-shadow: 0 20px 40px rgba(13, 79, 109, 0.14);
 }
 
 @media (max-width: 1280px) {
@@ -182,7 +123,7 @@
   }
 
   .route-overview__text p {
-    line-height: 1.02;
+    line-height: 1.12;
   }
 
   .route-overview__button {
@@ -199,29 +140,11 @@
     aspect-ratio: 1600 / 720;
     margin-top: 2.2rem;
   }
-
-  .route-overview__map-label {
-    font-size: 20px;
-  }
-
-  .route-overview__assist {
-    right: 1.25rem;
-    bottom: 1.25rem;
-  }
-
-  .route-overview__assist-button {
-    width: 4.6rem;
-    height: 4.6rem;
-  }
 }
 
 @media (max-width: 640px) {
   .route-overview__inner {
     padding: 2.4rem 1rem 1.25rem;
-  }
-
-  .route-overview__subtitle {
-    margin-top: 0.7rem;
   }
 
   .route-overview__text {
@@ -230,15 +153,15 @@
 
   .route-overview__text p {
     margin-bottom: 1.2rem;
-    font-size: clamp(1rem, 4.8vw, 1.2rem);
-    line-height: 1.08;
+    font-size: clamp(0.95rem, 4.2vw, 1.08rem);
+    line-height: 1.14;
   }
 
   .route-overview__button {
     min-height: 3.8rem;
     width: 100%;
     margin-top: 1rem;
-    font-size: 1.15rem;
+    font-size: 1.05rem;
   }
 
   .route-overview__map {
@@ -250,19 +173,5 @@
     width: 155%;
     max-width: none;
     margin-left: -37%;
-  }
-
-  .route-overview__map-label {
-    font-size: 18px;
-  }
-
-  .route-overview__assist {
-    right: 1rem;
-    bottom: 1rem;
-  }
-
-  .route-overview__assist-button {
-    width: 4rem;
-    height: 4rem;
   }
 }
