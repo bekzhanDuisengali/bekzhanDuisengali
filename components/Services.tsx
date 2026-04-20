@@ -64,15 +64,15 @@ const SERVICES: ServiceCard[] = [
 
 const Services: React.FC = () => {
   return (
-    <div className="mx-auto max-w-[1160px] px-6 py-4 sm:px-8 lg:px-10">
+    <div className="mx-auto flex h-full max-w-[1160px] flex-col justify-between px-6 py-4 sm:px-8 lg:px-10">
       <div className="mb-10 max-w-4xl lg:mb-12">
-        <h2 className="text-4xl font-semibold uppercase leading-[0.88] tracking-[0.03em] text-[#0b4d69] sm:text-5xl lg:text-[4.5rem]">
+        <h2 className="font-display text-4xl font-semibold leading-[0.92] tracking-[-0.05em] text-[#0d4f6d] sm:text-5xl lg:text-[95px]">
           Номенклатура
           <br />
           грузов
         </h2>
 
-        <p className="mt-5 max-w-[52rem] text-base leading-[1.22] text-[#35586e] sm:text-xl lg:text-[1.7rem]">
+        <p className="mt-5 max-w-[52rem] text-base font-light leading-[1.3] tracking-[-0.03em] text-[#35586e] sm:text-xl lg:text-[30px]">
           Работаем с ключевыми категориями грузов и подбираем оптимальную схему
           перевозки под каждую поставку.
         </p>
@@ -86,8 +86,8 @@ const Services: React.FC = () => {
             <article
               key={`${service.title}-${index}`}
               className={[
-                'group relative overflow-hidden rounded-[1.45rem] bg-[#0d5877] px-7 py-6 text-white shadow-[0_14px_34px_rgba(11,68,93,0.18)]',
-                'transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_42px_rgba(11,68,93,0.24)]',
+                'group relative overflow-hidden rounded-[1.45rem] bg-[#0d4f6d] px-7 py-6 text-white shadow-[0_14px_34px_rgba(13,79,109,0.18)]',
+                'transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_42px_rgba(13,79,109,0.24)]',
                 service.wide ? 'md:col-span-2' : '',
               ].join(' ')}
             >
@@ -97,21 +97,21 @@ const Services: React.FC = () => {
               </div>
 
               <div className="relative z-10 max-w-[92%]">
-                <h3 className="text-[1.65rem] font-semibold uppercase leading-[0.96] tracking-[0.02em] sm:text-[2rem]">
+                <h3 className="font-display text-[1.65rem] font-semibold leading-[1.02] tracking-[-0.04em] sm:text-[2rem] lg:text-[46px]">
                   {service.title}
                 </h3>
 
-                <p className="mt-4 max-w-[31rem] text-[0.98rem] leading-[1.2] text-white/88 sm:text-[1.12rem]">
+                <p className="mt-4 max-w-[31rem] text-[0.98rem] font-light leading-[1.35] tracking-[-0.02em] text-white/88 sm:text-[1.12rem] lg:text-[18px]">
                   {service.description}
                 </p>
 
                 {service.tags ? (
-                  <p className="mt-2.5 max-w-[31rem] text-[0.84rem] leading-[1.22] text-white/74 sm:text-[0.96rem]">
+                  <p className="mt-2.5 max-w-[31rem] text-[0.84rem] font-light leading-[1.35] tracking-[-0.02em] text-white/74 sm:text-[0.96rem] lg:text-[18px]">
                     {service.tags}
                   </p>
                 ) : null}
 
-                <div className="mt-6 inline-flex items-center gap-3 text-[0.88rem] font-semibold uppercase tracking-[0.08em] text-white sm:text-[0.94rem]">
+                <div className="font-display mt-6 inline-flex items-center gap-3 text-[0.88rem] font-semibold tracking-[-0.03em] text-white sm:text-[0.94rem] lg:text-[27px]">
                   Подробнее
                   <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
                 </div>

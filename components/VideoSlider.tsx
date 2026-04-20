@@ -178,15 +178,15 @@ const VideoSlider: React.FC = () => {
 
       <div className="relative mx-auto max-w-[1240px] px-6 py-20 sm:px-8 lg:px-10 lg:py-24">
         <div className="max-w-4xl">
-          <h2 className="text-4xl font-semibold uppercase tracking-[0.05em] text-[#1e3556] sm:text-5xl lg:text-[3.65rem]">
+          <h2 className="font-display text-4xl font-semibold tracking-[-0.05em] text-[#1e3556] sm:text-5xl lg:text-[95px]">
             Погрузки и отправки
           </h2>
 
-          <p className="mt-5 text-xl font-light text-[#3d4e6d] sm:text-[1.75rem]">
+          <p className="mt-5 text-xl font-light leading-[1.25] tracking-[-0.03em] text-[#3d4e6d] sm:text-[1.75rem] lg:text-[30px]">
             Реальные рейсы и погрузки
           </p>
 
-          <p className="mt-6 text-base text-[#556684] sm:text-[1.45rem] sm:leading-[1.45]">
+          <p className="mt-6 text-base font-light tracking-[-0.03em] text-[#556684] sm:text-[1.45rem] sm:leading-[1.45] lg:text-[30px]">
             Фото- и видеофиксация
             <span className="mx-3 text-[#8e9db7]">•</span>
             Без посредников
@@ -224,10 +224,10 @@ const VideoSlider: React.FC = () => {
               </div>
 
               <div className="bg-[linear-gradient(180deg,#f6f7fb_0%,#eceff5_100%)] px-5 pb-5 pt-4 text-[#2d4062]">
-                <div className="text-[1.05rem] font-medium tracking-[0.02em] sm:text-[1.95rem] sm:leading-none lg:text-[1.9rem]">
+                <div className="font-display text-[1.05rem] font-semibold tracking-[-0.03em] sm:text-[1.95rem] sm:leading-none lg:text-[33px]">
                   {card.date}
                 </div>
-                <div className="mt-2 text-sm text-[#556684] sm:text-[1.65rem] sm:leading-tight lg:text-[1.52rem]">
+                <div className="mt-2 text-sm font-light tracking-[-0.02em] text-[#556684] sm:text-[1.65rem] sm:leading-tight lg:text-[30px]">
                   {card.route}
                 </div>
               </div>
@@ -240,7 +240,7 @@ const VideoSlider: React.FC = () => {
             href="https://t.me"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(180deg,#2f5a8e_0%,#1f3f6d_100%)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-white shadow-[0_14px_34px_rgba(32,63,108,0.26)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(32,63,108,0.34)] sm:px-8 sm:py-4 sm:text-xl"
+            className="font-display inline-flex items-center gap-3 rounded-full bg-[linear-gradient(180deg,#2f5a8e_0%,#1f3f6d_100%)] px-6 py-3 text-sm font-semibold tracking-[-0.03em] text-white shadow-[0_14px_34px_rgba(32,63,108,0.26)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(32,63,108,0.34)] sm:px-8 sm:py-4 sm:text-xl lg:text-[33px]"
           >
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#5ca7ea] text-white sm:h-9 sm:w-9">
               <Send size={16} fill="currentColor" className="translate-x-[1px] -translate-y-[1px] sm:h-[18px] sm:w-[18px]" />

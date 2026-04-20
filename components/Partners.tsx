@@ -60,7 +60,7 @@ const Partners: React.FC = () => {
         </div>
 
         <div className="mx-auto flex w-full max-w-[260px] items-center justify-center lg:justify-end">
-          <div className="relative flex aspect-square w-[210px] items-center justify-center rounded-[36px] bg-gradient-to-br from-[#0d4f6d] via-[#174f6d] to-[#214b63] shadow-[0_24px_60px_rgba(13,79,109,0.18)]">
+          <div className="relative flex aspect-square w-[210px] items-center justify-center rounded-[36px] bg-[#0d4f6d] shadow-[0_24px_60px_rgba(13,79,109,0.18)]">
             <div className="absolute right-5 top-5 h-12 w-12 rounded-full bg-[#0d4f6d]/92" />
             <div className="relative z-10 flex w-[80%] flex-col items-center text-white">
               <div className="relative mb-4 flex h-24 w-24 items-center justify-center rounded-full border border-white/20 bg-white/8">

@@ -69,3 +69,67 @@ canvas {
     animation: none;
   }
 }
+
+@media (min-width: 1025px) {
+  .page-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-section--h-730 {
+    height: 730px;
+    min-height: 730px;
+  }
+
+  .page-section--h-365 {
+    height: 365px;
+    min-height: 365px;
+  }
+
+  .page-section--h-760 {
+    height: 760px;
+    min-height: 760px;
+  }
+
+  .page-section--h-910 {
+    height: 910px;
+    min-height: 910px;
+  }
+
+  .page-section--h-1000 {
+    height: 1000px;
+    min-height: 1000px;
+  }
+
+  .page-section--h-1050 {
+    height: 1050px;
+    min-height: 1050px;
+  }
+
+  .page-section--h-1270 {
+    height: 1270px;
+    min-height: 1270px;
+  }
+
+  .page-section--h-1430 {
+    height: 1800px;
+    min-height: 1430px;
+  }
+
+  .page-section--h-1700 {
+    height: 1700px;
+    min-height: 1700px;
+  }
+
+  #hero > .hero,
+  #about > .history,
+  #metrics > .metrics-landscape,
+  #route > .route-story,
+  #services > div,
+  #route-overview > .route-overview,
+  #future-map > div,
+  #location > div {
+    height: 100%;
+    min-height: 0;
+  }
+}
