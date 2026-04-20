@@ -22,13 +22,13 @@ const socialLinks = [
 
 const Location: React.FC = () => {
   return (
-    <div className="mx-auto max-w-[1600px] px-6">
+    <div id="contact" className="mx-auto max-w-[1600px] px-6">
       <div className="rounded-[2rem] px-6 py-10 text-white sm:rounded-[2.75rem] sm:px-10 sm:py-14 lg:px-16 lg:py-16 xl:px-20">
         <div className="max-w-[980px]">
-          <h2 className="font-display text-[2.8rem] font-extrabold uppercase leading-[0.9] tracking-[-0.08em] text-white sm:text-[4.4rem] lg:text-[5.4rem] xl:text-[6.4rem]">
+          <h2 className="font-display text-[2.8rem] font-semibold leading-[0.94] tracking-[-0.06em] text-white sm:text-[4.4rem] lg:text-[80px]">
             Давайте сотрудничать
           </h2>
-          <p className="mt-4 text-[1.2rem] leading-[1.02] tracking-[-0.055em] text-white/96 sm:text-[1.8rem] lg:text-[2.2rem]">
+          <p className="mt-4 text-[1.2rem] font-light leading-[1.18] tracking-[-0.04em] text-white/96 sm:text-[1.8rem] lg:text-[47px]">
             Ответим быстро в рабочее время
           </p>
         </div>
@@ -46,7 +46,7 @@ const Location: React.FC = () => {
                 referrerPolicy="no-referrer-when-downgrade"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0))]" />
-              <div className="absolute left-[46%] top-[34%] flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[3px] border-[#0d4f66] bg-white/84 text-[#0d4f66] shadow-[0_14px_30px_rgba(13,79,102,0.25)] backdrop-blur">
+              <div className="absolute left-[46%] top-[34%] flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[3px] border-[#0d4f6d] bg-white/84 text-[#0d4f6d] shadow-[0_14px_30px_rgba(13,79,109,0.25)] backdrop-blur">
                 <MapPin size={22} strokeWidth={2.6} />
               </div>
             </div>
@@ -54,13 +54,13 @@ const Location: React.FC = () => {
 
           <div className="flex flex-col justify-between lg:min-h-full lg:py-3">
             <div>
-              <h3 className="font-display text-[2.3rem] font-extrabold uppercase leading-[0.92] tracking-[-0.07em] text-white sm:text-[3rem] lg:text-[4rem]">
+              <h3 className="font-display text-[2.3rem] font-semibold leading-[0.98] tracking-[-0.05em] text-white sm:text-[3rem] lg:text-[52px]">
                 Связаться с нами:
               </h3>
 
               <div className="mt-8 space-y-8 text-white">
                 <div>
-                  <p className="font-display text-[2rem] font-extrabold leading-none tracking-[-0.06em] sm:text-[2.7rem]">
+                  <p className="font-display text-[2rem] font-semibold leading-none tracking-[-0.05em] sm:text-[2.7rem] lg:text-[45px]">
                     Светлана
                   </p>
                 </div>
@@ -72,11 +72,11 @@ const Location: React.FC = () => {
                   <div>
                     <a
                       href={PHONE_LINK}
-                      className="font-display text-[1.45rem] leading-none tracking-[-0.05em] text-white transition-opacity hover:opacity-80 sm:text-[2.1rem]"
+                      className="text-[1.45rem] font-light leading-none tracking-[-0.04em] text-white transition-opacity hover:opacity-80 sm:text-[2.1rem] lg:text-[34px]"
                     >
                       {PHONE_DISPLAY}
                     </a>
-                    <p className="mt-2 text-[1rem] leading-none tracking-[-0.04em] text-white/95 sm:text-[1.2rem]">
+                    <p className="mt-2 text-[1rem] font-light leading-none tracking-[-0.04em] text-white/95 sm:text-[1.2rem]">
                       WhatsApp | Telegram
                     </p>
                   </div>
@@ -88,7 +88,7 @@ const Location: React.FC = () => {
                   </span>
                   <a
                     href={`mailto:${EMAIL}`}
-                    className="font-display text-[1.35rem] leading-none tracking-[-0.05em] text-white transition-opacity hover:opacity-80 sm:text-[2rem]"
+                    className="text-[1.35rem] font-light leading-none tracking-[-0.04em] text-white transition-opacity hover:opacity-80 sm:text-[2rem] lg:text-[34px]"
                   >
                     {EMAIL}
                   </a>
@@ -98,7 +98,7 @@ const Location: React.FC = () => {
                   <span className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-white/90">
                     <MapPin size={24} strokeWidth={2.1} />
                   </span>
-                  <p className="max-w-[28ch] text-[1.1rem] leading-[1.08] tracking-[-0.045em] text-white sm:text-[1.45rem]">
+                  <p className="max-w-[28ch] text-[1.1rem] font-light leading-[1.2] tracking-[-0.04em] text-white sm:text-[1.45rem] lg:text-[27px]">
                     {ADDRESS}
                   </p>
                 </div>
@@ -116,16 +116,12 @@ const Location: React.FC = () => {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={item.label}
-                    className="flex h-14 w-14 items-center justify-center rounded-full bg-white/92 text-[#0d4f66] transition-transform hover:-translate-y-0.5"
+                    className="flex h-14 w-14 items-center justify-center rounded-full bg-white/92 text-[#0d4f6d] transition-transform hover:-translate-y-0.5"
                   >
                     <Icon size={28} strokeWidth={2.2} />
                   </a>
                 );
               })}
-
-              <div className="ml-auto hidden h-20 w-20 items-center justify-center rounded-full bg-white text-[#0d4f66] lg:flex">
-                <CircleFadingArrowUp size={38} strokeWidth={2.2} />
-              </div>
             </div>
           </div>
         </div>

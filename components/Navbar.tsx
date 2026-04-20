@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[0.97rem] font-extrabold uppercase tracking-[-0.04em] text-white transition-opacity hover:opacity-75"
+                className="font-display text-[25px] font-semibold tracking-[-0.04em] text-white transition-opacity hover:opacity-75"
               >
                 {link.name}
               </a>
@@ -65,7 +65,7 @@ const Navbar: React.FC = () => {
 
           <a
             href="#contact"
-            className="inline-flex min-h-[3.45rem] items-center justify-center rounded-full bg-white px-8 text-[0.97rem] font-extrabold uppercase tracking-[-0.04em] text-[#0d5877] transition-transform hover:-translate-y-0.5"
+            className="font-display inline-flex min-h-[3.45rem] items-center justify-center rounded-full bg-white px-8 text-[25px] font-semibold tracking-[-0.04em] text-[#0d4f6d] transition-transform hover:-translate-y-0.5"
           >
             Консультация
           </a>
@@ -106,7 +106,7 @@ const Navbar: React.FC = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-base font-extrabold uppercase tracking-[-0.02em] text-white"
+                  className="font-display rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-base font-semibold tracking-[-0.02em] text-white"
                 >
                   {link.name}
                 </a>
@@ -116,7 +116,7 @@ const Navbar: React.FC = () => {
             <a
               href="#contact"
               onClick={() => setIsOpen(false)}
-              className="mt-4 flex min-h-[3.5rem] items-center justify-center rounded-full bg-white text-base font-extrabold uppercase tracking-[-0.02em] text-[#0d5877]"
+              className="font-display mt-4 flex min-h-[3.5rem] items-center justify-center rounded-full bg-white text-base font-semibold tracking-[-0.02em] text-[#0d4f6d]"
             >
               Консультация
             </a>

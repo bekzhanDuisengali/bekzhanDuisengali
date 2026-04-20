@@ -22,19 +22,33 @@ type SectionConfig = {
   content: React.ReactNode;
 };
 
+const SECTION_HEIGHT_CLASS: Partial<Record<string, string>> = {
+  hero: 'page-section--h-910',
+  about: 'page-section--h-1050',
+  metrics: 'page-section--h-365',
+  route: 'page-section--h-1700',
+  services: 'page-section--h-1430',
+  'route-overview': 'page-section--h-1270',
+  'future-map': 'page-section--h-760',
+  location: 'page-section--h-1000',
+};
+
+const getSectionClassName = (id: string, className?: string) =>
+  ['page-section', SECTION_HEIGHT_CLASS[id], className].filter(Boolean).join(' ');
+
 const SECTION_CONFIG: SectionConfig[] = [
   {
     id: 'hero',
     content: <Hero />,
   },
   {
+    id: 'metrics',
+    content: <MetricsLandscape />,
+  },
+  {
     id: 'about',
     className: 'bg-[#edf5fb] transition-colors duration-500',
     content: <History />,
-  },
-  {
-    id: 'metrics',
-    content: <MetricsLandscape />,
   },
   {
     id: 'route',
@@ -57,7 +71,7 @@ const SECTION_CONFIG: SectionConfig[] = [
   },
   {
     id: 'location',
-    className: 'py-20 lg:py-28 bg-[#0b4a61] transition-colors duration-500',
+    className: 'bg-[#0d4f6d] transition-colors duration-500',
     content: <Location />,
   },
 
@@ -97,29 +111,42 @@ const App = () => {
 
       <main>
         {SECTION_CONFIG.slice(0, 6).map((section) => (
-          <section key={section.id} id={section.id} className={section.className}>
+          <section
+            key={section.id}
+            id={section.id}
+            className={getSectionClassName(section.id, section.className)}
+          >
             {section.content}
           </section>
         ))}
 
-        <section id="route-overview" className="bg-[#dbeaf5] transition-colors duration-500">
+        <section
+          id="route-overview"
+          className={getSectionClassName('route-overview', 'bg-[#dbeaf5] transition-colors duration-500')}
+        >
           <RouteOverview />
         </section>
 
-        <section id="future-map" className="transition-colors duration-500">
+        <section
+          id="future-map"
+          className={getSectionClassName('future-map', 'transition-colors duration-500')}
+        >
           <FutureMap />
         </section>
 
         {/* <Reviews /> */}
 
         {SECTION_CONFIG.slice(6).map((section) => (
-          <section key={section.id} id={section.id} className={section.className}>
+          <section
+            key={section.id}
+            id={section.id}
+            className={getSectionClassName(section.id, section.className)}
+          >
             {section.content}
           </section>
         ))}
       </main>
 
-      <Footer />
 
       {mountAIChat && (
         <Suspense fallback={null}>

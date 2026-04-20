@@ -23,12 +23,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
           darkMode: 'class',
           theme: {
             extend: {
+              fontFamily: {
+                sans: ['Unbounded', 'sans-serif'],
+                display: ['Unbounded', 'sans-serif'],
+              },
               colors: {
                 brand: {
                   DEFAULT: '#8DB8F4',
@@ -78,7 +82,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Unbounded', sans-serif;
             background:
               radial-gradient(90% 100% at 0% 0%, rgba(255,122,89,0.16) 0%, rgba(255,122,89,0) 58%),
               radial-gradient(90% 110% at 100% 18%, rgba(46,196,182,0.18) 0%, rgba(46,196,182,0) 62%),
@@ -87,7 +91,10 @@
             transition: background-color 0.5s ease, color 0.5s ease;
         }
 
-        .font-display { font-family: 'Oswald', sans-serif; }
+        .font-display {
+            font-family: 'Unbounded', sans-serif;
+            font-optical-sizing: auto;
+        }
         
         .bg-tech-grid {
             background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
