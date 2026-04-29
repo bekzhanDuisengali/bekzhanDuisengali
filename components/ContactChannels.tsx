@@ -75,41 +75,43 @@ const CONTACT_CARDS: ContactCard[] = [
 
 const ContactChannels = () => {
   return (
-    <div className="max-w-[1600px] mx-auto px-6 transition-colors duration-700">
-      <div className="text-center mb-32">
-        <div className="text-brand font-black uppercase text-[10px] tracking-[0.6em] mb-6">Связаться</div>
-        <h2 className="font-display text-7xl lg:text-[9rem] font-bold mb-8 uppercase tracking-tighter leading-none text-navy transition-colors">
+    <div className="mx-auto max-w-[1600px] px-4 sm:px-6 transition-colors duration-700">
+      <div className="mb-16 text-center sm:mb-24 lg:mb-32">
+        <div className="mb-4 text-[9px] font-black uppercase tracking-[0.45em] text-brand sm:mb-6 sm:text-[10px] sm:tracking-[0.6em]">
+          Связаться
+        </div>
+        <h2 className="font-display mb-5 text-[2.7rem] font-bold uppercase leading-[0.95] tracking-tighter text-navy transition-colors sm:mb-8 sm:text-6xl lg:text-[9rem]">
           Быстрые <span className="text-navy/10">каналы</span>
         </h2>
-        <p className="text-[#5F97E8]/60 text-sm font-bold uppercase tracking-[0.6em] mt-10 transition-colors">
+        <p className="mt-5 text-[9px] font-bold uppercase tracking-[0.4em] text-[#5F97E8]/60 transition-colors sm:mt-10 sm:text-sm sm:tracking-[0.6em]">
           Ответим быстро в рабочее время
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3 lg:gap-8">
         {CONTACT_CARDS.map((card) => {
           const Icon = card.icon;
           const isMessenger = card.id === 'messengers';
 
           return (
-            <div key={card.id} className={CARD_CLASS}>
-              <Icon size={40} className="mb-8 text-brand" />
+            <div key={card.id} className={`${CARD_CLASS} p-8 sm:p-10 lg:p-14`}>
+              <Icon size={40} className="mb-5 text-brand sm:mb-8" />
 
-              <h4 className="font-display text-2xl font-bold uppercase mb-3 tracking-tight text-navy transition-colors">
+              <h4 className="font-display mb-3 text-xl font-bold uppercase tracking-tight text-navy transition-colors sm:text-2xl">
                 {card.title}
               </h4>
 
               <p
                 className={
                   isMessenger
-                    ? 'text-[#10233F]/60 text-xs font-bold uppercase tracking-widest mb-10 leading-relaxed transition-colors'
-                    : 'mb-10 transition-colors'
+                    ? 'mb-8 text-[11px] font-bold uppercase tracking-widest leading-relaxed text-[#10233F]/60 transition-colors sm:mb-10'
+                    : 'mb-8 transition-colors sm:mb-10'
                 }
               >
                 {card.subtitle}
               </p>
 
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3 sm:gap-4">
                 {card.actions.map((action) => {
                   if (action.href) {
                     return (
@@ -137,12 +139,12 @@ const ContactChannels = () => {
         })}
       </div>
 
-      <div className="mt-32 flex flex-col items-center">
-        <div className="h-[1px] w-32 bg-[#8DB8F4]/20 mb-12 transition-colors"></div>
-        <p className="text-[11px] font-black uppercase tracking-[0.5em] text-[#5F97E8]/55 mb-6 transition-colors">
+      <div className="mt-16 flex flex-col items-center sm:mt-24 lg:mt-32">
+        <div className="mb-8 h-px w-24 bg-[#8DB8F4]/20 transition-colors sm:mb-12 sm:w-32" />
+        <p className="mb-4 text-[9px] font-black uppercase tracking-[0.35em] text-[#5F97E8]/55 transition-colors sm:mb-6 sm:text-[11px] sm:tracking-[0.5em]">
           Адрес строкой
         </p>
-        <p className="font-display text-3xl font-light text-[#10233F]/55 italic tracking-tight transition-colors">
+        <p className="font-display max-w-[22rem] px-2 text-center text-xl font-light italic tracking-tight text-[#10233F]/55 transition-colors sm:text-2xl lg:text-3xl">
           Marine Center Busan Jung-gu 4(sa)-ga 79-1
         </p>
       </div>
