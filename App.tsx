@@ -29,7 +29,7 @@ const SECTION_HEIGHT_CLASS: Partial<Record<string, string>> = {
   advantages: 'page-section--h-730',
   metrics: 'page-section--h-365',
   route: 'page-section--h-1700',
-  services: 'page-section--h-1430',
+  services: 'page-section',
   'route-overview': 'page-section--h-1270',
   'future-map': 'page-section--h-760',
   location: 'page-section--h-1200',
