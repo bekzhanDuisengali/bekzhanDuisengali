@@ -1,13 +1,9 @@
 .route-story {
-  width: 100%;
-  max-width: 1320px;
+  max-width: 1400px;
   margin: 0 auto;
+  width: 100%;
   padding: 0 1.5rem;
   color: #0d4f6d;
-}
-
-.route-story__header {
-  max-width: 980px;
 }
 
 .route-story__title {
@@ -27,13 +23,20 @@
 .route-story__title-line {
   display: flex !important;
   align-items: center;
+  flex-wrap: nowrap;
   gap: 1.8rem;
+}
+
+.route-story__title-line > span {
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .route-story__title-arrow {
   position: relative;
   display: inline-block;
-  flex: 0 0 clamp(9rem, 28vw, 25rem);
+  flex: 1 1 0;
+  min-width: 4rem;
   height: 0.34rem;
   background: #0d4f6d;
   margin-top: 0.2rem;

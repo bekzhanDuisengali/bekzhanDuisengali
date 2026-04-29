@@ -2,6 +2,7 @@ import React, { Suspense, lazy, useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import History from './components/History';
+import Advantages from './components/Advantages';
 import MetricsLandscape from './components/MetricsLandscape';
 import RouteStory from './components/RouteStory';
 import Services from './components/Services';
@@ -25,12 +26,13 @@ type SectionConfig = {
 const SECTION_HEIGHT_CLASS: Partial<Record<string, string>> = {
   hero: 'page-section--h-910',
   about: 'page-section--h-1050',
+  advantages: 'page-section--h-730',
   metrics: 'page-section--h-365',
   route: 'page-section--h-1700',
   services: 'page-section--h-1430',
   'route-overview': 'page-section--h-1270',
   'future-map': 'page-section--h-760',
-  location: 'page-section--h-1000',
+  location: 'page-section--h-1200',
 };
 
 const getSectionClassName = (id: string, className?: string) =>
@@ -51,13 +53,17 @@ const SECTION_CONFIG: SectionConfig[] = [
     content: <History />,
   },
   {
+    id: 'advantages',
+    content: <Advantages />,
+  },
+  {
     id: 'route',
     className: 'py-24 lg:py-40 border-y border-[#8DB8F4]/22 transition-colors duration-500',
     content: <RouteStory />,
   },
   {
     id: 'services',
-    className: 'py-24 transition-colors duration-500 bg-[#d8edf8]',
+    className: 'transition-colors duration-500',
     content: <Services />,
   },
   {
@@ -110,7 +116,7 @@ const App = () => {
       <Navbar />
 
       <main>
-        {SECTION_CONFIG.slice(0, 6).map((section) => (
+        {SECTION_CONFIG.slice(0, 7).map((section) => (
           <section
             key={section.id}
             id={section.id}
@@ -127,16 +133,9 @@ const App = () => {
           <RouteOverview />
         </section>
 
-        <section
-          id="future-map"
-          className={getSectionClassName('future-map', 'transition-colors duration-500')}
-        >
-          <FutureMap />
-        </section>
-
         {/* <Reviews /> */}
 
-        {SECTION_CONFIG.slice(6).map((section) => (
+        {SECTION_CONFIG.slice(7).map((section) => (
           <section
             key={section.id}
             id={section.id}

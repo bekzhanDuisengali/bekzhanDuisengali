@@ -1,4 +1,5 @@
 import React from 'react';
+import { Anchor } from 'lucide-react';
 import './History.css';
 
 const ferryImage = new URL('../images/history/gemini-ferry-cutout.png', import.meta.url).href;
@@ -16,14 +17,7 @@ const History: React.FC = () => {
 
       <div className="history__inner">
         <div className="history__ship-wrap">
-          <img
-            src={ferryImage}
-            alt="Судно KOL"
-            loading="lazy"
-            decoding="async"
-            fetchPriority="low"
-            className="history__ship"
-          />
+          
         </div>
 
         <div className="history__content">
@@ -48,9 +42,9 @@ const History: React.FC = () => {
           </div>
 
           <h2 className="history__title">
-            Наше
+            НАШЕ
             <br />
-            наследие
+            НАСЛЕДИЕ
           </h2>
 
           <p className="history__text history__text--lead">

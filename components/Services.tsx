@@ -1,124 +1,109 @@
 import React from 'react';
-import {
-  ArrowRight,
-  Bike,
-  Boxes,
-  Car,
-  Container,
-  Package,
-  Tractor,
-  Wrench,
-} from 'lucide-react';
+import { Anchor, ArrowRight, Bike, Box, Car, ShoppingBag, Tractor, Wrench } from 'lucide-react';
+import './Services.css';
 
 type ServiceCard = {
   title: string;
   description: string;
   tags?: string;
   icon: React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>;
-  wide?: boolean;
 };
 
 const SERVICES: ServiceCard[] = [
   {
     title: 'Генеральные грузы',
     description: 'Морская доставка любых объёмов',
-    tags: 'паллеты • ящики • биг-баги • бочки',
-    icon: Package,
+    tags: 'паллеты · ящики · биг-баги · бочки',
+    icon: Box,
   },
   {
     title: 'Спецтехника',
-    description: 'Перевозка техники с профессиональной погрузкой и креплением',
-    tags: 'тракторы • краны • погрузчики',
+    description: 'Перевозка техники с погрузкой и креплением',
+    tags: 'тракторы · краны · погрузчики',
     icon: Tractor,
   },
   {
     title: 'Автомобили и запчасти',
     description: 'Доставка автомобилей и комплектующих',
-    tags: 'легковые • коммерческие • запчасти',
+    tags: 'легковые · коммерческие · запчасти',
     icon: Car,
   },
   {
-    title: 'Мотоциклы и водная техника',
-    description: 'Аккуратная перевозка с фиксацией и упаковкой',
-    tags: 'мотоциклы • гидроциклы • техника',
+    title: 'Водная техника и мотоциклы',
+    description: 'Доставка автомобилей и комплектующих',
+    tags: 'легковые · коммерческие · запчасти',
     icon: Bike,
   },
   {
-    title: 'Промышленные грузы',
-    description: 'Поставки сырья и оборудования',
-    icon: Boxes,
-  },
-  {
-    title: 'Промышленные грузы',
-    description: 'Стройматериалы, оборудование, ПЭТ и металлопрокат',
-    icon: Container,
-  },
-  {
     title: 'Разборы / распилы',
-    description:
-      'Отправка автомобилей на запчасти с корректным оформлением и оптимизацией затрат.',
+    description: 'Отправка авто на запчасти с корректным оформлением и оптимизацией затрат',
     icon: Wrench,
-    wide: true,
+  },
+  {
+    title: 'Трейдинг',
+    description: 'Бережная доставка с контролем условий хранения',
+    tags: 'косметика · гигиена',
+    icon: ShoppingBag,
   },
 ];
 
 const Services: React.FC = () => {
   return (
-    <div className="mx-auto flex h-full max-w-[1160px] flex-col justify-between px-6 py-4 sm:px-8 lg:px-10">
-      <div className="mb-10 max-w-4xl lg:mb-12">
-        <h2 className="font-display text-4xl font-semibold leading-[0.92] tracking-[-0.05em] text-[#0d4f6d] sm:text-5xl lg:text-[95px]">
-          Номенклатура
-          <br />
-          грузов
-        </h2>
+    <div className="services">
+      <div className="services__fog" aria-hidden="true" />
+      <div className="services__glow" aria-hidden="true" />
 
-        <p className="mt-5 max-w-[52rem] text-base font-light leading-[1.3] tracking-[-0.03em] text-[#35586e] sm:text-xl lg:text-[30px]">
-          Работаем с ключевыми категориями грузов и подбираем оптимальную схему
-          перевозки под каждую поставку.
-        </p>
-      </div>
+      <div className="services__inner">
+        <div className="services__intro">
+          <h2 className="services__title">
+            НОМЕНКЛАТУРА
+            <br />
+            ГРУЗОВ
+          </h2>
+          <p className="services__lead">
+            Подбираем схему погрузки, фиксации и документов
+            <br />
+            под ваш тип груза - от единичных позиций до партии.
+          </p>
+        </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {SERVICES.map((service, index) => {
-          const Icon = service.icon;
+        <div className="services__content">
+          <div className="services__grid">
+            {SERVICES.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <article
+                  key={`${service.title}-${index}`}
+                  className="services__card"
+                >
+                  <div className="services__card-body">
+                    <div className="services__copy">
+                      <h3 className="services__card-title">
+                        {service.title}
+                      </h3>
+                      <p className="services__card-desc">
+                        {service.description}
+                      </p>
+                      {service.tags && (
+                        <p className="services__card-tags">
+                          {service.tags}
+                        </p>
+                      )}
+                    </div>
+                    <div className="services__more">
+                      Подробнее
+                      <ArrowRight size={24} strokeWidth={2.5} className="services__arrow" />
+                    </div>
+                  </div>
 
-          return (
-            <article
-              key={`${service.title}-${index}`}
-              className={[
-                'group relative overflow-hidden rounded-[1.45rem] bg-[#0d4f6d] px-7 py-6 text-white shadow-[0_14px_34px_rgba(13,79,109,0.18)]',
-                'transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_42px_rgba(13,79,109,0.24)]',
-                service.wide ? 'md:col-span-2' : '',
-              ].join(' ')}
-            >
-              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0))]" />
-              <div className="pointer-events-none absolute -right-4 bottom-[-12px] text-white/[0.06]">
-                <Icon size={service.wide ? 136 : 116} strokeWidth={1.2} />
-              </div>
-
-              <div className="relative z-10 max-w-[92%]">
-                <h3 className="font-display text-[1.65rem] font-semibold leading-[1.02] tracking-[-0.04em] sm:text-[2rem] lg:text-[46px]">
-                  {service.title}
-                </h3>
-
-                <p className="mt-4 max-w-[31rem] text-[0.98rem] font-light leading-[1.35] tracking-[-0.02em] text-white/88 sm:text-[1.12rem] lg:text-[18px]">
-                  {service.description}
-                </p>
-
-                {service.tags ? (
-                  <p className="mt-2.5 max-w-[31rem] text-[0.84rem] font-light leading-[1.35] tracking-[-0.02em] text-white/74 sm:text-[0.96rem] lg:text-[18px]">
-                    {service.tags}
-                  </p>
-                ) : null}
-
-                <div className="font-display mt-6 inline-flex items-center gap-3 text-[0.88rem] font-semibold tracking-[-0.03em] text-white sm:text-[0.94rem] lg:text-[27px]">
-                  Подробнее
-                  <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-                </div>
-              </div>
-            </article>
-          );
-        })}
+                  <div className="services__icon-wrap">
+                    <Icon size={110} strokeWidth={1.6} className="services__icon" />
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );

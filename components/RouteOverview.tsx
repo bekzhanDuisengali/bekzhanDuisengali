@@ -1,6 +1,22 @@
 import React from 'react';
 import './RouteOverview.css';
-import routeOverviewBg from '../images/routeoverview/KOL-02.svg';
+import routeOverviewBg from '../images/routeoverview/5e9b0729-3a45-4037-af77-3c83cac4e1ab.png';
+import { Ship, Plane, Globe } from 'lucide-react';
+
+const STATS = [
+  { icon: Ship,  value: '10+', label: ['КРУПНЕЙШИХ', 'ПОРТОВ МИРА'] },
+  { icon: Plane, value: '80+', label: ['МЕЖДУНАРОДНЫХ', 'АВИАРЕЙСОВ В ДЕНЬ'] },
+  { icon: Globe, value: '60+', label: ['СТРАН ПАРТНЁРОВ ПО', 'СВОБОДНОЙ ТОРГОВЛЕ'] },
+];
+
+const COUNTRY_LABELS = [
+  { name: ['РОССИЯ'],         left: '51%', top: '34%' },
+  { name: ['ЯПОНИЯ'],         left: '74%', top: '34%' },
+  { name: ['КИТАЙ'],          left: '52%', top: '51%' },
+  { name: ['ЮЖНАЯ', 'КОРЕЯ'], left: '58%', top: '57%' },
+  { name: ['ДУБАЙ', '(ОАЭ)'], left: '4%',  top: '52%' },
+  { name: ['США'],            left: '88%', top: '63%' },
+];
 
 const RouteOverview: React.FC = () => {
   return (
@@ -9,43 +25,69 @@ const RouteOverview: React.FC = () => {
       style={{ backgroundImage: `url(${routeOverviewBg})` }}
     >
       <div className="route-overview__inner">
-        <div className="route-overview__content">
-          <h2 className="route-overview__title">Маршрут KOL</h2>
-          <p className="route-overview__subtitle">Море • Транзит • Авиа • Ж/Д</p>
-
+        <div className="route-overview__top">
+          <h2 className="route-overview__title">
+            ДОСТАВКА И ТРАНЗИТ<br />ЧЕРЕЗ ПУСАН
+          </h2>
+          <p className="route-overview__subtitle">
+            МОРЕ · ТРАНЗИТ · АВИА · Ж/Д
+          </p>
           <div className="route-overview__text">
             <p>
-              Маршрут KOL построен на прямой морской линии из Южной Кореи во Владивосток с
-              контролем на каждом этапе: порт отправления, порт прибытия и наземная доставка.
+              Морской маршрут <strong>Пусан — Владивосток</strong>, ключевое логистическое направление
+              Дальнего Востока с устойчивым грузопотоком и контролем на всех этапах перевозки.
             </p>
             <p>
-              Организуем транзит через ключевые хабы —
-              <strong> Китай, ОАЭ (Дубай), Японию и США,</strong>
-              выстраивая оптимальные маршруты по срокам и стоимости.
+              Пусан — один из крупнейших портов мира, более <strong>500 портов</strong> и <strong>100+ стран</strong> в
+              глобальной сети международных перевозок.
             </p>
             <p>
-              Работаем с <strong>надёжными партнёрами</strong>, обеспечивая стабильность и сопровождение
-              грузов на всех этапах.
+              Южная Корея выступает транзитным центром, соединяя поставки из <strong>Азии, США
+              и Ближнего Востока</strong> в единую логистическую систему.
             </p>
             <p>
-              Также предлагаем железнодорожную доставку по России и транзит в страны СНГ и
-              другие направления.
+              Выстраиваем маршруты через ключевые направления:<br />
+              <strong>Китай · ОАЭ (Дубай) · Японию · США</strong>
             </p>
           </div>
+        </div>
 
+        
+          
+        
+
+        {COUNTRY_LABELS.map((c) => (
+          <div
+            key={c.name[0]}
+            className="route-overview__label"
+            style={{ left: c.left, top: c.top }}
+          >
+            {c.name.map((line, i) => <span key={i}>{line}</span>)}
+          </div>
+        ))}
+
+        <div className="route-overview__footer">
           <a href="#location" className="route-overview__button">
-            Открыть на карте
+            ОТКРЫТЬ НА КАРТЕ
           </a>
-        </div>
 
-        <div className="route-overview__map" aria-hidden="true">
-          <svg
-            className="route-overview__map-svg"
-            viewBox="0 0 1600 720"
-            preserveAspectRatio="xMidYMid meet"
-          />
+          <div className="route-overview__stats">
+            {STATS.map((s) => {
+              const Icon = s.icon;
+              return (
+                <div key={s.value + s.label[0]} className="route-overview__stat">
+                  <Icon size={26} strokeWidth={1.5} className="route-overview__stat-icon" />
+                  <div className="route-overview__stat-body">
+                    <span className="route-overview__stat-value">{s.value}</span>
+                    <span className="route-overview__stat-label">
+                      {s.label.map((line, i) => <span key={i}>{line}</span>)}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
-
       </div>
     </div>
   );
