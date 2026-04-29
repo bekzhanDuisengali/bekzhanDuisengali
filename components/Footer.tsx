@@ -6,22 +6,28 @@ const logoSrc = new URL('../images/logo.png', import.meta.url).href;
 
 const Footer: React.FC = () => {
   return (
-    <footer className="py-24 border-t border-[#8DB8F4]/18 bg-[#8DB8F4]/88 shadow-[0_-20px_50px_rgba(0,0,0,0.02)] transition-colors duration-500">
-      <div className="max-w-[1600px] mx-auto px-6">
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-16 mb-24">
+    <footer className="border-t border-[#8DB8F4]/18 bg-[#8DB8F4]/88 py-14 shadow-[0_-20px_50px_rgba(0,0,0,0.02)] transition-colors duration-500 sm:py-16 lg:py-24">
+      <div className="mx-auto max-w-[1600px] px-4 sm:px-6">
+        <div className="mb-14 flex flex-col items-start justify-between gap-10 sm:mb-16 lg:mb-24 lg:flex-row lg:gap-16">
           <div>
-            <div className="flex items-center gap-5 mb-8">
-              <div className="h-16">
+            <div className="mb-6 flex items-center gap-4 sm:gap-5">
+              <div className="h-12 sm:h-14 lg:h-16">
                 <img src={logoSrc} alt="KOL Logo" className="h-full w-auto object-contain brightness-0 transition-all" />
               </div>
             </div>
-            <p className="text-[11px] font-black text-[#8DB8F4]/70 uppercase tracking-[0.3em] mb-8 transition-colors">Korea Orient Line</p>
-            <p className="text-[11px] text-[#10233F]/55 font-bold uppercase tracking-widest transition-colors">© 2025. Все права защищены.</p>
+            <p className="mb-4 text-[9px] font-black uppercase tracking-[0.25em] text-[#8DB8F4]/70 transition-colors sm:mb-8 sm:text-[11px] sm:tracking-[0.3em]">
+              Korea Orient Line
+            </p>
+            <p className="text-[9px] font-bold uppercase tracking-widest text-[#10233F]/55 transition-colors sm:text-[11px]">
+              © 2025. Все права защищены.
+            </p>
           </div>
           
-          <div className="flex flex-col lg:items-end gap-10 w-full lg:w-auto">
-            <h5 className="font-display text-lg font-bold text-[#10233F] uppercase tracking-widest mb-4 transition-colors">Навигация</h5>
-            <div className="flex flex-wrap lg:justify-end gap-x-12 gap-y-6 text-[11px] font-black uppercase tracking-widest text-[#10233F]/62 transition-colors">
+          <div className="flex w-full flex-col gap-6 sm:gap-8 lg:w-auto lg:items-end">
+            <h5 className="mb-2 font-display text-base font-bold uppercase tracking-widest text-[#10233F] transition-colors sm:mb-4 sm:text-lg">
+              Навигация
+            </h5>
+            <div className="flex flex-wrap gap-x-6 gap-y-4 text-[9px] font-black uppercase tracking-widest text-[#10233F]/62 transition-colors sm:gap-x-10 sm:gap-y-5 sm:text-[11px] lg:justify-end lg:gap-x-12">
               <a href="#services" className="hover:text-[#8DB8F4] transition-colors">Услуги</a>
               <a href="#about" className="hover:text-[#8DB8F4] transition-colors">О нас</a>
               <a href="#operations" className="hover:text-[#8DB8F4] transition-colors">Погрузки</a>
@@ -30,19 +36,21 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="w-full lg:w-auto">
-            <button className="w-full lg:w-auto bg-[#8DB8F4] text-white px-12 py-6 font-black uppercase text-[11px] tracking-[0.2em] hover:bg-[#8DB8F4] transition-all flex items-center justify-center gap-5 group shadow-2xl active:scale-95">
-              Связаться с менеджером <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            <button className="group flex w-full items-center justify-center gap-4 bg-[#8DB8F4] px-8 py-5 text-[9px] font-black uppercase tracking-[0.18em] text-white transition-all active:scale-95 sm:px-10 sm:py-6 sm:text-[11px] lg:w-auto lg:gap-5 lg:px-12">
+              Связаться с менеджером <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
             </button>
           </div>
         </div>
         
-        <div className="h-[1px] w-full bg-[#8DB8F4]/16 mb-12"></div>
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex gap-12">
-            <a href="#" className="text-[10px] text-[#10233F]/40 hover:text-[#10233F] uppercase font-black tracking-widest transition-colors">Privacy Policy</a>
-            <a href="#" className="text-[10px] text-[#10233F]/40 hover:text-[#10233F] uppercase font-black tracking-widest transition-colors">Global Terms</a>
+        <div className="mb-10 h-px w-full bg-[#8DB8F4]/16 sm:mb-12" />
+        <div className="flex flex-col items-start gap-5 md:flex-row md:items-center md:justify-between md:gap-8">
+          <div className="flex flex-wrap gap-x-8 gap-y-3 sm:gap-x-10 lg:gap-x-12">
+            <a href="#" className="text-[9px] font-black uppercase tracking-widest text-[#10233F]/40 transition-colors hover:text-[#10233F] sm:text-[10px]">Privacy Policy</a>
+            <a href="#" className="text-[9px] font-black uppercase tracking-widest text-[#10233F]/40 transition-colors hover:text-[#10233F] sm:text-[10px]">Global Terms</a>
           </div>
-          <p className="font-display text-sm text-[#8DB8F4]/55 uppercase font-bold tracking-widest italic transition-colors">Anchoring trust since 1999</p>
+          <p className="font-display text-[10px] font-bold uppercase italic tracking-widest text-[#8DB8F4]/55 transition-colors sm:text-sm">
+            Anchoring trust since 1999
+          </p>
         </div>
       </div>
     </footer>
