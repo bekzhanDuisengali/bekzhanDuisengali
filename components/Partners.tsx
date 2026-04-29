@@ -1,5 +1,5 @@
 import React from 'react';
-import { Ship, Waves, Warehouse } from 'lucide-react';
+import searoadImg from '../images/__2.png.webp';
 
 const asset = (file: string) => new URL(`../images/slider/${file}`, import.meta.url).href;
 
@@ -51,7 +51,7 @@ const Partners: React.FC = () => {
           <h4 className="text-[2.1rem] font-display font-extrabold uppercase leading-[0.92] tracking-[-0.08em] text-[#0d4f6d] md:text-[3.7rem]">
             SEAROAD LOGISTIC CO
           </h4>
-          <p className="mt-4 max-w-[1180px] text-[1.05rem] leading-[1.02] tracking-[-0.05em] text-[#0d4f6d]/90 md:text-[1.6rem]">
+          <p className="mt-4 max-w-[1180px] font-light text-[1.5rem] leading-[1.02] tracking-[-0.06em]" style={{ fontWeight: 300 }}>
             Мы сотрудничаем с проверенной логистической компанией Searoad во Владивостоке,
             обеспечивая стабильную и быструю обработку грузов. Благодаря отлаженным
             процессам и опыту партнёров, мы гарантируем безопасную доставку и
@@ -60,20 +60,12 @@ const Partners: React.FC = () => {
         </div>
 
         <div className="mx-auto flex w-full max-w-[260px] items-center justify-center lg:justify-end">
-          <div className="relative flex aspect-square w-[210px] items-center justify-center rounded-[36px] bg-[#0d4f6d] shadow-[0_24px_60px_rgba(13,79,109,0.18)]">
-            <div className="absolute right-5 top-5 h-12 w-12 rounded-full bg-[#0d4f6d]/92" />
-            <div className="relative z-10 flex w-[80%] flex-col items-center text-white">
-              <div className="relative mb-4 flex h-24 w-24 items-center justify-center rounded-full border border-white/20 bg-white/8">
-                <Waves size={42} className="absolute left-5 top-[52px] text-white/90" strokeWidth={1.8} />
-                <Warehouse size={28} className="absolute left-2 top-11 text-white" strokeWidth={2} />
-                <Ship size={40} className="relative z-10 text-white" strokeWidth={2.1} />
-              </div>
-              <div className="text-center font-display text-[1.1rem] font-black uppercase leading-none tracking-[-0.06em]">
-                <div>SEAROAD</div>
-                <div className="mt-1 text-[#f0b0ae]">LOGISTIC CO</div>
-              </div>
-            </div>
-          </div>
+          <img
+            src={searoadImg}
+            alt="Searoad Logistic CO"
+            className="w-[210px] object-contain"
+            style={{ mixBlendMode: 'multiply' }}
+          />
         </div>
       </div>
 

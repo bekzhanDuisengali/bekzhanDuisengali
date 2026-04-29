@@ -53,16 +53,16 @@ const RouteStory = () => {
     <div className="route-story">
       <div className="route-story__header">
         <h2 className="route-story__title">
-          <span>Как идет линия</span>
+          <span>Как идет поставка</span>
           <span className="route-story__title-line">
             <span>Пусан</span>
             <span className="route-story__title-arrow" aria-hidden="true" />
+            <span>Владивосток</span>
           </span>
-          <span>Владивосток</span>
         </h2>
 
         <p className="route-story__lead">
-          Меньше слов, больше контроля: ключевые моменты, которые клиент реально ощущает:
+          Контроль на каждом этапе - от заявки до выдачи.
         </p>
       </div>
 
