@@ -1,3 +1,58 @@
+/* ================================================================
+   ГЛОБАЛЬНЫЕ СТИЛИ — Korea Orient Line
+   ================================================================
+
+   ЦВЕТА — редактируй переменные здесь, всё поменяется на сайте!
+   ================================================================ */
+
+:root {
+  /* --- Основные цвета --- */
+  --color-brand: #1D4154;           /* тёмный морской (основной) */
+  --color-navy: #10233F;            /* тёмно-синий */
+  --color-accent: #5F97E8;          /* голубой акцент */
+  --color-deep: #0d4f6d;            /* глубокий тёмно-синий */
+
+  /* --- Фоны секций --- */
+  --bg-about: #edf5fb;              /* секция «О нас» */
+  --bg-route-overview: #dbeaf5;     /* секция «Маршруты» */
+  --bg-location: #0d4f6d;           /* секция «Где мы» */
+  --bg-operations: rgba(29, 65, 84, 0.58); /* секция «Погрузки» */
+
+  /* --- Прозрачные варианты бренда --- */
+  --color-brand-10: rgba(29, 65, 84, 0.10);
+  --color-brand-16: rgba(29, 65, 84, 0.16);
+  --color-brand-18: rgba(29, 65, 84, 0.18);
+  --color-brand-20: rgba(29, 65, 84, 0.20);
+  --color-brand-58: rgba(29, 65, 84, 0.58);
+  --color-brand-78: rgba(29, 65, 84, 0.78);
+  --color-brand-88: rgba(29, 65, 84, 0.88);
+
+  /* --- Прозрачные варианты navy --- */
+  --color-navy-40: rgba(16, 35, 63, 0.40);
+  --color-navy-55: rgba(16, 35, 63, 0.55);
+  --color-navy-60: rgba(16, 35, 63, 0.60);
+  --color-navy-62: rgba(16, 35, 63, 0.62);
+  --color-navy-82: rgba(16, 35, 63, 0.82);
+
+  /* --- Шрифт --- */
+  --font-main: 'Unbounded', sans-serif;
+
+  /* --- Тени --- */
+  --shadow-card: 0 16px 40px rgba(18, 51, 110, 0.08);
+  --shadow-card-hover: 0 24px 60px rgba(18, 51, 110, 0.14);
+}
+
+/* ================================================================
+   БАЗОВЫЕ СТИЛИ
+   ================================================================ */
+
+html {
+  /* Масштаб шрифта: 16px при 1920px, ~13px при ≤1280px.
+     Все rem-размеры (Tailwind + наши CSS) пропорционально уменьшаются на ноутбуке.
+     Нижний порог 13px — мобильные остаются читаемыми. */
+  font-size: clamp(13px, 0.46vw + 7.16px, 16px);
+}
+
 html,
 body,
 #root {
@@ -8,6 +63,10 @@ body,
 
 body {
   margin: 0;
+  font-family: var(--font-main);
+  color: var(--color-navy);
+  
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 img,
@@ -17,40 +76,129 @@ canvas {
   max-width: 100%;
 }
 
-@keyframes route-ring-wave {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
-  }
-  25% {
-    transform: translate3d(10px, -8px, 0) rotate(6deg) scale(1.015);
-  }
-  50% {
-    transform: translate3d(0, -16px, 0) rotate(0deg) scale(1.03);
-  }
-  75% {
-    transform: translate3d(-10px, -8px, 0) rotate(-6deg) scale(1.015);
-  }
-  100% {
-    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+/* Скроллбар */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb { background: var(--color-brand); }
+
+/* ================================================================
+   ВСПОМОГАТЕЛЬНЫЕ КЛАССЫ
+   ================================================================ */
+
+.font-display {
+  font-family: var(--font-main);
+}
+
+.glass-panel {
+  backdrop-filter: blur(16px);
+  background: rgba(224, 239, 255, 0.82);
+  border: 1px solid rgba(34, 108, 195, 0.14);
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px currentColor;
+  color: transparent;
+}
+
+/* ================================================================
+   ФОНЫ СЕКЦИЙ — меняй цвет здесь (один раз — везде обновится)
+   ================================================================ */
+
+.section--about-bg {
+  background-color: var(--bg-about);           /* секция «О нас» */
+}
+
+.section--route-bg {
+  padding: 6rem 0;
+  border-top: 1px solid var(--color-brand-16);
+  border-bottom: 1px solid var(--color-brand-16);
+}
+
+@media (min-width: 1024px) {
+  .section--route-bg {
+    padding: 10rem 0;
   }
 }
 
+.section--operations-bg {
+  background: var(--bg-operations);
+  color: var(--color-navy);
+}
+
+.section--route-overview-bg {
+  background-color: var(--bg-route-overview);  /* секция «Обзор маршрутов» */
+}
+
+.section--location-bg {
+  background-color: var(--bg-location);        /* секция «Контакты / где мы» */
+}
+
+/* ================================================================
+   ВЫСОТЫ СЕКЦИЙ (десктоп ≥ 1025px)
+   ================================================================ */
+
+@media (min-width: 1025px) {
+  .page-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-section--h-520  { height: 520px;  min-height: 520px;  }
+  .page-section--h-730  { height: 730px;  min-height: 730px;  }
+  .page-section--h-365  { height: 365px;  min-height: 365px;  }
+  .page-section--h-760  { height: 760px;  min-height: 760px;  }
+  .page-section--h-910  { height: 910px;  min-height: 910px;  }
+  .page-section--h-fluid-hero {
+    height: clamp(820px, 54vw, 1240px);
+    min-height: clamp(820px, 54vw, 1240px);
+  }
+  .page-section--h-1000 { height: 1000px; min-height: 1000px; }
+  .page-section--h-1200 { height: 1200px; min-height: 1200px; }
+  .page-section--h-950  { height: 950px;  min-height: 950px;  }
+  .page-section--h-1050 { min-height: 1050px; }
+  .page-section--h-1270 { height: 1270px; min-height: 1270px; }
+  .page-section--h-1430 { min-height: 1430px; }
+  .page-section--h-1700 { height: 1700px; min-height: 1700px; }
+
+  #hero > .hero,
+  #about > .history,
+  #metrics > .metrics-landscape,
+  #advantages > .adv,
+  #route > .route-story,
+  #services > div,
+  #route-overview > .route-overview,
+  #future-map > div,
+  #location > div {
+    height: 100%;
+    min-height: 0;
+  }
+}
+
+@media (min-width: 1700px) {
+  .page-section--h-fluid-hero {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1600 / 960;
+  }
+}
+
+/* ================================================================
+   АНИМАЦИИ КОЛЕЦ (RouteStory)
+   ================================================================ */
+
+@keyframes route-ring-wave {
+  0%   { transform: translate3d(0,     0,   0) rotate(0deg)  scale(1);     }
+  25%  { transform: translate3d(10px,  -8px, 0) rotate(6deg)  scale(1.015); }
+  50%  { transform: translate3d(0,     -16px,0) rotate(0deg)  scale(1.03);  }
+  75%  { transform: translate3d(-10px, -8px, 0) rotate(-6deg) scale(1.015); }
+  100% { transform: translate3d(0,     0,   0) rotate(0deg)  scale(1);     }
+}
+
 @keyframes route-ring-wave-reverse {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
-  }
-  25% {
-    transform: translate3d(-8px, 10px, 0) rotate(-5deg) scale(0.99);
-  }
-  50% {
-    transform: translate3d(0, 18px, 0) rotate(0deg) scale(0.975);
-  }
-  75% {
-    transform: translate3d(8px, 10px, 0) rotate(5deg) scale(0.99);
-  }
-  100% {
-    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
-  }
+  0%   { transform: translate3d(0,    0,    0) rotate(0deg)  scale(1);    }
+  25%  { transform: translate3d(-8px, 10px, 0) rotate(-5deg) scale(0.99); }
+  50%  { transform: translate3d(0,    18px, 0) rotate(0deg)  scale(0.975);}
+  75%  { transform: translate3d(8px,  10px, 0) rotate(5deg)  scale(0.99); }
+  100% { transform: translate3d(0,    0,    0) rotate(0deg)  scale(1);    }
 }
 
 .route-ring {
@@ -67,79 +215,5 @@ canvas {
   .route-ring,
   .route-ring-reverse {
     animation: none;
-  }
-}
-
-@media (min-width: 1025px) {
-  .page-section {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .page-section--h-520 {
-    height: 520px;
-    min-height: 520px;
-  }
-
-  .page-section--h-730 {
-    height: 730px;
-    min-height: 730px;
-  }
-
-  .page-section--h-365 {
-    height: 365px;
-    min-height: 365px;
-  }
-
-  .page-section--h-760 {
-    height: 760px;
-    min-height: 760px;
-  }
-
-  .page-section--h-910 {
-    height: 910px;
-    min-height: 910px;
-  }
-
-  .page-section--h-1000 {
-    height: 1000px;
-    min-height: 1000px;
-  }
-
-  .page-section--h-1200 {
-    height: 1200px;
-    min-height: 1200px;
-  }
-
-  .page-section--h-1050 {
-
-    min-height: 1050px;
-  }
-
-  .page-section--h-1270 {
-    height: 1270px;
-    min-height: 1270px;
-  }
-
-  .page-section--h-1430 {
-    min-height: 1430px;
-  }
-
-  .page-section--h-1700 {
-    height: 1700px;
-    min-height: 1700px;
-  }
-
-  #hero > .hero,
-  #about > .history,
-  #metrics > .metrics-landscape,
-  #advantages > .adv,
-  #route > .route-story,
-  #services > div,
-  #route-overview > .route-overview,
-  #future-map > div,
-  #location > div {
-    height: 100%;
-    min-height: 0;
   }
 }

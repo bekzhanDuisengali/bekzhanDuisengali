@@ -79,10 +79,10 @@ const AIChat = () => {
   return (
     <div className="fixed bottom-10 right-10 z-[100]">
       {isOpen && (
-        <div className="absolute bottom-24 right-0 w-[380px] h-[550px] bg-[#8DB8F4] border border-[#8DB8F4]/18 rounded-sm flex flex-col shadow-[0_40px_100px_rgba(0,0,0,0.2)] overflow-hidden animate-in slide-in-from-bottom-12 duration-500">
-          <div className="p-6 border-b border-[#8DB8F4]/12 flex justify-between items-center bg-gradient-to-r from-[#10233F] to-[#10233F] text-white">
+        <div className="absolute bottom-24 right-0 w-[380px] h-[550px] bg-[#1D4154] border border-[#1D4154]/18 rounded-sm flex flex-col shadow-[0_40px_100px_rgba(0,0,0,0.2)] overflow-hidden animate-in slide-in-from-bottom-12 duration-500">
+          <div className="p-6 border-b border-[#1D4154]/12 flex justify-between items-center bg-gradient-to-r from-[#10233F] to-[#10233F] text-white">
             <div className="flex items-center gap-4">
-              <div className="bg-[#8DB8F4] p-1 rounded-sm w-12 h-12 flex items-center justify-center border border-[#8DB8F4]/15">
+              <div className="bg-[#1D4154] p-1 rounded-sm w-12 h-12 flex items-center justify-center border border-[#1D4154]/15">
                 <img src={logoSrc} alt="KOL" className="w-full h-auto object-contain" />
               </div>
               <div>
@@ -95,14 +95,14 @@ const AIChat = () => {
             </button>
           </div>
 
-          <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-8 space-y-8 bg-[#8DB8F4]">
+          <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-8 space-y-8 bg-[#1D4154]">
             {messages.map((message, index) => (
               <div key={`${message.role}-${index}`} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div
                   className={`max-w-[85%] px-6 py-4 rounded-sm text-sm leading-relaxed ${
                     message.role === 'user'
                       ? 'bg-navy text-white shadow-lg'
-                      : 'bg-[#8DB8F4] border border-[#8DB8F4]/16 text-slate-800'
+                      : 'bg-[#1D4154] border border-[#1D4154]/16 text-slate-800'
                   }`}
                 >
                   {message.text}
@@ -112,14 +112,14 @@ const AIChat = () => {
 
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-[#8DB8F4] border border-[#8DB8F4]/16 px-6 py-4 rounded-sm">
+                <div className="bg-[#1D4154] border border-[#1D4154]/16 px-6 py-4 rounded-sm">
                   <Compass className="animate-spin text-brand" size={18} />
                 </div>
               </div>
             )}
           </div>
 
-          <div className="p-8 border-t border-[#8DB8F4]/12 bg-[#8DB8F4]">
+          <div className="p-8 border-t border-[#1D4154]/12 bg-[#1D4154]">
             <div className="flex gap-3 relative">
               <input
                 type="text"
@@ -131,7 +131,7 @@ const AIChat = () => {
                   }
                 }}
                 placeholder="Задать вопрос..."
-                className="w-full bg-[#8DB8F4] border border-[#8DB8F4]/18 rounded-sm pl-6 pr-14 py-5 focus:outline-none focus:border-brand transition-all text-sm uppercase font-bold placeholder:text-[#5F97E8]/45"
+                className="w-full bg-[#1D4154] border border-[#1D4154]/18 rounded-sm pl-6 pr-14 py-5 focus:outline-none focus:border-brand transition-all text-sm uppercase font-bold placeholder:text-[#5F97E8]/45"
               />
               <button
                 type="button"

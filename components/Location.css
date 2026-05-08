@@ -23,7 +23,7 @@
   margin: 0;
   font-family: var(--font-display, inherit);
   font-size: clamp(2.5rem, 5vw, 6.2rem);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 0.92;
   letter-spacing: -0.065em;
   text-transform: uppercase;
@@ -227,24 +227,116 @@
   }
 
   .location__title {
-    font-size: clamp(2rem, 9vw, 3.2rem);
+    font-size: clamp(1.85rem, 8.5vw, 3rem);
   }
 
   .location__lead {
-    font-size: clamp(1.1rem, 5vw, 1.6rem);
+    margin-top: 1rem;
+    font-size: clamp(1rem, 4.5vw, 1.45rem);
+  }
+
+  .location__content {
+    gap: 1.2rem;
+    margin-top: 1.5rem;
   }
 
   .location__map-frame {
-    border-width: 10px;
-    border-radius: 2rem;
+    aspect-ratio: 1 / 1;
+    border-width: 8px;
+    border-radius: 1.5rem;
+  }
+
+  .location__map-pin {
+    width: 3.8rem;
+    height: 3.8rem;
+  }
+
+  .location__contact {
+    padding: 1rem 0.15rem 0;
   }
 
   .location__contact-title {
-    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    font-size: clamp(1.65rem, 7.8vw, 2.3rem);
+  }
+
+  .location__name {
+    margin-top: 1.4rem;
+    font-size: clamp(1.4rem, 6.5vw, 2rem);
+  }
+
+  .location__row {
+    gap: 0.8rem;
+    margin-top: 1rem;
+  }
+
+  .location__icon-circle {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .location__phone,
+  .location__email {
+    font-size: clamp(1.05rem, 4.8vw, 1.5rem);
+  }
+
+  .location__note {
+    font-size: 0.85rem;
+  }
+
+  .location__address {
+    max-width: 24rem;
+    font-size: clamp(0.98rem, 4.2vw, 1.25rem);
+  }
+
+  .location__divider {
+    width: 100%;
+    height: 2px;
+    margin-top: 1.4rem;
+  }
+
+  .location__socials {
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .location__social {
+    width: 3rem;
+    height: 3rem;
   }
 
   .location__floating {
     right: 1rem;
     bottom: 1rem;
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .location__inner {
+    padding: 1.25rem 0.85rem 1rem;
+  }
+
+  .location__title {
+    font-size: clamp(1.7rem, 9vw, 2.5rem);
+  }
+
+  .location__lead {
+    font-size: 0.95rem;
+  }
+
+  .location__map-frame {
+    border-width: 6px;
+  }
+
+  .location__contact-title {
+    font-size: clamp(1.45rem, 8vw, 2rem);
+  }
+
+  .location__phone,
+  .location__email,
+  .location__address {
+    font-size: 0.92rem;
   }
 }

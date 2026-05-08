@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ChevronRight, Play, Send } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import './VideoSlider.css';
 
 const boatImage = (file: string) => new URL(`../images/boats/${file}`, import.meta.url).href;
@@ -177,19 +177,12 @@ const VideoSlider: React.FC = () => {
       <div className="video-slider__inner">
         <div className="video-slider__intro">
           <h2 className="video-slider__title">
-            Погрузки и отправки
+            Погрузки и <br /> отправки
           </h2>
 
           <p className="video-slider__lead">
-            Реальные рейсы и погрузки
-          </p>
-
-          <p className="video-slider__note">
-            Фото- и видеофиксация
-            <span className="video-slider__divider">•</span>
-            Без посредников
-            <span className="video-slider__divider">•</span>
-            Прямой доступ к портам
+            Реальные погрузки и отправки наших грузов. <br />
+            Контроль на каждом этапе - от приемки до доставки.
           </p>
         </div>
 
@@ -224,22 +217,8 @@ const VideoSlider: React.FC = () => {
                   fetchPriority="low"
                 />
                 <div className="video-slider__card-overlay" />
-
-                <div className="video-slider__card-play-wrap">
-                  <div className="video-slider__card-play">
-                    <Play size={28} fill="currentColor" />
-                  </div>
-                </div>
               </div>
 
-              <div className="video-slider__card-body">
-                <div className="video-slider__card-date">
-                  {card.date}
-                </div>
-                <div className="video-slider__card-route">
-                  {card.route}
-                </div>
-              </div>
             </a>
           ))}
         </div>

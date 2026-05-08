@@ -24,11 +24,11 @@ type SectionConfig = {
 };
 
 const SECTION_HEIGHT_CLASS: Partial<Record<string, string>> = {
-  hero: 'page-section--h-910',
-  about: 'page-section--h-1050',
+  hero: 'page-section--h-fluid-hero',
+  about: 'page-section--h-860',
   advantages: 'page-section--h-730',
   metrics: 'page-section--h-365',
-  route: 'page-section--h-1700',
+  route: 'page-section--h-1430',
   services: 'page-section',
   'route-overview': 'page-section--h-1270',
   'future-map': 'page-section--h-760',
@@ -49,7 +49,7 @@ const SECTION_CONFIG: SectionConfig[] = [
   },
   {
     id: 'about',
-    className: 'bg-[#edf5fb] transition-colors duration-500',
+    className: 'section--about-bg',         /* фон «О нас» → index.css */
     content: <History />,
   },
   {
@@ -58,17 +58,16 @@ const SECTION_CONFIG: SectionConfig[] = [
   },
   {
     id: 'route',
-    className: 'py-24 lg:py-40 border-y border-[#8DB8F4]/22 transition-colors duration-500',
+    className: 'section--route-bg',         /* отступы + рамки → index.css */
     content: <RouteStory />,
   },
   {
     id: 'services',
-    className: 'transition-colors duration-500',
     content: <Services />,
   },
   {
     id: 'operations',
-    className: 'bg-[#8DB8F4]/58 text-[#10233F] transition-colors duration-500',
+    className: 'section--operations-bg',    /* фон «Погрузки» → index.css */
     content: <VideoSlider />,
   },
   {
@@ -77,10 +76,9 @@ const SECTION_CONFIG: SectionConfig[] = [
   },
   {
     id: 'location',
-    className: 'bg-[#0d4f6d] transition-colors duration-500',
+    className: 'section--location-bg',      /* фон «Контакты» → index.css */
     content: <Location />,
   },
-
 ];
 
 const App = () => {
@@ -128,7 +126,7 @@ const App = () => {
 
         <section
           id="route-overview"
-          className={getSectionClassName('route-overview', 'bg-[#dbeaf5] transition-colors duration-500')}
+          className={getSectionClassName('route-overview', 'section--route-overview-bg')}
         >
           <RouteOverview />
         </section>
