@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import './Navbar.css';
 
 const logoSrc = new URL('../images/logo.png', import.meta.url).href;
 
@@ -34,39 +35,22 @@ const Navbar: React.FC = () => {
   }, [isOpen]);
 
   return (
-    <nav
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'border-b border-white/10 bg-[rgba(8,15,22,0.72)] py-4 backdrop-blur-xl'
-          : 'bg-transparent py-7'
-      }`}
-    >
-      <div className="mx-auto flex max-w-[1720px] items-center justify-between px-6 lg:px-12">
-        <a href="#hero" className="flex items-center">
-          <img
-            src={logoSrc}
-            alt="KOL Logo"
-            className="h-12 w-auto object-contain brightness-0 invert md:h-[4.2rem]"
-          />
+    <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+      <div className="navbar__container">
+        <a href="#hero">
+          <img src={logoSrc} alt="KOL Logo" className="navbar__logo" />
         </a>
 
-        <div className="hidden items-center gap-14 lg:flex">
-          <div className="flex items-center gap-14">
+        <div className="navbar__desktop">
+          <div className="navbar__links">
             {NAV_LINKS.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="font-display text-[25px] font-semibold tracking-[-0.04em] text-white transition-opacity hover:opacity-75"
-              >
+              <a key={link.name} href={link.href} className="navbar__link">
                 {link.name}
               </a>
             ))}
           </div>
 
-          <a
-            href="#contact"
-            className="font-display inline-flex min-h-[3.45rem] items-center justify-center rounded-full bg-white px-8 text-[25px] font-semibold tracking-[-0.04em] text-[#0d4f6d] transition-transform hover:-translate-y-0.5"
-          >
+          <a href="#contact" className="navbar__cta">
             Консультация
           </a>
         </div>
@@ -75,7 +59,7 @@ const Navbar: React.FC = () => {
           type="button"
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isOpen}
-          className="flex h-12 w-12 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur md:h-14 md:w-14 lg:hidden"
+          className="navbar__toggle"
           onClick={() => setIsOpen((current) => !current)}
         >
           {isOpen ? <X size={22} /> : <Menu size={22} />}
@@ -83,30 +67,26 @@ const Navbar: React.FC = () => {
       </div>
 
       {isOpen && (
-        <div className="fixed inset-0 top-0 z-40 bg-[rgba(6,12,19,0.72)] backdrop-blur-xl lg:hidden">
-          <div className="absolute inset-x-4 top-20 rounded-[2rem] border border-white/10 bg-[#0d1e2b]/96 p-5 shadow-[0_30px_80px_rgba(0,0,0,0.28)]">
-            <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
-              <img
-                src={logoSrc}
-                alt="KOL Logo"
-                className="h-11 w-auto object-contain brightness-0 invert"
-              />
+        <div className="navbar__mobile-overlay">
+          <div className="navbar__mobile-panel">
+            <div className="navbar__mobile-header">
+              <img src={logoSrc} alt="KOL Logo" className="navbar__mobile-logo" />
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white"
+                className="navbar__mobile-close"
               >
                 <X size={20} />
               </button>
             </div>
 
-            <div className="flex flex-col gap-3">
+            <div className="navbar__mobile-links">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="font-display rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-base font-semibold tracking-[-0.02em] text-white"
+                  className="navbar__mobile-link"
                 >
                   {link.name}
                 </a>
@@ -116,7 +96,7 @@ const Navbar: React.FC = () => {
             <a
               href="#contact"
               onClick={() => setIsOpen(false)}
-              className="font-display mt-4 flex min-h-[3.5rem] items-center justify-center rounded-full bg-white text-base font-semibold tracking-[-0.02em] text-[#0d4f6d]"
+              className="navbar__mobile-cta"
             >
               Консультация
             </a>

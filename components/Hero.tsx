@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronRight } from 'lucide-react';
+import { Camera, ChevronRight, ShieldCheck } from 'lucide-react';
 import './Hero.css';
 
 const heroBackground960 = new URL(
@@ -33,26 +33,46 @@ const Hero = () => {
       </div>
 
       <div className="hero__container">
-        <div className="hero__content">
-          <div className="hero__tagline">
-            <span>Bridge to Asia</span>
-            <span className="hero__tagline-separator">|</span>
-            <span>Korea Oriental Line</span>
+        <div className="hero__top">
+          <div className="hero__content">
+            <div className="hero__tagline">
+              <span>Bridge to Asia</span>
+              <span className="hero__tagline-separator">|</span>
+              <span>Korea Oriental Line</span>
+            </div>
+
+            <h1 className="hero__title">
+              Доставка грузов
+              <br />
+              из Южной Кореи
+            </h1>
+
+            <div className="hero__description-wrap">
+              <p className="hero__description">
+                Международное экспедирование и логистика полного цикла, включая транзитные маршруты и перевалку грузов
+                через третьи страны.
+                <span className="hero__description-break" aria-hidden="true" />
+                Автомобили и запчасти, спецтехника, водная техника и промышленное оборудование.
+              </p>
+            </div>
           </div>
 
-          <h1 className="hero__title">
-            Доставка грузов
-            <br />
-            из Южной Кореи
-          </h1>
+          <div className="hero__features" aria-label="Преимущества">
+          <div className="hero__feature">
+            <ShieldCheck size={30} strokeWidth={1.95} className="hero__feature-icon" />
+            <div className="hero__feature-copy">
+              <span className="hero__feature-text">Полное</span>
+              <span className="hero__feature-text hero__feature-text--strong">сопровождение</span>
+            </div>
+          </div>
 
-          <div className="hero__description-wrap">
-            <p className="hero__description">
-              Международное экспедирование и логистика полного цикла, включая транзитные маршруты и перевалку грузов
-              через третьи страны.
-              <span className="hero__description-break" aria-hidden="true" />
-              Автомобили и запчасти, спецтехника, водная техника и промышленное оборудование.
-            </p>
+          <div className="hero__feature">
+            <Camera size={30} strokeWidth={1.95} className="hero__feature-icon" />
+            <div className="hero__feature-copy">
+              <span className="hero__feature-text">Прозрачные</span>
+              <span className="hero__feature-text hero__feature-text--strong">условия</span>
+            </div>
+          </div>
           </div>
         </div>
 

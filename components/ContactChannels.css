@@ -1,0 +1,234 @@
+/* ================================================================
+   CONTACT CHANNELS — блок каналов связи
+   ================================================================ */
+
+.contact {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  transition: colors 0.7s ease;
+}
+
+@media (min-width: 640px) { .contact { padding: 0 1.5rem; } }
+
+/* --- Заголовок --- */
+.contact__header {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) { .contact__header { margin-bottom: 6rem; } }
+@media (min-width: 1024px) { .contact__header { margin-bottom: 8rem; } }
+
+.contact__label {
+  margin-bottom: 1rem;
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.45em;
+  color: var(--color-brand);
+}
+
+@media (min-width: 640px) {
+  .contact__label {
+    margin-bottom: 1.5rem;
+    font-size: 10px;
+    letter-spacing: 0.6em;
+  }
+}
+
+.contact__title {
+  font-family: var(--font-main);
+  margin-bottom: clamp(1.25rem, 2vw, 2rem);
+  font-size: clamp(2.7rem, 7.5vw, 9rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--color-navy);
+  transition: color 0.5s ease;
+}
+
+.contact__title-muted {
+  color: rgba(16, 35, 63, 0.10);  /* слово «каналы» — полупрозрачное */
+}
+
+.contact__subtitle {
+  margin-top: 1.25rem;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: rgba(95, 151, 232, 0.60);  /* цвет подзаголовка */
+  transition: color 0.5s ease;
+}
+
+@media (min-width: 640px) {
+  .contact__subtitle {
+    margin-top: 2.5rem;
+    font-size: 0.875rem;
+    letter-spacing: 0.6em;
+  }
+}
+
+/* --- Сетка карточек --- */
+.contact__grid {
+  margin: 0 auto;
+  max-width: 72rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) { .contact__grid { gap: 1.5rem; } }
+
+@media (min-width: 768px) {
+  .contact__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1024px) { .contact__grid { gap: 2rem; } }
+
+/* --- Карточка --- */
+.contact__card {
+  padding: 2rem;
+  background: var(--color-brand);    /* фон карточки — меняй здесь */
+  border: 1px solid var(--color-brand-20);
+  border-radius: 2px;
+  text-align: left;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s;
+}
+
+@media (min-width: 640px) { .contact__card { padding: 2.5rem; } }
+@media (min-width: 1024px) { .contact__card { padding: 3.5rem; } }
+
+.contact__card-icon {
+  margin-bottom: 1.25rem;
+  color: var(--color-brand);
+}
+
+@media (min-width: 640px) { .contact__card-icon { margin-bottom: 2rem; } }
+
+.contact__card-title {
+  font-family: var(--font-main);
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--color-navy);
+  transition: color 0.5s ease;
+}
+
+@media (min-width: 640px) {
+  .contact__card-title { font-size: 1.5rem; }
+}
+
+.contact__card-subtitle {
+  margin-bottom: 2rem;
+  transition: color 0.5s ease;
+}
+
+@media (min-width: 640px) { .contact__card-subtitle { margin-bottom: 2.5rem; } }
+
+.contact__card-subtitle--text {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
+  color: var(--color-navy-60);
+}
+
+.contact__card-subtitle--phone,
+.contact__card-subtitle--email {
+  font-family: var(--font-main);
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-navy-60);
+}
+
+/* --- Действия (ссылки/кнопки) --- */
+.contact__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) { .contact__actions { gap: 1rem; } }
+
+.contact__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-brand);       /* цвет ссылок — меняй здесь */
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.contact__action:hover {
+  color: var(--color-navy);
+}
+
+/* --- Нижний блок с адресом --- */
+.contact__footer {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 640px) { .contact__footer { margin-top: 6rem; } }
+@media (min-width: 1024px) { .contact__footer { margin-top: 8rem; } }
+
+.contact__divider {
+  margin-bottom: 2rem;
+  height: 1px;
+  width: 6rem;
+  background: var(--color-brand-20);
+  transition: background 0.5s ease;
+}
+
+@media (min-width: 640px) {
+  .contact__divider { margin-bottom: 3rem; width: 8rem; }
+}
+
+.contact__address-label {
+  margin-bottom: 1rem;
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: rgba(95, 151, 232, 0.55);
+  transition: color 0.5s ease;
+}
+
+@media (min-width: 640px) {
+  .contact__address-label {
+    margin-bottom: 1.5rem;
+    font-size: 11px;
+    letter-spacing: 0.5em;
+  }
+}
+
+.contact__address {
+  font-family: var(--font-main);
+  max-width: 22rem;
+  padding: 0 0.5rem;
+  text-align: center;
+  font-size: clamp(1.25rem, 1.5625vw, 1.875rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  color: var(--color-navy-55);
+  transition: color 0.5s ease;
+}

@@ -16,10 +16,6 @@ const History: React.FC = () => {
       </div>
 
       <div className="history__inner">
-        <div className="history__ship-wrap">
-          
-        </div>
-
         <div className="history__content">
           <div className="history__years">
             <div className="history__year-card">
@@ -56,11 +52,6 @@ const History: React.FC = () => {
             «В 2022 году мы объединили этот опыт под брендом KOL, чтобы предложить рынку новый уровень сервиса,
             основанный на абсолютной прозрачности и скорости.»
           </div>
-
-          <p className="history__text history__text--footer">
-            Сегодня KOL — это современная логистическая платформа, которая сочетает в себе проверенную временем
-            надежность и передовые цифровые технологии мониторинга.
-          </p>
         </div>
 
       </div>

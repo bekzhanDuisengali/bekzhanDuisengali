@@ -1,0 +1,363 @@
+/* ================================================================
+   PARTNERS — секция партнёров
+   ================================================================ */
+
+.partners {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  padding: 3rem 0 6rem;
+  overflow: hidden;
+  transition: colors 0.5s ease;
+}
+
+@media (min-width: 1024px) {
+  .partners { padding: 3.5rem 0 8rem; }
+}
+
+/* --- Заголовок --- */
+.partners__header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .partners__header { margin-bottom: 3.5rem; }
+}
+
+.partners__label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--color-brand);
+}
+
+@media (min-width: 640px) {
+  .partners__label { letter-spacing: 0.5em; }
+}
+
+.partners__title {
+  margin-top: 1.5rem;
+  font-family: var(--font-main);
+  font-size: clamp(3rem, 4.948vw, 5.9375rem);
+  font-weight: 700;
+  color: var(--color-brand);
+  transition: color 0.5s ease;
+}
+
+/* --- Блок с featured-партнёром (Searoad) --- */
+.partners__featured {
+  max-width: 1540px;
+  margin: 0 auto 3.5rem;
+  display: grid;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .partners__featured {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    padding: 0 3rem;
+    margin-bottom: 4rem;
+    gap: 2rem;
+  }
+}
+
+.partners__company-name {
+  font-family: var(--font-main);
+  font-size: clamp(2.1rem, 3.083vw, 3.7rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: -0.08em;
+  color: var(--color-deep);
+  max-width: 1120px;
+}
+
+.partners__company-desc {
+  margin-top: 1rem;
+  max-width: 1180px;
+  font-size: clamp(1rem, 1.56vw, 1.5rem);
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.partners__company-logo-wrap {
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  max-width: 260px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .partners__company-logo-wrap { justify-content: flex-end; }
+}
+
+.partners__company-logo {
+  width: 210px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+/* --- Бегущая строка --- */
+.partners__track-wrapper {
+  position: relative;
+}
+
+/* Боковые затухания */
+.partners__fade {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  width: 4rem;
+  transition: background 0.5s ease;
+}
+
+@media (min-width: 768px) { .partners__fade { width: 10rem; } }
+
+.partners__fade--left {
+  left: 0;
+  background: linear-gradient(to right, rgba(255,255,255,0.70), transparent);
+}
+
+.partners__fade--right {
+  right: 0;
+  background: linear-gradient(to left, rgba(255,255,255,0.70), transparent);
+}
+
+/* Трек с логотипами */
+.partners__track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  padding: 0 1.5rem;
+  animation: partners-scroll 28s linear infinite;
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .partners__track { gap: 2rem; padding: 0 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partners__track { animation: none; }
+}
+
+@keyframes partners-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* --- Карточки логотипов --- */
+.partners__card {
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Свечение при наведении */
+.partners__card-glow {
+  position: absolute;
+  inset: -0.75rem;
+  border-radius: 1rem;
+  opacity: 0;
+  filter: blur(24px);
+  transition: opacity 0.5s;
+}
+
+.partners__card:hover .partners__card-glow {
+  opacity: 1;
+}
+
+/* Карточка */
+.partners__card-inner {
+  position: relative;
+  height: 6rem;
+  width: 200px;
+  border-radius: 1rem;
+  border: 1px solid rgba(29, 65, 84, 0.10);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 14px 34px rgba(18, 52, 110, 0.10);
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+@media (min-width: 768px) {
+  .partners__card-inner { height: 7rem; width: 240px; }
+}
+
+.partners__card:hover .partners__card-inner {
+  transform: translateY(-4px);
+  border-color: rgba(29, 65, 84, 0.38);
+}
+
+.partners__card-shine {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.45), transparent);
+}
+
+.partners__card-logo-wrap {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .partners__card-logo-wrap { padding: 1.25rem; }
+}
+
+.partners__card-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.85;
+  filter: grayscale(0.10) contrast(1.10) saturate(0.95);
+  transition: all 0.3s;
+}
+
+.partners__card:hover .partners__card-logo {
+  opacity: 1;
+  filter: none;
+}
+
+.partners__card-logo--scale {
+  transform: scale(2.2);
+}
+
+/* Цвета свечений карточек — меняй здесь */
+.partners__card-glow--sky   { background: radial-gradient(circle, rgba(14,165,233,0.25), rgba(56,189,248,0.10), transparent); }
+.partners__card-glow--pink  { background: radial-gradient(circle, rgba(236,72,153,0.25), rgba(251,113,133,0.10), transparent); }
+.partners__card-glow--rose  { background: radial-gradient(circle, rgba(244,63,94,0.25),  rgba(251,146,60,0.10),  transparent); }
+.partners__card-glow--amber { background: radial-gradient(circle, rgba(245,158,11,0.25), rgba(250,204,21,0.10), transparent); }
+.partners__card-glow--blue  { background: radial-gradient(circle, rgba(59,130,246,0.25), rgba(34,211,238,0.10), transparent); }
+
+@media (max-width: 1023px) {
+  .partners {
+    padding: 2.5rem 0 4rem;
+  }
+
+  .partners__header {
+    margin-bottom: 2rem;
+  }
+
+  .partners__title {
+    font-size: clamp(2.2rem, 9vw, 3.6rem);
+  }
+
+  .partners__featured {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+    padding: 0 1rem;
+  }
+
+  .partners__company-name {
+    font-size: clamp(1.7rem, 7vw, 2.6rem);
+  }
+
+  .partners__company-desc {
+    font-size: 0.95rem;
+    line-height: 1.42;
+  }
+
+  .partners__company-logo-wrap {
+    max-width: 200px;
+    justify-content: flex-start;
+  }
+
+  .partners__company-logo {
+    width: 170px;
+  }
+
+  .partners__track {
+    gap: 1rem;
+    padding: 0 1rem;
+    animation-duration: 34s;
+  }
+
+  .partners__fade {
+    width: 3rem;
+  }
+
+  .partners__card-inner {
+    width: 170px;
+    height: 5rem;
+  }
+
+  .partners__card-logo-wrap {
+    padding: 0.85rem;
+  }
+
+  .partners__card-logo--scale {
+    transform: scale(1.85);
+  }
+}
+
+@media (max-width: 640px) {
+  .partners {
+    padding: 2rem 0 3.5rem;
+  }
+
+  .partners__header {
+    margin-bottom: 1.5rem;
+  }
+
+  .partners__title {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .partners__featured {
+    padding: 0 0.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .partners__company-name {
+    font-size: clamp(1.45rem, 6.8vw, 2rem);
+  }
+
+  .partners__company-desc {
+    margin-top: 0.8rem;
+    font-size: 0.88rem;
+    line-height: 1.38;
+  }
+
+  .partners__company-logo-wrap {
+    max-width: 180px;
+  }
+
+  .partners__company-logo {
+    width: 150px;
+  }
+
+  .partners__track {
+    gap: 0.75rem;
+    padding: 0 0.85rem;
+  }
+
+  .partners__card-inner {
+    width: 146px;
+    height: 4.5rem;
+  }
+
+  .partners__card-logo-wrap {
+    padding: 0.75rem;
+  }
+
+  .partners__fade {
+    width: 2rem;
+  }
+}
