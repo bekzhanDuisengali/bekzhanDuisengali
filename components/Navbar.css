@@ -176,18 +176,27 @@
 .navbar__mobile-overlay {
   position: fixed;
   inset: 0;
-  z-index: 40;
+  z-index: 60;
   background:
-    radial-gradient(circle at top, rgba(18, 50, 72, 0.28), rgba(6, 12, 19, 0.82) 68%),
-    rgba(6, 12, 19, 0.70);
+    radial-gradient(circle at top, rgba(18, 50, 72, 0.34), rgba(6, 12, 19, 0.88) 68%),
+    rgba(6, 12, 19, 0.78);
   backdrop-filter: blur(24px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5.25rem 0.75rem 0.75rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  overscroll-behavior: contain;
 }
 
 .navbar__mobile-panel {
-  position: absolute;
-  left: 1rem;
-  right: 1rem;
-  top: 5rem;
+  position: relative;
+  width: min(100%, 760px);
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+  overflow-y: auto;
   border-radius: 1.75rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background:
@@ -291,9 +300,10 @@
   }
 
   .navbar__mobile-panel {
-    left: 0.75rem;
-    right: 0.75rem;
-    top: 4.25rem;
+    width: min(100%, 100%);
+    height: 100%;
+    min-height: 0;
+    max-height: 100%;
     padding: 1rem;
     border-radius: 1.35rem;
   }
