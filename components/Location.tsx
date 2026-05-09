@@ -1,6 +1,6 @@
 import React from 'react';
 import './Location.css';
-import { Facebook, Instagram, Mail, MapPin, Phone, Youtube, Ship } from 'lucide-react';
+import { Facebook, Instagram, Mail, MapPin, Phone, Youtube } from 'lucide-react';
 
 const PHONE_DISPLAY = '+82 10 7309 9001';
 const PHONE_LINK = 'tel:+821073099001';
@@ -11,6 +11,11 @@ const socialLinks = [
   { href: 'https://instagram.com', label: 'Instagram', icon: Instagram },
   { href: 'https://facebook.com', label: 'Facebook', icon: Facebook },
   { href: 'https://youtube.com', label: 'YouTube', icon: Youtube },
+];
+
+const CONTACTS = [
+  { role: 'MANAGER', name: 'Светлана' },
+  { role: 'SUPER-CARGO', name: 'Илья' },
 ];
 
 const Location: React.FC = () => {
@@ -43,16 +48,25 @@ const Location: React.FC = () => {
           <div className="location__contact">
             <h3 className="location__contact-title">СВЯЗАТЬСЯ С НАМИ:</h3>
 
-            <div className="location__name">Светлана</div>
+            <div className="location__contact-list">
+              {CONTACTS.map((contact) => (
+                <div key={contact.role} className="location__contact-card">
+                  <div className="location__contact-name-row">
+                    <span className="location__contact-role">{contact.role}:</span>
+                    <span className="location__contact-name">{contact.name}</span>
+                  </div>
 
-            <div className="location__row">
-              <span className="location__icon-circle">
-                <Phone size={24} strokeWidth={2.1} />
-              </span>
-              <div className="location__row-body">
-                <a href={PHONE_LINK} className="location__phone">{PHONE_DISPLAY}</a>
-                <div className="location__note">WhatsApp | Telegram</div>
-              </div>
+                  <div className="location__row">
+                    <span className="location__icon-circle">
+                      <Phone size={24} strokeWidth={2.1} />
+                    </span>
+                    <div className="location__row-body">
+                      <a href={PHONE_LINK} className="location__phone">{PHONE_DISPLAY}</a>
+                      <div className="location__note">WhatsApp | Telegram</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
 
             <div className="location__row">

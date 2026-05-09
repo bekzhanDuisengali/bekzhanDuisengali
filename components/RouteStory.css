@@ -13,6 +13,7 @@
   font-weight: 600;
   line-height: 0.95;
   letter-spacing: -0.07em;
+  text-transform: uppercase;
   color: #0d4f6d;
 }
 
@@ -179,6 +180,7 @@
   font-weight: 700;
   line-height: 0.94;
   letter-spacing: -0.07em;
+  text-transform: uppercase;
   color: #0d4f6d;
 }
 
@@ -279,6 +281,7 @@
 
   .route-story__title > span {
     display: block;
+    line-height: 1;
   }
 
   .route-story__title-line {
@@ -312,7 +315,7 @@
     max-width: 100%;
     margin-top: 0.7rem;
     font-size: clamp(0.86rem, 3.7vw, 1rem);
-    line-height: 1.16;
+    line-height: 1.5;
   }
 
   .route-story__tabs {
@@ -379,14 +382,14 @@
   }
 
   .route-story__details-title {
-    font-size: clamp(1.8rem, 7.6vw, 2.25rem);
-    line-height: 0.95;
+    font-size: clamp(1.9rem, 9vw, 2.6rem);
+    line-height: 1.5;
   }
 
   .route-story__details-summary {
     margin-top: 0.65rem;
     font-size: 0.9rem;
-    line-height: 1.14;
+    line-height: 1.5;
     max-width: 100%;
   }
 
@@ -401,7 +404,7 @@
 
   .route-story__bullet-text {
     font-size: 0.92rem;
-    line-height: 1.08;
+    line-height: 1.5;
   }
 
   .route-story__button {

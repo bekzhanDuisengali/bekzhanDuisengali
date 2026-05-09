@@ -243,8 +243,8 @@
 
   .services__title {
     max-width: 10.5ch;
-    font-size: clamp(28px, 9vw, 40px);
-    line-height: 0.92;
+    font-size: clamp(1.9rem, 9vw, 2.6rem);
+    line-height: 1.5;
     letter-spacing: -0.08em;
   }
 
@@ -276,7 +276,7 @@
   .services__title {
     max-width: 10ch;
     font-size: clamp(26px, 8.6vw, 34px);
-    line-height: 0.95;
+    line-height: 1.5;
   }
 
   .services__lead {

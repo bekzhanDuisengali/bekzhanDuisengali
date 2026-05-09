@@ -120,7 +120,7 @@
   .metrics-landscape__lead,
   .metrics-landscape__line-text {
     font-size: 18px;
-    line-height: 1.14;
+    line-height: 1.5;
   }
 }
 
@@ -139,7 +139,7 @@
   .metrics-landscape__lead,
   .metrics-landscape__line-text {
     font-size: 17px;
-    line-height: 1.15;
+    line-height: 1.5;
   }
 
   .metrics-landscape__item {
@@ -189,7 +189,7 @@
   .metrics-landscape__lead,
   .metrics-landscape__line-text {
     font-size: 14px;
-    line-height: 1.16;
+    line-height: 1.5;
   }
 }
 

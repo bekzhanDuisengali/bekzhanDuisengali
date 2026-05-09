@@ -1,7 +1,7 @@
 .location {
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   overflow: hidden;
   background: #0b4b66;
   color: #fff;
@@ -10,9 +10,12 @@
 .location__inner {
   position: relative;
   max-width: 1920px;
-  height: 100%;
+  min-height: 100%;
   margin: 0 auto;
-  padding: clamp(2.25rem, 3.2vw, 4.5rem) clamp(1.25rem, 2.5vw, 3rem) clamp(2rem, 3vw, 4rem);
+  padding: clamp(2.5rem, 3.4vw, 4.75rem) clamp(1.25rem, 2.5vw, 3rem) clamp(2.25rem, 3.4vw, 4.25rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .location__header {
@@ -22,28 +25,28 @@
 .location__title {
   margin: 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(2.5rem, 5vw, 6.2rem);
+  font-size: clamp(2.6rem, 5.15vw, 6.6rem);
   font-weight: 500;
-  line-height: 0.92;
+  line-height: 1.02;
   letter-spacing: -0.065em;
   text-transform: uppercase;
 }
 
 .location__lead {
-  margin: 1.4rem 0 0;
+  margin: 1rem 0 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.6rem, 2.7vw, 3.2rem);
+  font-size: clamp(1.55rem, 2.65vw, 3rem);
   font-weight: 300;
-  line-height: 1.06;
+  line-height: 1.12;
   letter-spacing: -0.05em;
 }
 
 .location__content {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
-  gap: clamp(1.6rem, 2.8vw, 3rem);
+  grid-template-columns: minmax(0, 1fr) minmax(380px, 0.92fr);
+  gap: clamp(1.8rem, 3vw, 3.25rem);
   align-items: start;
-  margin-top: clamp(2.25rem, 3.4vw, 4.5rem);
+  margin-top: clamp(2.1rem, 3vw, 4rem);
 }
 
 .location__map-shell {
@@ -53,10 +56,10 @@
 .location__map-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 1.08 / 1;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
-  border: 14px solid #d1a35b;
-  border-radius: 3rem;
+  border: 12px solid #d1a35b;
+  border-radius: 2.75rem;
   background: #f1f4f7;
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
 }
@@ -84,32 +87,60 @@
 }
 
 .location__contact {
-  padding-top: clamp(0.4rem, 1vw, 1rem);
+  padding-top: clamp(0.15rem, 0.7vw, 0.75rem);
 }
 
 .location__contact-title {
   margin: 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(2rem, 3.5vw, 4.4rem);
+  font-size: clamp(2rem, 3.45vw, 4.2rem);
   font-weight: 700;
-  line-height: 0.96;
+  line-height: 1.02;
   letter-spacing: -0.06em;
   text-transform: uppercase;
 }
 
-.location__name {
-  margin-top: 2.1rem;
+.location__contact-list {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.4rem;
+}
+
+.location__contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.location__contact-name-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.location__contact-role {
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.75rem, 2.8vw, 3.6rem);
+  font-size: clamp(1.5rem, 2.45vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  color: #d1a35b;
+  text-transform: uppercase;
+}
+
+.location__contact-name {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.5rem, 2.45vw, 3rem);
   font-weight: 700;
   letter-spacing: -0.055em;
+  color: #fff;
 }
 
 .location__row {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
-  margin-top: 1.3rem;
+  gap: 0.9rem;
+  margin-top: 30px;
 }
 
 .location__icon-circle {
@@ -131,9 +162,9 @@
 .location__phone,
 .location__email {
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.4rem, 2.4vw, 2.8rem);
+  font-size: clamp(1.25rem, 2.1vw, 2.4rem);
   font-weight: 300;
-  line-height: 1.05;
+  line-height: 1.08;
   letter-spacing: -0.04em;
   color: #fff;
   text-decoration: none;
@@ -142,7 +173,7 @@
 .location__note {
   margin-top: 0.45rem;
   font-family: var(--font-display, inherit);
-  font-size: clamp(0.95rem, 1.3vw, 1.6rem);
+  font-size: clamp(0.9rem, 1.2vw, 1.35rem);
   font-weight: 300;
   letter-spacing: -0.03em;
   color: rgba(255, 255, 255, 0.9);
@@ -152,7 +183,7 @@
   margin: 0;
   max-width: 30rem;
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.05rem, 1.55vw, 2rem);
+  font-size: clamp(1rem, 1.45vw, 1.8rem);
   font-weight: 300;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -170,7 +201,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 1.75rem;
 }
 
 .location__social {
@@ -213,7 +244,7 @@
 
   .location__map-frame {
     max-width: 980px;
-    aspect-ratio: 1.15 / 1;
+    aspect-ratio: 1.08 / 1;
   }
 
   .location__contact {
@@ -227,7 +258,7 @@
   }
 
   .location__title {
-    font-size: clamp(1.85rem, 8.5vw, 3rem);
+    font-size: clamp(1.9rem, 9vw, 2.6rem);
   }
 
   .location__lead {
@@ -236,8 +267,8 @@
   }
 
   .location__content {
-    gap: 1.2rem;
-    margin-top: 1.5rem;
+    gap: 1rem;
+    margin-top: 1.25rem;
   }
 
   .location__map-frame {
@@ -252,21 +283,20 @@
   }
 
   .location__contact {
-    padding: 1rem 0.15rem 0;
+    padding: 0.9rem 0.1rem 0;
   }
 
   .location__contact-title {
-    font-size: clamp(1.65rem, 7.8vw, 2.3rem);
+    font-size: clamp(1.55rem, 7.2vw, 2.15rem);
   }
 
-  .location__name {
-    margin-top: 1.4rem;
-    font-size: clamp(1.4rem, 6.5vw, 2rem);
+  .location__contact-list {
+    gap: 1rem;
+    margin-top: 1.1rem;
   }
 
   .location__row {
-    gap: 0.8rem;
-    margin-top: 1rem;
+    gap: 0.7rem;
   }
 
   .location__icon-circle {
@@ -276,16 +306,16 @@
 
   .location__phone,
   .location__email {
-    font-size: clamp(1.05rem, 4.8vw, 1.5rem);
+    font-size: clamp(0.98rem, 4.4vw, 1.35rem);
   }
 
   .location__note {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   .location__address {
     max-width: 24rem;
-    font-size: clamp(0.98rem, 4.2vw, 1.25rem);
+    font-size: clamp(0.92rem, 4vw, 1.15rem);
   }
 
   .location__divider {
@@ -295,8 +325,8 @@
   }
 
   .location__socials {
-    gap: 0.75rem;
-    margin-top: 1.25rem;
+    gap: 0.7rem;
+    margin-top: 1.1rem;
     flex-wrap: wrap;
   }
 
@@ -315,15 +345,15 @@
 
 @media (max-width: 420px) {
   .location__inner {
-    padding: 1.25rem 0.85rem 1rem;
+    padding: 1.1rem 0.8rem 0.95rem;
   }
 
   .location__title {
-    font-size: clamp(1.7rem, 9vw, 2.5rem);
+    font-size: clamp(1.55rem, 8.4vw, 2.25rem);
   }
 
   .location__lead {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .location__map-frame {
@@ -331,12 +361,17 @@
   }
 
   .location__contact-title {
-    font-size: clamp(1.45rem, 8vw, 2rem);
+    font-size: clamp(1.35rem, 7.6vw, 1.85rem);
+  }
+
+  .location__contact-role,
+  .location__contact-name {
+    font-size: clamp(1.1rem, 6.2vw, 1.55rem);
   }
 
   .location__phone,
   .location__email,
   .location__address {
-    font-size: 0.92rem;
+    font-size: 0.86rem;
   }
 }
