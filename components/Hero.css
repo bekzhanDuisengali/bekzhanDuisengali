@@ -253,14 +253,14 @@
     min-height: auto;
     padding: 0.75rem 0.9rem;
     font-size: 0.78rem;
-    line-height: 1.15;
+    line-height: 1.5;
   }
 
   .hero__title {
     margin-top: 0.85rem;
     max-width: 12ch;
-    font-size: clamp(2.1rem, 11vw, 3rem);
-    line-height: 0.92;
+    font-size: clamp(1.9rem, 9vw, 2.6rem);
+    line-height: 1.5;
   }
 
   .hero__description-wrap {
@@ -271,7 +271,7 @@
 
   .hero__description {
     font-size: 0.86rem;
-    line-height: 1.18;
+    line-height: 1.5;
   }
 
   .hero__description-break {

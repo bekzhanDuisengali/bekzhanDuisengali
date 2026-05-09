@@ -77,16 +77,16 @@
   max-width: 72rem;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 2rem;
 }
 
-@media (min-width: 640px) { .contact__grid { gap: 1.5rem; } }
+@media (min-width: 640px) { .contact__grid { gap: 2.5rem; } }
 
 @media (min-width: 768px) {
   .contact__grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-@media (min-width: 1024px) { .contact__grid { gap: 2rem; } }
+@media (min-width: 1024px) { .contact__grid { gap: 4rem; } }
 
 /* --- Карточка --- */
 .contact__card {

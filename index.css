@@ -153,6 +153,7 @@ canvas {
   }
   .page-section--h-1000 { height: 1000px; min-height: 1000px; }
   .page-section--h-1200 { height: 1200px; min-height: 1200px; }
+  .page-section--h-1320 { height: 1320px; min-height: 1320px; }
   .page-section--h-950  { height: 950px;  min-height: 950px;  }
   .page-section--h-1050 { min-height: 1050px; }
   .page-section--h-1270 { height: 1270px; min-height: 1270px; }
