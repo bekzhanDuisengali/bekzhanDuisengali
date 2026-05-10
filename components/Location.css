@@ -259,11 +259,13 @@
 
   .location__title {
     font-size: clamp(1.9rem, 9vw, 2.6rem);
+    line-height: 1.5;
   }
 
   .location__lead {
     margin-top: 1rem;
     font-size: clamp(1rem, 4.5vw, 1.45rem);
+    line-height: 1.5;
   }
 
   .location__content {
