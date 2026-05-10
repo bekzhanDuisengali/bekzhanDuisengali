@@ -269,6 +269,10 @@
   .services__card-title{
     line-height: 1.5;
   }
+  .services__card:nth-child(3) .services__card-title,
+  .services__card:nth-child(4) .services__card-title {
+    font-size: 20px;
+  }
   .services__card-desc{
     line-height: 1.5;
   }
