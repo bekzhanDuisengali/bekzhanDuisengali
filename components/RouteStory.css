@@ -281,7 +281,7 @@
 
   .route-story__title > span {
     display: block;
-    line-height: 1;
+    line-height: 1.5;
   }
 
   .route-story__title-line {
