@@ -235,6 +235,7 @@
   .video-slider__lead {
     margin-top: 28px;
     font-size: clamp(15px, 4.5vw, 20px);
+    line-height: 1.5;
   }
 
   .video-slider__note {
@@ -267,6 +268,11 @@
   .video-slider__card-body {
     padding: 14px 16px 16px;
   }
+
+  .video-slider__title {
+    line-height: 1.5;
+    
+  }
 }
 
 @media (max-width: 420px) {
@@ -276,6 +282,7 @@
 
   .video-slider__title {
     font-size: clamp(1.9rem, 9vw, 2.6rem);
+    
   }
 
   .video-slider__lead,
