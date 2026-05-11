@@ -4,9 +4,9 @@ import routeOverviewBg from '../images/routeoverview/5e9b0729-3a45-4037-af77-3c8
 import { Ship, Plane, Globe } from 'lucide-react';
 
 const STATS = [
-  { icon: Ship,  value: '10+', label: ['КРУПНЕЙШИХ', 'ПОРТОВ МИРА'] },
-  { icon: Plane, value: '80+', label: ['МЕЖДУНАРОДНЫХ', 'АВИАРЕЙСОВ В ДЕНЬ'] },
-  { icon: Globe, value: '60+', label: ['СТРАН ПАРТНЁРОВ ПО', 'СВОБОДНОЙ ТОРГОВЛЕ'] },
+  { icon: Ship,  value: '10+', label: 'КРУПНЕЙШИХ ПОРТОВ МИРА' },
+  { icon: Plane, value: '80+', label: 'МЕЖДУНАРОДНЫХ АВИАРЕЙСОВ В ДЕНЬ' },
+  { icon: Globe, value: '60+', label: 'СТРАН ПАРТНЁРОВ ПО СВОБОДНОЙ ТОРГОВЛЕ' },
 ];
 
 const COUNTRY_LABELS = [
@@ -75,9 +75,7 @@ const RouteOverview: React.FC = () => {
                   <Icon size={26} strokeWidth={1.5} className="route-overview__stat-icon" />
                   <div className="route-overview__stat-body">
                     <span className="route-overview__stat-value">{s.value}</span>
-                    <span className="route-overview__stat-label">
-                      {s.label.map((line, i) => <span key={i}>{line}</span>)}
-                    </span>
+                    <span className="route-overview__stat-label">{s.label}</span>
                   </div>
                 </div>
               );
