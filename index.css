@@ -108,7 +108,6 @@ canvas {
 }
 
 .section--route-bg {
-  padding: 6rem 0;
   border-top: 1px solid var(--color-brand-16);
   border-bottom: 1px solid var(--color-brand-16);
 }

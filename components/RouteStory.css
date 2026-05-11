@@ -271,7 +271,7 @@
 
 @media (max-width: 767px) {
   .route-story {
-    padding: 0 0.75rem;
+    padding: 24px 16px 32px;
   }
 
   .route-story__title {

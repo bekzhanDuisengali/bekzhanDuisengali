@@ -317,19 +317,19 @@
 
 @media (max-width: 640px) {
   .history__inner {
-    padding: 0.8rem 0.7rem 0.9rem;
+    padding: 24px 16px 32px;
   }
 
   .history__content {
     max-width: 100%;
-    padding: 0.85rem 0.8rem 0.9rem;
+    padding: 0;
     border-radius: 1.15rem;
   }
 
   .history__years {
     gap: 0.45rem;
   }
-
+  
   .history__year-value {
     font-size: clamp(1.55rem, 8.2vw, 2rem);
   }
