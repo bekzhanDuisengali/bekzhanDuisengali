@@ -27,7 +27,7 @@
 }
 
 .partners__label {
-  font-size: 11px;
+  font-size: 9.9px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.32em;
@@ -41,7 +41,7 @@
 .partners__title {
   margin-top: 1.5rem;
   font-family: var(--font-main);
-  font-size: clamp(3rem, 4.948vw, 5.9375rem);
+  font-size: clamp(2.7rem, 4.4532vw, 5.3438rem);
   font-weight: 700;
   color: var(--color-brand);
   transition: color 0.5s ease;
@@ -68,7 +68,7 @@
 
 .partners__company-name {
   font-family: var(--font-main);
-  font-size: clamp(2.1rem, 3.083vw, 3.7rem);
+  font-size: clamp(1.89rem, 2.7747vw, 3.33rem);
   font-weight: 800;
   text-transform: uppercase;
   line-height: 0.92;
@@ -80,7 +80,7 @@
 .partners__company-desc {
   margin-top: 1rem;
   max-width: 1180px;
-  font-size: clamp(1rem, 1.56vw, 1.5rem);
+  font-size: clamp(0.9rem, 1.404vw, 1.35rem);
   font-weight: 300;
   line-height: 1.5;
   letter-spacing: -0.01em;
@@ -255,7 +255,7 @@
   }
 
   .partners__title {
-    font-size: clamp(2.2rem, 9vw, 3.6rem);
+    font-size: clamp(1.98rem, 8.1vw, 3.24rem);
   }
 
   .partners__featured {
@@ -266,11 +266,11 @@
   }
 
   .partners__company-name {
-    font-size: clamp(1.7rem, 7vw, 2.6rem);
+    font-size: clamp(1.53rem, 6.3vw, 2.34rem);
   }
 
   .partners__company-desc {
-    font-size: 0.95rem;
+    font-size: 0.855rem;
     line-height: 1.5;
   }
 
@@ -317,7 +317,7 @@
   }
 
   .partners__title {
-    font-size: clamp(1.9rem, 9vw, 2.6rem);
+    font-size: clamp(1.71rem, 8.1vw, 2.34rem);
     margin-top: 0;
   }
 
@@ -327,12 +327,12 @@
   }
 
   .partners__company-name {
-    font-size: clamp(1.45rem, 6.8vw, 2rem);
+    font-size: clamp(1.305rem, 6.12vw, 1.8rem);
   }
 
   .partners__company-desc {
     margin-top: 0.8rem;
-    font-size: 0.98rem;
+    font-size: 0.882rem;
     line-height: 1.7;
   }
 

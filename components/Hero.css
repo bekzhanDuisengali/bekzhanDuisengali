@@ -228,8 +228,12 @@
 @media (max-width: 767px) {
   .hero {
     height: auto;
-    min-height: 0;
+    min-height: 100svh;
     max-height: none;
+  }
+
+  .hero__background-image {
+    object-position: 50% 20px;
   }
 
   .hero__container {
@@ -241,7 +245,7 @@
   }
 
   .hero__top {
-    gap: 50px;
+    gap: 20px;
   }
 
   .hero__content {
@@ -264,7 +268,7 @@
   }
 
   .hero__description-wrap {
-    margin-top: 0.75rem;
+    margin-top: 16rem;
     padding-left: 0.8rem;
     border-left-width: 3px;
   }
