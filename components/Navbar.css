@@ -73,7 +73,7 @@
 
 .navbar__link {
   font-family: var(--font-main);
-  font-size: clamp(0.9rem, 1.1718vw, 1.4062rem);
+  font-size: clamp(1rem, 1.302vw, 1.5624rem);
   font-weight: 600;
   letter-spacing: -0.04em;
   color: white;
@@ -95,7 +95,7 @@
   border-radius: 999px;
   background: white;
   padding: 0 2rem;
-  font-size: clamp(0.9rem, 1.1718vw, 1.4062rem);
+  font-size: clamp(1rem, 1.302vw, 1.5624rem);
   font-weight: 600;
   letter-spacing: -0.04em;
   color: #0d4f6d;                /* цвет текста кнопки */
@@ -250,7 +250,7 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.05);
   padding: 0.95rem 1rem;
-  font-size: 0.882rem;
+  font-size: 0.98rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: white;
@@ -267,7 +267,7 @@
   justify-content: center;
   border-radius: 999px;
   background: linear-gradient(180deg, #ffffff 0%, #edf5fb 100%);
-  font-size: 0.882rem;
+  font-size: 0.98rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: #0d4f6d;

@@ -50,7 +50,7 @@
 .metrics-landscape__title {
   margin: 0 0 16px;
   font-family: var(--font-display, inherit);
-  font-size: 25.2px;
+  font-size: 28px;
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.05em;
@@ -60,7 +60,7 @@
 .metrics-landscape__lead {
   margin: 0;
   font-family: 'Unbounded', sans-serif;
-  font-size: 18.9px;
+  font-size: 21px;
   font-weight: 400;
   line-height: 1.12;
   letter-spacing: -0.04em;
@@ -70,7 +70,7 @@
 .metrics-landscape__line-text {
   margin: 0;
   font-family: 'Unbounded', sans-serif;
-  font-size: 18.9px;
+  font-size: 21px;
   font-weight: 300;
   line-height: 1.12;
   letter-spacing: -0.045em;

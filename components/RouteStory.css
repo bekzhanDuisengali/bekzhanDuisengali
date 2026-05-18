@@ -9,7 +9,7 @@
 .route-story__title {
   margin: 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(2.61rem, 3.735vw, 4.68rem);
+  font-size: clamp(2.9rem, 4.15vw, 5.2rem);
   font-weight: 600;
   line-height: 0.95;
   letter-spacing: -0.07em;
@@ -59,7 +59,7 @@
   max-width: 64rem;
   margin: 1.35rem 0 0;
   font-family: 'Unbounded', sans-serif;
-  font-size: clamp(0.99rem, 1.188vw, 1.395rem);
+  font-size: clamp(1.1rem, 1.32vw, 1.55rem);
   font-weight: 300;
   line-height: 1.18;
   letter-spacing: -0.042em;
@@ -84,7 +84,7 @@
   background: #d7e8f4;
   color: #0d4f6d;
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.35rem, 1.71vw, 2.025rem);
+  font-size: clamp(1.5rem, 1.9vw, 2.25rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.06em;
@@ -163,7 +163,7 @@
   background: #0d4f6d;
   color: #fff;
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.215rem, 1.575vw, 1.935rem);
+  font-size: clamp(1.35rem, 1.75vw, 2.15rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.06em;
@@ -176,7 +176,7 @@
 .route-story__details-title {
   margin: 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(2.952rem, 4.032vw, 4.815rem);
+  font-size: clamp(3.28rem, 4.48vw, 5.35rem);
   font-weight: 700;
   line-height: 0.94;
   letter-spacing: -0.07em;
@@ -188,7 +188,7 @@
   max-width: 34rem;
   margin: 1.1rem 0 0;
   font-family: 'Unbounded', sans-serif;
-  font-size: clamp(1.206rem, 1.548vw, 1.818rem);
+  font-size: clamp(1.34rem, 1.72vw, 2.02rem);
   font-weight: 300;
   line-height: 1.16;
   letter-spacing: -0.042em;
@@ -209,14 +209,14 @@
 
 .route-story__bullet-dash {
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.395rem, 1.89vw, 2.25rem);
+  font-size: clamp(1.55rem, 2.1vw, 2.5rem);
   line-height: 0.8;
   color: #0d4f6d;
 }
 
 .route-story__bullet-text {
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.224rem, 1.575vw, 1.845rem);
+  font-size: clamp(1.36rem, 1.75vw, 2.05rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.06em;
@@ -238,7 +238,7 @@
   background: #0d4f6d;
   color: #fff;
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.152rem, 1.44vw, 1.782rem);
+  font-size: clamp(1.28rem, 1.6vw, 1.98rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.055em;

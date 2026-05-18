@@ -74,7 +74,7 @@
 
 .footer__brand-name {
   margin-bottom: 1rem;
-  font-size: 8.1px;
+  font-size: 9px;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.25em;
@@ -83,21 +83,21 @@
 
 @media (min-width: 640px) {
   .footer__brand-name {
-    font-size: 9.9px;
+    font-size: 11px;
     letter-spacing: 0.3em;
     margin-bottom: 2rem;
   }
 }
 
 .footer__copyright {
-  font-size: 8.1px;
+  font-size: 9px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-navy-55);    /* цвет копирайта */
 }
 
-@media (min-width: 640px) { .footer__copyright { font-size: 9.9px; } }
+@media (min-width: 640px) { .footer__copyright { font-size: 11px; } }
 
 /* --- Навигация --- */
 .footer__nav {
@@ -116,7 +116,7 @@
 
 .footer__nav-title {
   font-family: var(--font-main);
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -126,7 +126,7 @@
 
 @media (min-width: 640px) {
   .footer__nav-title {
-    font-size: 1.0125rem;
+    font-size: 1.125rem;
     margin-bottom: 1rem;
   }
 }
@@ -135,7 +135,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem 1.5rem;
-  font-size: 8.1px;
+  font-size: 9px;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -143,7 +143,7 @@
 }
 
 @media (min-width: 640px) {
-  .footer__nav-links { gap: 1.25rem 2.5rem; font-size: 9.9px; }
+  .footer__nav-links { gap: 1.25rem 2.5rem; font-size: 11px; }
 }
 
 @media (min-width: 1024px) {
@@ -169,7 +169,7 @@
   gap: 1rem;
   background: var(--color-brand);  /* цвет кнопки — меняй здесь */
   padding: 1.25rem 2rem;
-  font-size: 8.1px;
+  font-size: 9px;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -184,7 +184,7 @@
 }
 
 @media (min-width: 640px) {
-  .footer__cta { padding: 1.5rem 2.5rem; font-size: 9.9px; }
+  .footer__cta { padding: 1.5rem 2.5rem; font-size: 11px; }
 }
 
 @media (min-width: 1024px) {
@@ -228,7 +228,7 @@
 @media (min-width: 1024px) { .footer__legal { gap: 0.75rem 3rem;  } }
 
 .footer__legal-link {
-  font-size: 8.1px;
+  font-size: 9px;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -241,11 +241,11 @@
   color: var(--color-navy);
 }
 
-@media (min-width: 640px) { .footer__legal-link { font-size: 9px; } }
+@media (min-width: 640px) { .footer__legal-link { font-size: 10px; } }
 
 .footer__tagline {
   font-family: var(--font-main);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   font-style: italic;
@@ -253,7 +253,7 @@
   color: rgba(29, 65, 84, 0.55);
 }
 
-@media (min-width: 640px) { .footer__tagline { font-size: 0.7875rem; } }
+@media (min-width: 640px) { .footer__tagline { font-size: 0.875rem; } }
 
 @media (max-width: 640px) {
   .footer {

@@ -22,7 +22,7 @@
 
 .contact__label {
   margin-bottom: 1rem;
-  font-size: 8.1px;
+  font-size: 9px;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.45em;
@@ -32,7 +32,7 @@
 @media (min-width: 640px) {
   .contact__label {
     margin-bottom: 1.5rem;
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: 0.6em;
   }
 }
@@ -40,7 +40,7 @@
 .contact__title {
   font-family: var(--font-main);
   margin-bottom: clamp(1.25rem, 2vw, 2rem);
-  font-size: clamp(2.43rem, 6.75vw, 8.1rem);
+  font-size: clamp(2.7rem, 7.5vw, 9rem);
   font-weight: 700;
   text-transform: uppercase;
   line-height: 0.95;
@@ -55,7 +55,7 @@
 
 .contact__subtitle {
   margin-top: 1.25rem;
-  font-size: 8.1px;
+  font-size: 9px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.4em;
@@ -66,7 +66,7 @@
 @media (min-width: 640px) {
   .contact__subtitle {
     margin-top: 2.5rem;
-    font-size: 0.7875rem;
+    font-size: 0.875rem;
     letter-spacing: 0.6em;
   }
 }
@@ -112,7 +112,7 @@
 .contact__card-title {
   font-family: var(--font-main);
   margin-bottom: 0.75rem;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: -0.02em;
@@ -121,7 +121,7 @@
 }
 
 @media (min-width: 640px) {
-  .contact__card-title { font-size: 1.35rem; }
+  .contact__card-title { font-size: 1.5rem; }
 }
 
 .contact__card-subtitle {
@@ -132,7 +132,7 @@
 @media (min-width: 640px) { .contact__card-subtitle { margin-bottom: 2.5rem; } }
 
 .contact__card-subtitle--text {
-  font-size: 9.9px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -143,7 +143,7 @@
 .contact__card-subtitle--phone,
 .contact__card-subtitle--email {
   font-family: var(--font-main);
-  font-size: 1.0125rem;
+  font-size: 1.125rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -163,7 +163,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 9.9px;
+  font-size: 11px;
   font-weight: 900;
   text-transform: uppercase;
   color: var(--color-brand);       /* цвет ссылок — меняй здесь */
@@ -204,7 +204,7 @@
 
 .contact__address-label {
   margin-bottom: 1rem;
-  font-size: 8.1px;
+  font-size: 9px;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.35em;
@@ -215,7 +215,7 @@
 @media (min-width: 640px) {
   .contact__address-label {
     margin-bottom: 1.5rem;
-    font-size: 9.9px;
+    font-size: 11px;
     letter-spacing: 0.5em;
   }
 }
@@ -225,7 +225,7 @@
   max-width: 22rem;
   padding: 0 0.5rem;
   text-align: center;
-  font-size: clamp(1.125rem, 1.4062vw, 1.6875rem);
+  font-size: clamp(1.25rem, 1.5624vw, 1.875rem);
   font-weight: 300;
   font-style: italic;
   letter-spacing: -0.02em;
