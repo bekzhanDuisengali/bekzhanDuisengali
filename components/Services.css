@@ -62,7 +62,7 @@
 .services__title {
   margin: 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(43.2px, 4.41vw, 82.8px);
+  font-size: clamp(48px, 4.9vw, 92px);
   font-weight: 700;
   line-height: 0.88;
   letter-spacing: -0.065em;
@@ -74,7 +74,7 @@
   margin: 18px 0 0;
   max-width: 1100px;
   font-family: var(--font-display, inherit);
-  font-size: clamp(16.2px, 1.305vw, 23.4px);
+  font-size: clamp(18px, 1.45vw, 26px);
   font-weight: 300;
   line-height: 1.03;
   letter-spacing: -0.045em;
@@ -126,7 +126,7 @@
 .services__card-title {
   margin: 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(18px, 1.845vw, 30.6px);
+  font-size: clamp(20px, 2.05vw, 34px);
   font-weight: 700;
   line-height: 0.94;
   letter-spacing: -0.055em;
@@ -135,14 +135,14 @@
 
 .services__card:nth-child(3) .services__card-title,
 .services__card:nth-child(4) .services__card-title {
-  font-size: clamp(16.2px, 1.422vw, 26.1px);
+  font-size: clamp(18px, 1.58vw, 29px);
   letter-spacing: -0.06em;
   white-space: nowrap;
 }
 
 .services__card-desc {
   margin: 10px 0 0;
-  font-size: clamp(11.7px, 0.9vw, 16.2px);
+  font-size: clamp(13px, 1vw, 18px);
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: -0.042em;
@@ -151,7 +151,7 @@
 .services__card-tags {
   font-weight: 700;
   margin: 7px 0 0;
-  font-size: clamp(13.5px, 0.855vw, 16.2px);
+  font-size: clamp(15px, 0.95vw, 18px);
   font-weight: 300;
   line-height: 1.08;
   letter-spacing: -0.03em;
@@ -163,7 +163,7 @@
   gap: 14px;
   margin-top: 18px;
   font-family: var(--font-display, inherit);
-  font-size: clamp(14.4px, 1.08vw, 19.8px);
+  font-size: clamp(16px, 1.2vw, 22px);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.045em;

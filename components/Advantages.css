@@ -34,7 +34,7 @@
 .adv__title {
   margin: 0 0 0.28em;
   font-family: var(--font-display, inherit);
-  font-size: clamp(43.2px, 4.2192vw, 81px);
+  font-size: clamp(48px, 4.688vw, 90px);
   font-weight: 700;
   line-height: 0.88;
   letter-spacing: -0.06em;
@@ -44,7 +44,7 @@
 .adv__sub {
   margin: 0;
   font-family: 'Unbounded', sans-serif;
-  font-size: clamp(9px, 0.72vw, 11.7px);
+  font-size: clamp(10px, 0.8vw, 13px);
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;

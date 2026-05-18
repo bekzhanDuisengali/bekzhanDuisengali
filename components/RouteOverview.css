@@ -30,7 +30,7 @@
 .route-overview__title {
   margin: 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(2.88rem, 3.735vw, 5.22rem);
+  font-size: clamp(3.2rem, 4.15vw, 5.8rem);
   font-weight: 700;
   line-height: 0.88;
   letter-spacing: -0.07em;
@@ -43,7 +43,7 @@
 .route-overview__subtitle {
   margin: 0.1rem 0 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.8rem, 2.25vw, 3.24rem);
+  font-size: clamp(2rem, 2.5vw, 3.6rem);
   font-weight: 700;
   letter-spacing: -0.07em;
   color: var(--color-deep);
@@ -63,7 +63,7 @@
 .route-overview__text p {
   margin: 0 0 1.05rem;
   font-family: 'Unbounded', sans-serif;
-  font-size: clamp(0.9rem, 1.134vw, 1.395rem);
+  font-size: clamp(1rem, 1.26vw, 1.55rem);
   font-weight: 300;
   line-height: 1.03;
   letter-spacing: -0.045em;
@@ -79,7 +79,7 @@
   display: flex;
   flex-direction: column;
   font-family: var(--font-display, inherit);
-  font-size: clamp(0.945rem, 1.305vw, 1.8rem);
+  font-size: clamp(1.05rem, 1.45vw, 2rem);
   font-weight: 700;
   letter-spacing: -0.07em;
   color: var(--color-deep);
@@ -109,7 +109,7 @@
   border-radius: 999px;
   background: #fff;
   font-family: var(--font-display, inherit);
-  font-size: clamp(0.9rem, 1.17vw, 1.44rem);
+  font-size: clamp(1rem, 1.3vw, 1.6rem);
   font-weight: 700;
   letter-spacing: -0.06em;
   text-decoration: none;
@@ -145,7 +145,7 @@
 
 .route-overview__stat-value {
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.26rem, 1.62vw, 2.025rem);
+  font-size: clamp(1.4rem, 1.8vw, 2.25rem);
   font-weight: 700;
   letter-spacing: -0.065em;
   color: var(--color-deep);
@@ -156,7 +156,7 @@
   display: flex;
   flex-direction: column;
   font-family: var(--font-display, inherit);
-  font-size: clamp(0.495rem, 0.72vw, 0.855rem);
+  font-size: clamp(0.55rem, 0.8vw, 0.95rem);
   letter-spacing: -0.035em;
   color: var(--color-deep);
   text-transform: uppercase;

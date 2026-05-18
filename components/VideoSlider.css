@@ -63,7 +63,7 @@
 .video-slider__title {
   margin: 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(50.4px, 5.1561vw, 99px);
+  font-size: clamp(56px, 5.729vw, 110px);
   font-weight: 500;
   line-height: 0.88;
   letter-spacing: -0.05em;
@@ -72,7 +72,7 @@
 
 .video-slider__lead {
   margin: 40px 0 0;
-  font-size: clamp(16.2px, 1.4062vw, 27px);
+  font-size: clamp(18px, 1.5624vw, 30px);
   font-weight: 300;
   line-height: 1.2;
   letter-spacing: -0.03em;
@@ -82,7 +82,7 @@
 .video-slider__note {
   margin: 24px 0 0;
   max-width: 1060px;
-  font-size: clamp(16.2px, 1.4062vw, 27px);
+  font-size: clamp(18px, 1.5624vw, 30px);
   font-weight: 300;
   line-height: 1.25;
   letter-spacing: -0.03em;
@@ -132,7 +132,7 @@
 
 .video-slider__cta-text {
   font-family: var(--font-display, inherit);
-  font-size: clamp(18px, 1.5939vw, 30.6px);
+  font-size: clamp(20px, 1.771vw, 34px);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.03em;
@@ -198,7 +198,7 @@
 
 .video-slider__card-date {
   font-family: var(--font-display, inherit);
-  font-size: clamp(0.945rem, 1.5471vw, 29.7px);
+  font-size: clamp(1.05rem, 1.719vw, 33px);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.03em;
@@ -206,7 +206,7 @@
 
 .video-slider__card-route {
   margin-top: 8px;
-  font-size: clamp(0.855rem, 1.4062vw, 27px);
+  font-size: clamp(0.95rem, 1.5624vw, 30px);
   font-weight: 300;
   line-height: 1.2;
   letter-spacing: -0.02em;
