@@ -30,7 +30,7 @@
 .route-overview__title {
   margin: 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(3.2rem, 4.15vw, 5.8rem);
+  font-size: clamp(2.88rem, 3.735vw, 5.22rem);
   font-weight: 700;
   line-height: 0.88;
   letter-spacing: -0.07em;
@@ -43,7 +43,7 @@
 .route-overview__subtitle {
   margin: 0.1rem 0 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(2rem, 2.5vw, 3.6rem);
+  font-size: clamp(1.8rem, 2.25vw, 3.24rem);
   font-weight: 700;
   letter-spacing: -0.07em;
   color: var(--color-deep);
@@ -63,7 +63,7 @@
 .route-overview__text p {
   margin: 0 0 1.05rem;
   font-family: 'Unbounded', sans-serif;
-  font-size: clamp(1rem, 1.26vw, 1.55rem);
+  font-size: clamp(0.9rem, 1.134vw, 1.395rem);
   font-weight: 300;
   line-height: 1.03;
   letter-spacing: -0.045em;
@@ -79,7 +79,7 @@
   display: flex;
   flex-direction: column;
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.05rem, 1.45vw, 2rem);
+  font-size: clamp(0.945rem, 1.305vw, 1.8rem);
   font-weight: 700;
   letter-spacing: -0.07em;
   color: var(--color-deep);
@@ -109,7 +109,7 @@
   border-radius: 999px;
   background: #fff;
   font-family: var(--font-display, inherit);
-  font-size: clamp(1rem, 1.3vw, 1.6rem);
+  font-size: clamp(0.9rem, 1.17vw, 1.44rem);
   font-weight: 700;
   letter-spacing: -0.06em;
   text-decoration: none;
@@ -145,7 +145,7 @@
 
 .route-overview__stat-value {
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.4rem, 1.8vw, 2.25rem);
+  font-size: clamp(1.26rem, 1.62vw, 2.025rem);
   font-weight: 700;
   letter-spacing: -0.065em;
   color: var(--color-deep);
@@ -156,7 +156,7 @@
   display: flex;
   flex-direction: column;
   font-family: var(--font-display, inherit);
-  font-size: clamp(0.55rem, 0.8vw, 0.95rem);
+  font-size: clamp(0.495rem, 0.72vw, 0.855rem);
   letter-spacing: -0.035em;
   color: var(--color-deep);
   text-transform: uppercase;
@@ -170,7 +170,7 @@
   }
 
   .route-overview__title {
-    font-size: clamp(2.4rem, 3.5vw, 5.3rem);
+    font-size: clamp(2.16rem, 3.15vw, 4.77rem);
   }
 
   .route-overview__top {
@@ -196,17 +196,17 @@
   }
 
   .route-overview__text p {
-    font-size: clamp(0.95rem, 1.18vw, 1.35rem);
+    font-size: clamp(0.855rem, 1.062vw, 1.215rem);
   }
 
   .route-overview__label {
-    font-size: clamp(0.95rem, 1.1vw, 1.5rem);
+    font-size: clamp(0.855rem, 0.99vw, 1.35rem);
   }
 }
 
 @media (max-width: 1366px) {
   .route-overview__title {
-    font-size: clamp(2.15rem, 3.25vw, 4.35rem);
+    font-size: clamp(1.935rem, 2.925vw, 3.915rem);
   }
 
   .route-overview__top {
@@ -218,7 +218,7 @@
   }
 
   .route-overview__text p {
-    font-size: 0.95rem;
+    font-size: 0.855rem;
     line-height: 1.5;
   }
 }
@@ -256,13 +256,13 @@
   }
 
   .route-overview__title {
-    font-size: clamp(1.55rem, 7.8vw, 2.55rem);
+    font-size: clamp(1.395rem, 7.02vw, 2.295rem);
     white-space: normal;
   }
 
   .route-overview__subtitle {
     margin-top: 0.35rem;
-    font-size: clamp(0.88rem, 3.8vw, 1.1rem);
+    font-size: clamp(0.792rem, 3.42vw, 0.99rem);
   }
 
   .route-overview__text {
@@ -271,7 +271,7 @@
   }
 
   .route-overview__text p {
-    font-size: 0.84rem;
+    font-size: 0.756rem;
     line-height: 1.5;
   }
 
@@ -295,13 +295,13 @@
   }
 
   .route-overview__title {
-    font-size: clamp(1.9rem, 9vw, 2.6rem);
+    font-size: clamp(1.71rem, 8.1vw, 2.34rem);
     line-height: 1.5;
   }
 
   .route-overview__subtitle {
     margin-top: 0.28rem;
-    font-size: clamp(0.78rem, 3.6vw, 1rem);
+    font-size: clamp(0.702rem, 3.24vw, 0.9rem);
   }
 
   .route-overview__text {
@@ -309,7 +309,7 @@
   }
 
   .route-overview__text p {
-    font-size: 0.78rem;
+    font-size: 0.702rem;
     margin-bottom: 0.62rem;
     line-height: 1.5;
   }
@@ -323,7 +323,7 @@
     width: 100%;
     min-height: 2.75rem;
     justify-content: center;
-    font-size: 0.82rem;
+    font-size: 0.738rem;
   }
 
   .route-overview__stats {
@@ -345,11 +345,11 @@
   }
 
   .route-overview__stat-value {
-    font-size: 1.05rem;
+    font-size: 0.945rem;
   }
 
   .route-overview__stat-label {
-    font-size: 0.56rem;
+    font-size: 0.504rem;
     line-height: 1.5;
   }
 

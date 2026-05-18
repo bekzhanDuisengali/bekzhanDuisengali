@@ -63,7 +63,7 @@
 .video-slider__title {
   margin: 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(56px, 5.729vw, 110px);
+  font-size: clamp(50.4px, 5.1561vw, 99px);
   font-weight: 500;
   line-height: 0.88;
   letter-spacing: -0.05em;
@@ -72,7 +72,7 @@
 
 .video-slider__lead {
   margin: 40px 0 0;
-  font-size: clamp(18px, 1.5625vw, 30px);
+  font-size: clamp(16.2px, 1.4062vw, 27px);
   font-weight: 300;
   line-height: 1.2;
   letter-spacing: -0.03em;
@@ -82,7 +82,7 @@
 .video-slider__note {
   margin: 24px 0 0;
   max-width: 1060px;
-  font-size: clamp(18px, 1.5625vw, 30px);
+  font-size: clamp(16.2px, 1.4062vw, 27px);
   font-weight: 300;
   line-height: 1.25;
   letter-spacing: -0.03em;
@@ -132,7 +132,7 @@
 
 .video-slider__cta-text {
   font-family: var(--font-display, inherit);
-  font-size: clamp(20px, 1.771vw, 34px);
+  font-size: clamp(18px, 1.5939vw, 30.6px);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.03em;
@@ -198,7 +198,7 @@
 
 .video-slider__card-date {
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.05rem, 1.719vw, 33px);
+  font-size: clamp(0.945rem, 1.5471vw, 29.7px);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.03em;
@@ -206,7 +206,7 @@
 
 .video-slider__card-route {
   margin-top: 8px;
-  font-size: clamp(0.95rem, 1.5625vw, 30px);
+  font-size: clamp(0.855rem, 1.4062vw, 27px);
   font-weight: 300;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -229,18 +229,18 @@
   }
 
   .video-slider__title {
-    font-size: clamp(1.9rem, 9vw, 2.6rem);
+    font-size: clamp(1.71rem, 8.1vw, 2.34rem);
   }
 
   .video-slider__lead {
     margin-top: 28px;
-    font-size: 16px;
+    font-size: 14.4px;
     line-height: 1.5;
   }
 
   .video-slider__note {
     margin-top: 18px;
-    font-size: clamp(13px, 4vw, 16px);
+    font-size: clamp(11.7px, 3.6vw, 14.4px);
   }
 
   .video-slider__cta {
@@ -252,7 +252,7 @@
   }
 
   .video-slider__cta-text {
-    font-size: clamp(15px, 4.4vw, 18px);
+    font-size: clamp(13.5px, 3.96vw, 16.2px);
     text-align: center;
   }
 
@@ -282,13 +282,13 @@
   }
 
   .video-slider__title {
-    font-size: clamp(1.9rem, 9vw, 2.6rem);
+    font-size: clamp(1.71rem, 8.1vw, 2.34rem);
     
   }
 
   .video-slider__lead,
   .video-slider__note {
-    font-size: 0.88rem;
+    font-size: 0.792rem;
   }
 
   .video-slider__grid {
@@ -305,10 +305,10 @@
   }
 
   .video-slider__card-date {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .video-slider__card-route {
-    font-size: 0.88rem;
+    font-size: 0.792rem;
   }
 }

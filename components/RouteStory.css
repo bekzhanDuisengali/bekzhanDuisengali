@@ -9,7 +9,7 @@
 .route-story__title {
   margin: 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(2.9rem, 4.15vw, 5.2rem);
+  font-size: clamp(2.61rem, 3.735vw, 4.68rem);
   font-weight: 600;
   line-height: 0.95;
   letter-spacing: -0.07em;
@@ -59,7 +59,7 @@
   max-width: 64rem;
   margin: 1.35rem 0 0;
   font-family: 'Unbounded', sans-serif;
-  font-size: clamp(1.1rem, 1.32vw, 1.55rem);
+  font-size: clamp(0.99rem, 1.188vw, 1.395rem);
   font-weight: 300;
   line-height: 1.18;
   letter-spacing: -0.042em;
@@ -84,7 +84,7 @@
   background: #d7e8f4;
   color: #0d4f6d;
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.5rem, 1.9vw, 2.25rem);
+  font-size: clamp(1.35rem, 1.71vw, 2.025rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.06em;
@@ -163,7 +163,7 @@
   background: #0d4f6d;
   color: #fff;
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.35rem, 1.75vw, 2.15rem);
+  font-size: clamp(1.215rem, 1.575vw, 1.935rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.06em;
@@ -176,7 +176,7 @@
 .route-story__details-title {
   margin: 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(3.28rem, 4.48vw, 5.35rem);
+  font-size: clamp(2.952rem, 4.032vw, 4.815rem);
   font-weight: 700;
   line-height: 0.94;
   letter-spacing: -0.07em;
@@ -188,7 +188,7 @@
   max-width: 34rem;
   margin: 1.1rem 0 0;
   font-family: 'Unbounded', sans-serif;
-  font-size: clamp(1.34rem, 1.72vw, 2.02rem);
+  font-size: clamp(1.206rem, 1.548vw, 1.818rem);
   font-weight: 300;
   line-height: 1.16;
   letter-spacing: -0.042em;
@@ -209,14 +209,14 @@
 
 .route-story__bullet-dash {
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.55rem, 2.1vw, 2.5rem);
+  font-size: clamp(1.395rem, 1.89vw, 2.25rem);
   line-height: 0.8;
   color: #0d4f6d;
 }
 
 .route-story__bullet-text {
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.36rem, 1.75vw, 2.05rem);
+  font-size: clamp(1.224rem, 1.575vw, 1.845rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.06em;
@@ -238,7 +238,7 @@
   background: #0d4f6d;
   color: #fff;
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.28rem, 1.6vw, 1.98rem);
+  font-size: clamp(1.152rem, 1.44vw, 1.782rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.055em;
@@ -275,7 +275,7 @@
   }
 
   .route-story__title {
-    font-size: clamp(1.9rem, 9vw, 2.6rem);
+    font-size: clamp(1.71rem, 8.1vw, 2.34rem);
     letter-spacing: -0.065em;
   }
 
@@ -314,7 +314,7 @@
   .route-story__lead {
     max-width: 100%;
     margin-top: 0.7rem;
-    font-size: clamp(0.86rem, 3.7vw, 1rem);
+    font-size: clamp(0.774rem, 3.33vw, 0.9rem);
     line-height: 1.5;
   }
 
@@ -336,7 +336,7 @@
   .route-story__tab {
     min-height: 3.15rem;
     border-radius: 1rem;
-    font-size: 0.84rem;
+    font-size: 0.756rem;
     gap: 0.35rem;
   }
 
@@ -374,7 +374,7 @@
     text-align: center;
     padding: 0 0.9rem;
     border-radius: 0.9rem;
-    font-size: 0.92rem;
+    font-size: 0.828rem;
   }
 
   .route-story__copy {
@@ -382,13 +382,13 @@
   }
 
   .route-story__details-title {
-    font-size: clamp(1.9rem, 9vw, 2.6rem);
+    font-size: clamp(1.71rem, 8.1vw, 2.34rem);
     line-height: 1.5;
   }
 
   .route-story__details-summary {
     margin-top: 0.65rem;
-    font-size: 0.9rem;
+    font-size: 0.81rem;
     line-height: 1.5;
     max-width: 100%;
   }
@@ -403,7 +403,7 @@
   }
 
   .route-story__bullet-text {
-    font-size: 0.92rem;
+    font-size: 0.828rem;
     line-height: 1.5;
   }
 
@@ -411,7 +411,7 @@
     width: 100%;
     min-height: 3.15rem;
     margin-top: 1rem;
-    font-size: 0.9rem;
+    font-size: 0.81rem;
     gap: 0.55rem;
   }
 }
