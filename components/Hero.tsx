@@ -10,21 +10,36 @@ const heroBackground1600 = new URL(
   '../images/hero/optimized/aerial-view-container-cargo-ship-sea-1600.webp',
   import.meta.url,
 ).href;
+const heroPortrait960 = new URL(
+  '../images/hero/optimized/aerial-view-container-cargo-ship-sea-portrait-960.webp',
+  import.meta.url,
+).href;
+const heroPortrait1600 = new URL(
+  '../images/hero/optimized/aerial-view-container-cargo-ship-sea-portrait-1600.webp',
+  import.meta.url,
+).href;
 
 const Hero = () => {
   return (
     <div className="hero">
       <div className="hero__background" aria-hidden>
-        <img
-          src={heroBackground1600}
-          srcSet={`${heroBackground960} 960w, ${heroBackground1600} 1600w`}
-          sizes="100vw"
-          className="hero__background-image is-active"
-          alt="Container vessel at sea"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-        />
+        <picture>
+          <source
+            media="(max-width: 767px)"
+            srcSet={`${heroPortrait960} 960w, ${heroPortrait1600} 1600w`}
+            sizes="100vw"
+          />
+          <img
+            src={heroBackground1600}
+            srcSet={`${heroBackground960} 960w, ${heroBackground1600} 1600w`}
+            sizes="100vw"
+            className="hero__background-image is-active"
+            alt="Container vessel at sea"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
 
         <div className="hero__overlay hero__overlay--main"></div>
         <div className="hero__overlay hero__overlay--left"></div>

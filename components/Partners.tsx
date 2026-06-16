@@ -42,23 +42,10 @@ const Partners: React.FC = () => {
 
   return (
     <section className="partners">
-      {/* Заголовок */}
-      <div className="partners__header">
-        <h3 className="partners__title">Наши партнёры</h3>
-      </div>
-
       {/* Featured партнёр */}
       <div className="partners__featured">
-        <div>
-          <h4 className="partners__company-name">SEAROAD LOGISTIC CO</h4>
-          <p className="partners__company-desc">
-            Мы сотрудничаем с проверенной логистической компанией Searoad во Владивостоке,
-            обеспечивая стабильную и быструю обработку грузов. Благодаря отлаженным
-            процессам и опыту партнёров, мы гарантируем безопасную доставку и
-            эффективное сопровождение на каждом этапе перевозки.
-          </p>
-        </div>
-
+        <h3 className="partners__title">Наши партнёры</h3>
+        <h4 className="partners__company-name">SEAROAD LOGISTIC CO</h4>
         <div className="partners__company-logo-wrap">
           <img
             src={searoadImg}
@@ -66,6 +53,12 @@ const Partners: React.FC = () => {
             className="partners__company-logo"
           />
         </div>
+        <p className="partners__company-desc">
+          Мы сотрудничаем с проверенной логистической компанией Searoad во Владивостоке,
+          обеспечивая стабильную и быструю обработку грузов. Благодаря отлаженным
+          процессам и опыту партнёров, мы гарантируем безопасную доставку и
+          эффективное сопровождение на каждом этапе перевозки.
+        </p>
       </div>
 
       {/* Бегущая строка с логотипами */}

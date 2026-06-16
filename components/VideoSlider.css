@@ -257,9 +257,17 @@
   }
 
   .video-slider__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
     margin-top: 30px;
+  }
+
+  .video-slider__card:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .video-slider__card:first-child .video-slider__card-media {
+    aspect-ratio: 16 / 11;
   }
 
   .video-slider__card-media {
@@ -272,7 +280,7 @@
 
   .video-slider__title {
     line-height: 1.5;
-    
+    font-weight: 700;
   }
 }
 
@@ -283,7 +291,7 @@
 
   .video-slider__title {
     font-size: clamp(1.71rem, 8.1vw, 2.34rem);
-    
+
   }
 
   .video-slider__lead,

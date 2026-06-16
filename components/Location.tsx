@@ -1,6 +1,6 @@
 import React from 'react';
 import './Location.css';
-import { Facebook, Instagram, Mail, MapPin, Phone, Youtube } from 'lucide-react';
+import { Facebook, Instagram, MapPin, Youtube } from 'lucide-react';
 
 const PHONE_DISPLAY = '+82 10 7309 9001';
 const PHONE_LINK = 'tel:+821073099001';
@@ -51,39 +51,20 @@ const Location: React.FC = () => {
             <div className="location__contact-list">
               {CONTACTS.map((contact) => (
                 <div key={contact.role} className="location__contact-card">
-                  <div className="location__contact-name-row">
-                    <span className="location__contact-role">{contact.role}:</span>
-                    <span className="location__contact-name">{contact.name}</span>
-                  </div>
-
-                  <div className="location__row">
-                    <span className="location__icon-circle">
-                      <Phone size={24} strokeWidth={2.1} />
-                    </span>
-                    <div className="location__row-body">
-                      <a href={PHONE_LINK} className="location__phone">{PHONE_DISPLAY}</a>
-                      <div className="location__note">WhatsApp | Telegram</div>
-                    </div>
-                  </div>
+                  <span className="location__contact-role">{contact.role}:</span>
+                  <span className="location__contact-name">{contact.name}</span>
+                  <a href={PHONE_LINK} className="location__phone">{PHONE_DISPLAY}</a>
+                  <div className="location__note">WhatsApp | Telegram</div>
                 </div>
               ))}
             </div>
 
-            <div className="location__row">
-              <span className="location__icon-circle">
-                <Mail size={24} strokeWidth={2.1} />
-              </span>
+            <div className="location__details">
               <a href={`mailto:${EMAIL}`} className="location__email">{EMAIL}</a>
-            </div>
-
-            <div className="location__row">
-              <span className="location__icon-circle">
-                <MapPin size={24} strokeWidth={2.1} />
-              </span>
               <p className="location__address">{ADDRESS}</p>
             </div>
 
-            <div className="location__divider" />
+            
 
             <div className="location__socials">
               {socialLinks.map((item) => {
