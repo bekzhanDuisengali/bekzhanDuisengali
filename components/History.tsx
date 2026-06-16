@@ -3,6 +3,8 @@ import { Anchor } from 'lucide-react';
 import './History.css';
 
 const ferryImage = new URL('../images/history/gemini-ferry-cutout.png', import.meta.url).href;
+const ferryVertical = new URL('../images/history/ferry-vertical.png', import.meta.url).href;
+const mobBoat = new URL('../images/history/mob-boat-removebg-preview.png', import.meta.url).href;
 
 const History: React.FC = () => {
   return (
@@ -13,6 +15,37 @@ const History: React.FC = () => {
         <div className="history__blob history__blob--right-top" />
         <div className="history__blob history__blob--right-middle" />
         <div className="history__blob history__blob--right-bottom" />
+      </div>
+
+      {/* ─── Mobile-only layout ─── */}
+      <div className="history__mobile" aria-hidden={false}>
+        <h2 className="history__m-title">НАШЕ<br />НАСЛЕДИЕ</h2>
+
+        <div className="history__m-block">
+          <div className="history__m-row">
+          <div className="history__m-year-block">
+            <div className="history__m-year-value">1999 г.</div>
+            <div className="history__m-year-label">ОСНОВАНИЕ</div>
+          </div>
+          <p className="history__m-text">
+            20+ лет в морских перевозках. С 1999 года знаем каждый маршрут между портами Кореи и России.
+          </p>
+        </div>
+        <div className="history__m-boat-wrap">
+          <div className="history__m-divider history__m-divider--top" aria-hidden="true" />
+          <img className="history__m-boat" src={mobBoat} alt="" aria-hidden="true" />
+          
+        </div>
+        <div className="history__m-row">
+          <div className="history__m-year-block">
+            <div className="history__m-year-value">2022 г.</div>
+            <div className="history__m-year-label">РАЗВИТИЕ</div>
+          </div>
+          <p className="history__m-text">
+            В 2022 году объединили этот опыт под брендом KOL, чтобы дать рынку абсолютную прозрачность и скорость.
+          </p>
+        </div>
+        </div>
       </div>
 
       <div className="history__inner">

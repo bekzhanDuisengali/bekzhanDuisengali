@@ -198,6 +198,133 @@
   background: #0a3e56;
 }
 
+/* ── Mobile-only block (hidden everywhere else) ── */
+.history__mobile {
+  display: none;
+}
+
+/* ── Mobile layout ≤767px ── */
+@media (max-width: 767px) {
+  .history {
+    min-height: 0;
+    
+    
+  }
+
+  .history__inner {
+    display: none;
+  }
+
+  .history__mobile {
+    display: flex;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),
+      url('../images/history/mob-back-history.jpg');
+    background-size: cover;
+    background-position: center top;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 28px 18px 36px;
+
+  }
+
+  .history__m-title {
+    margin: 0 0 20px;
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(2.4rem, 11.5vw, 3.2rem);
+    font-weight: 600;
+    line-height: 0.93;
+    letter-spacing: -0.06em;
+    color: #0d4f6d;
+    text-transform: uppercase;
+  }
+
+  .history__m-row {
+    
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .history__m-block{
+    gap: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .history__m-boat-wrap {
+    position: relative;
+  }
+
+  .history__m-divider {
+position: absolute;
+        left: 0;
+        width: 3px;
+        height: 150px;
+        background: #0d4f6d;
+        opacity: 0.4;
+  }
+
+  .history__m-divider--top {
+    top: 0;
+  }
+
+  .history__m-divider--bottom {
+    bottom: 0;
+  }
+
+  .history__m-boat {
+    display: block;
+    width: 100%;
+    height: auto;
+    left: 0;
+    pointer-events: none;
+    user-select: none;
+    transform: translateX(25px);
+  }
+  .history__m-year-block {
+    flex-shrink: 0;
+    width: 36%;
+  }
+
+  .history__m-year-value {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(1.5rem, 7.2vw, 2rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: #0d4f6d;
+  }
+
+  .history__m-year-label {
+    margin-top: 4px;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0d4f6d;
+    opacity: 0.7;
+  }
+
+  .history__m-text {
+    margin: 0;
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(0.75rem, 3.2vw, 0.92rem);
+    font-weight: 300;
+    line-height: 1.45;
+    color: #0d4f6d;
+  }
+
+  .history__m-ship {
+    display: block;
+    width: 88%;
+    margin: 8px auto;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .history {
     min-height: auto;
@@ -208,7 +335,7 @@
   }
 
   .history__background {
-    display: none;
+     
   }
 
   .history__inner {
@@ -317,7 +444,7 @@
 
 @media (max-width: 640px) {
   .history__inner {
-    padding: 24px 16px 32px;
+    display: none;
   }
 
   .history__content {

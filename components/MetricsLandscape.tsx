@@ -1,11 +1,10 @@
 import React from 'react';
-import { BadgeCheck, Headset, Ship, Users } from 'lucide-react';
+import { SearchCheck, BarChart2, Handshake, Ship } from 'lucide-react';
 import './MetricsLandscape.css';
 
 type MetricItem = {
   id: string;
   title: string;
-  lead: string;
   lines: string[];
   icon: React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>;
 };
@@ -14,30 +13,26 @@ const METRIC_ITEMS: MetricItem[] = [
   {
     id: 'control',
     title: 'КОНТРОЛЬ',
-    lead: '24/7 НА СВЯЗИ',
-    lines: ['Контроль на', 'каждом этапе'],
-    icon: Headset,
-  },
-  {
-    id: 'service',
-    title: 'СЕРВИС',
-    lead: 'Единая команда',
-    lines: ['под ваш', 'проект'],
-    icon: Users,
+    lines: ['24/7 НА ЛИНИИ', 'СВЯЗЬ БЕЗ ПАУЗ'],
+    icon: SearchCheck,
   },
   {
     id: 'scale',
     title: 'МАСШТАБ',
-    lead: 'Стабильные',
-    lines: ['логистические', 'потоки'],
-    icon: Ship,
+    lines: ['РЕГУЛЯРНЫЕ ОТПРАВКИ', 'СТАБИЛЬНЫЙ ПОТОК'],
+    icon: BarChart2,
+  },
+  {
+    id: 'service',
+    title: 'СЕРВИС',
+    lines: ['ПОЛНОЕ СОПРОВОЖДЕНИЕ', 'ЕДИНАЯ КОМАНДА'],
+    icon: Handshake,
   },
   {
     id: 'experience',
     title: 'ОПЫТ',
-    lead: '25+ ЛЕТ ОПЫТА',
-    lines: ['Отработанные', 'маршруты'],
-    icon: BadgeCheck,
+    lines: ['С 1999 ГОДА', 'ПРОВЕРЕННЫЙ МАРШРУТ'],
+    icon: Ship,
   },
 ];
 
@@ -53,7 +48,6 @@ const MetricsLandscape = () => {
 
             <div className="metrics-landscape__content">
               <h3 className="metrics-landscape__title">{item.title}</h3>
-              <p className="metrics-landscape__lead">{item.lead}</p>
               {item.lines.map((line) => (
                 <p key={line} className="metrics-landscape__line-text">
                   {line}

@@ -91,12 +91,9 @@
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 767px) {
   .adv__grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 18px;
-    padding: 24px 16px 32px;
+    display: none;
   }
 
   .adv__item {

@@ -223,3 +223,18 @@ canvas {
     text-transform: uppercase;
   }
 }
+
+/* ================================================================
+   МОБИЛЬНЫЙ ПОРЯДОК СЕКЦИЙ (≤767px)
+   ================================================================ */
+@media (max-width: 767px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  main > section {
+    order: 10;
+  }
+  #hero  { order: 0; }
+  #about { order: 1; }
+}

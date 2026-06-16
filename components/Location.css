@@ -58,7 +58,6 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  border: 12px solid #d1a35b;
   border-radius: 2.75rem;
   background: #f1f4f7;
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
@@ -102,6 +101,7 @@
 
 .location__contact-list {
   display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1.25rem;
   margin-top: 1.4rem;
 }
@@ -109,14 +109,7 @@
 .location__contact-card {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
-}
-
-.location__contact-name-row {
-  display: flex;
-  align-items: baseline;
-  gap: 0.55rem;
-  flex-wrap: wrap;
+  gap: 0.3rem;
 }
 
 .location__contact-role {
@@ -124,16 +117,23 @@
   font-size: clamp(1.5rem, 2.45vw, 3rem);
   font-weight: 700;
   letter-spacing: -0.06em;
-  color: #d1a35b;
+  color: #fff;
   text-transform: uppercase;
 }
 
 .location__contact-name {
   font-family: var(--font-display, inherit);
   font-size: clamp(1.5rem, 2.45vw, 3rem);
-  font-weight: 700;
+  font-weight: 300;
   letter-spacing: -0.055em;
   color: #fff;
+}
+
+.location__details {
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .location__row {
@@ -264,7 +264,7 @@
 
   .location__lead {
     margin-top: 1rem;
-    font-size: clamp(0.9rem, 4.05vw, 1.305rem);
+    font-size: clamp(0.9rem, 4.05vw, 1.105rem);
     line-height: 1.5;
   }
 
@@ -289,12 +289,26 @@
   }
 
   .location__contact-title {
-    font-size: clamp(1.395rem, 6.48vw, 1.935rem);
+    font-size: clamp(1.395rem, 6.48vw, 1.435rem);
+    margin-bottom: 30px;
   }
 
   .location__contact-list {
-    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
     margin-top: 1.1rem;
+  }
+
+  .location__contact-role,
+  .location__contact-name {
+    font-size: clamp(0.85rem, 3.8vw, 0.9rem);
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  .location__phone,
+  .location__email {
+    font-size: clamp(0.72rem, 3.2vw, 0.95rem);
   }
 
   .location__row {
@@ -308,7 +322,9 @@
 
   .location__phone,
   .location__email {
-    font-size: clamp(0.882rem, 3.96vw, 1.215rem);
+    font-size: clamp(0.882rem, 3.96vw, 0.9rem);
+    font-weight: 500;
+    letter-spacing: 0;
   }
 
   .location__note {
@@ -317,7 +333,7 @@
 
   .location__address {
     max-width: 24rem;
-    font-size: clamp(0.828rem, 3.6vw, 1.035rem);
+    font-size: clamp(0.828rem, 3.6vw, 0.9rem);
   }
 
   .location__divider {
