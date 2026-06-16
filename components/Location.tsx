@@ -1,6 +1,6 @@
 import React from 'react';
 import './Location.css';
-import { Facebook, Instagram, MapPin, Youtube } from 'lucide-react';
+import { Facebook, Instagram, MapPin, Send, Youtube } from 'lucide-react';
 
 const PHONE_DISPLAY = '+82 10 7309 9001';
 const PHONE_LINK = 'tel:+821073099001';
@@ -11,6 +11,7 @@ const socialLinks = [
   { href: 'https://instagram.com', label: 'Instagram', icon: Instagram },
   { href: 'https://facebook.com', label: 'Facebook', icon: Facebook },
   { href: 'https://youtube.com', label: 'YouTube', icon: Youtube },
+  { href: 'https://t.me/', label: 'Telegram', icon: Send },
 ];
 
 const CONTACTS = [
