@@ -258,7 +258,7 @@ canvas {
   }
 
   #about.page-section {
-    height: calc((100svh - var(--header-h)) * 0.75);
+    height: calc((100svh - var(--header-h)) * 0.80);
     min-height: 0;
     overflow: hidden;
   }
