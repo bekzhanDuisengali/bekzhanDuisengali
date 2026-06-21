@@ -16,7 +16,7 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
-  align-items: center;
+
 }
 
 .metrics-landscape__item {
@@ -146,11 +146,17 @@
 }
 
 @media (max-width: 767px) {
+  .metrics-landscape {
+    height: 100%;
+  }
+
   .metrics-landscape__shell {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 8px;
-    padding: 28px 16px 36px;
+    height: 100%;
+    padding: 16px 16px;
     min-height: 0;
+    align-content: center;
   }
 
   .metrics-landscape__item {
@@ -227,5 +233,30 @@
   .metrics-landscape__shell {
     height: 100%;
     min-height: 0;
+    padding: clamp(10px, 1.6vh, 18px) clamp(28px, 3vw, 60px);
+    align-content: center;
+  }
+
+  .metrics-landscape__item {
+    min-height: 0;
+    padding: clamp(14px, 1.8vh, 24px) 24px;
+  }
+
+  .metrics-landscape__icon-wrap {
+    width: clamp(56px, 6vw, 92px);
+  }
+
+  .metrics-landscape__icon {
+    width: clamp(40px, 4.2vw, 72px);
+    height: clamp(40px, 4.2vw, 72px);
+  }
+
+  .metrics-landscape__title {
+    margin-bottom: clamp(6px, 1vh, 16px);
+    font-size: clamp(1rem, 1.5vw, 1.75rem);
+  }
+
+  .metrics-landscape__line-text {
+    font-size: clamp(0.8rem, 1.05vw, 1.3125rem);
   }
 }

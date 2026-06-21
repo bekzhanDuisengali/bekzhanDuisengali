@@ -40,6 +40,12 @@
   /* --- Тени --- */
   --shadow-card: 0 16px 40px rgba(18, 51, 110, 0.08);
   --shadow-card-hover: 0 24px 60px rgba(18, 51, 110, 0.14);
+
+  /* --- Высота фиксированного хедера (для full-screen секций с 3-й и далее) --- */
+  --header-h: 6.25rem;
+
+  /* --- route-overview: фиксирует кадрирование карты одинаково на любом aspect ratio --- */
+  --map-cover: 1.85;
 }
 
 /* ================================================================
@@ -114,7 +120,7 @@ canvas {
 
 @media (min-width: 1024px) {
   .section--route-bg {
-    padding: 10rem 0;
+    padding: clamp(1.25rem, 3vh, 2.5rem) 0;
   }
 }
 
@@ -143,12 +149,15 @@ canvas {
 
   .page-section--h-520  { height: 520px;  min-height: 520px;  }
   .page-section--h-730  { height: 730px;  min-height: 730px;  }
-  .page-section--h-365  { height: 365px;  min-height: 365px;  }
   .page-section--h-760  { height: 760px;  min-height: 760px;  }
   .page-section--h-910  { height: 910px;  min-height: 910px;  }
   .page-section--h-fluid-hero {
-    height: clamp(820px, 54vw, 1240px);
-    min-height: clamp(820px, 54vw, 1240px);
+    height: 80vh;
+    min-height: 80vh;
+  }
+  .page-section--h-365 {
+    height: 20vh;
+    min-height: 20vh;
   }
   .page-section--h-1000 { height: 1000px; min-height: 1000px; }
   .page-section--h-1200 { height: 1200px; min-height: 1200px; }
@@ -157,6 +166,16 @@ canvas {
   .page-section--h-1050 { min-height: 1050px; }
   .page-section--h-1270 { height: 1270px; min-height: 1270px; }
   .page-section--h-1430 { min-height: 1430px; }
+
+  #route.page-section {
+    height: calc(100vh - var(--header-h));
+    min-height: calc(100vh - var(--header-h));
+  }
+
+  #operations.page-section {
+    height: calc(100vh - var(--header-h));
+    min-height: calc(100vh - var(--header-h));
+  }
   .page-section--h-1700 { height: 1700px; min-height: 1700px; }
 
   #hero > .hero,
@@ -165,6 +184,7 @@ canvas {
   #advantages > .adv,
   #route > .route-story,
   #services > div,
+  #operations > .video-slider,
   #route-overview > .route-overview,
   #future-map > div,
   #location > div {
@@ -173,13 +193,6 @@ canvas {
   }
 }
 
-@media (min-width: 1700px) {
-  .page-section--h-fluid-hero {
-    height: auto;
-    min-height: 0;
-    aspect-ratio: 1600 / 960;
-  }
-}
 
 /* ================================================================
    АНИМАЦИИ КОЛЕЦ (RouteStory)
@@ -237,4 +250,22 @@ canvas {
   }
   #hero  { order: 0; }
   #about { order: 1; }
+
+  #metrics.page-section {
+    height: calc((100svh - var(--header-h)) * 0.20);
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  #about.page-section {
+    height: calc((100svh - var(--header-h)) * 0.65);
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  #metrics > .metrics-landscape,
+  #about > .history {
+    height: 100%;
+    min-height: 0;
+  }
 }
