@@ -223,6 +223,11 @@
   transform: translateY(-2px);
 }
 
+.location__social-icon {
+  width: 26px;
+  height: 26px;
+}
+
 .location__floating {
   position: absolute;
   right: 2.2rem;
@@ -237,6 +242,97 @@
   color: #0b4b66;
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.16);
   text-decoration: none;
+}
+
+@media (min-width: 1025px) {
+  .location__inner {
+    padding: clamp(1.2rem, 4.2vh, 4.75rem) clamp(1.25rem, 2.5vw, 3rem) clamp(1.2rem, 4vh, 4.25rem);
+  }
+
+  .location__title {
+    font-size: clamp(1.7rem, 7.1vh, 5rem);
+  }
+
+  .location__lead {
+    margin-top: clamp(0.4rem, 1.4vh, 1rem);
+    font-size: clamp(1rem, 3.3vh, 2.25rem);
+  }
+
+  .location__content {
+    grid-template-columns: minmax(0, 0.7fr) minmax(320px, 1.6fr);
+    gap: clamp(1rem, 3.2vh, 3.25rem);
+    margin-top: clamp(0.9rem, 3.6vh, 4rem);
+  }
+
+  .location__map-frame {
+    max-width: clamp(300px, 78vh, 1100px);
+    max-height: clamp(300px, 78vh, 1100px);
+  }
+
+  .location__map-pin {
+    width: clamp(2.4rem, 6vh, 4.8rem);
+    height: clamp(2.4rem, 6vh, 4.8rem);
+  }
+
+  .location__contact-title {
+    font-size: clamp(1.15rem, 4.2vh, 3.15rem);
+  }
+
+  .location__contact-list {
+    gap: clamp(0.7rem, 1.8vh, 1.25rem);
+    margin-top: clamp(0.6rem, 1.8vh, 1.4rem);
+  }
+
+  .location__contact-role,
+  .location__contact-name {
+    font-size: clamp(0.9rem, 2.85vh, 2.25rem);
+  }
+
+  .location__details {
+    margin-top: clamp(0.6rem, 2.8vh, 2.5rem);
+    gap: clamp(0.2rem, 0.6vh, 0.4rem);
+  }
+
+  .location__row {
+    margin-top: clamp(8px, 2.4vh, 30px);
+  }
+
+  .location__icon-circle {
+    width: clamp(2rem, 4.4vh, 3rem);
+    height: clamp(2rem, 4.4vh, 3rem);
+  }
+
+  .location__phone,
+  .location__email {
+    font-size: clamp(0.8rem, 2.4vh, 1.8rem);
+  }
+
+  .location__note {
+    margin-top: clamp(0.2rem, 0.8vh, 0.45rem);
+    font-size: clamp(0.6rem, 1.2vh, 1rem);
+  }
+
+  .location__address {
+    font-size: clamp(0.7rem, 1.5vh, 1.35rem);
+  }
+
+  .location__divider {
+    margin-top: clamp(0.8rem, 2.6vh, 2.1rem);
+  }
+
+  .location__socials {
+    margin-top: clamp(0.6rem, 2vh, 1.75rem);
+  }
+
+  .location__social {
+    width: clamp(2.4rem, 5.2vh, 3.6rem);
+    height: clamp(2.4rem, 5.2vh, 3.6rem);
+  }
+
+  .location__floating {
+    width: clamp(3.4rem, 7vh, 5.1rem);
+    height: clamp(3.4rem, 7vh, 5.1rem);
+  }
 }
 
 @media (max-width: 1280px) {

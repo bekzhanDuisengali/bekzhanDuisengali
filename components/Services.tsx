@@ -1,12 +1,12 @@
 import React from 'react';
-import { Anchor, ArrowRight, Bike, Box, Car, ShoppingBag, Tractor, Wrench } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import './Services.css';
 
 type ServiceCard = {
   title: string;
   description: string;
   tags?: string;
-  icon: React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>;
+  icon: string;
 };
 
 const SERVICES: ServiceCard[] = [
@@ -14,36 +14,36 @@ const SERVICES: ServiceCard[] = [
     title: 'Генеральные грузы',
     description: 'Морская доставка любых объёмов',
     tags: 'паллеты · ящики · биг-бэги · бочки',
-    icon: Box,
+    icon: '/images/icons/services/генеральные-грузы.svg',
   },
   {
     title: 'Спецтехника',
     description: 'Перевозка техники с погрузкой и креплением',
     tags: 'краны · погрузчики',
-    icon: Tractor,
+    icon: '/images/icons/services/спецтехника.svg',
   },
   {
     title: 'Автомобили и запчасти',
     description: 'Доставка автомобилей и комплектующих',
     tags: 'легковые · коммерческие · запчасти',
-    icon: Car,
+    icon: '/images/icons/services/автомобили-и-запчасти.svg',
   },
   {
     title: 'Водная техника и мотоциклы',
     description: 'Доставка автомобилей и комплектующих',
     tags: 'легковые · коммерческие · запчасти',
-    icon: Bike,
+    icon: '/images/icons/services/водная-техника-и-мотоциклы.svg',
   },
   {
     title: 'Разборы / распилы',
     description: 'Отправка авто на запчасти с корректным оформлением и оптимизацией затрат',
-    icon: Wrench,
+    icon: '/images/icons/services/распилы-распилы.svg',
   },
   {
     title: 'Трейдинг',
     description: 'Бережная доставка с контролем условий хранения',
     tags: 'косметика · гигиена',
-    icon: ShoppingBag,
+    icon: '/images/icons/services/трейдинг.svg',
   },
 ];
 
@@ -70,7 +70,6 @@ const Services: React.FC = () => {
         <div className="services__content">
           <div className="services__grid">
             {SERVICES.map((service, index) => {
-              const Icon = service.icon;
               return (
                 <article
                   key={`${service.title}-${index}`}
@@ -97,7 +96,7 @@ const Services: React.FC = () => {
                   </div>
 
                   <div className="services__icon-wrap">
-                    <Icon size={110} strokeWidth={1.6} className="services__icon" />
+                    <img src={service.icon} alt={service.title} className="services__icon" />
                   </div>
                 </article>
               );

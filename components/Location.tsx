@@ -1,6 +1,8 @@
 import React from 'react';
 import './Location.css';
-import { Facebook, Instagram, MapPin, Send, Youtube } from 'lucide-react';
+import { MapPin } from 'lucide-react';
+
+const socialIcon = (file: string) => new URL(`../images/icons/${file}`, import.meta.url).href;
 
 const PHONE_DISPLAY = '+82 10 7309 9001';
 const PHONE_LINK = 'tel:+821073099001';
@@ -8,10 +10,10 @@ const EMAIL = 'info@kol.com';
 const ADDRESS = 'Marine Center Busan Jung-gu 4(sa)-ga 79-1';
 
 const socialLinks = [
-  { href: 'https://instagram.com', label: 'Instagram', icon: Instagram },
-  { href: 'https://facebook.com', label: 'Facebook', icon: Facebook },
-  { href: 'https://youtube.com', label: 'YouTube', icon: Youtube },
-  { href: 'https://t.me/', label: 'Telegram', icon: Send },
+  { href: 'https://instagram.com', label: 'Instagram', icon: socialIcon('instagram.svg') },
+  { href: 'https://facebook.com', label: 'Facebook', icon: socialIcon('facebook.svg') },
+  { href: 'https://youtube.com', label: 'YouTube', icon: socialIcon('youtube.svg') },
+  { href: 'https://t.me/', label: 'Telegram', icon: socialIcon('telegram.svg') },
 ];
 
 const CONTACTS = [
@@ -68,21 +70,18 @@ const Location: React.FC = () => {
             
 
             <div className="location__socials">
-              {socialLinks.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={item.label}
-                    className="location__social"
-                  >
-                    <Icon size={26} strokeWidth={2.2} />
-                  </a>
-                );
-              })}
+              {socialLinks.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={item.label}
+                  className="location__social"
+                >
+                  <img src={item.icon} alt="" className="location__social-icon" />
+                </a>
+              ))}
             </div>
           </div>
         </div>

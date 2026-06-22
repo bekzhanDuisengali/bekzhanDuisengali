@@ -30,9 +30,9 @@ const SECTION_HEIGHT_CLASS: Partial<Record<string, string>> = {
   metrics: 'page-section--h-365',
   route: 'page-section--h-1430',
   services: 'page-section',
-  'route-overview': 'page-section--h-1270',
+  'route-overview': 'page-section',
   'future-map': 'page-section--h-760',
-  location: 'page-section--h-1320',
+  location: 'page-section',
 };
 
 const getSectionClassName = (id: string, className?: string) =>

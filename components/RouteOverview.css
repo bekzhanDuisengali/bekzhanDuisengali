@@ -31,7 +31,7 @@
   margin: 0;
   font-family: var(--font-display, inherit);
   font-size: clamp(3.2rem, 4.15vw, 5.8rem);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 0.88;
   letter-spacing: -0.07em;
   color: var(--color-deep);
@@ -191,7 +191,7 @@
 
 @media (max-width: 1600px) {
   .route-overview__inner {
-    padding-block: 4.4rem 2.8rem;
+    padding-block: 2.4rem 2.8rem;
   }
 
   .route-overview__top {
@@ -374,9 +374,9 @@
   }
 }
 
-@media (min-width: 1281px) {
+@media (min-width: 1025px) {
   #route-overview.page-section {
-    height: calc(110vh - var(--header-h));
+    height: calc(100vh - var(--header-h));
     min-height: calc(100vh - var(--header-h));
   }
 
