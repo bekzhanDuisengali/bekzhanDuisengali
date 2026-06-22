@@ -43,6 +43,10 @@
   color: #0d4f6d;
 }
 
+.metrics-landscape__icon-mobile {
+  display: none;
+}
+
 .metrics-landscape__content {
   flex: 1 1 auto;
 }
@@ -178,9 +182,13 @@
   }
 
   .metrics-landscape__icon {
+    display: none;
+  }
+
+  .metrics-landscape__icon-mobile {
+    display: block;
     width: 48px;
     height: 48px;
-    color: #ffffff;
   }
 
   .metrics-landscape__content {
@@ -210,7 +218,7 @@
     padding: 24px 10px 32px;
   }
 
-  .metrics-landscape__icon {
+  .metrics-landscape__icon-mobile {
     width: 36px;
     height: 36px;
   }

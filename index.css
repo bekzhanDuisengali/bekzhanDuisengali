@@ -176,6 +176,16 @@ canvas {
     height: calc(100vh - var(--header-h));
     min-height: calc(100vh - var(--header-h));
   }
+
+  #services.page-section {
+    height: calc(100vh - var(--header-h));
+    min-height: calc(100vh - var(--header-h));
+  }
+
+  #location.page-section {
+    height: calc(100vh - var(--header-h));
+    min-height: calc(100vh - var(--header-h));
+  }
   .page-section--h-1700 { height: 1700px; min-height: 1700px; }
 
   #hero > .hero,
