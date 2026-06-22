@@ -4,9 +4,18 @@
   height: 100%;
   overflow: hidden;
   background-color: #d7e1ee;
+}
+
+.route-overview::before {
+  content: '';
+  position: absolute;
+  inset: -35%;
+  z-index: 0;
+  background-image: var(--route-bg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  transform: scale(1);
 }
 
 .route-overview__inner {
@@ -252,6 +261,11 @@
 }
 
 @media (max-width: 1024px) {
+  .route-overview::before {
+    transform: scale(0.7);
+    background-position: 40% 40%;
+  }
+
   .route-overview__inner {
     padding: 1.85rem 1rem 1.2rem;
     justify-content: flex-start;
@@ -385,8 +399,8 @@
     align-items: center;
   }
 
-  .route-overview {
-    background-image: none !important;
+  .route-overview::before {
+    display: none;
   }
 
   .route-overview__map {

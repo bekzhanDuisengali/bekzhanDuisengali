@@ -22,7 +22,7 @@ const RouteOverview: React.FC = () => {
   return (
     <div
       className="route-overview"
-      style={{ backgroundImage: `url(${routeOverviewBg})` }}
+      style={{ '--route-bg': `url(${routeOverviewBg})` } as React.CSSProperties}
     >
       <div className="route-overview__map" aria-hidden="true">
         <div className="route-overview__map-frame">
