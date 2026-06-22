@@ -312,6 +312,7 @@
   }
 
   .video-slider__cta {
+    align-self: flex-start;
     margin-top: clamp(0.9rem, 2vh, 1.5rem);
   }
 
