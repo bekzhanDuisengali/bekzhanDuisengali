@@ -187,12 +187,12 @@ const VideoSlider: React.FC = () => {
         </div>
 
         <a
-          href="https://t.me"
+          href="https://t.me/kol9001"
           target="_blank"
           rel="noopener noreferrer"
           className="video-slider__cta"
         >
-          
+
           <span className="video-slider__cta-text">Смотреть в Telegram</span>
           <ChevronRight size={22} className="video-slider__cta-arrow" />
         </a>

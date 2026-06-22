@@ -6,6 +6,8 @@ const socialIcon = (file: string) => new URL(`../images/icons/${file}`, import.m
 
 const PHONE_DISPLAY = '+82 10 7309 9001';
 const PHONE_LINK = 'tel:+821073099001';
+const WHATSAPP_LINK = 'https://wa.me/821073099001';
+const TELEGRAM_LINK = 'https://t.me/kol9001';
 const EMAIL = 'info@kol.com';
 const ADDRESS = 'Marine Center Busan Jung-gu 4(sa)-ga 79-1';
 
@@ -13,7 +15,7 @@ const socialLinks = [
   { href: 'https://instagram.com', label: 'Instagram', icon: socialIcon('instagram.svg') },
   { href: 'https://facebook.com', label: 'Facebook', icon: socialIcon('facebook.svg') },
   { href: 'https://youtube.com', label: 'YouTube', icon: socialIcon('youtube.svg') },
-  { href: 'https://t.me/', label: 'Telegram', icon: socialIcon('telegram.svg') },
+  { href: TELEGRAM_LINK, label: 'Telegram', icon: socialIcon('telegram.svg') },
 ];
 
 const CONTACTS = [
@@ -57,7 +59,11 @@ const Location: React.FC = () => {
                   <span className="location__contact-role">{contact.role}:</span>
                   <span className="location__contact-name">{contact.name}</span>
                   <a href={PHONE_LINK} className="location__phone">{PHONE_DISPLAY}</a>
-                  <div className="location__note">WhatsApp | Telegram</div>
+                  <div className="location__note">
+                    <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="location__note-link">WhatsApp</a>
+                    {' | '}
+                    <a href={TELEGRAM_LINK} target="_blank" rel="noreferrer" className="location__note-link">Telegram</a>
+                  </div>
                 </div>
               ))}
             </div>

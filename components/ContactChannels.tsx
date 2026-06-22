@@ -21,7 +21,7 @@ const EMAIL = 'info@kol.com';
 const PHONE_DISPLAY = '+82 10 7309 9001';
 const PHONE_LINK = 'tel:+821073099001';
 const WHATSAPP_LINK = 'https://wa.me/821073099001';
-const TELEGRAM_LINK = 'https://t.me';
+const TELEGRAM_LINK = 'https://t.me/kol9001';
 
 const copyEmail = async () => {
   try {
