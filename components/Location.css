@@ -259,7 +259,7 @@
   }
 
   .location__content {
-    grid-template-columns: minmax(0, 0.7fr) minmax(320px, 1.6fr);
+    grid-template-columns: minmax(0, 0.7fr) minmax(320px, 1.1fr);
     gap: clamp(1rem, 3.2vh, 3.25rem);
     margin-top: clamp(0.9rem, 3.6vh, 4rem);
   }
