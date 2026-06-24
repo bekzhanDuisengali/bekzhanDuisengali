@@ -4,10 +4,11 @@
   min-height: clamp(920px, 52vw, 1120px);
   overflow: hidden;
   background: #edf5fb;
-  background-image: url('../images/history/KOL-02.jpg');
+  background-image: url('../images/history/KOL-02 (2).jpg');
   background-repeat: no-repeat;
   background-position: left top;
-  background-size: 100% auto;
+  background-size: 100% 100%;
+  background-blend-mode: multiply;
 }
 
 .history__background {

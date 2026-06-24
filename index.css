@@ -148,16 +148,16 @@ canvas {
   }
 
   .page-section--h-520  { height: 520px;  min-height: 520px;  }
-  .page-section--h-730  { height: 730px;  min-height: 730px;  }
+  .page-section--h-730  { height: 600px;  min-height: 600px;  }
   .page-section--h-760  { height: 760px;  min-height: 760px;  }
   .page-section--h-910  { height: 910px;  min-height: 910px;  }
   .page-section--h-fluid-hero {
-    height: 80vh;
-    min-height: 80vh;
+    height: 83vh;
+    min-height: 83vh;
   }
   .page-section--h-365 {
-    height: 20vh;
-    min-height: 20vh;
+    height: 16vh;
+    min-height: 16vh;
   }
   .page-section--h-1000 { height: 1000px; min-height: 1000px; }
   .page-section--h-1200 { height: 1200px; min-height: 1200px; }

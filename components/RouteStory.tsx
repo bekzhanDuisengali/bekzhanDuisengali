@@ -88,26 +88,32 @@ const RouteStory = () => {
         </div>
 
         <div className="route-story__details">
-          <div className="route-story__route-pill">Пусан — Владивосток</div>
-
-          <div className="route-story__copy">
-            <h3 className="route-story__details-title">{activeMoment.title}</h3>
-            <p className="route-story__details-summary">{activeMoment.summary}</p>
-          </div>
-
-          <div className="route-story__bullet-list">
-            {activeMoment.bullets.map((bullet) => (
-              <div key={bullet} className="route-story__bullet">
-                <span className="route-story__bullet-dash" aria-hidden="true">—</span>
-                <span className="route-story__bullet-text">{bullet}</span>
+          <div className="route-story__row">
+            <div className="route-story__text">
+              <div className="route-story__copy">
+                <h3 className="route-story__details-title">{activeMoment.title}</h3>
+                <p className="route-story__details-summary">{activeMoment.summary}</p>
               </div>
-            ))}
-          </div>
 
-          <button type="button" className="route-story__button">
-            Запросить маршрут
-            <ArrowRight size={20} />
-          </button>
+              <div className="route-story__bullet-list">
+                {activeMoment.bullets.map((bullet) => (
+                  <div key={bullet} className="route-story__bullet">
+                    <span className="route-story__bullet-dash" aria-hidden="true">—</span>
+                    <span className="route-story__bullet-text">{bullet}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="route-story__actions">
+              <div className="route-story__route-pill">Пусан — Владивосток</div>
+
+              <button type="button" className="route-story__button">
+                Запросить маршрут
+                <ArrowRight size={20} />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
