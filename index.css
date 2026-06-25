@@ -279,3 +279,9 @@ canvas {
     min-height: 0;
   }
 }
+
+@media (max-width: 700px) {
+  #operations.section--operations-bg {
+    background: #fff;
+  }
+}

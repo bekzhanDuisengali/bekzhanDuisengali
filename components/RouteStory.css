@@ -458,7 +458,7 @@
     gap: 0.5rem;
     flex-shrink: 0;
     width: min(100%, 32rem);
-    margin-top: 18rem;
+    margin-top: 15rem;
   }
 
   .route-story__route-pill,
