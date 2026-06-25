@@ -312,6 +312,14 @@
 
 @media (max-width: 767px) {
 
+  #route-overview.section--route-overview-bg {
+    background-color: transparent;
+  }
+
+  .route-overview {
+    border-radius: 1.4rem;
+  }
+
   .route-overview__inner {
     padding: 24px 16px 32px;
     gap: 0.85rem;
