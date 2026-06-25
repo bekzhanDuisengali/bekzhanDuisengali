@@ -328,16 +328,20 @@
     margin-top: 1rem;
     gap: 1rem;
   }
-
+  .route-story__details {
+    align-items: flex-start;
+  }
   .route-story__media {
     border-radius: 1rem;
   }
 
   .route-story__image {
+    display: none;
     aspect-ratio: 1.18 / 1;
   }
 
   .route-story__route-pill {
+    display: none;
     min-height: 2.8rem;
     width: 100%;
     text-align: center;
