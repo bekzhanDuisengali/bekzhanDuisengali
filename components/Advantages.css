@@ -19,7 +19,7 @@
   z-index: 1;
   max-width: 1920px;
   margin: 0 auto;
-  padding: clamp(36px, 4.5vw, 64px) clamp(24px, 5vw, 100px) clamp(36px, 4.5vw, 64px);
+  padding: clamp(4.5rem, 6vw, 6rem) clamp(1.25rem, 3vw, 3.5rem) clamp(3rem, 4vw, 4rem);
   display: grid;
   grid-template-columns: 1fr 0fr;
   grid-template-rows: repeat(4, clamp(88px, 8.5vw, 122px));

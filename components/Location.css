@@ -12,7 +12,7 @@
   max-width: 1920px;
   min-height: 100%;
   margin: 0 auto;
-  padding: clamp(2.5rem, 3.4vw, 4.75rem) clamp(1.25rem, 2.5vw, 3rem) clamp(2.25rem, 3.4vw, 4.25rem);
+  padding: clamp(4.5rem, 6vw, 6rem) clamp(1.25rem, 3vw, 3.5rem) clamp(3rem, 4vw, 4rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;

@@ -24,7 +24,7 @@
   max-width: 1600px;
   min-height: 100%;
   margin: 0 auto;
-  padding: clamp(5rem, 5.2vw, 6.6rem) clamp(1.5rem, 9.5vw, 12rem) clamp(4rem, 5vw, 6rem) 40px;
+  padding: clamp(4.5rem, 6vw, 6rem) clamp(1.25rem, 3vw, 3.5rem) clamp(3rem, 4vw, 4rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -182,8 +182,6 @@
 
 @media (max-width: 1920px) {
   .route-overview__inner {
-    padding-right: clamp(1.5rem, 8.5vw, 10rem);
-    padding-left: 40px;
   }
 
   .route-overview__title {
@@ -200,10 +198,6 @@
 }
 
 @media (max-width: 1600px) {
-  .route-overview__inner {
-    padding-block: 2.4rem 2.8rem;
-  }
-
   .route-overview__top {
     width: min(100%, 90rem);
   }
