@@ -401,7 +401,6 @@
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
-    padding: clamp(4.5rem, 6vw, 6rem) clamp(1.25rem, 3vw, 3.5rem) clamp(3rem, 4vw, 4rem);
   }
 
   .route-story__content {

@@ -217,7 +217,7 @@
 
 @media (min-width: 1025px) {
   .services__inner {
-    padding: clamp(4.5rem, 6vw, 6rem) clamp(1.25rem, 3vw, 3.5rem) clamp(3rem, 4vw, 4rem);
+    padding: clamp(16px, 3vh, 28px) 40px clamp(20px, 4vh, 44px);
   }
 
   .services__title {
