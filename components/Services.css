@@ -63,7 +63,7 @@
   margin: 0;
   font-family: var(--font-display, inherit);
   font-size: clamp(48px, 4.9vw, 92px);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 0.88;
   letter-spacing: -0.065em;
   text-transform: uppercase;
@@ -144,7 +144,6 @@
   font-size: clamp(13px, 1vw, 18px);
   font-weight: 600;
   line-height: 1.05;
-  letter-spacing: -0.042em;
 }
 
 .services__card-tags {
@@ -217,62 +216,69 @@
 
 @media (min-width: 1025px) {
   .services__inner {
-    padding: clamp(16px, 3vh, 28px) 40px clamp(20px, 4vh, 44px);
+    padding: clamp(4.5rem, 6vw, 6rem) clamp(1.25rem, 3vw, 3.5rem) clamp(3rem, 4vw, 4rem);
   }
 
   .services__title {
-    font-size: clamp(32px, 7.5vh, 92px);
+    font-size: clamp(28px, 5.5vh, 72px);
   }
 
   .services__lead {
-    margin-top: clamp(8px, 1.8vh, 18px);
-    font-size: clamp(13px, 2.6vh, 26px);
+    margin-top: clamp(12px, 2.4vh, 24px);
+    margin-bottom: clamp(8px, 1.6vh, 16px);
+    font-size: clamp(12px, 2vh, 22px);
   }
 
   .services__content {
-    margin-top: clamp(12px, 2.8vh, 28px);
+    margin-top: clamp(10px, 2vh, 22px);
+    display: flex;
+    flex-direction: column;
   }
 
   .services__grid {
-    gap: clamp(10px, 2.2vh, 22px) clamp(14px, 2vw, 28px);
+    flex: 1 1 auto;
+    min-height: 0;
+    grid-auto-rows: 1fr;
+    gap: clamp(8px, 1.6vh, 16px) clamp(14px, 2vw, 28px);
   }
 
   .services__card {
-    min-height: clamp(96px, 17vh, 174px);
-    padding: clamp(12px, 2.4vh, 24px) clamp(18px, 2vw, 28px) clamp(12px, 2.4vh, 24px) clamp(20px, 2.2vw, 30px);
+    min-height: 0;
+    height: 100%;
+    padding: clamp(10px, 1.8vh, 20px) clamp(16px, 1.8vw, 26px) clamp(10px, 1.8vh, 20px) clamp(18px, 2vw, 28px);
   }
 
   .services__card-title {
-    font-size: clamp(15px, 3.4vh, 34px);
+    font-size: clamp(13px, 2.6vh, 28px);
   }
 
   .services__card:nth-child(3) .services__card-title,
   .services__card:nth-child(4) .services__card-title {
-    font-size: clamp(14px, 2.6vh, 29px);
+    font-size: clamp(12px, 2vh, 24px);
   }
 
   .services__card-desc {
-    margin-top: clamp(4px, 1vh, 10px);
-    font-size: clamp(10px, 1.6vh, 18px);
+    margin-top: clamp(3px, 0.7vh, 8px);
+    font-size: clamp(12px, 1.8vh, 20px);
   }
 
   .services__card-tags {
-    margin-top: clamp(3px, 0.7vh, 7px);
-    font-size: clamp(10px, 1.5vh, 18px);
+    margin-top: clamp(2px, 0.5vh, 6px);
+    font-size: clamp(11px, 1.6vh, 18px);
   }
 
   .services__more {
-    margin-top: clamp(6px, 1.5vh, 18px);
-    font-size: clamp(12px, 1.9vh, 22px);
+    margin-top: clamp(5px, 1.1vh, 14px);
+    font-size: clamp(10px, 1.5vh, 18px);
   }
 
   .services__icon {
-    max-width: clamp(70px, 13vh, 154px);
+    max-width: clamp(56px, 10vh, 120px);
   }
 
   .services__chat-button {
-    width: clamp(70px, 11vh, 120px);
-    height: clamp(70px, 11vh, 120px);
+    width: clamp(60px, 9vh, 110px);
+    height: clamp(60px, 9vh, 110px);
   }
 }
 
