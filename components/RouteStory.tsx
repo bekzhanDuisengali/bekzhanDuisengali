@@ -78,6 +78,7 @@ const RouteStory = () => {
           >
             <span className="route-story__tab-index">{String(index + 1).padStart(2, '0')}</span>
             <span className="route-story__tab-title">{moment.title}</span>
+            <moment.icon size={18} strokeWidth={1.8} className="route-story__tab-icon" aria-hidden="true" />
           </button>
         ))}
       </div>

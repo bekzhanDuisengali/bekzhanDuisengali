@@ -47,9 +47,9 @@
   position: relative;
   z-index: 1;
   height: 100%;
-  max-width: 1760px;
+  max-width: 1920px;
   margin: 0 auto;
-  padding: clamp(5.8rem, 7.2vh, 7rem) 3rem clamp(1.4rem, 2vh, 2rem);
+  padding: clamp(5.8rem, 7.2vh, 7rem) clamp(1.25rem, 3vw, 3.5rem) clamp(1.4rem, 2vh, 2rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
