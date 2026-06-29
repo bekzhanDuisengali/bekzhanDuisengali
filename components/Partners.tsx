@@ -42,7 +42,6 @@ const Partners: React.FC = () => {
 
   return (
     <section className="partners">
-      {/* Featured партнёр */}
       <div className="partners__featured">
         <h3 className="partners__title">Наши партнёры</h3>
         <h4 className="partners__company-name">SEAROAD LOGISTIC CO</h4>

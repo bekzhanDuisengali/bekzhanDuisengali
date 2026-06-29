@@ -271,7 +271,7 @@
   }
 
   .partners__title {
-    font-size: clamp(2rem, 3vw, 3.6rem);
+    font-size: clamp(1.98rem, 8.1vw, 3.24rem);
   }
 
   .partners__featured {
@@ -335,7 +335,7 @@
   }
 
   .partners__title {
-    font-size: clamp(1.71rem, 6.7vw, 1.8rem);
+    font-size: clamp(1.71rem, 7.2vw, 1.8rem);
     margin-top: 0;
     text-align: start;
   }
