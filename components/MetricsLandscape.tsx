@@ -50,7 +50,7 @@ const MetricsLandscape = () => {
         {METRIC_ITEMS.map((item) => (
           <article key={item.id} className="metrics-landscape__item">
             <div className="metrics-landscape__icon-wrap" aria-hidden="true">
-              <item.icon size={72} className="metrics-landscape__icon" strokeWidth={1.9} />
+              <item.icon size={47} className="metrics-landscape__icon" strokeWidth={1.9} />
               <img src={item.mobileIcon} alt="" className="metrics-landscape__icon-mobile" />
             </div>
 
