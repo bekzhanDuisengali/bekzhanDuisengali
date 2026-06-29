@@ -53,7 +53,7 @@
 
 /* --- Блок с featured-партнёром (Searoad) --- */
 .partners__featured {
-  max-width: 1540px;
+  max-width: 1920px;
   margin: 0 auto 3.5rem;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -76,7 +76,7 @@
 
 @media (min-width: 1024px) {
   .partners__featured {
-    max-width: 1600px;
+    max-width: 1920px;
     grid-template-columns: minmax(0, 1fr) 280px;
     gap: 0.5rem 2rem;
   }

@@ -35,7 +35,7 @@
 .location__lead {
   margin: 1rem 0 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.55rem, 2.65vw, 3rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.9rem);
   font-weight: 300;
   line-height: 1.12;
   letter-spacing: -0.05em;
@@ -92,7 +92,7 @@
 .location__contact-title {
   margin: 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(2rem, 3.45vw, 4.2rem);
+  font-size: clamp(1.4rem, 2.4vw, 2.4rem);
   font-weight: 700;
   line-height: 1.02;
   letter-spacing: -0.06em;
@@ -114,7 +114,7 @@
 
 .location__contact-role {
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.5rem, 2.45vw, 3rem);
+  font-size: clamp(1rem, 1.6vw, 1.6rem);
   font-weight: 700;
   letter-spacing: -0.06em;
   color: #fff;
@@ -123,7 +123,7 @@
 
 .location__contact-name {
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.5rem, 2.45vw, 3rem);
+  font-size: clamp(1rem, 1.6vw, 1.6rem);
   font-weight: 300;
   letter-spacing: -0.055em;
   color: #fff;
@@ -162,7 +162,7 @@
 .location__phone,
 .location__email {
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.25rem, 2.1vw, 2.4rem);
+  font-size: clamp(1rem, 1.4vw, 1.5rem);
   font-weight: 300;
   line-height: 1.08;
   letter-spacing: -0.04em;
@@ -253,10 +253,7 @@
 
 @media (min-width: 1025px) {
   .location__inner {
-    padding: clamp(4.5rem, 6vw, 6rem)
-         calc(clamp(1.25rem, 3vw, 3.5rem) + clamp(0.75rem, 3vw, 3.5rem))
-         clamp(3rem, 4vw, 4rem)
-         clamp(1.25rem, 3vw, 3.5rem);
+    padding: clamp(4.5rem, 6vw, 6rem) clamp(1.25rem, 3vw, 3.5rem) clamp(1.5rem, 2.5vw, 2.5rem);
   }
 
   .location__title {
@@ -265,7 +262,7 @@
 
   .location__lead {
     margin-top: clamp(0.5rem, 1.6vh, 1.2rem);
-    font-size: clamp(1.3rem, 4vh, 2.6rem);
+    font-size: clamp(1.1rem, 1.6vw, 1.9rem);
   }
 
   .location__content {
@@ -276,14 +273,14 @@
 
   .location__map-shell {
     align-items: flex-start;
-    margin-bottom: clamp(1rem, 4vh, 2.5rem);
+    margin-bottom: clamp(0.5rem, 1.5vw, 1.5rem);
   }
 
   .location__map-frame {
     width: 100%;
-    max-width: clamp(380px, 96vh, 1300px);
-    aspect-ratio: 1.35 / 1;
-    max-height: none;
+    max-width: 100%;
+    aspect-ratio: 1.8 / 1;
+    max-height: clamp(280px, 42vh, 520px);
   }
 
   .location__map-pin {
@@ -292,7 +289,7 @@
   }
 
   .location__contact-title {
-    font-size: clamp(1.5rem, 5.2vh, 3.6rem);
+    font-size: clamp(1.4rem, 2vw, 2.4rem);
   }
 
   .location__contact-list {
@@ -302,7 +299,7 @@
 
   .location__contact-role,
   .location__contact-name {
-    font-size: clamp(1.2rem, 3.6vh, 2.7rem);
+    font-size: clamp(1rem, 1.3vw, 1.6rem);
   }
 
   .location__details {
@@ -321,16 +318,16 @@
 
   .location__phone,
   .location__email {
-    font-size: clamp(1.1rem, 3.1vh, 2.2rem);
+    font-size: clamp(1rem, 1.25vw, 1.5rem);
   }
 
   .location__note {
-    margin-top: clamp(0.3rem, 1vh, 0.55rem);
-    font-size: clamp(0.85rem, 1.6vh, 1.2rem);
+    margin-top: clamp(0.3rem, 0.6vw, 0.55rem);
+    font-size: clamp(0.8rem, 0.95vw, 1.1rem);
   }
 
   .location__address {
-    font-size: clamp(0.95rem, 2vh, 1.6rem);
+    font-size: clamp(0.85rem, 1vw, 1.2rem);
   }
 
   .location__divider {

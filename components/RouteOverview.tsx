@@ -11,11 +11,11 @@ const STATS = [
 
 const COUNTRY_LABELS = [
   { name: ['РОССИЯ'],         left: '46%',   top: '50%' },
-  { name: ['ЯПОНИЯ'],         left: '57%',   top: '52%' },
+  { name: ['ЯПОНИЯ'],         left: '53%',   top: '58%' },
   { name: ['КИТАЙ'],          left: '24%',   top: '64%' },
   { name: ['ЮЖНАЯ', 'КОРЕЯ'], left: '42%',   top: '65%' },
   { name: ['ДУБАЙ', '(ОАЭ)'], left: '1.5%',  top: '65%' },
-  { name: ['США'],            left: '86%',   top: '73%' },
+  { name: ['США'],            left: '76%',   top: '60%' },
 ];
 
 const RouteOverview: React.FC = () => {

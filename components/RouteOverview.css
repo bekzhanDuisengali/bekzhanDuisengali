@@ -21,7 +21,7 @@
 .route-overview__inner {
   position: relative;
   width: 100%;
-  max-width: 1600px;
+  max-width: 1920px;
   min-height: 100%;
   margin: 0 auto;
   padding: clamp(4.5rem, 6vw, 6rem) calc(clamp(1.25rem, 3vw, 3.5rem) + clamp(0.75rem, 3vw, 3.5rem)) clamp(3rem, 4vw, 4rem) clamp(1.25rem, 3vw, 3.5rem);;
@@ -182,7 +182,7 @@
 @media (max-width: 1920px) {
   .route-overview__inner {
     padding-right: clamp(1.5rem, 8.5vw, 10rem);
-    padding-left: 40px;
+    padding-left: clamp(1.25rem, 3vw, 3.5rem);
   }
 
   .route-overview__title {
@@ -401,12 +401,16 @@
 
 @media (min-width: 1025px) {
   .route-overview__title {
-    font-size: clamp(40px, 4.2vw, 72px);
+    font-size: clamp(28px, 2.8vw, 52px);
+    white-space: nowrap;
   }
 
   #route-overview.page-section {
-    height: calc(100vh - var(--header-h));
-    min-height: calc(100vh - var(--header-h));
+    /* height: calc(100vh - var(--header-h));
+    min-height: calc(100vh - var(--header-h)); */
+    height: 120vh;
+    min-height: 120vh;
+
   }
 
   .route-overview__footer {
