@@ -313,7 +313,10 @@
   .video-slider__inner {
     width: 100%;
     height: 100%;
-    padding: clamp(1.5rem, 4vh, 2.5rem) 40px;
+    padding: clamp(4.5rem, 6vw, 6rem)
+         calc(clamp(1.25rem, 3vw, 3.5rem) + clamp(0.75rem, 3vw, 3.5rem))
+         clamp(3rem, 4vw, 4rem)
+         clamp(1.25rem, 3vw, 3.5rem);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

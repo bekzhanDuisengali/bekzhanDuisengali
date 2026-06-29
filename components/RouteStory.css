@@ -2,7 +2,10 @@
   max-width: 1600px;
   margin: 0 auto;
   width: 100%;
-  padding: 0 4.25rem 0 40px;
+  padding: clamp(4.5rem, 6vw, 6rem)
+         calc(clamp(1.25rem, 3vw, 3.5rem) + clamp(0.75rem, 3vw, 3.5rem))
+         clamp(3rem, 4vw, 4rem)
+         clamp(1.25rem, 3vw, 3.5rem);
   color: #0d4f6d;
 }
 
