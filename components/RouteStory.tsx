@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Camera, FileCheck2, ShipWheel } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import './RouteStory.css';
 
 type RouteMoment = {
@@ -9,7 +9,7 @@ type RouteMoment = {
   summary: string;
   image: string;
   bullets: string[];
-  icon: typeof FileCheck2;
+  icon: string;
 };
 
 const routeImage = (file: string) => new URL(`../images/boats/${file}`, import.meta.url).href;
@@ -22,7 +22,7 @@ const ROUTE_MOMENTS: RouteMoment[] = [
     summary: 'Резервируем место и готовим груз.',
     image: routeImage('IMG_0061 (1).jpg'),
     bullets: ['Параметры груза', 'Слот на рейс', 'Подготовка к отправке'],
-    icon: FileCheck2,
+    icon: '/images/icons/services/booking.svg',
   },
   {
     id: 'loading',
@@ -31,7 +31,7 @@ const ROUTE_MOMENTS: RouteMoment[] = [
     summary: 'Сопровождаем перевозку.',
     image: routeImage('IMG_0119 (1).jpg'),
     bullets: ['Документы', 'Приёмка и фото', 'Погрузка и крепление'],
-    icon: Camera,
+    icon: '/images/icons/services/control.svg',
   },
   {
     id: 'arrival',
@@ -40,7 +40,7 @@ const ROUTE_MOMENTS: RouteMoment[] = [
     summary: 'Организуем выдачу.',
     image: routeImage('IMG_0156.jpg'),
     bullets: ['Выгрузка', 'Фотофиксация', 'СВХ и таможня'],
-    icon: ShipWheel,
+    icon: '/images/icons/services/delivering.svg',
   },
 ];
 
@@ -76,9 +76,8 @@ const RouteStory = () => {
             className={`route-story__tab ${moment.id === activeMomentId ? 'is-active' : ''}`}
             onClick={() => setActiveMomentId(moment.id)}
           >
-            <span className="route-story__tab-index">{String(index + 1).padStart(2, '0')}</span>
             <span className="route-story__tab-title">{moment.title}</span>
-            <moment.icon size={18} strokeWidth={1.8} className="route-story__tab-icon" aria-hidden="true" />
+            <img src={moment.icon} alt="" className="route-story__tab-icon" aria-hidden="true" />
           </button>
         ))}
       </div>

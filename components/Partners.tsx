@@ -27,7 +27,7 @@ const PARTNERS = [
     name: 'Ottogi',
     src: asset('ottogi logo (1).png'),
     glowClass: 'partners__card-glow--amber',
-    logoClass: '',
+    logoClass: 'partners__card-logo--scale-sm',
   },
   {
     name: 'S-OIL',
