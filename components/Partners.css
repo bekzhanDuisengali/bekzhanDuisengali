@@ -389,6 +389,10 @@
     padding: 0.75rem;
   }
 
+  .partners__card-logo--scale {
+    transform: scale(3.6);
+  }
+
   .partners__fade {
     width: 2rem;
   }
