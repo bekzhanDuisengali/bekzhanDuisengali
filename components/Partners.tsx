@@ -38,7 +38,7 @@ const PARTNERS = [
 ];
 
 const Partners: React.FC = () => {
-  const track = [...PARTNERS, ...PARTNERS];
+  const track = [...PARTNERS, ...PARTNERS, ...PARTNERS];
 
   return (
     <section className="partners">

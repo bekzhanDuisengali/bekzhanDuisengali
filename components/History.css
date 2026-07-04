@@ -1,7 +1,7 @@
 .history {
   position: relative;
   width: 100%;
-  min-height: clamp(920px, 52vw, 1120px);
+  min-height: clamp(760px, 40vw, 900px);
   overflow: hidden;
   background: #edf5fb;
   background-image: url('../images/history/KOL-02 (2).jpg');
@@ -439,8 +439,8 @@ position: absolute;
 @media (min-width: 1700px) {
   .history {
     min-height: 0;
-    aspect-ratio: 1996 / 1063;
-    background-size: 100% 100%;
+    height: clamp(760px, 44vw, 900px);
+    background-size: cover;
     background-position: left top;
   }
 }

@@ -106,8 +106,6 @@ const RouteStory = () => {
             </div>
 
             <div className="route-story__actions">
-              <div className="route-story__route-pill">Пусан — Владивосток</div>
-
               <button type="button" className="route-story__button">
                 Запросить маршрут
                 <ArrowRight size={20} />

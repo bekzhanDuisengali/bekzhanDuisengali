@@ -150,8 +150,8 @@ canvas {
   .page-section--h-760  { height: 760px;  min-height: 760px;  }
   .page-section--h-910  { height: 910px;  min-height: 910px;  }
   .page-section--h-fluid-hero {
-    height: 88vh;
-    min-height: 88vh;
+    height: 100vh;
+    min-height: 100vh;
   }
   .page-section--h-365 {
     height: 10vh;
@@ -166,8 +166,8 @@ canvas {
   .page-section--h-1430 { min-height: 1430px; }
 
   #route.page-section {
-    height: calc(100vh - var(--header-h));
-    min-height: calc(100vh - var(--header-h));
+    height: min(calc(100vh - var(--header-h)), clamp(820px, 48vw, 980px));
+    min-height: min(calc(100vh - var(--header-h)), clamp(820px, 48vw, 980px));
   }
 
   #operations.page-section {
@@ -187,8 +187,7 @@ canvas {
   .page-section--h-1700 { height: 1700px; min-height: 1700px; }
 
   #metrics.page-section {
-    height: 12vh;
-    min-height: 12vh;
+    display: none;
   }
 
   #hero > .hero,
@@ -203,6 +202,13 @@ canvas {
   #location > div {
     height: 100%;
     min-height: 0;
+  }
+}
+
+@media (min-width: 2560px) {
+  #location.page-section {
+    height: clamp(700px, 40vw, 860px);
+    min-height: clamp(700px, 40vw, 860px);
   }
 }
 

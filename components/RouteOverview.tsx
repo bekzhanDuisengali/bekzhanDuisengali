@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './RouteOverview.css';
 import routeOverviewBg from '../images/routeoverview/5e9b0729-3a45-4037-af77-3c83cac4e1ab.png';
 import { Ship, Plane, Globe } from 'lucide-react';
@@ -10,18 +10,27 @@ const STATS = [
 ];
 
 const COUNTRY_LABELS = [
-  { name: ['РОССИЯ'],         left: '46%',   top: '50%' },
+  { name: ['РОССИЯ'],         left: '46%',   top: '40%' },
   { name: ['ЯПОНИЯ'],         left: '53%',   top: '58%' },
   { name: ['КИТАЙ'],          left: '24%',   top: '64%' },
   { name: ['ЮЖНАЯ', 'КОРЕЯ'], left: '42%',   top: '65%' },
-  { name: ['ДУБАЙ', '(ОАЭ)'], left: '1.5%',  top: '65%' },
-  { name: ['США'],            left: '76%',   top: '60%' },
+  { name: ['ДУБАЙ', '(ОАЭ)'], left: '6%',    top: '65%' },
+  { name: ['США'],            left: '97%',   top: '85%' },
 ];
 
 const RouteOverview: React.FC = () => {
+  const [isMapOpen, setIsMapOpen] = useState(false);
+
+  const handleButtonClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (window.matchMedia('(max-width: 1024px)').matches) {
+      e.preventDefault();
+      setIsMapOpen((v) => !v);
+    }
+  };
+
   return (
     <div
-      className="route-overview"
+      className={`route-overview${isMapOpen ? ' route-overview--map-open' : ''}`}
       style={{ '--route-bg': `url(${routeOverviewBg})` } as React.CSSProperties}
     >
       <div className="route-overview__map" aria-hidden="true">
@@ -69,8 +78,8 @@ const RouteOverview: React.FC = () => {
         </div>
 
         <div className="route-overview__footer">
-          <a href="#location" className="route-overview__button">
-            ОТКРЫТЬ НА КАРТЕ
+          <a href="#location" className="route-overview__button" onClick={handleButtonClick}>
+            {isMapOpen ? 'СКРЫТЬ КАРТУ' : 'ОТКРЫТЬ НА КАРТЕ'}
           </a>
 
           <div className="route-overview__stats">

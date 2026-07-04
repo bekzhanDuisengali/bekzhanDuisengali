@@ -6,40 +6,44 @@
   color: #fff;
 }
 
-.adv__wave {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
 .adv__grid {
   position: relative;
   z-index: 1;
   max-width: 1920px;
   margin: 0 auto;
-  padding: clamp(4.5rem, 6vw, 6rem)
-         calc(clamp(1.25rem, 3vw, 3.5rem) + clamp(0.75rem, 3vw, 3.5rem))
-         clamp(3rem, 4vw, 4rem)
-         clamp(1.25rem, 3vw, 3.5rem);
+  padding: clamp(2.5rem, 4vw, 4rem) clamp(1.25rem, 3vw, 3.5rem);
   display: grid;
-  grid-template-columns: 1fr 0fr;
-  grid-template-rows: repeat(4, clamp(88px, 8.5vw, 122px));
-  min-height: 460px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 2.5rem);
+  align-items: start;
 }
 
 .adv__item {
-  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(0.5rem, 1vw, 0.9rem);
+}
+
+.adv__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adv__icon {
+  width: clamp(40px, 4.5vw, 72px);
+  height: clamp(40px, 4.5vw, 72px);
 }
 
 .adv__title {
-  margin: 0 0 0.28em;
+  margin: 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(48px, 4.688vw, 90px);
+  font-size: clamp(1.1rem, 1.8vw, 1.75rem);
   font-weight: 600;
-  line-height: 0.88;
-  letter-spacing: -0.06em;
+  line-height: 1;
+  letter-spacing: -0.04em;
   color: #fff;
 }
 
@@ -51,7 +55,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1.55;
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .adv__btn {
@@ -79,13 +83,12 @@
 @media (max-width: 900px) {
   .adv__grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, clamp(72px, 10vw, 100px));
     min-height: 0;
     padding: 32px 24px 56px;
   }
 
   .adv__title {
-    font-size: clamp(32.4px, 4.5vw, 54px);
+    font-size: clamp(1rem, 4.5vw, 1.35rem);
   }
 
   .adv__sub {
@@ -99,8 +102,6 @@
   }
 
   .adv__item {
-    grid-column: 1 !important;
-    grid-row: auto !important;
     padding-right: 0;
   }
 

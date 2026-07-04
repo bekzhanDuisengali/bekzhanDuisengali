@@ -26,7 +26,7 @@ type SectionConfig = {
 const SECTION_HEIGHT_CLASS: Partial<Record<string, string>> = {
   hero: 'page-section--h-fluid-hero',
   about: 'page-section--h-860',
-  advantages: 'page-section--h-730',
+  advantages: 'page-section',
   metrics: 'page-section--h-300',
   route: 'page-section--h-1430',
   services: 'page-section',
