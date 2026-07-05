@@ -271,13 +271,13 @@ canvas {
   #about { order: 1; }
 
   #metrics.page-section {
-    height: calc((100svh - var(--header-h)) * 0.3);
+    height: calc((var(--vh, 1vh) * 100 - var(--header-h)) * 0.3);
     min-height: 0;
     overflow: hidden;
   }
 
   #about.page-section {
-    height: calc((100svh - var(--header-h)) * 0.8);
+    height: calc((var(--vh, 1vh) * 100 - var(--header-h)) * 0.8);
     min-height: 0;
     overflow: hidden;
   }
