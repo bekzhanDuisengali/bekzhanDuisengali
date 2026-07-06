@@ -67,7 +67,7 @@
   line-height: 0.88;
   letter-spacing: -0.065em;
   text-transform: uppercase;
-  color: #0b4b66;
+  color: #0d4f6d;
 }
 
 .services__lead {
@@ -220,7 +220,7 @@
   }
 
   .services__title {
-    font-size: clamp(56px, 4.95vw, 102.4px);
+    font-size: clamp(36px, 3.7vw, 64px);
   }
 
   .services__lead {

@@ -19,14 +19,7 @@ const COUNTRY_LABELS = [
 ];
 
 const RouteOverview: React.FC = () => {
-  const [isMapOpen, setIsMapOpen] = useState(false);
-
-  const handleButtonClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (window.matchMedia('(max-width: 1024px)').matches) {
-      e.preventDefault();
-      setIsMapOpen((v) => !v);
-    }
-  };
+  const [isMapOpen] = useState(false);
 
   return (
     <div
@@ -78,10 +71,6 @@ const RouteOverview: React.FC = () => {
         </div>
 
         <div className="route-overview__footer">
-          <a href="#location" className="route-overview__button" onClick={handleButtonClick}>
-            {isMapOpen ? 'СКРЫТЬ КАРТУ' : 'ОТКРЫТЬ НА КАРТЕ'}
-          </a>
-
           <div className="route-overview__stats">
             {STATS.map((s) => {
               const Icon = s.icon;

@@ -187,8 +187,8 @@
 
   .metrics-landscape__icon-mobile {
     display: block;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
   }
 
   .metrics-landscape__content {
@@ -199,12 +199,12 @@
 
   .metrics-landscape__title {
     margin-bottom: 5px;
-    font-size: clamp(0.4rem, 1.8vw, 0.55rem);
+    font-size: clamp(0.62rem, 2.6vw, 0.8rem);
     color: #ffffff;
   }
 
   .metrics-landscape__line-text {
-    font-size: clamp(0.32rem, 1.4vw, 0.46rem);
+    font-size: clamp(0.5rem, 2vw, 0.65rem);
     line-height: 1.4;
     color: rgba(255, 255, 255, 0.8);
     text-transform: uppercase;
@@ -219,8 +219,8 @@
   }
 
   .metrics-landscape__icon-mobile {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
   }
 
   .metrics-landscape__item {
@@ -228,12 +228,12 @@
   }
 
   .metrics-landscape__title {
-    font-size: clamp(0.36rem, 1.6vw, 0.49rem);
+    font-size: clamp(0.56rem, 2.3vw, 0.72rem);
     margin-bottom: 4px;
   }
 
   .metrics-landscape__line-text {
-    font-size: clamp(0.29rem, 1.3vw, 0.39rem);
+    font-size: clamp(0.44rem, 1.9vw, 0.58rem);
   }
 }
 

@@ -64,10 +64,10 @@
   margin: 0;
   font-family: var(--font-display, inherit);
   font-size: clamp(56px, 5.729vw, 110px);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 0.88;
   letter-spacing: -0.05em;
-  color: #0A4A63;
+  color: #0d4f6d;
 }
 
 .video-slider__lead {
@@ -323,7 +323,7 @@
   }
 
   .video-slider__title {
-    font-size: clamp(40px, 4.2vw, 72px);
+    font-size: clamp(36px, 3.7vw, 64px);
   }
 
   .video-slider__lead {
