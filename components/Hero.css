@@ -265,8 +265,8 @@
   .hero__container {
     height: 100%;
     min-height: 0;
-    padding: clamp(5rem, 12svh, 6.4rem) 1.1rem max(1.2rem, env(safe-area-inset-bottom));
-    gap: clamp(0.8rem, 2.2svh, 1.4rem);
+    padding: clamp(5rem, calc(var(--vh, 1vh) * 12), 6.4rem) 1.1rem max(1.2rem, env(safe-area-inset-bottom));
+    gap: clamp(0.8rem, calc(var(--vh, 1vh) * 2.2), 1.4rem);
   }
 
   .hero__top {
