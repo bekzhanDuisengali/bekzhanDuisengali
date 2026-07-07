@@ -257,12 +257,13 @@
   }
 
   .location__title {
-    font-size: clamp(36px, 3.7vw, 64px);
+    font-size: clamp(32px, 3.2vw, 56px);
+    font-weight: 500;
   }
 
   .location__lead {
     margin-top: clamp(0.5rem, 1.6vh, 1.2rem);
-    font-size: clamp(1.1rem, 1.6vw, 1.9rem);
+    font-size: clamp(1rem, 1.4vw, 1.65rem);
   }
 
   .location__content {
@@ -289,7 +290,7 @@
   }
 
   .location__contact-title {
-    font-size: clamp(1.4rem, 2vw, 2.4rem);
+    font-size: clamp(1.25rem, 1.75vw, 2.1rem);
   }
 
   .location__contact-list {
@@ -299,7 +300,7 @@
 
   .location__contact-role,
   .location__contact-name {
-    font-size: clamp(1rem, 1.3vw, 1.6rem);
+    font-size: clamp(0.9rem, 1.15vw, 1.4rem);
   }
 
   .location__details {
@@ -318,16 +319,16 @@
 
   .location__phone,
   .location__email {
-    font-size: clamp(1rem, 1.25vw, 1.5rem);
+    font-size: clamp(0.9rem, 1.1vw, 1.3rem);
   }
 
   .location__note {
     margin-top: clamp(0.3rem, 0.6vw, 0.55rem);
-    font-size: clamp(0.8rem, 0.95vw, 1.1rem);
+    font-size: clamp(0.75rem, 0.85vw, 1rem);
   }
 
   .location__address {
-    font-size: clamp(0.85rem, 1vw, 1.2rem);
+    font-size: clamp(0.78rem, 0.9vw, 1.05rem);
   }
 
   .location__divider {
