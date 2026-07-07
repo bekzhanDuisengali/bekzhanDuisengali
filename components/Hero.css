@@ -228,7 +228,7 @@
 
 @media (max-width: 767px) {
   .hero {
-    height: 100svh;
+    height: 100lvh;
     min-height: 0;
     max-height: none;
     background: #082f49;
