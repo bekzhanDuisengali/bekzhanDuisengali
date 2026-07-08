@@ -91,7 +91,6 @@ const RouteStory = () => {
           <div className="route-story__row">
             <div className="route-story__text">
               <div className="route-story__copy">
-                <h3 className="route-story__details-title">{activeMoment.title}</h3>
                 <p className="route-story__details-summary">{activeMoment.summary}</p>
               </div>
 

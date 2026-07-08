@@ -128,7 +128,6 @@
   grid-template-columns: minmax(0, 0.96fr) minmax(0, 1fr);
   gap: 2.2rem;
   align-items: start;
-  margin-top: 1.6rem;
 }
 
 .route-story__media {
@@ -167,7 +166,7 @@
 }
 
 .route-story__copy {
-  margin-top: 1.3rem;
+  margin-top: 0;
 }
 
 .route-story__details-title {
@@ -183,7 +182,7 @@
 
 .route-story__details-summary {
   max-width: 34rem;
-  margin: 2.2rem 0 0;
+  margin: 0;
   font-family: 'Unbounded', sans-serif;
   font-size: clamp(1rem, 1.15vw, 1.35rem);
   font-weight: 300;
@@ -194,8 +193,8 @@
 
 .route-story__bullet-list {
   display: grid;
-  gap: 0.8rem;
-  margin-top: 1.2rem;
+  gap: 2.4rem;
+  margin-top: 3.2rem;
 }
 
 .route-story__bullet {
@@ -367,7 +366,7 @@
   }
 
   .route-story__copy {
-    margin-top: 0.9rem;
+    margin-top: 0;
   }
 
   .route-story__details-title {
@@ -376,7 +375,7 @@
   }
 
   .route-story__details-summary {
-    margin-top: 0.65rem;
+    margin-top: 0;
     font-size: 0.81rem;
     line-height: 1.5;
     max-width: 100%;
@@ -470,8 +469,8 @@
 
   .route-story__bullet-list {
     text-align: left;
-    gap: 2.2rem;
-    margin-top: 1.8rem;
+    gap: 3.8rem;
+    margin-top: 4.2rem;
   }
 
   .route-story__actions {
@@ -511,16 +510,16 @@
 
   .route-story__details-summary {
     max-width: 44rem;
-    margin-top: 2.6rem;
-    font-size: clamp(1.15rem, 1.55vw, 1.7rem);
+    margin-top: 1.2rem;
+    font-size: clamp(1.25rem, 1.75vw, 1.9rem);
   }
 
   .route-story__bullet-text {
-    font-size: clamp(1.1rem, 1.45vw, 1.55rem);
+    font-size: clamp(1.2rem, 1.65vw, 1.75rem);
   }
 
   .route-story__bullet-dash {
-    font-size: clamp(1.3rem, 1.75vw, 1.95rem);
+    font-size: clamp(1.4rem, 1.95vw, 2.15rem);
   }
 
   .route-story__title-line {
