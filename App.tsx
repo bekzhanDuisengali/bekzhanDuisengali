@@ -110,7 +110,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-transparent font-sans transition-colors duration-500">
+    <div className="relative min-h-[100svh] overflow-x-hidden bg-transparent font-sans transition-colors duration-500">
       <Navbar />
 
       <main>
