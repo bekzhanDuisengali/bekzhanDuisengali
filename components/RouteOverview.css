@@ -323,6 +323,11 @@
 
   .route-overview {
     border-radius: 1.4rem;
+    min-height: calc(var(--vh, 1vh) * 62);
+  }
+
+  .route-overview__map-frame {
+    transform: translate(-50%, -32%) scale(1);
   }
 
   .route-overview__inner {
