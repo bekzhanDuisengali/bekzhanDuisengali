@@ -1,21 +1,12 @@
 import React, { useState } from 'react';
 import './RouteOverview.css';
-import routeOverviewBg from '../images/routeoverview/5e9b0729-3a45-4037-af77-3c83cac4e1ab.png';
+import routeOverviewBg from '../images/routeoverview/route-map.png';
 import { Ship, Plane, Globe } from 'lucide-react';
 
 const STATS = [
   { icon: Ship,  value: '10+', label: ['КРУПНЕЙШИХ', 'ПОРТОВ МИРА'] },
   { icon: Plane, value: '80+', label: ['МЕЖДУНАРОДНЫХ', 'АВИАРЕЙСОВ В ДЕНЬ'] },
   { icon: Globe, value: '60+', label: ['СТРАН ПАРТНЁРОВ ПО', 'СВОБОДНОЙ ТОРГОВЛЕ'] },
-];
-
-const COUNTRY_LABELS = [
-  { name: ['РОССИЯ'],         left: '46%',   top: '40%' },
-  { name: ['ЯПОНИЯ'],         left: '53%',   top: '58%' },
-  { name: ['КИТАЙ'],          left: '24%',   top: '64%' },
-  { name: ['ЮЖНАЯ', 'КОРЕЯ'], left: '42%',   top: '65%' },
-  { name: ['ДУБАЙ', '(ОАЭ)'], left: '6%',    top: '65%' },
-  { name: ['США'],            left: '97%',   top: '85%' },
 ];
 
 const RouteOverview: React.FC = () => {
@@ -29,16 +20,6 @@ const RouteOverview: React.FC = () => {
       <div className="route-overview__map" aria-hidden="true">
         <div className="route-overview__map-frame">
           <img className="route-overview__map-img" src={routeOverviewBg} alt="" />
-
-          {COUNTRY_LABELS.map((c) => (
-            <div
-              key={c.name[0]}
-              className="route-overview__label"
-              style={{ left: c.left, top: c.top }}
-            >
-              {c.name.map((line, i) => <span key={i}>{line}</span>)}
-            </div>
-          ))}
         </div>
       </div>
 
