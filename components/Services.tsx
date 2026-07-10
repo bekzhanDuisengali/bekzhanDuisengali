@@ -25,7 +25,7 @@ const SERVICES: ServiceCard[] = [
   {
     title: 'Автомобили и запчасти',
     description: 'Доставка автомобилей и комплектующих',
-    tags: 'легковые · коммерческие · запчасти',
+    tags: 'легковые · запчасти',
     icon: '/images/icons/services/автомобили-и-запчасти.svg',
   },
   {
