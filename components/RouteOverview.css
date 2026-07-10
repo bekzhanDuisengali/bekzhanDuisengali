@@ -326,6 +326,10 @@
     min-height: calc(var(--vh, 1vh) * 62);
   }
 
+  .route-overview__map {
+    background-color: #dce5f0;
+  }
+
   .route-overview__map-frame {
     transform: translate(-50%, -32%) scale(1);
   }
@@ -360,7 +364,7 @@
     flex-direction: column-reverse;
     align-items: stretch;
     gap: 0.8rem;
-    margin-top: 0.85rem;
+    margin-top: auto;
   }
   .route-overview__stats {
     width: 100%;

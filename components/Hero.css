@@ -354,7 +354,7 @@
     position: static;
     flex-direction: row;
     gap: 20px;
-    margin-top: clamp(4rem, 13vw, 5.5rem);
+    margin-top: clamp(5rem, 15vw, 6.5rem);
     padding-top: 0;
     padding-bottom: 0;
   }

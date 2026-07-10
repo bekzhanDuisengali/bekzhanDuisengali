@@ -2,6 +2,10 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import './Services.css';
 
+const getWhatsappLink = (serviceTitle: string) =>
+  'https://wa.me/821073099001?text=' +
+  encodeURIComponent(`Здравствуйте! Пишу с сайта KOL — подскажите, пожалуйста, по доставке: ${serviceTitle}.`);
+
 type ServiceCard = {
   title: string;
   description: string;
@@ -89,10 +93,15 @@ const Services: React.FC = () => {
                         </p>
                       )}
                     </div>
-                    <div className="services__more">
+                    <a
+                      href={getWhatsappLink(service.title)}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="services__more"
+                    >
                       Подробнее
                       <ArrowRight size={24} strokeWidth={2.5} className="services__arrow" />
-                    </div>
+                    </a>
                   </div>
 
                   <div className="services__icon-wrap">

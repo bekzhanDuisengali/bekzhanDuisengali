@@ -14,6 +14,8 @@ type RouteMoment = {
 
 const routeImage = (file: string) => new URL(`../images/boats/${file}`, import.meta.url).href;
 
+const WHATSAPP_LINK = 'https://wa.me/821073099001?text=' + encodeURIComponent('Здравствуйте! Пишу с сайта KOL — хочу узнать про маршрут доставки.');
+
 const ROUTE_MOMENTS: RouteMoment[] = [
   {
     id: 'booking',
@@ -105,10 +107,15 @@ const RouteStory = () => {
             </div>
 
             <div className="route-story__actions">
-              <button type="button" className="route-story__button">
+              <a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noreferrer"
+                className="route-story__button"
+              >
                 Запросить маршрут
                 <ArrowRight size={20} />
-              </button>
+              </a>
             </div>
           </div>
         </div>
