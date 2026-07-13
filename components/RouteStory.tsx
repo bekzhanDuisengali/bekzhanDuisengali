@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
 import './RouteStory.css';
 
 type RouteMoment = {
@@ -13,8 +12,6 @@ type RouteMoment = {
 };
 
 const routeImage = (file: string) => new URL(`../images/boats/${file}`, import.meta.url).href;
-
-const WHATSAPP_LINK = 'https://wa.me/821073099001?text=' + encodeURIComponent('Здравствуйте! Пишу с сайта KOL — хочу узнать про маршрут доставки.');
 
 const ROUTE_MOMENTS: RouteMoment[] = [
   {
@@ -104,18 +101,6 @@ const RouteStory = () => {
                   </div>
                 ))}
               </div>
-            </div>
-
-            <div className="route-story__actions">
-              <a
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noreferrer"
-                className="route-story__button"
-              >
-                Запросить маршрут
-                <ArrowRight size={20} />
-              </a>
             </div>
           </div>
         </div>

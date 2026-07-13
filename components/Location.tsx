@@ -19,8 +19,8 @@ const socialLinks = [
 ];
 
 const CONTACTS = [
-  { role: 'MANAGER', name: 'Светлана' },
-  { role: 'SUPER-CARGO', name: 'Илья' },
+  { role: 'MANAGER', name: 'Светлана', phoneDisplay: PHONE_DISPLAY, phoneLink: PHONE_LINK },
+  { role: 'SUPER-CARGO', name: 'Илья', phoneDisplay: '010-5669-8985', phoneLink: 'tel:+821056698985' },
 ];
 
 const Location: React.FC = () => {
@@ -58,7 +58,7 @@ const Location: React.FC = () => {
                 <div key={contact.role} className="location__contact-card">
                   <span className="location__contact-role">{contact.role}:</span>
                   <span className="location__contact-name">{contact.name}</span>
-                  <a href={PHONE_LINK} className="location__phone">{PHONE_DISPLAY}</a>
+                  <a href={contact.phoneLink} className="location__phone">{contact.phoneDisplay}</a>
                   <div className="location__note">
                     <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="location__note-link">WhatsApp</a>
                     {' | '}

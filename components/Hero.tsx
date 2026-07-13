@@ -19,6 +19,10 @@ const heroPortrait1600 = new URL(
   import.meta.url,
 ).href;
 
+const SCHEDULE_WHATSAPP_LINK =
+  'https://wa.me/821073099001?text=' +
+  encodeURIComponent('Здравствуйте! Подскажите, пожалуйста, ближайшие даты отправки судов.');
+
 const Hero = () => {
   return (
     <div className="hero">
@@ -80,7 +84,12 @@ const Hero = () => {
             <ChevronRight size={22} className="hero__button-icon" />
           </a>
 
-          <a href="#operations" className="hero__button hero__button--secondary">
+          <a
+            href={SCHEDULE_WHATSAPP_LINK}
+            target="_blank"
+            rel="noreferrer"
+            className="hero__button hero__button--secondary"
+          >
             График судов
           </a>
         </div>

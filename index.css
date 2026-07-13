@@ -294,3 +294,20 @@ canvas {
     background: #fff;
   }
 }
+
+/* ================================================================
+   АВТОПОВОРОТ (телефон в landscape) — фиксированные высоты первых
+   двух секций, отдельно от портретной раскладки выше
+   ================================================================ */
+@media (max-height: 480px) and (orientation: landscape) {
+  #hero.page-section,
+  #about.page-section,
+  #metrics.page-section {
+    height: auto;
+    min-height: 0;
+  }
+
+  .route-overview {
+    min-height: 420px;
+  }
+}

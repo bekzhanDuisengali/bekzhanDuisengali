@@ -237,6 +237,28 @@
   }
 }
 
+/* ── Автоповорот (landscape) — высота по контенту ── */
+@media (max-height: 480px) and (orientation: landscape) {
+  .metrics-landscape {
+    height: auto;
+  }
+
+  .metrics-landscape__shell {
+    height: auto;
+    padding: 14px 16px;
+    gap: 10px;
+  }
+
+  .metrics-landscape__item {
+    padding: 8px 4px;
+  }
+
+  .metrics-landscape__icon-mobile {
+    width: 32px;
+    height: 32px;
+  }
+}
+
 @media (min-width: 1025px) {
   .metrics-landscape__shell {
     height: 100%;
