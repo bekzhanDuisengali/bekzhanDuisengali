@@ -261,7 +261,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px), (max-height: 480px) and (orientation: landscape) {
   .route-story {
     padding: 24px 16px 32px;
   }

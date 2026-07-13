@@ -315,7 +315,7 @@
 
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px), (max-height: 480px) and (orientation: landscape) {
 
   #route-overview.section--route-overview-bg {
     background-color: transparent;

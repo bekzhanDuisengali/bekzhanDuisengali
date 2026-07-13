@@ -96,7 +96,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px), (max-height: 480px) and (orientation: landscape) {
   .adv__grid {
     display: none;
   }

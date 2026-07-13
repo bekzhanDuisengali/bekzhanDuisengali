@@ -303,7 +303,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px), (max-height: 480px) and (orientation: landscape) {
   .services__inner {
     padding: 24px 14px 32px;
   }

@@ -338,7 +338,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px), (max-height: 480px) and (orientation: landscape) {
   .partners {
     padding: 24px 0 32px;
   }
