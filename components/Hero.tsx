@@ -19,6 +19,10 @@ const heroPortrait1600 = new URL(
   import.meta.url,
 ).href;
 
+const TARIFF_WHATSAPP_LINK =
+  'https://wa.me/821073099001?text=' +
+  encodeURIComponent('Здравствуйте! Хотел(а) бы рассчитать стоимость доставки груза.');
+
 const SCHEDULE_WHATSAPP_LINK =
   'https://wa.me/821073099001?text=' +
   encodeURIComponent('Здравствуйте! Подскажите, пожалуйста, ближайшие даты отправки судов.');
@@ -29,7 +33,7 @@ const Hero = () => {
       <div className="hero__background" aria-hidden>
         <picture>
           <source
-            media="(max-width: 767px)"
+            media="(max-width: 767px) and (orientation: portrait)"
             srcSet={`${heroPortrait960} 960w, ${heroPortrait1600} 1600w`}
             sizes="100vw"
           />
@@ -79,7 +83,12 @@ const Hero = () => {
         </div>
 
         <div className="hero__actions">
-          <a href="#contact" className="hero__button hero__button--primary">
+          <a
+            href={TARIFF_WHATSAPP_LINK}
+            target="_blank"
+            rel="noreferrer"
+            className="hero__button hero__button--primary"
+          >
             Запросить тариф
             <ChevronRight size={22} className="hero__button-icon" />
           </a>

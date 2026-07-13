@@ -460,7 +460,7 @@
     left: 50%;
     width: max(100vw, min(calc((100vh - var(--header-h)) * var(--map-cover)), 115vw));
     aspect-ratio: 1536 / 1024;
-    transform: translate(-50%, -50%);
+    transform: translate(calc(-50% - 40px), calc(-50% + 24px)) scale(1.06);
   }
 
   .route-overview__map-img {

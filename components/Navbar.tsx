@@ -5,6 +5,10 @@ import './Navbar.css';
 
 const logoSrc = new URL('../images/logo.png', import.meta.url).href;
 
+const CONSULTATION_WHATSAPP_LINK =
+  'https://wa.me/821073099001?text=' +
+  encodeURIComponent('Добрый день! Хотел(а) обсудить условия перевозки и задать несколько вопросов.');
+
 const NAV_LINKS = [
   { name: 'О нас', href: '#about' },
   { name: 'Услуги', href: '#services' },
@@ -91,7 +95,9 @@ const Navbar: React.FC = () => {
             </div>
 
             <a
-              href="#contact"
+              href={CONSULTATION_WHATSAPP_LINK}
+              target="_blank"
+              rel="noreferrer"
               onClick={() => setIsOpen(false)}
               className="navbar__mobile-cta"
             >
@@ -119,7 +125,7 @@ const Navbar: React.FC = () => {
             ))}
           </div>
 
-          <a href="#contact" className="navbar__cta">
+          <a href={CONSULTATION_WHATSAPP_LINK} target="_blank" rel="noreferrer" className="navbar__cta">
             Консультация
           </a>
         </div>

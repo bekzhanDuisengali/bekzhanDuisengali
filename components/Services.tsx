@@ -2,9 +2,17 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import './Services.css';
 
-const getWhatsappLink = (serviceTitle: string) =>
-  'https://wa.me/821073099001?text=' +
-  encodeURIComponent(`Здравствуйте! Пишу с сайта KOL — подскажите, пожалуйста, по доставке: ${serviceTitle}.`);
+const SPECIAL_EQUIPMENT_MESSAGE =
+  'Здравствуйте! Меня интересует услуга доставки спецтехники. Прошу связаться со мной для консультации.';
+
+const getWhatsappLink = (serviceTitle: string) => {
+  const message =
+    serviceTitle === 'Спецтехника'
+      ? SPECIAL_EQUIPMENT_MESSAGE
+      : `Здравствуйте! Пишу с сайта KOL — подскажите, пожалуйста, по доставке: ${serviceTitle}.`;
+
+  return 'https://wa.me/821073099001?text=' + encodeURIComponent(message);
+};
 
 type ServiceCard = {
   title: string;
@@ -34,7 +42,7 @@ const SERVICES: ServiceCard[] = [
   },
   {
     title: 'Водная техника и мотоциклы',
-    description: 'Доставка автомобилей и комплектующих',
+    description: 'Доставка мотоциклов и комплектующих',
     tags: 'мотоциклы · гидроциклы · лодки',
     icon: '/images/icons/services/водная-техника-и-мотоциклы.svg',
   },
