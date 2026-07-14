@@ -79,6 +79,40 @@ if (!CLOUDINARY_ENABLED) {
 }
 if (!fs.existsSync(VIDEOS_JSON)) fs.writeFileSync(VIDEOS_JSON, '[]', 'utf8');
 
+const CLOUDINARY_VIDEOS_JSON_PUBLIC_ID = `${CLOUDINARY_FOLDER}/videos.json`;
+
+// Render free plan has an ephemeral disk — videos.json is re-synced from
+// Cloudinary raw storage on boot so the list survives redeploys/restarts.
+async function fetchRemoteVideosJson() {
+  if (!CLOUDINARY_ENABLED) return null;
+  try {
+    const info = await cloudinary.api.resource(CLOUDINARY_VIDEOS_JSON_PUBLIC_ID, { resource_type: 'raw' });
+    const resp = await fetch(info.secure_url);
+    if (!resp.ok) return null;
+    const data = JSON.parse(await resp.text());
+    return Array.isArray(data) ? data : null;
+  } catch {
+    return null;
+  }
+}
+
+async function uploadRemoteVideosJson(items) {
+  if (!CLOUDINARY_ENABLED) return;
+  const buf = Buffer.from(JSON.stringify(items, null, 2), 'utf8');
+  await new Promise((resolve, reject) => {
+    const stream = cloudinary.uploader.upload_stream(
+      {
+        resource_type: 'raw',
+        public_id: CLOUDINARY_VIDEOS_JSON_PUBLIC_ID,
+        overwrite: true,
+        invalidate: true,
+      },
+      (err, result) => (err ? reject(err) : resolve(result))
+    );
+    stream.end(buf);
+  });
+}
+
 const AVIVA_RE = /\bAVIVA\b[\s#-]*?(\d+)/i;
 
 function parseAvivaNumber(text = '') {
@@ -138,13 +172,18 @@ function loadList() {
   try { return JSON.parse(fs.readFileSync(VIDEOS_JSON, 'utf8')); }
   catch { return []; }
 }
-function saveList(items) {
+async function saveList(items) {
   items.sort((a, b) => {
     const na = a.number ?? -1, nb = b.number ?? -1;
     if (nb !== na) return nb - na;
     return (b.posted_at || '').localeCompare(a.posted_at || '');
   });
   fs.writeFileSync(VIDEOS_JSON, JSON.stringify(items, null, 2), 'utf8');
+  try {
+    await uploadRemoteVideosJson(items);
+  } catch (err) {
+    console.error('Failed to sync videos.json to Cloudinary:', err?.message || err);
+  }
 }
 
 // Webhook от Telegram
@@ -237,7 +276,7 @@ app.post(`/tg/${WEBHOOK_SECRET}`, async (req, res) => {
     };
     const idx = list.findIndex(x => x.url === localUrl);
     if (idx >= 0) list[idx] = { ...list[idx], ...payload }; else list.push(payload);
-    saveList(list);
+    await saveList(list);
 
     res.send('ok');
   } catch (e) {
@@ -261,4 +300,11 @@ if (!CLOUDINARY_ENABLED) {
 // отдаём статику прямо из текущего проекта
 app.use(express.static(STATIC_ROOT, { maxAge: '1h', index: 'index.html' }));
 
-app.listen(PORT, () => console.log(`Server on :${PORT}`));
+(async () => {
+  const remoteList = await fetchRemoteVideosJson();
+  if (remoteList) {
+    fs.writeFileSync(VIDEOS_JSON, JSON.stringify(remoteList, null, 2), 'utf8');
+    console.log(`Restored videos.json from Cloudinary (${remoteList.length} items)`);
+  }
+  app.listen(PORT, () => console.log(`Server on :${PORT}`));
+})();
