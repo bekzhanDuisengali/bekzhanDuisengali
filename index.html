@@ -86,20 +86,54 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "LocalBusiness",
+  "@id": "https://koreaorientline.com/#organization",
   "name": "Korea Orient Line",
   "alternateName": "KOL",
-  "description": "Международная логистика из Южной Кореи во Владивосток",
+  "url": "https://koreaorientline.com/",
+  "description": "Международная логистика из Южной Кореи во Владивосток: морские перевозки, автомобили, спецтехника, фото-видео контроль погрузки и сопровождение документов.",
+  "image": "/images/logo.png",
+  "logo": "/images/logo.png",
   "telephone": "+82 10 7309 9001",
   "email": "info@kol.com",
-  "logo": "/images/logo.png",
-  "areaServed": ["South Korea", "Russia"],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer support",
-    "telephone": "+82 10 7309 9001",
-    "availableLanguage": ["Russian", "Korean", "English"]
-  }
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Marine Center Busan Jung-gu 4(sa)-ga 79-1",
+    "addressLocality": "Busan",
+    "addressCountry": "KR"
+  },
+  "areaServed": [
+    { "@type": "Country", "name": "South Korea" },
+    { "@type": "Country", "name": "Russia" }
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "telephone": "+82 10 7309 9001",
+      "availableLanguage": ["Russian", "Korean", "English"]
+    }
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Морские грузоперевозки Корея - Владивосток",
+        "areaServed": ["South Korea", "Russia"],
+        "serviceType": "Морская логистика"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Перевозка автомобилей и спецтехники из Кореи",
+        "areaServed": ["South Korea", "Russia"],
+        "serviceType": "Автомобильная логистика"
+      }
+    }
+  ]
 }
 </script>
 </head>
