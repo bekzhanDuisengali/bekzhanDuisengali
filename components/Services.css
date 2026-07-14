@@ -305,35 +305,35 @@
 
 @media (max-width: 767px), (max-height: 480px) and (orientation: landscape) {
   .services__inner {
-    padding: 24px 14px 32px;
+    padding: 17px 10px 22px;
   }
 
   .services__title {
-    font-size: 30px;
+    font-size: 21px;
     line-height: 1.5;
   }
 
   .services__lead {
-    margin-top: 12px;
-    font-size: clamp(11px, 3vw, 14px);
+    margin-top: 8px;
+    font-size: clamp(8px, 2.1vw, 10px);
     line-height: 1.4;
   }
 
   .services__content {
-    margin-top: 18px;
+    margin-top: 13px;
   }
 
   .services__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
+    gap: 7px;
   }
 
   .services__card {
     flex-direction: column;
     align-items: flex-start;
     min-height: 0;
-    padding: 14px 12px 12px;
-    border-radius: 16px;
+    padding: 10px 8px 8px;
+    border-radius: 11px;
     gap: 0;
   }
 
@@ -355,12 +355,12 @@
     min-width: 0;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
     color: rgba(255, 255, 255, 0.55);
   }
 
   .services__icon {
-    width: 48px;
+    width: 34px;
     max-width: none;
     height: auto;
   }
@@ -370,7 +370,7 @@
   }
 
   .services__card-title {
-    font-size: 10px;
+    font-size: 7px;
     line-height: 1.1;
     text-align: center;
     font-weight: normal;
@@ -378,42 +378,40 @@
 
   .services__card:nth-child(3) .services__card-title,
   .services__card:nth-child(4) .services__card-title {
-    font-size: 10px;
+    font-size: 7px;
     white-space: normal;
     letter-spacing: -0.04em;
   }
 
   .services__card-desc {
-    margin-top: 5px;
-    font-size: 8px;
+    margin-top: 3.5px;
+    font-size: 6px;
     line-height: 1.3;
     font-weight: normal;
     text-align: center;
   }
 
   .services__card-tags {
-    margin-top: 4px;
-    font-size: clamp(7px, 2vw, 10px);
+    margin-top: 3px;
+    font-size: clamp(5px, 1.4vw, 7px);
     line-height: 1.3;
     font-weight: normal;
     text-align: center;
   }
 
   .services__more {
-    margin: 10px auto 0 auto;
-    font-size: clamp(8px, 2.2vw, 11px);
-    gap: 6px;
-    
-    
+    margin: 7px auto 0 auto;
+    font-size: clamp(5.6px, 1.5vw, 7.7px);
+    gap: 4px;
   }
 
   .services__arrow {
-    width: 14px;
-    height: 14px;
+    width: 10px;
+    height: 10px;
   }
 
   .services__chat-button {
-    width: 72px;
-    height: 72px;
+    width: 50px;
+    height: 50px;
   }
 }
