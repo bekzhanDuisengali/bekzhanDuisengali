@@ -331,7 +331,7 @@
   }
 
   .route-overview__map-frame {
-    transform: translate(-50%, -32%) scale(1);
+    transform: translate(-50%, -32%) scale(1.18);
   }
 
   .route-overview__inner {
