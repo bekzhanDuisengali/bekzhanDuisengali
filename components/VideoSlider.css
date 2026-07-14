@@ -337,8 +337,9 @@
 
   .video-slider__grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 8px;
-    margin-top: 21px;
+    width: 100%;
+    gap: 6.4px;
+    margin-top: 17px;
   }
 
   .video-slider__card:first-child {
@@ -346,7 +347,7 @@
   }
 
   .video-slider__card-media {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 4 / 3.2;
   }
 
   .video-slider__card-body {
