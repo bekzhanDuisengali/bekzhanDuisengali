@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
-    const feedBase = (env.VITE_AVIVA_FEED_BASE || '').replace(/\/+$/, '');
+    const feedBase = (env.AVIVA_FEED_PROXY_TARGET || '').replace(/\/+$/, '');
 
     return {
       server: {

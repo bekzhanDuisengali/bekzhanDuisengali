@@ -71,6 +71,10 @@ function resolveVideoUrl(url: string) {
   return url;
 }
 
+function isVideoUrl(url?: string) {
+  return !!url && /\.(mp4|mov|m4v|webm)(\?|$)/i.test(url);
+}
+
 function formatDate(value?: string, fallback?: string) {
   if (!value) return fallback || '';
 
@@ -165,6 +169,7 @@ const VideoSlider: React.FC = () => {
       date: formatDate(item?.posted_at, card.date),
       href: item?.url || card.href,
       title: item?.title || card.title,
+      videoUrl: isVideoUrl(item?.url) ? item?.url : undefined,
     };
   });
 
@@ -208,14 +213,27 @@ const VideoSlider: React.FC = () => {
               aria-label={card.title || `Открыть видео от ${card.date}`}
             >
               <div className="video-slider__card-media">
-                <img
-                  src={card.image}
-                  alt={card.title || `Погрузка ${card.date}`}
-                  className="video-slider__card-image"
-                  loading="lazy"
-                  decoding="async"
-                  fetchPriority="low"
-                />
+                {card.videoUrl ? (
+                  <video
+                    src={card.videoUrl}
+                    poster={card.image}
+                    className="video-slider__card-image"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                  />
+                ) : (
+                  <img
+                    src={card.image}
+                    alt={card.title || `Погрузка ${card.date}`}
+                    className="video-slider__card-image"
+                    loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
+                  />
+                )}
                 <div className="video-slider__card-overlay" />
               </div>
 
