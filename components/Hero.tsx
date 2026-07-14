@@ -69,15 +69,15 @@ const Hero = () => {
               <br />
               из Южной Кореи
             </h1>
+          </div>
 
-            <div className="hero__description-wrap">
-              <p className="hero__description">
-                Международное экспедирование и логистика полного цикла, включая транзитные маршруты и перевалку грузов
-                через третьи страны.
-                <span className="hero__description-break" aria-hidden="true" />
-                Автомобили и запчасти, спецтехника, водная техника и промышленное оборудование.
-              </p>
-            </div>
+          <div className="hero__description-wrap">
+            <p className="hero__description">
+              Международное экспедирование и логистика полного цикла, включая транзитные маршруты и перевалку грузов
+              через третьи страны.
+              <span className="hero__description-break" aria-hidden="true" />
+              Автомобили и запчасти, спецтехника, водная техника и промышленное оборудование.
+            </p>
           </div>
 
         </div>
