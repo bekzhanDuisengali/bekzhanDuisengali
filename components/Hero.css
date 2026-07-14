@@ -486,7 +486,7 @@
     align-items: stretch;
     justify-content: center;
     gap: 0.85rem;
-    margin-top: clamp(5rem, 15vh, 7rem);
+    margin-top: clamp(11rem, 15vh, 12rem);
   }
 
   .hero__button {
