@@ -154,7 +154,7 @@ const VideoSlider: React.FC = () => {
         setShouldLoadFeed(true);
         observer.disconnect();
       },
-      { rootMargin: '320px 0px' },
+      { rootMargin: '1200px 0px' },
     );
 
     observer.observe(node);
@@ -292,7 +292,7 @@ const VideoSlider: React.FC = () => {
                     muted
                     loop
                     playsInline
-                    preload="metadata"
+                    preload="auto"
                   />
                   <div className="video-slider__card-overlay" />
                 </div>
