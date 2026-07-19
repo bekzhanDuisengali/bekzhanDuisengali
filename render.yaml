@@ -1,8 +1,7 @@
 services:
   - type: web
     name: kol-aviva-telegram-bot
-    env: node
+    env: docker
+    dockerfilePath: ./Dockerfile
     plan: free
-    buildCommand: npm install && npm run build
-    startCommand: npm run start:bot
     healthCheckPath: /healthz

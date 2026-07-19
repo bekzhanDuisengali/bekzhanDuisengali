@@ -136,6 +136,14 @@ async function tgGetFile(file_id) {
   const data = await tgApi('getFile', { file_id });
   const file_path = data?.result?.file_path;
   if (!file_path) throw new Error('No file_path');
+
+  // Local Bot API server (--local) returns an absolute path on the shared
+  // filesystem instead of a relative path to fetch over HTTP.
+  if (path.isAbsolute(file_path)) {
+    const buf = fs.readFileSync(file_path);
+    return { file_path, buf };
+  }
+
   const fileUrl = `${FILE_BASE}/file/bot${TG_TOKEN}/${file_path}`;
   const resp = await fetch(fileUrl);
   if (!resp.ok) throw new Error(`Download ${resp.status}`);
