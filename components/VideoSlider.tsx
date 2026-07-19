@@ -1,9 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, X, ChevronLeft } from 'lucide-react';
 import './VideoSlider.css';
 
 const boatImage = (file: string) => new URL(`../images/boats/${file}`, import.meta.url).href;
-const cargoImage = (file: string) => new URL(`../images/blocks/${file}`, import.meta.url).href;
+const carsImage = (file: string) => new URL(`../images/cars/${file}`, import.meta.url).href;
+const generalImage = (file: string) => new URL(`../images/general/${file}`, import.meta.url).href;
+const motoImage = (file: string) => new URL(`../images/water-technic-moto/${file}`, import.meta.url).href;
+
+const ALBUMS: Record<string, string[]> = {
+  cars: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg'].map(carsImage),
+  general: ['1.webp', '2.webp', '3.jpg'].map(generalImage),
+  moto: ['1.webp', '2.jpeg', '3.jpeg', '4.jpeg', '5.jpeg', '6.jpeg'].map(motoImage),
+};
 
 type TgVideoItem = {
   title?: string;
@@ -19,6 +27,7 @@ type VideoCard = {
   image: string;
   href: string;
   title?: string;
+  album?: string[];
 };
 
 const FALLBACK_CARDS: VideoCard[] = [
@@ -31,20 +40,23 @@ const FALLBACK_CARDS: VideoCard[] = [
   {
     date: '18.03.2026',
     route: 'Пусан → Владивосток',
-    image: cargoImage('генеральныегрузы.png'),
+    image: ALBUMS.cars[0],
     href: 'https://t.me',
+    album: ALBUMS.cars,
   },
   {
     date: '25.03.2026',
     route: 'Пусан → Владивосток',
-    image: cargoImage('спецтехника.png'),
+    image: ALBUMS.general[0],
     href: 'https://t.me',
+    album: ALBUMS.general,
   },
   {
     date: '02.04.2026',
     route: 'Пусан → Владивосток',
-    image: cargoImage('распил.png'),
+    image: ALBUMS.moto[1],
     href: 'https://t.me',
+    album: ALBUMS.moto,
   },
 ];
 
@@ -92,6 +104,30 @@ const VideoSlider: React.FC = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [shouldLoadFeed, setShouldLoadFeed] = useState(false);
   const [videos, setVideos] = useState<TgVideoItem[]>([]);
+  const [lightbox, setLightbox] = useState<{ images: string[]; index: number } | null>(null);
+
+  const openAlbum = (images: string[], index = 0) => setLightbox({ images, index });
+  const closeAlbum = () => setLightbox(null);
+  const showAt = (delta: number) => {
+    setLightbox((prev) => {
+      if (!prev) return prev;
+      const next = (prev.index + delta + prev.images.length) % prev.images.length;
+      return { ...prev, index: next };
+    });
+  };
+
+  useEffect(() => {
+    if (!lightbox) return undefined;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeAlbum();
+      else if (e.key === 'ArrowLeft') showAt(-1);
+      else if (e.key === 'ArrowRight') showAt(1);
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [lightbox]);
 
   useEffect(() => {
     if (shouldLoadFeed) return undefined;
@@ -162,6 +198,8 @@ const VideoSlider: React.FC = () => {
   }, [shouldLoadFeed]);
 
   const cards = FALLBACK_CARDS.map((card, index) => {
+    if (card.album) return { ...card, videoUrl: undefined };
+
     const item = videos[index];
 
     return {
@@ -203,28 +241,16 @@ const VideoSlider: React.FC = () => {
         </a>
 
         <div className="video-slider__grid">
-          {cards.map((card, index) => (
-            <a
-              key={`${card.date}-${index}`}
-              href={card.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="video-slider__card group"
-              aria-label={card.title || `Открыть видео от ${card.date}`}
-            >
-              <div className="video-slider__card-media">
-                {card.videoUrl ? (
-                  <video
-                    src={card.videoUrl}
-                    poster={card.image}
-                    className="video-slider__card-image"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                  />
-                ) : (
+          {cards.map((card, index) =>
+            card.album ? (
+              <button
+                key={`${card.date}-${index}`}
+                type="button"
+                onClick={() => openAlbum(card.album!, Math.max(card.album!.indexOf(card.image), 0))}
+                className="video-slider__card group"
+                aria-label={card.title || `Открыть альбом фото`}
+              >
+                <div className="video-slider__card-media">
                   <img
                     src={card.image}
                     alt={card.title || `Погрузка ${card.date}`}
@@ -233,14 +259,95 @@ const VideoSlider: React.FC = () => {
                     decoding="async"
                     fetchPriority="low"
                   />
-                )}
-                <div className="video-slider__card-overlay" />
-              </div>
-
-            </a>
-          ))}
+                  <div className="video-slider__card-overlay" />
+                </div>
+              </button>
+            ) : (
+              <a
+                key={`${card.date}-${index}`}
+                href={card.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="video-slider__card group"
+                aria-label={card.title || `Открыть видео от ${card.date}`}
+              >
+                <div className="video-slider__card-media">
+                  {card.videoUrl ? (
+                    <video
+                      src={card.videoUrl}
+                      poster={card.image}
+                      className="video-slider__card-image"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                    />
+                  ) : (
+                    <img
+                      src={card.image}
+                      alt={card.title || `Погрузка ${card.date}`}
+                      className="video-slider__card-image"
+                      loading="lazy"
+                      decoding="async"
+                      fetchPriority="low"
+                    />
+                  )}
+                  <div className="video-slider__card-overlay" />
+                </div>
+              </a>
+            ),
+          )}
         </div>
       </div>
+
+      {lightbox && (
+        <div className="video-slider__lightbox" role="dialog" aria-modal="true" onClick={closeAlbum}>
+          <button
+            type="button"
+            className="video-slider__lightbox-close"
+            onClick={closeAlbum}
+            aria-label="Закрыть"
+          >
+            <X size={28} />
+          </button>
+
+          {lightbox.images.length > 1 && (
+            <button
+              type="button"
+              className="video-slider__lightbox-nav video-slider__lightbox-nav--prev"
+              onClick={(e) => {
+                e.stopPropagation();
+                showAt(-1);
+              }}
+              aria-label="Предыдущее фото"
+            >
+              <ChevronLeft size={32} />
+            </button>
+          )}
+
+          <img
+            src={lightbox.images[lightbox.index]}
+            alt={`Фото ${lightbox.index + 1} из ${lightbox.images.length}`}
+            className="video-slider__lightbox-image"
+            onClick={(e) => e.stopPropagation()}
+          />
+
+          {lightbox.images.length > 1 && (
+            <button
+              type="button"
+              className="video-slider__lightbox-nav video-slider__lightbox-nav--next"
+              onClick={(e) => {
+                e.stopPropagation();
+                showAt(1);
+              }}
+              aria-label="Следующее фото"
+            >
+              <ChevronRight size={32} />
+            </button>
+          )}
+        </div>
+      )}
     </section>
   );
 };
