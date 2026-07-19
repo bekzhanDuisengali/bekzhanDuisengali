@@ -105,9 +105,11 @@ const VideoSlider: React.FC = () => {
   const [shouldLoadFeed, setShouldLoadFeed] = useState(false);
   const [videos, setVideos] = useState<TgVideoItem[]>([]);
   const [lightbox, setLightbox] = useState<{ images: string[]; index: number } | null>(null);
+  const [videoLightbox, setVideoLightbox] = useState<{ url: string; poster?: string; title?: string } | null>(null);
 
   const openAlbum = (images: string[], index = 0) => setLightbox({ images, index });
   const closeAlbum = () => setLightbox(null);
+  const closeVideo = () => setVideoLightbox(null);
   const showAt = (delta: number) => {
     setLightbox((prev) => {
       if (!prev) return prev;
@@ -128,6 +130,17 @@ const VideoSlider: React.FC = () => {
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [lightbox]);
+
+  useEffect(() => {
+    if (!videoLightbox) return undefined;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeVideo();
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [videoLightbox]);
 
   useEffect(() => {
     if (shouldLoadFeed) return undefined;
@@ -262,6 +275,28 @@ const VideoSlider: React.FC = () => {
                   <div className="video-slider__card-overlay" />
                 </div>
               </button>
+            ) : card.videoUrl ? (
+              <button
+                key={`${card.date}-${index}`}
+                type="button"
+                onClick={() => setVideoLightbox({ url: card.videoUrl!, poster: card.image, title: card.title })}
+                className="video-slider__card group"
+                aria-label={card.title || `Открыть видео от ${card.date}`}
+              >
+                <div className="video-slider__card-media">
+                  <video
+                    src={card.videoUrl}
+                    poster={card.image}
+                    className="video-slider__card-image"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                  />
+                  <div className="video-slider__card-overlay" />
+                </div>
+              </button>
             ) : (
               <a
                 key={`${card.date}-${index}`}
@@ -272,27 +307,14 @@ const VideoSlider: React.FC = () => {
                 aria-label={card.title || `Открыть видео от ${card.date}`}
               >
                 <div className="video-slider__card-media">
-                  {card.videoUrl ? (
-                    <video
-                      src={card.videoUrl}
-                      poster={card.image}
-                      className="video-slider__card-image"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                    />
-                  ) : (
-                    <img
-                      src={card.image}
-                      alt={card.title || `Погрузка ${card.date}`}
-                      className="video-slider__card-image"
-                      loading="lazy"
-                      decoding="async"
-                      fetchPriority="low"
-                    />
-                  )}
+                  <img
+                    src={card.image}
+                    alt={card.title || `Погрузка ${card.date}`}
+                    className="video-slider__card-image"
+                    loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
+                  />
                   <div className="video-slider__card-overlay" />
                 </div>
               </a>
@@ -346,6 +368,29 @@ const VideoSlider: React.FC = () => {
               <ChevronRight size={32} />
             </button>
           )}
+        </div>
+      )}
+
+      {videoLightbox && (
+        <div className="video-slider__lightbox" role="dialog" aria-modal="true" onClick={closeVideo}>
+          <button
+            type="button"
+            className="video-slider__lightbox-close"
+            onClick={closeVideo}
+            aria-label="Закрыть"
+          >
+            <X size={28} />
+          </button>
+
+          <video
+            src={videoLightbox.url}
+            poster={videoLightbox.poster}
+            className="video-slider__lightbox-video"
+            controls
+            autoPlay
+            playsInline
+            onClick={(e) => e.stopPropagation()}
+          />
         </div>
       )}
     </section>
