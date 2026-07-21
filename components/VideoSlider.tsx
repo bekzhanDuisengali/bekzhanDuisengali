@@ -233,7 +233,7 @@ const VideoSlider: React.FC = () => {
       <div className="video-slider__inner">
         <div className="video-slider__intro">
           <h2 className="video-slider__title">
-            Погрузки и <br /> отправки
+            Погрузки и отправки
           </h2>
 
           <p className="video-slider__lead">
