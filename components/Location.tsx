@@ -8,8 +8,11 @@ const PHONE_DISPLAY = '+82 10 7309 9001';
 const PHONE_LINK = 'tel:+821073099001';
 const WHATSAPP_LINK = 'https://wa.me/821073099001';
 const TELEGRAM_LINK = 'https://t.me/kol9001';
-const EMAIL = 'info@kol.com';
-const ADDRESS = 'Marine Center Busan Jung-gu 4(sa)-ga 79-1';
+const EMAIL = 'kolinel1@naver.com';
+const ADDRESS = '#1001, MARINE CENTER 52, CHUNGJANG-DAERO 9 BEON-GIL, JUNG-GU, BUSAN, SOUTH KOREA';
+const TEL = '82-51-463-9001~3';
+const TEL_LINK = 'tel:+82514639001';
+const FAX = '82-51-463-9008';
 
 const socialLinks = [
   { href: 'https://instagram.com', label: 'Instagram', icon: socialIcon('instagram.svg') },
@@ -71,6 +74,11 @@ const Location: React.FC = () => {
             <div className="location__details">
               <a href={`mailto:${EMAIL}`} className="location__email">{EMAIL}</a>
               <p className="location__address">{ADDRESS}</p>
+              <p className="location__telfax">
+                <span><span className="location__telfax-label">TEL</span> <a href={TEL_LINK} className="location__telfax-value">{TEL}</a></span>
+                <span className="location__telfax-sep">·</span>
+                <span><span className="location__telfax-label">FAX</span> <span className="location__telfax-value">{FAX}</span></span>
+              </p>
             </div>
 
             

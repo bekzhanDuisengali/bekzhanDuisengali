@@ -17,7 +17,7 @@ type ContactCard = {
   actions: ContactAction[];
 };
 
-const EMAIL = 'info@kol.com';
+const EMAIL = 'kolinel1@naver.com';
 const PHONE_DISPLAY = '+82 10 7309 9001';
 const PHONE_LINK = 'tel:+821073099001';
 const WHATSAPP_LINK = 'https://wa.me/821073099001';
@@ -123,10 +123,11 @@ const ContactChannels = () => {
       {/* Адрес */}
       <div className="contact__footer">
         <div className="contact__divider" />
-        <p className="contact__address-label">Адрес строкой</p>
+        <p className="contact__address-label">Адрес:</p>
         <p className="contact__address">
-          Marine Center Busan Jung-gu 4(sa)-ga 79-1
+          #1001, MARINE CENTER 52, CHUNGJANG-DAERO 9 BEON-GIL, JUNG-GU, BUSAN, SOUTH KOREA
         </p>
+        <p className="contact__address">TEL: 82-51-463-9001~3 &nbsp;FAX: 82-51-463-9008</p>
       </div>
     </div>
   );
