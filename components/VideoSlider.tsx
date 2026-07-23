@@ -45,21 +45,21 @@ const FALLBACK_CARDS: VideoCard[] = [
     route: 'Пусан → Владивосток',
     image: coverImage('cars.jpg'),
     href: 'https://t.me',
-    album: ALBUMS.cars,
+    album: [coverImage('cars.jpg'), ...ALBUMS.cars],
   },
   {
     date: '25.03.2026',
     route: 'Пусан → Владивосток',
     image: coverImage('general.jpg'),
     href: 'https://t.me',
-    album: ALBUMS.general,
+    album: [coverImage('general.jpg'), ...ALBUMS.general],
   },
   {
     date: '02.04.2026',
     route: 'Пусан → Владивосток',
     image: coverImage('moto.jpg'),
     href: 'https://t.me',
-    album: ALBUMS.moto,
+    album: [coverImage('moto.jpg'), ...ALBUMS.moto],
   },
 ];
 
