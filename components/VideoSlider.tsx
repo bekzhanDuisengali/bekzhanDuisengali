@@ -6,11 +6,14 @@ const boatImage = (file: string) => new URL(`../images/boats/${file}`, import.me
 const carsImage = (file: string) => new URL(`../images/cars/${file}`, import.meta.url).href;
 const generalImage = (file: string) => new URL(`../images/general/${file}`, import.meta.url).href;
 const motoImage = (file: string) => new URL(`../images/water-technic-moto/${file}`, import.meta.url).href;
+const coverImage = (file: string) => new URL(`../images/covers/${file}`, import.meta.url).href;
+
+const range = (n: number) => Array.from({ length: n }, (_, i) => `${i + 1}.jpg`);
 
 const ALBUMS: Record<string, string[]> = {
-  cars: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg'].map(carsImage),
-  general: ['1.webp', '2.webp', '3.jpg'].map(generalImage),
-  moto: ['1.webp', '2.jpeg', '3.jpeg', '4.jpeg', '5.jpeg', '6.jpeg'].map(motoImage),
+  cars: range(25).map(carsImage),
+  general: range(24).map(generalImage),
+  moto: range(24).map(motoImage),
 };
 
 type TgVideoItem = {
@@ -40,21 +43,21 @@ const FALLBACK_CARDS: VideoCard[] = [
   {
     date: '18.03.2026',
     route: 'Пусан → Владивосток',
-    image: ALBUMS.cars[0],
+    image: coverImage('cars.jpg'),
     href: 'https://t.me',
     album: ALBUMS.cars,
   },
   {
     date: '25.03.2026',
     route: 'Пусан → Владивосток',
-    image: ALBUMS.general[0],
+    image: coverImage('general.jpg'),
     href: 'https://t.me',
     album: ALBUMS.general,
   },
   {
     date: '02.04.2026',
     route: 'Пусан → Владивосток',
-    image: ALBUMS.moto[1],
+    image: coverImage('moto.jpg'),
     href: 'https://t.me',
     album: ALBUMS.moto,
   },
@@ -102,7 +105,7 @@ function formatDate(value?: string, fallback?: string) {
 
 const VideoSlider: React.FC = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const [shouldLoadFeed, setShouldLoadFeed] = useState(false);
+  const [shouldLoadFeed] = useState(true);
   const [videos, setVideos] = useState<TgVideoItem[]>([]);
   const [lightbox, setLightbox] = useState<{ images: string[]; index: number } | null>(null);
   const [videoLightbox, setVideoLightbox] = useState<{ url: string; poster?: string; title?: string } | null>(null);
@@ -141,26 +144,6 @@ const VideoSlider: React.FC = () => {
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [videoLightbox]);
-
-  useEffect(() => {
-    if (shouldLoadFeed) return undefined;
-
-    const node = sectionRef.current;
-    if (!node) return undefined;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry?.isIntersecting) return;
-        setShouldLoadFeed(true);
-        observer.disconnect();
-      },
-      { rootMargin: '1200px 0px' },
-    );
-
-    observer.observe(node);
-
-    return () => observer.disconnect();
-  }, [shouldLoadFeed]);
 
   useEffect(() => {
     if (!shouldLoadFeed) return undefined;
